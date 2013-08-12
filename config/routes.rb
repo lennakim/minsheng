@@ -1,4 +1,7 @@
 Minsheng::Application.routes.draw do
+  resources :shops
+
+
   get "/mcenter" => "mcenter#index"
 
   authenticated :user do

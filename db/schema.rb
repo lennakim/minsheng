@@ -11,7 +11,51 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130812032447) do
+ActiveRecord::Schema.define(:version => 20130812082702) do
+
+  create_table "cities", :force => true do |t|
+    t.string   "name"
+    t.integer  "province_id"
+    t.integer  "level"
+    t.string   "zip_code"
+    t.string   "pinyin"
+    t.string   "pinyin_abbr"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "cities", ["level"], :name => "index_cities_on_level"
+  add_index "cities", ["name"], :name => "index_cities_on_name"
+  add_index "cities", ["pinyin"], :name => "index_cities_on_pinyin"
+  add_index "cities", ["pinyin_abbr"], :name => "index_cities_on_pinyin_abbr"
+  add_index "cities", ["province_id"], :name => "index_cities_on_province_id"
+  add_index "cities", ["zip_code"], :name => "index_cities_on_zip_code"
+
+  create_table "districts", :force => true do |t|
+    t.string   "name"
+    t.integer  "city_id"
+    t.string   "pinyin"
+    t.string   "pinyin_abbr"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "districts", ["city_id"], :name => "index_districts_on_city_id"
+  add_index "districts", ["name"], :name => "index_districts_on_name"
+  add_index "districts", ["pinyin"], :name => "index_districts_on_pinyin"
+  add_index "districts", ["pinyin_abbr"], :name => "index_districts_on_pinyin_abbr"
+
+  create_table "provinces", :force => true do |t|
+    t.string   "name"
+    t.string   "pinyin"
+    t.string   "pinyin_abbr"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "provinces", ["name"], :name => "index_provinces_on_name"
+  add_index "provinces", ["pinyin"], :name => "index_provinces_on_pinyin"
+  add_index "provinces", ["pinyin_abbr"], :name => "index_provinces_on_pinyin_abbr"
 
   create_table "roles", :force => true do |t|
     t.string   "name"
@@ -23,6 +67,14 @@ ActiveRecord::Schema.define(:version => 20130812032447) do
 
   add_index "roles", ["name", "resource_type", "resource_id"], :name => "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], :name => "index_roles_on_name"
+
+  create_table "shops", :force => true do |t|
+    t.string   "title",      :null => false
+    t.string   "phone",      :null => false
+    t.string   "address",    :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

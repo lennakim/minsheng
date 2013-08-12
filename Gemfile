@@ -22,3 +22,4 @@ gem "cancan", ">= 1.6.8"
 gem "rolify", ">= 3.2.0"
 gem "thin"
 gem "quiet_assets", :group => :development
+gem 'china_region_fu'
