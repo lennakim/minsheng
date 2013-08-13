@@ -1,4 +1,5 @@
 class CreateTaggings < ActiveRecord::Migration
+=begin
   def change
     create_table :taggings do |t|
       t.belongs_to :tag
@@ -9,4 +10,5 @@ class CreateTaggings < ActiveRecord::Migration
     add_index :taggings, :tag_id
     add_index :taggings, :article_id
   end
+=end
 end
