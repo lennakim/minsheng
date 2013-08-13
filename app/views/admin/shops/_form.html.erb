@@ -23,6 +23,15 @@
     <%= f.label :address %><br />
     <%= f.text_field :address %>
   </div>
+  <div class="field">
+    <%= f.label :tag_list, "Tags (separated by commas)" %><br />
+    <%= f.text_field :tag_list %>
+    <br />
+   <h4>All tags</h4>
+    <% Tag.all.each do |tag| %>
+        <span class="label"><%= tag.name %></span>
+      <% end %>
+  </div>
   <div>
     <h4>upload images</h4>
      <%= f.fields_for :shopImages  do |image| %>

@@ -14,7 +14,10 @@
   <b>Address:</b>
   <%= @shop.address %>
 </p>
-
+<p>
+  <b>Tags:</b>
+  <%= @shop.tag_list %>
+</p>
 <p>
   <b>Images</b>
   <% @shop.shopImages.each do |image| %>

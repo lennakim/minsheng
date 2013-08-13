@@ -3,7 +3,11 @@ class Admin::ShopsController < ApplicationController
   # GET /shops
   # GET /shops.json
   def index
-    @shops = Shop.all
+    if params[:tag]
+        @shops = Shop.tagged_with(params[:tag])
+      else
+        @shops = Shop.all
+    end
 
     respond_to do |format|
       format.html # index.html.erb

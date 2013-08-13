@@ -1,6 +1,7 @@
 Minsheng::Application.routes.draw do
   resources :shop_images
 
+  get 'tags/:tag', to: 'admin/shops#index', as: :tag
 
   mount Ckeditor::Engine => '/ckeditor'
 
