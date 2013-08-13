@@ -4,6 +4,8 @@ Minsheng::Application.routes.draw do
   namespace :admin do
     resources :categories
     resources :shops
+    resources :tags
+    resources :users
   end
 
   resources :categories

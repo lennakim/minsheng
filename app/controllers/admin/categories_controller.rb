@@ -1,4 +1,5 @@
 class Admin::CategoriesController < ApplicationController
+  before_filter :admin_only, :except => :show
   layout 'admin'
   # GET /categories
   # GET /categories.json
