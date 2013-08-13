@@ -1,7 +1,4 @@
 Minsheng::Application.routes.draw do
-  resources :shop_images
-
-
   mount Ckeditor::Engine => '/ckeditor'
 
   namespace :admin do
@@ -9,7 +6,6 @@ Minsheng::Application.routes.draw do
     resources :shops
     resources :tags
     resources :users
-    resources :shop_images
   end
 
   resources :categories

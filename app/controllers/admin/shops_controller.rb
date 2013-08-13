@@ -26,7 +26,7 @@ class Admin::ShopsController < ApplicationController
   # GET /shops/new.json
   def new
     @shop = Shop.new
-    3.times{@shop.shopImages.build}
+
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @shop }
