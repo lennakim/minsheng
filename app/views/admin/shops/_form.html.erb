@@ -23,6 +23,14 @@
     <%= f.label :address %><br />
     <%= f.text_field :address %>
   </div>
+  <div>
+    <h4>upload images</h4>
+     <%= f.fields_for :shopImages  do |image| %>
+      <div class="field">
+         <%= image.file_field :url  %>  
+      </div>
+     <% end %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
