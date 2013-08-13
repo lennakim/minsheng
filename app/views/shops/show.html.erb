@@ -15,3 +15,9 @@
   <%= @shop.address %>
 </p>
 
+<p>
+<b>Images</b><br>
+  <% @shop.shopImages.each do |image| %>
+      <img src="<%= image.url %>" alt="" />
+    <% end %>
+</p>
