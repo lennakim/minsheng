@@ -1,0 +1,16 @@
+<h1 class="page-name"><%= @notice.title %></h1>
+<%= link_to '返回', 'javascript:', class: 'btn btn-small', style: 'float:right; margin: 3px 5px;', onclick: "window.close();" %>
+<%= link_to '编辑', edit_admin_notice_path(@notice), class: 'btn btn-primary btn-small', style: 'float:right; margin: 3px 5px;' %>
+
+<div class="news-detail">
+  <h1 class='wz-title'>
+    <%= @notice.title %>
+    <div class="gray">
+      <ul class="wz-jq-info">
+        <li>类型：<%= @notice.tag_type %></li>
+        <li>标题：<%= @notice.title %></li>
+      </ul>
+    </div>
+  </h1>
+  <%= raw @notice.content  %>
+</div>

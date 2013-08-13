@@ -1,0 +1,20 @@
+<div class="control-group">
+  <%= f.label :title, "标题：", class: "control-label" %>
+  <div class="controls">
+    <%= f.text_field :title, style: "width: 300px;" %>
+  </div>
+</div>
+
+<div class="control-group">
+  <%= f.label :tag_type, "类型：", class: "control-label" %>
+  <div class="controls">
+    <%= f.select :tag_type, Notice::TAG_TYPE.to_a, {include_blank: true}, style: "width: 220px;" %>
+  </div>
+</div>
+
+<div class="control-group">
+  <%= f.label :content, "内容：", class: "control-label" %>
+  <div class="controls">
+    <%= f.text_area :content %>
+  </div>
+</div>

@@ -7,4 +7,8 @@ Minsheng::Application.routes.draw do
   root :to => "home#index"
   devise_for :users
   resources :users
+
+  namespace :admin do
+    resources :notices
+  end
 end
