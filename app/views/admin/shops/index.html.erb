@@ -15,13 +15,13 @@
     <td><%= shop.title %></td>
     <td><%= shop.phone %></td>
     <td><%= shop.address %></td>
-    <td><%= link_to 'Show', shop %></td>
-    <td><%= link_to 'Edit', edit_shop_path(shop) %></td>
-    <td><%= link_to 'Destroy', shop, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Show', admin_shop_path(shop) %></td>
+    <td><%= link_to 'Edit', edit_admin_shop_path(shop) %></td>
+    <td><%= link_to 'Destroy', admin_shop_path(shop), method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Shop', new_shop_path %>
+<%= link_to 'New Shop',new_admin_shop_path %>

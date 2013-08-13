@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-
+<%= @shop.id %>
 <p>
   <b>Title:</b>
   <%= @shop.title %>
@@ -15,6 +15,12 @@
   <%= @shop.address %>
 </p>
 
+<p>
+  <b>Images</b>
+  <% @shop.shopImages.each do |image| %>
+      <img src="<%= image.url %>" alt="" />
+    <% end %>
+</p>
 
-<%= link_to 'Edit', edit_shop_path(@shop) %> |
-<%= link_to 'Back', shops_path %>
+<%= link_to 'Edit', edit_admin_shop_path(@shop) %> |
+<%= link_to 'Back', admin_shops_path %>

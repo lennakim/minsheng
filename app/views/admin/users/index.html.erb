@@ -1,0 +1,10 @@
+<h3>Users</h3>
+<ul class="users">
+  <% @users.each do |user| %>
+    <li>
+  <%= link_to user.name, '/admin/users/'+user.id.to_s %> 
+  <%= user.email %>
+  signed up <%= user.created_at.to_date %>
+</li>
+<% end %>
+</ul>
