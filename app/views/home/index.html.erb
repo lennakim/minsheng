@@ -1,4 +1,9 @@
-<h3>Home</h3>
-<div class="well">
-  Index Page 
-</div>
+<ul>
+<% @provinces.each do |province| %>
+    <li><strong><%= province.name %></strong><br/>
+      <% province.cities.each do |city| %>
+        <%= city.name %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>

@@ -1,4 +1,14 @@
 Minsheng::Application.routes.draw do
+  mount Ckeditor::Engine => '/ckeditor'
+
+  namespace :admin do
+    resources :categories
+    resources :shops
+  end
+
+  resources :categories
+  resources :shops
+
   get "/mcenter" => "mcenter#index"
 
   authenticated :user do

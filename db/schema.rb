@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130813014657) do
+ActiveRecord::Schema.define(:version => 20130813144731) do
 
   create_table "notices", :force => true do |t|
     t.string   "tag_type"
@@ -21,6 +21,72 @@ ActiveRecord::Schema.define(:version => 20130813014657) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "categories", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "cities", :force => true do |t|
+    t.string   "name"
+    t.integer  "province_id"
+    t.integer  "level"
+    t.string   "zip_code"
+    t.string   "pinyin"
+    t.string   "pinyin_abbr"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "cities", ["level"], :name => "index_cities_on_level"
+  add_index "cities", ["name"], :name => "index_cities_on_name"
+  add_index "cities", ["pinyin"], :name => "index_cities_on_pinyin"
+  add_index "cities", ["pinyin_abbr"], :name => "index_cities_on_pinyin_abbr"
+  add_index "cities", ["province_id"], :name => "index_cities_on_province_id"
+  add_index "cities", ["zip_code"], :name => "index_cities_on_zip_code"
+
+  create_table "ckeditor_assets", :force => true do |t|
+    t.string   "data_file_name",                  :null => false
+    t.string   "data_content_type"
+    t.integer  "data_file_size"
+    t.integer  "assetable_id"
+    t.string   "assetable_type",    :limit => 30
+    t.string   "type",              :limit => 30
+    t.integer  "width"
+    t.integer  "height"
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
+  end
+
+  add_index "ckeditor_assets", ["assetable_type", "assetable_id"], :name => "idx_ckeditor_assetable"
+  add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], :name => "idx_ckeditor_assetable_type"
+
+  create_table "districts", :force => true do |t|
+    t.string   "name"
+    t.integer  "city_id"
+    t.string   "pinyin"
+    t.string   "pinyin_abbr"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "districts", ["city_id"], :name => "index_districts_on_city_id"
+  add_index "districts", ["name"], :name => "index_districts_on_name"
+  add_index "districts", ["pinyin"], :name => "index_districts_on_pinyin"
+  add_index "districts", ["pinyin_abbr"], :name => "index_districts_on_pinyin_abbr"
+
+  create_table "provinces", :force => true do |t|
+    t.string   "name"
+    t.string   "pinyin"
+    t.string   "pinyin_abbr"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "provinces", ["name"], :name => "index_provinces_on_name"
+  add_index "provinces", ["pinyin"], :name => "index_provinces_on_pinyin"
+  add_index "provinces", ["pinyin_abbr"], :name => "index_provinces_on_pinyin_abbr"
 
   create_table "roles", :force => true do |t|
     t.string   "name"
@@ -32,6 +98,31 @@ ActiveRecord::Schema.define(:version => 20130813014657) do
 
   add_index "roles", ["name", "resource_type", "resource_id"], :name => "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], :name => "index_roles_on_name"
+
+  create_table "shops", :force => true do |t|
+    t.string   "title",      :null => false
+    t.string   "phone",      :null => false
+    t.string   "address",    :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "taggings", :force => true do |t|
+    t.integer  "tag_id"
+    t.integer  "taggable_id"
+    t.string   "taggable_type"
+    t.integer  "tagger_id"
+    t.string   "tagger_type"
+    t.string   "context",       :limit => 128
+    t.datetime "created_at"
+  end
+
+  add_index "taggings", ["tag_id"], :name => "index_taggings_on_tag_id"
+  add_index "taggings", ["taggable_id", "taggable_type", "context"], :name => "index_taggings_on_taggable_id_and_taggable_type_and_context"
+
+  create_table "tags", :force => true do |t|
+    t.string "name"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
