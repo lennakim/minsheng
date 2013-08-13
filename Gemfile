@@ -24,3 +24,6 @@ gem "rolify", ">= 3.2.0"
 gem "thin"
 gem "quiet_assets", :group => :development
 gem 'china_region_fu'
+gem "carrierwave"
+gem "mini_magick"
+gem "ckeditor"
