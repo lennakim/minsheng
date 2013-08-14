@@ -1,4 +1,4 @@
-<h1 class="page-name"><%= @notice.title %></h1>
+<h1 class="page-name">查看公告</h1>
 <%= link_to '返回', admin_notices_path, class: 'btn btn-small', style: 'float:right; margin: 3px 5px;' %>
 <%= link_to '编辑', edit_admin_notice_path(@notice), class: 'btn btn-primary btn-small', style: 'float:right; margin: 3px 5px;' %>
 
@@ -7,8 +7,8 @@
     <%= @notice.title %>
     <div class="gray">
       <ul class="wz-jq-info">
-        <li>类型：<%= @notice.tag_type %></li>
-        <li>标题：<%= @notice.title %></li>
+        <li>类型：<%= @notice.tag_text %></li>
+        <li>发布时间：<%= @notice.format_date %></li>
       </ul>
     </div>
   </h1>

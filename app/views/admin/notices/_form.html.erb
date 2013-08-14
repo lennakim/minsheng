@@ -15,9 +15,16 @@
 </div>
 
 <div class="control-group">
+  <%= f.label :issue_time, "发布时间：", class: "control-label" %>
+  <div class="controls">
+    <%= f.text_field :issue_time, value: notice.format_date, style: "width: 300px;" %>
+  </div>
+</div>
+
+<div class="control-group">
   <%= f.label :content, "内容：", class: "control-label" %>
   <div class="controls">
-    <%= f.cktext_area :content %>
+    <%= f.text_area :content %>
   </div>
 </div>
 
@@ -26,3 +33,14 @@
   &nbsp;
   <%= link_to "取消", admin_notices_path, class: "_cancel btn btn-small" %>
 </div>
+
+<%= content_for :foot do %>
+  <script>
+    $('#notice_issue_time').datetimepicker({
+      timeFormat: 'HH:mm:ss',
+      addSliderAccess: true,
+      sliderAccessArgs: { touchonly: false}
+    });
+    CKEDITOR.replace("notice_content");
+  </script>
+<% end %>
