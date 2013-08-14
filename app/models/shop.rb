@@ -1,8 +1,8 @@
 class Shop < ActiveRecord::Base
-  attr_accessible :address, :phone, :title, :shopImages_attributes, :tag_list
+  attr_accessible :address, :phone, :title, :shopImages_attributes, :tag_list,:category_id
   has_many :shopImages
   accepts_nested_attributes_for :shopImages , :allow_destroy => true
-
+  belongs_to :category
   has_many :taggings
   has_many :tags, through: :taggings
 
