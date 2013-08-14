@@ -1,5 +1,9 @@
 class HomeController < ApplicationController
   def index
-    @provinces = Province.all
+    if params[:city]
+      redirect_to shops_url
+    else
+      @provinces = Province.all
+    end
   end
 end

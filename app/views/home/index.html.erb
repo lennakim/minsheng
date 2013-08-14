@@ -2,7 +2,7 @@
 <% @provinces.each do |province| %>
     <li><strong><%= province.name %></strong><br/>
       <% province.cities.each do |city| %>
-        <%= city.name %>
+        <a href="/?city=<%= city.name %>"><%= city.name %></a>
       <% end %>
     </li>
   <% end %>

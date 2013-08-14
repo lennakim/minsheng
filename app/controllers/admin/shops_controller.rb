@@ -3,7 +3,11 @@ class Admin::ShopsController < ApplicationController
   # GET /shops
   # GET /shops.json
   def index
-    @shops = Shop.all
+    if params[:tag]
+        @shops = Shop.tagged_with(params[:tag])
+      else
+        @shops = Shop.all
+    end
 
     respond_to do |format|
       format.html # index.html.erb
@@ -26,7 +30,7 @@ class Admin::ShopsController < ApplicationController
   # GET /shops/new.json
   def new
     @shop = Shop.new
-
+    3.times{@shop.shopImages.build}
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @shop }
@@ -45,7 +49,7 @@ class Admin::ShopsController < ApplicationController
 
     respond_to do |format|
       if @shop.save
-        format.html { redirect_to @shop, notice: 'Shop was successfully created.' }
+        format.html { redirect_to admin_shop_path(@shop), notice: 'Shop was successfully created.' }
         format.json { render json: @shop, status: :created, location: @shop }
       else
         format.html { render action: "new" }
@@ -61,7 +65,7 @@ class Admin::ShopsController < ApplicationController
 
     respond_to do |format|
       if @shop.update_attributes(params[:shop])
-        format.html { redirect_to @shop, notice: 'Shop was successfully updated.' }
+        format.html { redirect_to admin_shop_path(@shop), notice: 'Shop was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -77,7 +81,7 @@ class Admin::ShopsController < ApplicationController
     @shop.destroy
 
     respond_to do |format|
-      format.html { redirect_to shops_url }
+      format.html { redirect_to admin_shops_url }
       format.json { head :no_content }
     end
   end
