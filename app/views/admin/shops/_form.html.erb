@@ -1,3 +1,7 @@
+<% content_for :head do %>
+  <%= stylesheet_link_tag "jquery.tagit" %>
+<% end %>
+
 <%= form_for [:admin,@shop] do |f| %>
   <% if @shop.errors.any? %>
     <div id="error_explanation">
@@ -25,23 +29,41 @@
     <%= f.text_field :address %>
   </div>
   <div class="field">
-    <%= f.label :tag_list, "Tags (separated by commas)" %><br />
-    <%= f.text_field :tag_list %>
-    <br />
+    <%= f.label :tag_list %><br />
+    <%= f.hidden_field :tag_list,:value=>@shop.tag_list %>
+    <ul id="tags"></ul>
    <h4>All tags</h4>
     <% Tag.all.each do |tag| %>
-        <span class="label"><%= tag.name %></span>
+      <span name="sampletag" class="label"><%= tag.name %></span>
       <% end %>
   </div>
   <div>
     <h4>upload images</h4>
      <%= f.fields_for :shopImages  do |image| %>
       <div class="field">
-         <%= image.file_field :url  %>  
+         <%= image.file_field :url  %>
       </div>
      <% end %>
   </div>
   <div class="actions">
     <%= f.submit %>
   </div>
+<% end %>
+
+<% content_for :foot do %>
+  <%= javascript_include_tag "tag-it" %>
+  <script type="text/javascript">
+    $(document).ready(function() {
+          $('#tags').tagit({
+                // availableTags: sampleTags,
+                // This will make Tag-it submit a single form value, as a comma-delimited field.
+                singleField: true,
+                singleFieldNode: $('#shop_tag_list')
+          });
+          $("span[name='sampletag']").on('click',function(){
+            // console.log($(this).text());
+            $("#tags").tagit("createTag", $(this).text()); 
+          });
+    });
+  </script>
 <% end %>

@@ -6,6 +6,10 @@ class Shop < ActiveRecord::Base
   has_many :taggings
   has_many :tags, through: :taggings
 
+  def self.tag_list
+    Tag.all.map(&:name).join(", ")
+  end
+
   def self.tagged_with(name)
     Tag.find_by_name!(name).shops
   end
