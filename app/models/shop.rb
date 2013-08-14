@@ -1,10 +1,14 @@
 class Shop < ActiveRecord::Base
-  attr_accessible :address, :phone, :title, :shopImages_attributes, :tag_list
+  attr_accessible :address, :phone, :title, :shopImages_attributes, :tag_list,:category_id
   has_many :shopImages
   accepts_nested_attributes_for :shopImages , :allow_destroy => true
-
+  belongs_to :category
   has_many :taggings
   has_many :tags, through: :taggings
+
+  def self.tag_list
+    Tag.all.map(&:name).join(", ")
+  end
 
   def self.tagged_with(name)
     Tag.find_by_name!(name).shops

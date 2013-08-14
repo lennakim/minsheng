@@ -1,23 +1,27 @@
+
 <p id="notice"><%= notice %></p>
-
 <p>
-  <b>Title:</b>
-  <%= @shop.title %>
+<h3><%= @shop.title %></h3>
 </p>
 
-<p>
-  <b>Phone:</b>
-  <%= @shop.phone %>
-</p>
+<div class="row">
+  <div class="span3">
+      <img src="<%= @shop.shopImages.first.url if @shop.shopImages.first %>" alt="" />
+  </div>
+  <div class="span9">
+    <p>
+    <b>Phone:</b>
+    <%= @shop.phone %>
+    </p>
 
-<p>
-  <b>Address:</b>
-  <%= @shop.address %>
-</p>
+    <p>
+    <b>Address:</b>
+    <%= @shop.address %>
+    </p>    
+  </div>
+</div>
 
-<p>
-<b>Images</b><br>
-  <% @shop.shopImages.each do |image| %>
-      <img src="<%= image.url %>" alt="" />
-    <% end %>
-</p>
+
+
+
+
