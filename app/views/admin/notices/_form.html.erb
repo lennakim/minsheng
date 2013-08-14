@@ -1,3 +1,5 @@
+<%= hidden_field_tag :id, notice.id %>
+
 <div class="control-group">
   <%= f.label :title, "标题：", class: "control-label" %>
   <div class="controls">
@@ -15,6 +17,12 @@
 <div class="control-group">
   <%= f.label :content, "内容：", class: "control-label" %>
   <div class="controls">
-    <%= f.text_area :content %>
+    <%= f.cktext_area :content %>
   </div>
+</div>
+
+<div class="text-center">
+  <%= f.submit "保存", class: "_submit btn btn-primary btn-small" %>
+  &nbsp;
+  <%= link_to "取消", admin_notices_path, class: "_cancel btn btn-small" %>
 </div>

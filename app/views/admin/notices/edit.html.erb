@@ -1,11 +1,9 @@
 <h1 class="page-name">编辑公告</h1>
 
-<%= form_for [:admin, @notice], remote: true, url: admin_notice_path, html: {id: 'edit_notice_form', class: "form-horizontal", style: 'width: 750px;'} do  |f| %>
+<%= form_for [:admin, @notice], url: admin_notice_path, html: {id: 'edit_notice_form', class: "form-horizontal", style: 'width: 750px;'} do  |f| %>
   <%= render 'form', f: f, notice: @notice %>
+<% end %>
 
-  <div class="text-center">
-    <%= f.submit "保存", class: "btn btn-primary btn-small" %>
-    &nbsp;
-    <%= link_to "取消", "javascript:", class: "_cancel btn btn-small" %>
-  </div>
+<%= content_for :foot do %>
+  <%= javascript_include_tag "admin/notice" %>
 <% end %>

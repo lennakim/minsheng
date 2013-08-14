@@ -2,7 +2,7 @@
 
 class Admin::NoticesController < ApplicationController
   #before_filter :authenticate_user!
-  before_filter :set_notice, only: [:create, :show, :edit, :update, :destroy]
+  before_filter :set_notice, only: [:show, :edit, :update, :destroy]
 
   def index
   	@notices = Notice.all
@@ -13,8 +13,8 @@ class Admin::NoticesController < ApplicationController
   end
 
   def create
-    if @notice.save
-      render json: {reload: true}
+    if Notice.create(params[:notice])
+      redirect_to admin_notices_path
     else
       flash[:notice] = 'error'
       render 'new'
@@ -29,7 +29,7 @@ class Admin::NoticesController < ApplicationController
 
   def update
     if @notice.update_attributes(params[:notice])
-      render json: {reload: true}
+      redirect_to admin_notices_path
     else
       flash[:notice] = 'error'
       render 'edit'
