@@ -46,7 +46,7 @@ class Admin::CategoriesController < ApplicationController
 
     respond_to do |format|
       if @category.insert(params[:category][:parent_id]) 
-        format.html { redirect_to admin_category_path(@category), notice: 'Category was successfully created.' }
+        format.html { redirect_to admin_category_path(@category.id.to_s), notice: 'Category was successfully created.' }
         format.json { render json: @category, status: :created, location: @category }
       else
         format.html { render action: "new" }
