@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130814071915) do
+ActiveRecord::Schema.define(:version => 20130815030421) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -115,6 +115,7 @@ ActiveRecord::Schema.define(:version => 20130814071915) do
     t.string   "tagger_type"
     t.string   "context",       :limit => 128
     t.datetime "created_at"
+    t.integer  "shop_id"
   end
 
   add_index "taggings", ["tag_id"], :name => "index_taggings_on_tag_id"
