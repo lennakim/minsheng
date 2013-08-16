@@ -15,7 +15,7 @@
 
 <% @shops.each do |shop| %>
   <tr>
-    <td><img src="<%= shop.shopImages.first.url %>" alt="" style="width:100px;height:100px;"/></td>
+    <td><img src="<%= shop.shopImages.first.url if shop.shopImages.first %>" alt="" style="width:100px;height:100px;"/></td>
     <td><%= shop.title %></td>
     <td><%= shop.category.name if shop.category %></td>
     <td><%= shop.phone %></td>

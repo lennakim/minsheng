@@ -1,0 +1,48 @@
+<% content_for :head do %>
+  <%= stylesheet_link_tag "jRating.jquery" %>
+<% end %>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Rank</th>
+    <th>Comment</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% rates.each do |rate| %>
+  <tr>
+    <td><%= rate.user.name %></td>
+    <td><div class="star" data-average="<%= rate.rank %>"></div></td>
+    <td><%= rate.comment %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+
+<% content_for :foot do %>
+  <script type="text/javascript">
+    $(document).ready(function() {
+
+      var options = {
+        bigStarsPath: '/assets/jRating/stars.png',
+        smallStarsPath: '/assets/jRating/small.png',
+        type : 'small',
+        decimalLength: 0,
+        length: 5,
+        rateMax: 5,
+        showRateInfo: false,
+        sendRequest: false,
+        step: true,
+        isDisabled: true
+
+      }
+
+      $(".star").jRating(options);
+    });
+  </script>
+<% end %>

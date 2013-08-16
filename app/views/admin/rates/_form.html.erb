@@ -1,0 +1,57 @@
+<% content_for :head do %>
+  <%= stylesheet_link_tag "jRating.jquery" %>
+<% end %>
+
+<%= form_for([:admin,@shop,@rate]) do |f| %>
+  <% if @rate.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@rate.errors.count, "error") %> prohibited this rate from being saved:</h2>
+
+      <ul>
+      <% @rate.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.hidden_field :rank %>
+    <div id="rate_star" data-average="<%= @rate.rank %>"></div>
+  </div>
+  <div class="field">
+    <%= f.label :comment %><br />
+    <%= f.text_area :comment %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<% content_for :foot do %>
+  <%= javascript_include_tag "jRating.jquery" %>
+  <script type="text/javascript">
+    $(document).ready(function() {
+
+      var options = {
+        bigStarsPath: '/assets/jRating/stars.png',
+        smallStarsPath: '/assets/jRating/small.png',
+        type : 'big',
+        decimalLength: 0,
+        length: 5,
+        rateMax: 5,
+        showRateInfo: false,
+        sendRequest: false,
+        step: true,
+        canRateAgain: true,
+        nbRates: 100,
+
+        onClick: function(element, rate){
+          $("#rate_rank").val(rate);
+        }
+      }
+
+      $("#rate_star").jRating(options);
+    });
+  </script>
+<% end %>
