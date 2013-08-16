@@ -11,6 +11,7 @@ Minsheng::Application.routes.draw do
     resources :tags
     resources :users
     resources :shop_images
+    resources :notices
   end
 
   resources :categories
@@ -25,7 +26,5 @@ Minsheng::Application.routes.draw do
   devise_for :users, :controllers => { :registrations => "devise/registrations" }
   resources :users
 
-  namespace :admin do
-    resources :notices
-  end
+  resources :notices, only: [:index, :show]
 end
