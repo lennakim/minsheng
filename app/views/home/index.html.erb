@@ -7,3 +7,12 @@
     </li>
   <% end %>
 </ul>
+
+<h1>公告栏</h1>
+&nbsp;
+<%= link_to '更多', notices_path %>
+<ul>
+  <% (@notices || []).each do |notice| %>
+    <li><%= link_to notice.title, notice_path(notice) %></li>
+  <% end %>
+</ul>
