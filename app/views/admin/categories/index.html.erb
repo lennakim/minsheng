@@ -15,8 +15,8 @@
     <td><%= category.parent.name if category.parent %></td>
     <td><%= category.name %></td>
     <td><%= category.has_children? %></td>
-    <td><%= link_to 'Show', category %></td>
-    <td><%= link_to 'Edit', edit_category_path(category) %></td>
+    <td><%= link_to 'Show', admin_category_path(category) %></td>
+    <td><%= link_to 'Edit', edit_admin_category_path(category) %></td>
     <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
