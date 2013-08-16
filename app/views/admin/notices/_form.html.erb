@@ -1,0 +1,46 @@
+<%= hidden_field_tag :id, notice.id %>
+
+<div class="control-group">
+  <%= f.label :title, "标题：", class: "control-label" %>
+  <div class="controls">
+    <%= f.text_field :title, style: "width: 300px;" %>
+  </div>
+</div>
+
+<div class="control-group">
+  <%= f.label :tag_type, "类型：", class: "control-label" %>
+  <div class="controls">
+    <%= f.select :tag_type, Notice::TAG_TYPE.to_a, {include_blank: true}, style: "width: 220px;" %>
+  </div>
+</div>
+
+<div class="control-group">
+  <%= f.label :issue_time, "发布时间：", class: "control-label" %>
+  <div class="controls">
+    <%= f.text_field :issue_time, value: notice.format_date, style: "width: 300px;" %>
+  </div>
+</div>
+
+<div class="control-group">
+  <%= f.label :content, "内容：", class: "control-label" %>
+  <div class="controls">
+    <%= f.text_area :content %>
+  </div>
+</div>
+
+<div class="text-center">
+  <%= f.submit "保存", class: "_submit btn btn-primary btn-small" %>
+  &nbsp;
+  <%= link_to "取消", admin_notices_path, class: "_cancel btn btn-small" %>
+</div>
+
+<%= content_for :foot do %>
+  <script>
+    $('#notice_issue_time').datetimepicker({
+      timeFormat: 'HH:mm:ss',
+      addSliderAccess: true,
+      sliderAccessArgs: { touchonly: false}
+    });
+    CKEDITOR.replace("notice_content");
+  </script>
+<% end %>

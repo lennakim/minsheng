@@ -68,6 +68,15 @@ ActiveRecord::Schema.define(:version => 20130815030421) do
   add_index "districts", ["pinyin"], :name => "index_districts_on_pinyin"
   add_index "districts", ["pinyin_abbr"], :name => "index_districts_on_pinyin_abbr"
 
+  create_table "notices", :force => true do |t|
+    t.string   "tag_type"
+    t.string   "title"
+    t.text     "content"
+    t.datetime "issue_time"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "provinces", :force => true do |t|
     t.string   "name"
     t.string   "pinyin"

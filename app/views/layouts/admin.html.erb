@@ -28,6 +28,9 @@
             <%= link_to 'Users', '/admin/users' %>
         </li>
         <li>
+          <%= link_to 'Notices', admin_notices_path %>
+        </li>
+        <li>
           <%= link_to 'Logout', destroy_user_session_path, :method=>'delete' %>
         </li>
         <li>
