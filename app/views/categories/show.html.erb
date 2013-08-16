@@ -1,10 +1,21 @@
 <p id="notice"><%= notice %></p>
+Category: <% @category.ancestors.each do |category | %><%= category.name %><% end %> >> <%= @category.name %>
+    <table class="table">
+      <tr>
+        <th>Title</th>
+        <th>Phone</th>
+        <th>Address</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
 
-<p>
-  <b>Name:</b>
-  <%= @category.name %>
-</p>
-
-
-<%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %>
+      <% @shops.each do |shop| %>
+        <tr>
+        <td><%= shop.title %></td>
+        <td><%= shop.phone %></td>
+        <td><%= shop.address %></td>
+        <td><%= link_to 'Show', shop %></td>
+      </tr>
+    <% end %>
+    </table>

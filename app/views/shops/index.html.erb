@@ -1,25 +1,37 @@
-<h1>Listing shops</h1>
+<div class="row">
+  <div class="span4">
+    <h2>Categories</h2>
+    <% Category.all.each do |category| %>
+      <h3><a href="/categories/<%= category.id %>"><%= category.name %></a> </h3>
+    <% end %>      
+      <h2>Tags</h2>
+      <% Tag.all.each do |tag| %>
+        <h3><%= tag.name %></h3>
+      <% end %>
+  </div>
+  <div class="span8">
+    <table>
+      <tr>
+        <th>Title</th>
+        <th>Phone</th>
+        <th>Address</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Phone</th>
-    <th>Address</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+      <% @shops.each do |shop| %>
+        <tr>
+        <td><%= shop.title %></td>
+        <td><%= shop.phone %></td>
+        <td><%= shop.address %></td>
+        <td><%= link_to 'Show', shop %></td>
+      </tr>
+    <% end %>
+    </table>
 
-<% @shops.each do |shop| %>
-  <tr>
-    <td><%= shop.title %></td>
-    <td><%= shop.phone %></td>
-    <td><%= shop.address %></td>
-    <td><%= link_to 'Show', shop %></td>
-  </tr>
-<% end %>
-</table>
 
-<br />
+  </div>
+</div>
 
-<%= link_to 'New Shop', new_shop_path %>
+
