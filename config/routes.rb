@@ -1,4 +1,5 @@
 Minsheng::Application.routes.draw do
+
   resources :shop_images
 
   get 'tags/:tag', to: 'admin/shops#index', as: :tag
@@ -7,7 +8,9 @@ Minsheng::Application.routes.draw do
 
   namespace :admin do
     resources :categories
-    resources :shops
+    resources :shops do
+      resources :rates
+    end
     resources :tags
     resources :users
     resources :shop_images
