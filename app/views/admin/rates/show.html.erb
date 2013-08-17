@@ -1,0 +1,40 @@
+<% content_for :head do %>
+  <%= stylesheet_link_tag "jRating.jquery" %>
+<% end %>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <div class="star" data-average="<%= @rate.rank %>" ></div>
+</p>
+
+<p>
+  <b>Comment:</b>
+  <%= @rate.comment %>
+</p>
+
+
+<%= link_to 'Edit', edit_admin_shop_rate_path(@shop,@rate) %> |
+<%= link_to 'Back', admin_shop_rates_path(@shop) %>
+
+<% content_for :foot do %>
+  <script type="text/javascript">
+    $(document).ready(function() {
+
+      var options = {
+        bigStarsPath: '/assets/jRating/stars.png',
+        smallStarsPath: '/assets/jRating/small.png',
+        type : 'big',
+        decimalLength: 0,
+        length: 5,
+        rateMax: 5,
+        showRateInfo: false,
+        sendRequest: false,
+        step: true,
+        isDisabled: true
+      }
+
+      $(".star").jRating(options);
+    });
+  </script>
+<% end %>

@@ -1,0 +1,6 @@
+<h1>全部公告栏</h1>
+<ul>
+  <% (@notices || []).each do |notice| %>
+    <li><%= link_to notice.title, notice_path(notice) %></li>
+  <% end %>
+</ul>

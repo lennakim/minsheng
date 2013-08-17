@@ -1,15 +1,20 @@
 Minsheng::Application.routes.draw do
+
   resources :shop_images
 
+  get 'tags/:tag', to: 'admin/shops#index', as: :tag
 
   mount Ckeditor::Engine => '/ckeditor'
 
   namespace :admin do
     resources :categories
-    resources :shops
+    resources :shops do
+      resources :rates
+    end
     resources :tags
     resources :users
     resources :shop_images
+    resources :notices
   end
 
   resources :categories
@@ -23,4 +28,6 @@ Minsheng::Application.routes.draw do
   root :to => "home#index"
   devise_for :users, :controllers => { :registrations => "devise/registrations" }
   resources :users
+
+  resources :notices, only: [:index, :show]
 end

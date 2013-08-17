@@ -5,7 +5,6 @@
 <title><%= content_for?(:title) ? yield(:title) : "Minsheng" %></title>
 <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Minsheng" %>">
 <%= stylesheet_link_tag "application", :media => "all" %>
-<%= javascript_include_tag "application" %>
 <%= csrf_meta_tags %>
 <%= yield(:head) %>
 </head>
@@ -23,13 +22,13 @@
             <%= link_to 'Categories', '/admin/categories' %>
         </li>
         <li>
-            <%= link_to 'Tags', '/admin/tags' %>
-        </li>
-        <li>
             <%= link_to 'Shops', '/admin/shops' %>
         </li>
         <li>
             <%= link_to 'Users', '/admin/users' %>
+        </li>
+        <li>
+          <%= link_to 'Notices', admin_notices_path %>
         </li>
         <li>
           <%= link_to 'Logout', destroy_user_session_path, :method=>'delete' %>
@@ -70,5 +69,7 @@
     </div>
   </div> <!--! end of .container -->
 </div> <!--! end of #main -->
+<%= javascript_include_tag "application" %>
+<%= yield(:foot) %>
 </body>
 </html>

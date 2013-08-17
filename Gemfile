@@ -9,6 +9,7 @@ group :assets do
 end
 gem "therubyracer", ">= 0.10.2", :group => :assets, :platform => :ruby
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 gem "rspec-rails", ">= 2.11.0", :group => [:development, :test]
 gem "capybara", ">= 1.1.2", :group => :test
 gem "email_spec", ">= 1.2.1", :group => :test
@@ -27,3 +28,4 @@ gem 'china_region_fu'
 gem "carrierwave"
 gem "mini_magick"
 gem "ckeditor"
+gem 'ancestry'

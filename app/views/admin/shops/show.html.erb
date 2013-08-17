@@ -14,7 +14,10 @@
   <b>Address:</b>
   <%= @shop.address %>
 </p>
-
+<p>
+  <b>Tags:</b>
+  <%= @shop.tag_list %>
+</p>
 <p>
   <b>Images</b>
   <% @shop.shopImages.each do |image| %>
@@ -23,4 +26,9 @@
 </p>
 
 <%= link_to 'Edit', edit_admin_shop_path(@shop) %> |
-<%= link_to 'Back', admin_shops_path %>
+<%= link_to 'Back', admin_shops_path %>|
+<%= link_to '新点评', new_admin_shop_rate_path(@shop) %>
+
+<div class="rates" style="margin-top:20px;">
+  <%= render 'admin/rates/rate_list', :rates => @rates %>
+</div>
