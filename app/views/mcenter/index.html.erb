@@ -1,1 +1,61 @@
-<h1>Mcenter#index</h1>
+<div class="navbar navbar-fixed-top">
+  <nav class="navbar-inner">
+    <div class="container">
+      <%= link_to "Minsheng Admin", '/mcenter', :class => 'brand' %>
+      <ul class="nav">
+        <% if user_signed_in? %>
+          <li>
+            <%= link_to "Home", root_path, :class => 'brand' %>
+          </li>
+        <li>
+            <%= link_to 'Categories', '/admin/categories' %>
+        </li>
+        <li>
+            <%= link_to 'Shops', '/admin/shops' %>
+        </li>
+        <li>
+            <%= link_to 'Users', '/admin/users' %>
+        </li>
+        <li>
+          <%= link_to 'Notices', admin_notices_path %>
+        </li>
+        <li>
+          <%= link_to 'Logout', destroy_user_session_path, :method=>'delete' %>
+        </li>
+        <li>
+          <%= link_to 'Edit account', edit_user_registration_path %>
+        </li>
+        <% else %>
+        <li>
+          <%= link_to 'Login', new_user_session_path %>
+        </li>
+        <li>
+          <%= link_to 'Sign up', new_user_registration_path %>
+        </li>
+      <% end %>
+      </ul>
+    </div>
+  </nav>
+</div>
+<div id="main" role="main">
+  <div class="container">
+    <div class="content">
+      <div class="row">
+        <div class="span12">
+          <% flash.each do |name, msg| %>
+            <% if msg.is_a?(String) %>
+            <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
+            <a class="close" data-dismiss="alert">&#215;</a>
+            <%= content_tag :div, msg, :id => "flash_#{name}" %>
+          </div>
+        <% end %>
+        <% end %>
+          <%= yield %>
+        </div>
+      </div>
+      <footer>
+      </footer>
+    </div>
+  </div> <!--! end of .container -->
+</div> <!--! end of #main -->
+
