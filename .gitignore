@@ -18,3 +18,4 @@ rerun.txt
 pickl-email-*.html
 *.idea
 .DS_Store
+schema.rb
