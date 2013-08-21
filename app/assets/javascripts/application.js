@@ -13,9 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.ui.all
-//= require jquery-ui-sliderAccess
-//= require jquery-ui-timepicker-addon
-//= require jquery-ui-timepicker-zh-CN
 //= require bootstrap
 //= require ckeditor/init
 //= require_tree .

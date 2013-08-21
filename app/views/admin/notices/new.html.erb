@@ -1,5 +1,21 @@
-<h1 class="page-name">新建公告</h1>
+<div class="row-fluid">
+  <div class="span12">
+    <div class="widget">
 
-<%= form_for [:admin, @notice], html: {id: 'new_notice_form', class: "form-horizontal", style: 'width: 750px;'} do |f| %>
-  <%= render 'form', f: f, notice: @notice %>
-<% end %>
+      <div class="widget-head">
+        <div class="pull-left">新建公告</div>
+        <div class="widget-icons pull-right">
+          <a href="#" class="wminimize"><i class="icon-chevron-up"></i></a>
+          <a href="#" class="wclose"><i class="icon-remove"></i></a>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+
+      <div class="widget-content">
+        <%= form_for [:admin, @notice], html: {id: 'new_notice_form', class: "form-horizontal", style: 'width: 750px;'} do |f| %>
+          <%= render 'form', f: f, notice: @notice %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
