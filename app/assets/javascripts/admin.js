@@ -35,5 +35,9 @@
 //= require jquery-ui-timepicker-addon
 //= require jquery-ui-timepicker-zh-CN
 //= require ckeditor/init
+//= require jquery.readyselector
+
+// later use require_tree ./admin
+//= require admin/notices
 
 
