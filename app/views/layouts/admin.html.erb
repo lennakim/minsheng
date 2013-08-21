@@ -10,7 +10,7 @@
   <meta name="keywords" content="">
   <meta name="author" content="">
   <%= stylesheet_link_tag "admin", :media => "all" %>
-
+  <%= yield(:head) %>
   <!-- HTML5 Support for IE -->
   <!--[if lt IE 9]>
   <script src="js/html5shim.js"></script>
@@ -33,9 +33,9 @@
       <a href="index.html" class="brand hidden-desktop">MacBeath</a>
 
       <!-- Navigation starts -->
-      <div class="nav-collapse collapse">        
+      <div class="nav-collapse collapse">
 
-        <ul class="nav">  
+        <ul class="nav">
 
           <!-- Upload to server link. Class "dropdown-big" creates big dropdown -->
           <li class="dropdown dropdown-big">
@@ -57,9 +57,9 @@
                 <!-- Bootstrap progress bar -->
                 <div class="progress">
                   <div class="bar bar-important" style="width: 80%;"></div>
-                </div>   
+                </div>
 
-                <hr />             
+                <hr />
 
                 <!-- Dropdown menu footer -->
                 <div class="drop-foot">
@@ -101,11 +101,11 @@
 
         <!-- Links -->
         <ul class="nav pull-right">
-          <li class="dropdown pull-right">            
+          <li class="dropdown pull-right">
             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-              <i class="icon-user"></i> Admin <b class="caret"></b>              
+              <i class="icon-user"></i> Admin <b class="caret"></b>
             </a>
-            
+
             <!-- Dropdown menu -->
             <ul class="dropdown-menu">
               <li><a href="#"><i class="icon-user"></i> Profile</a></li>
@@ -113,7 +113,7 @@
               <li><a href="login.html"><i class="icon-off"></i> Logout</a></li>
             </ul>
           </li>
-          
+
         </ul>
       </div>
 
@@ -145,7 +145,7 @@
             <!-- Comment button with number of latest comments count -->
             <li class="dropdown dropdown-big">
               <a class="dropdown-toggle" href="#" data-toggle="dropdown">
-                <i class="icon-comments"></i> Chats <span   class="badge badge-info">6</span> 
+                <i class="icon-comments"></i> Chats <span   class="badge badge-info">6</span>
               </a>
 
                 <ul class="dropdown-menu">
@@ -170,19 +170,19 @@
                     <h6><a href="#">What are you doing?</a> <span class="label label-warning pull-right">14:42</span></h6>
                     <div class="clearfix"></div>
                     <hr />
-                  </li>                  
+                  </li>
                   <li>
                     <div class="drop-foot">
                       <a href="#">View All</a>
                     </div>
-                  </li>                                    
+                  </li>
                 </ul>
             </li>
 
             <!-- Message button with number of latest messages count-->
             <li class="dropdown dropdown-big">
               <a class="dropdown-toggle" href="#" data-toggle="dropdown">
-                <i class="icon-envelope-alt"></i> Inbox <span class="badge badge-important">6</span> 
+                <i class="icon-envelope-alt"></i> Inbox <span class="badge badge-important">6</span>
               </a>
 
                 <ul class="dropdown-menu">
@@ -208,14 +208,14 @@
                     <div class="drop-foot">
                       <a href="#">View All</a>
                     </div>
-                  </li>                                    
+                  </li>
                 </ul>
             </li>
 
             <!-- Members button with number of latest members count -->
             <li class="dropdown dropdown-big">
               <a class="dropdown-toggle" href="#" data-toggle="dropdown">
-                <i class="icon-user"></i> Users <span   class="badge badge-success">6</span> 
+                <i class="icon-user"></i> Users <span   class="badge badge-success">6</span>
               </a>
 
                 <ul class="dropdown-menu">
@@ -240,14 +240,14 @@
                     <h6><a href="#">Kumarasamy</a> <span class="label label-warning pull-right">Free</span></h6>
                     <div class="clearfix"></div>
                     <hr />
-                  </li>                  
+                  </li>
                   <li>
                     <div class="drop-foot">
                       <a href="#">View All</a>
                     </div>
-                  </li>                                    
+                  </li>
                 </ul>
-            </li> 
+            </li>
 
           </ul>
 
@@ -262,7 +262,7 @@
             <div class="hdata">
               <div class="mcol-left">
                 <!-- Icon with red background -->
-                <i class="icon-signal bred"></i> 
+                <i class="icon-signal bred"></i>
               </div>
               <div class="mcol-right">
                 <!-- Number of visitors -->
@@ -275,7 +275,7 @@
             <div class="hdata">
               <div class="mcol-left">
                 <!-- Icon with blue background -->
-                <i class="icon-user bblue"></i> 
+                <i class="icon-user bblue"></i>
               </div>
               <div class="mcol-right">
                 <!-- Number of visitors -->
@@ -288,14 +288,14 @@
             <div class="hdata">
               <div class="mcol-left">
                 <!-- Icon with green background -->
-                <i class="icon-money bgreen"></i> 
+                <i class="icon-money bgreen"></i>
               </div>
               <div class="mcol-right">
                 <!-- Number of visitors -->
                 <p><a href="#">5000</a> <em>orders</em></p>
               </div>
               <div class="clearfix"></div>
-            </div>                        
+            </div>
 
           </div>
         </div>
@@ -317,7 +317,7 @@
   <ul id="nav">
     <!-- Main menu with font awesome icon -->
     <li><a href="/mcenter"><i class="icon-home"></i> Dashboard</a>
-    <!-- Sub menu markup 
+    <!-- Sub menu markup
             <ul>
               <li><a href="#">Submenu #1</a></li>
               <li><a href="#">Submenu #2</a></li>
@@ -355,7 +355,7 @@
     <!--   <li><a href="grid.html">Grid</a></li> -->
     <!-- </ul> -->
 
-    </li>                             
+    </li>
         <% if user_signed_in? %>
         <li>
             <%= link_to raw('<i class="icon-bar-chart"></i>Categories'), '/admin/categories' %>
@@ -403,9 +403,9 @@
 
     <!-- Breadcrumb -->
     <div class="bread-crumb pull-right">
-      <a href="index.html"><i class="icon-home"></i> Home</a> 
+      <a href="index.html"><i class="icon-home"></i> Home</a>
       <!-- Divider -->
-      <span class="divider">/</span> 
+      <span class="divider">/</span>
       <a href="#" class="bread-current">Dashboard</a>
     </div>
 
@@ -432,7 +432,7 @@
 
 </div>
 
-<!-- Mainbar ends -->	    	
+<!-- Mainbar ends -->
 <div class="clearfix"></div>
 </div>
 <!-- Content ends -->
@@ -447,12 +447,12 @@
       </div>
     </div>
   </div>
-</footer> 	
+</footer>
 
 <!-- Footer ends -->
 
 <!-- Scroll to top -->
-<span class="totop"><a href="#"><i class="icon-chevron-up"></i></a></span> 
+<span class="totop"><a href="#"><i class="icon-chevron-up"></i></a></span>
 
 <!-- JS -->
 <%= javascript_include_tag "admin" %>
