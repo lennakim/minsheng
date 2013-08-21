@@ -1,6 +1,19 @@
-<h1>Editing rate</h1>
+<div class="row-fluid">
+  <div class="span12">
+    <div class="widget">
 
-<%= render 'form' %>
+      <div class="widget-head">
+        <div class="pull-left">Form</div>
+        <div class="widget-icons pull-right">
+          <a href="#" class="wminimize"><i class="icon-chevron-up"></i></a>
+          <a href="#" class="wclose"><i class="icon-remove"></i></a>
+        </div>
+        <div class="clearfix"></div>
+      </div>
 
-<%= link_to 'Show', admin_shop_rate_path(@shop, @rate) %> |
-<%= link_to 'Back', admin_shop_rates_path %>
+      <div class="widget-content">
+        <%= render 'form' %>
+      </div>
+    </div>
+  </div>
+</div>
