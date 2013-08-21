@@ -33,14 +33,3 @@
   &nbsp;
   <%= link_to "取消", admin_notices_path, class: "_cancel btn btn-small" %>
 </div>
-
-<%= content_for :foot do %>
-  <script>
-    $('#notice_issue_time').datetimepicker({
-      timeFormat: 'HH:mm:ss',
-      addSliderAccess: true,
-      sliderAccessArgs: { touchonly: false}
-    });
-    CKEDITOR.replace("notice_content");
-  </script>
-<% end %>

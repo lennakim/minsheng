@@ -15,4 +15,5 @@
 //= require jquery.ui.all
 //= require bootstrap
 //= require ckeditor/init
+//= require jquery.readyselector
 //= require_tree .

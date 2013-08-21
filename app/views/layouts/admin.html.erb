@@ -10,6 +10,7 @@
   <meta name="keywords" content="">
   <meta name="author" content="">
   <%= stylesheet_link_tag "admin", :media => "all" %>
+  <%= javascript_include_tag "admin" %>
   <%= yield(:head) %>
   <%= csrf_meta_tags %>
   <!-- HTML5 Support for IE -->
@@ -21,7 +22,7 @@
   <link rel="shortcut icon" href="/assets/admin/favicon/favicon.png">
 </head>
 
-<body>
+<%= content_tag :body, class: ['admin', controller_name, action_name].join(' ') do %>
 
 <div class="navbar navbar-fixed-top">
   <div class="navbar-inner">
@@ -456,8 +457,7 @@
 <span class="totop"><a href="#"><i class="icon-chevron-up"></i></a></span>
 
 <!-- JS -->
-<%= javascript_include_tag "admin" %>
 <%= yield(:foot) %>
 
-</body>
+<% end %>
 </html>
