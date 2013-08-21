@@ -2,6 +2,7 @@
 
 class Admin::NoticesController < ApplicationController
   before_filter :authenticate_user!
+  before_filter :admin_only, except: [:index]
   before_filter :set_notice, only: [:show, :edit, :update, :destroy]
   layout 'admin'
 
