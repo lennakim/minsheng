@@ -14,10 +14,11 @@
 </p>
 
 
-<%= link_to 'Edit', edit_admin_shop_rate_path(@shop,@rate) %> |
-<%= link_to 'Back', admin_shop_rates_path(@shop) %>
+<%= link_to '编辑', edit_admin_shop_rate_path(@shop,@rate), class: "btn btn-small" %>
+<%= link_to '返回', admin_shop_rates_path(@shop), class: "btn btn-small" %>
 
 <% content_for :foot do %>
+  <%= javascript_include_tag "jRating.jquery" %>
   <script type="text/javascript">
     $(document).ready(function() {
 
