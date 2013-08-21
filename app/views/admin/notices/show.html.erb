@@ -1,16 +1,24 @@
-<h1 class="page-name">查看公告</h1>
-<%= link_to '返回', admin_notices_path, class: 'btn btn-small', style: 'float:right; margin: 3px 5px;' %>
-<%= link_to '编辑', edit_admin_notice_path(@notice), class: 'btn btn-primary btn-small', style: 'float:right; margin: 3px 5px;' %>
+<div class="row-fluid">
+  <div class="span12">
+    <div class="widget">
+      <div class="widget-head">
+        <div class="pull-left">查看公告</div>
+        <div class="widget-icons pull-right">
+          <a href="#" class="wminimize"><i class="icon-chevron-up"></i></a>
+          <a href="#" class="wclose"><i class="icon-remove"></i></a>
+        </div>
+        <div class="clearfix"></div>
+      </div>
 
-<div class="news-detail">
-  <h1 class='wz-title'>
-    <%= @notice.title %>
-    <div class="gray">
-      <ul class="wz-jq-info">
-        <li>类型：<%= @notice.tag_text %></li>
-        <li>发布时间：<%= @notice.format_date %></li>
-      </ul>
+      <div class="widget-content">
+        <p><b>标题：</b><%= @notice.title %></p>
+        <p><b>类型：</b><%= @notice.tag_text %></p>
+        <p><b>发布时间：</b><%= @notice.format_date %></p>
+        <p><b>内容：</b><%= raw @notice.content %></p>
+
+        <%= link_to '返回', admin_notices_path, class: 'btn btn-small' %>
+        <%= link_to '编辑', edit_admin_notice_path(@notice), class: 'btn btn-primary btn-small' %>
+      </div>
     </div>
-  </h1>
-  <%= raw @notice.content  %>
+  </div>
 </div>
