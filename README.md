@@ -25,7 +25,6 @@
 
 * 基于rails的jquery [jquery-rails](https://github.com/rails/jquery-rails)
 * jQuery-UI [jquery-ui-rails](https://github.com/joliss/jquery-ui-rails)
-* 评星插件 [jRating](https://github.com/alpixel/jRating)
 * Timepicker [time-picker](https://github.com/trentrichardson/jQuery-Timepicker-Addon)
 * CSS/HTML框架 [bootstrap-sass](https://github.com/thomas-mcdonald/bootstrap-sass)
 * DOM节点绑定ready事件 [ready-selector](https://github.com/Verba/jquery-readyselector)
@@ -43,3 +42,7 @@
 * 测试email [email_spec](https://github.com/conradwt/email_spec)
 * 行为模拟 [capybara](https://github.com/jnicklas/capybara)
 * 行为测试 [rspec-rails](https://github.com/rspec/rspec-rails)
+
+
+### jquery插件
+* 评星插件 [jRating](https://github.com/alpixel/jRating)

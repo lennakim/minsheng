@@ -3,7 +3,7 @@ body{
 	line-height: 22px;
 	color: #666;
 	border-top: 3px solid #eee;
-	background:#343434 url("../img/back.png") repeat;  
+	background:#343434 url("/assets/admin/back.png") repeat;
 	padding-top: 37px;
 	-webkit-font-smoothing: antialiased;
 }
@@ -288,7 +288,7 @@ text-decoration:none;
 	bottom: 0px;
 	right: 0px;
 	z-index: 104400;
-	background: #0993d3 !important; 
+	background: #0993d3 !important;
 }
 
 .totop a, .totop a:visited{
@@ -320,10 +320,10 @@ text-decoration:none;
 	display: inline;
 	float: right;
 }
-   
+
 .aligncenter, img.aligncenter {
 	margin-right: auto;
-	margin-left: auto;	
+	margin-left: auto;
 	display: block;
 	clear: both;
 }
@@ -426,7 +426,7 @@ text-decoration:none;
     border: 1px solid #ddd;
     border-bottom: 1px solid #d2d2d2;
     box-shadow: inset 0px 1px 2px #fff;
-}  
+}
 
 .dropdown-menu li{
 	color: #777;
@@ -436,7 +436,7 @@ text-decoration:none;
 
 .dropdown-menu li > a{
 	color: #777;
-	line-height: 25px; 
+	line-height: 25px;
 }
 
 .dropdown-menu li > a:hover{
@@ -489,7 +489,7 @@ text-decoration:none;
 header{
 	border-top: 1px solid #ccc;
 	padding: 15px 0px 15px 0px;
-	background: #fafafa url("../img/cream.png") repeat;
+	background: #fafafa url("/assets/admin/cream.png") repeat;
 	border-bottom: 1px solid #ddd;
 }
 
@@ -553,7 +553,7 @@ header .nav.nav-pills > li > a:hover{
   -webkit-transition: background-position 0.1s linear;
   -moz-transition: background-position 0.1s linear;
   -o-transition: background-position 0.1s linear;
-  transition: background-position 0.1s linear;  
+  transition: background-position 0.1s linear;
 }
 
 header .nav-pills .open .dropdown-toggle{
@@ -565,7 +565,7 @@ header .nav-pills .open .dropdown-toggle{
   -webkit-transition: background-position 0.1s linear;
   -moz-transition: background-position 0.1s linear;
   -o-transition: background-position 0.1s linear;
-  transition: background-position 0.1s linear; 
+  transition: background-position 0.1s linear;
 }
 
 header .header-data{
@@ -588,7 +588,7 @@ header .header-data .hdata i{
 	color: #fff;
 	border-radius: 50px;
 	box-shadow: inset 0px 0px 1px #777;
-}	
+}
 
 header .header-data .hdata p, header .header-data .hdata a, header .header-data .hdata a:hover{
 	display: block;
@@ -630,7 +630,7 @@ header .header-data .hdata em{
 }
 
 .sidebar .sidebar-dropdown a{
-	color: #ddd;  
+	color: #ddd;
 	box-shadow: inset 0px 0px 1px #000;
 	background-color: #343434;
   background: -webkit-gradient(linear, left top, left bottom, from(#343434), to(#292929));
@@ -638,7 +638,7 @@ header .header-data .hdata em{
   background: -moz-linear-gradient(top, #343434, #292929);
   background: -ms-linear-gradient(top, #343434, #292929);
   background: -o-linear-gradient(top, #343434, #292929);
-  background: linear-gradient(top, #343434, #292929);	
+  background: linear-gradient(top, #343434, #292929);
   padding:6px;
   text-transform: uppercase;
   text-align: center;
@@ -646,7 +646,7 @@ header .header-data .hdata em{
   display: block;
   border-top: 2px solid #666;
   border-bottom: 1px solid #333;
-  
+
 }
 
 .sidebar ul{
@@ -658,10 +658,10 @@ header .header-data .hdata em{
 	list-style-type: none;
 }
 
-.sidebar #nav { 
-  display: block; 
-  width:100%; 
-  margin: 0 auto; 
+.sidebar #nav {
+  display: block;
+  width:100%;
+  margin: 0 auto;
   position: absolute;
   z-index: 60;
 }
@@ -685,8 +685,8 @@ header .header-data .hdata em{
 	border: 0px;
 }
 
-.sidebar #nav > li > a { 
-  display: block; 
+.sidebar #nav > li > a {
+  display: block;
   padding: 10px 20px;
   font-size: 13px;
   color: #777;
@@ -699,11 +699,11 @@ header .header-data .hdata em{
   background: -moz-linear-gradient(top, #f9f9f9, #f2f2f2);
   background: -ms-linear-gradient(top, #f9f9f9, #f2f2f2);
   background: -o-linear-gradient(top, #f9f9f9, #f2f2f2);
-  background: linear-gradient(top, #f9f9f9, #f2f2f2);	
+  background: linear-gradient(top, #f9f9f9, #f2f2f2);
   box-shadow: inset 0px 1px 1px #fff;
 }
 
-.sidebar #nav > li > a:hover, .sidebar #nav > li > a.open, .sidebar #nav > li > a.subdrop { 
+.sidebar #nav > li > a:hover, .sidebar #nav > li > a.open, .sidebar #nav > li > a.subdrop {
   color: #e9e9e9;
   border-bottom: 1px solid #167cac;
   border-top: 1px solid #2094ca;
@@ -733,8 +733,8 @@ header .header-data .hdata em{
 
 .sidebar #nav li ul { display: none; background: #efefef url("../img/cream.png") repeat; }
 
-.sidebar #nav li ul li a { 
-  display: block; 
+.sidebar #nav li ul li a {
+  display: block;
   background: none;
   padding: 10px 0px;
   padding-left: 30px;
@@ -756,7 +756,7 @@ header .header-data .hdata em{
 	margin-left: 230px;
 	margin-right: 0px;
 	width: auto;
-	background:#eee url("../img/main-back.png") repeat;
+	background:#eee url("/assets/admin/main-back.png") repeat;
 	border-left: 1px solid #ccc;
 	z-index: 50;
 	min-height: 400px;
@@ -765,7 +765,7 @@ header .header-data .hdata em{
 .mainbar .container{
 	width: 100%;
 	padding: 0px !important
-} 
+}
 
 /* Pagination*/
 
@@ -784,10 +784,10 @@ header .header-data .hdata em{
   background: -moz-linear-gradient(top, #f8f8f8, #f2f2f2);
   background: -ms-linear-gradient(top, #f8f8f8, #f2f2f2);
   background: -o-linear-gradient(top, #f8f8f8, #f2f2f2);
-  background: linear-gradient(top, #f8f8f8, #f2f2f2);	
+  background: linear-gradient(top, #f8f8f8, #f2f2f2);
   box-shadow: inset 0px 2px 1px #fff;
   color: #666;
-}	
+}
 
 .pagination ul > li > a:hover{
 	color: #333;
@@ -850,8 +850,8 @@ header .header-data .hdata em{
   border: 1px solid #c9c9c9;
   border-radius: 3px;
   margin-top: 10px;
-  margin-bottom: 20px; 
-  background: #fafafa url('../img/cream.png') repeat;
+  margin-bottom: 20px;
+  background: #fafafa url('/assets/admin/cream.png') repeat;
 }
 
 .widget p{
@@ -893,7 +893,7 @@ header .header-data .hdata em{
 	border-left: 0px;
 }
 
-.widget .table-bordered thead:first-child tr:first-child > th:first-child, 
+.widget .table-bordered thead:first-child tr:first-child > th:first-child,
 .widget .table-bordered tbody:first-child tr:first-child > td:first-child {
 	border-radius: 0px;
 }
@@ -928,7 +928,7 @@ header .header-data .hdata em{
   background: -moz-linear-gradient(top, #f8f8f8, #f2f2f2);
   background: -ms-linear-gradient(top, #f8f8f8, #f2f2f2);
   background: -o-linear-gradient(top, #f8f8f8, #f2f2f2);
-  background: linear-gradient(top, #f8f8f8, #f2f2f2);	
+  background: linear-gradient(top, #f8f8f8, #f2f2f2);
   border-top-right-radius: 3px;
   border-top-left-radius: 3px;
   text-shadow:0px 1px #fff;
@@ -980,7 +980,7 @@ header .header-data .hdata em{
   background: -moz-linear-gradient(top, #f8f8f8, #f2f2f2);
   background: -ms-linear-gradient(top, #f8f8f8, #f2f2f2);
   background: -o-linear-gradient(top, #f8f8f8, #f2f2f2);
-  background: linear-gradient(top, #f8f8f8, #f2f2f2);	
+  background: linear-gradient(top, #f8f8f8, #f2f2f2);
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;
   text-shadow:0px 1px #fff;
@@ -1027,7 +1027,7 @@ header .header-data .hdata em{
 	border: 1px solid #212121;
 }
 
-.widget.wblack a.btn-primary, .widget.wblack a.btn-primary:hover, 
+.widget.wblack a.btn-primary, .widget.wblack a.btn-primary:hover,
 .widget.wblack a.btn-warning, .widget.wblack a.btn-warning:hover,
 .widget.wblack a.btn-danger,  .widget.wblack a.btn-danger:hover,
 .widget.wblack a.btn-success, .widget.wblack a.btn-success:hover,
@@ -1108,26 +1108,26 @@ header .header-data .hdata em{
     box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.1);
     color: #ccc;
     font-weight: bold;
-    margin-right: 5px; 
+    margin-right: 5px;
 }
 
 .widget.wblack .nav-tabs > li a:hover {
-    background: #222; 
+    background: #222;
 }
 
 .widget.wblack .nav-tabs > li.active {
-    border-bottom: 0px; 
+    border-bottom: 0px;
 }
 
 .widget.wblack .nav-tabs > li.active a {
     color: #fff;
-    background: #333 url('../img/back.png');
+    background: #333 url('/assets/admin/back.png');
     border-bottom: 0px;
 }
 
 .widget.wblack .nav-tabs > li.active a:hover {
-    background: #333 url('../img/back.png');            
-    border-bottom: 0px; 
+    background: #333 url('/assets/admin/back.png');
+    border-bottom: 0px;
 }
 
 .widget.wblack .tab-content{
@@ -1144,7 +1144,7 @@ header .header-data .hdata em{
 .fc-event-skin {
 	background-color: #ff5d5e;
 	border-color: #ff3839;
-}	
+}
 
 .fc-button-month, .fc-button-agendaWeek, .fc-button-agendaDay {
 	margin-top: -48px;
@@ -1160,11 +1160,11 @@ header .header-data .hdata em{
 }
 
 .fc-content {
-	background: #fff;	
+	background: #fff;
 }
 
 .fc-content td:hover{
-	background: #f3f3f3;	
+	background: #f3f3f3;
 }
 
 /* Current status */
@@ -1203,8 +1203,8 @@ header .header-data .hdata em{
   background: -moz-linear-gradient(top, #f8f8f8, #f2f2f2);
   background: -ms-linear-gradient(top, #f8f8f8, #f2f2f2);
   background: -o-linear-gradient(top, #f8f8f8, #f2f2f2);
-  background: linear-gradient(top, #f8f8f8, #f2f2f2);	
-  background: #f8f8f8 url("../img/cream.png") repeat;
+  background: linear-gradient(top, #f8f8f8, #f2f2f2);
+  background: #f8f8f8 url("/assets/admin/cream.png") repeat;
   text-shadow:0px 1px #fff;
   border: 1px solid #ccc;
   box-shadow: inset 0px 0px 3px #fff;
@@ -1250,30 +1250,30 @@ header .header-data .hdata em{
     height:120px; float:left; margin:15px
 }
 
-.ui-slider .ui-slider-handle { 
-	position: absolute; 
-	z-index: 2; 
-	width: 0.7em; 
-	height: 0.7em; 
-	cursor: default; 
+.ui-slider .ui-slider-handle {
+	position: absolute;
+	z-index: 2;
+	width: 0.7em;
+	height: 0.7em;
+	cursor: default;
 	border-radius: 50px;
 	background: #fafafa !important;
-	border: 1px solid #ccc !important; 
+	border: 1px solid #ccc !important;
 	box-shadow: 0px 1px 1px #999 !important;
 }
 
-.ui-slider-horizontal { 
-	height: .3em; 
-	border: 1px solid #fff !important; 
+.ui-slider-horizontal {
+	height: .3em;
+	border: 1px solid #fff !important;
 	box-shadow: 0px 0px 1px #333 !important;
 	background: #f3f3f3 !important;
 	border-radius: 3px;
 }
 
-.ui-slider-vertical { 
-	height: 100px; 
+.ui-slider-vertical {
+	height: 100px;
 	width: 0.3em;
-	border: 1px solid #fff !important; 
+	border: 1px solid #fff !important;
 	box-shadow: 0px 0px 1px #333 !important;
 	background: #f3f3f3 !important;
 	border-radius: 3px;
@@ -1291,32 +1291,32 @@ header .header-data .hdata em{
 .slider-red .ui-widget-header{
 	background: #dd514c !important;
 	border-color: #dd514c !important;
-}	
+}
 
 .slider-blue .ui-widget-header{
 	background: #36a5c6 !important;
 	border-color: #36a5c6 !important;
-}	
+}
 
 .slider-green .ui-widget-header{
 	background: #44c636 !important;
 	border-color: #44c636 !important;
-}	
+}
 
 .slider-yellow .ui-widget-header{
 	background: #fcd419 !important;
 	border-color: #fcd419 !important;
-}	
+}
 
 .slider-orange .ui-widget-header{
 	background: #fc9419 !important;
 	border-color: #fc9419 !important;
-}	
+}
 
 .slider-violet .ui-widget-header{
 	background: #9919fc !important;
 	border-color: #9919fc !important;
-}	
+}
 
 /* Toggle button */
 
@@ -1494,7 +1494,7 @@ footer .copy{
 		width: 95%;
 		padding-left: 2.5%;
 		padding-right: 2.5%;
-	}	
+	}
 	header,.content,footer{
 		margin-left: -20px;
 		margin-right: -20px;
@@ -1502,10 +1502,10 @@ footer .copy{
 	header,.mainbar .matter,footer{
 		padding-left: 20px;
 		padding-right: 20px;
-	}			
+	}
 	.form-inline button{
    		margin-left:0px;
-   	} 
+   	}
 	header{
 		padding-top: 0px !important;
 		padding-bottom: 20px !important;
@@ -1521,7 +1521,7 @@ footer .copy{
 	.navbar,.navbar-inner{
 		margin-top: 0px !important;
 		margin-bottom: 0px !important;
-	}	
+	}
 	.nav-collapse .dropdown-menu{
 		padding: 10px 10px !important;
 	}
@@ -1553,7 +1553,7 @@ footer .copy{
 		margin: 0px;
 		float: none;
 	}
-	.today-datas{	
+	.today-datas{
 		text-align: center;
 	}
 }
@@ -1597,7 +1597,7 @@ footer .copy{
 	.nav-collapse .dropdown-menu hr{
 		border-top: 1px solid #eee;
 		border-bottom: 1px solid #ccc;
-	}	
+	}
 	.sidebar{
 		width: 200px;
 	}
