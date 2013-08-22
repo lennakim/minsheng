@@ -2,48 +2,26 @@
   <%= stylesheet_link_tag "jRating.jquery" %>
 <% end %>
 
-<table>
-  <tr>
-    <th>User</th>
-    <th>Rank</th>
-    <th>Comment</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<div id="shop_rates_container">
+  <table class="table table-bordered table-striped table-hover">
+    <tr>
+      <th>用户</th>
+      <th>评分</th>
+      <th>评论</th>
+    </tr>
 
-<% rates.each do |rate| %>
-  <tr>
-    <td><%= rate.user.name %></td>
-    <td><div class="star" data-average="<%= rate.rank %>"></div></td>
-    <td><%= rate.comment %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
+  <% rates.each do |rate| %>
+    <tr>
+      <td><%= rate.user.name %></td>
+      <td><div class="star" data-average="<%= rate.rank %>"></div></td>
+      <td><%= rate.comment %></td>
+    </tr>
+  <% end %>
+  </table>
+</div>
 
 
 <% content_for :foot do %>
   <%= javascript_include_tag "jRating.jquery" %>
-  <script type="text/javascript">
-    $(document).ready(function() {
-
-      var options = {
-        bigStarsPath: '/assets/jRating/stars.png',
-        smallStarsPath: '/assets/jRating/small.png',
-        type : 'small',
-        decimalLength: 0,
-        length: 5,
-        rateMax: 5,
-        showRateInfo: false,
-        sendRequest: false,
-        step: true,
-        isDisabled: true
-
-      }
-
-      $(".star").jRating(options);
-    });
-  </script>
+  <%= javascript_include_tag "admin/rates.js" %>
 <% end %>

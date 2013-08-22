@@ -2,40 +2,31 @@
   <%= stylesheet_link_tag "jRating.jquery" %>
 <% end %>
 
-<p id="notice"><%= notice %></p>
+<div class="row-fluid">
+  <div class="span12">
+    <div class="widget">
+      <div class="widget-head">
+        <div class="pull-left">Rates</div>
+        <div class="widget-icons pull-right">
+          <a href="#" class="wminimize"><i class="icon-chevron-up"></i></a>
+          <a href="#" class="wclose"><i class="icon-remove"></i></a>
+        </div>
+        <div class="clearfix"></div>
+      </div>
 
-<p>
-  <div class="star" data-average="<%= @rate.rank %>" ></div>
-</p>
+      <div class="widget-content">
+        <p><b>用户:</b><%= @rate.user.name %></p>
+        <p><b>评分:</b><div class="star" data-average="<%= @rate.rank %>" ></div></p>
+        <p><b>评论:</b><%= @rate.comment %></p>
 
-<p>
-  <b>Comment:</b>
-  <%= @rate.comment %>
-</p>
-
-
-<%= link_to '编辑', edit_admin_shop_rate_path(@shop,@rate), class: "btn btn-small" %>
-<%= link_to '返回', admin_shop_rates_path(@shop), class: "btn btn-small" %>
+        <%= link_to '编辑', edit_admin_shop_rate_path(@shop,@rate), class: "btn btn-small btn-primary" %>
+        <%= link_to '返回', admin_shop_rates_path(@shop), class: "btn btn-small" %>
+      </div>
+    </div>
+  </div>
+</div>
 
 <% content_for :foot do %>
   <%= javascript_include_tag "jRating.jquery" %>
-  <script type="text/javascript">
-    $(document).ready(function() {
-
-      var options = {
-        bigStarsPath: '/assets/jRating/stars.png',
-        smallStarsPath: '/assets/jRating/small.png',
-        type : 'big',
-        decimalLength: 0,
-        length: 5,
-        rateMax: 5,
-        showRateInfo: false,
-        sendRequest: false,
-        step: true,
-        isDisabled: true
-      }
-
-      $(".star").jRating(options);
-    });
-  </script>
+  <%= javascript_include_tag "admin/rates.js" %>
 <% end %>
