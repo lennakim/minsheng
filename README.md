@@ -1,9 +1,5 @@
 minsheng
 
-========
-
-minsheng
-
 
 ####Use Gem
 
@@ -16,8 +12,13 @@ Rails框架 [ruby on rails](https://github.com/rails/rails)
 图片处理 [mini_magick](https://github.com/minimagick/minimagick)
 图片上传 [carrierwave](https://github.com/carrierwaveuploader/carrierwave)
 表树形结果的方式存储 [ancestry](https://github.com/stefankroes/ancestry)
-配置不同环境下config [rails_config](https://github.com/railsjedi/rails_config)
 禁止assets日志请求 [quiet_assets](https://github.com/evrone/quiet_assets)
+配置rails的插件：[rails_config](https://github.com/railsjedi/rails_config)
+  new a file: /config/settings.local.yml
+  puts config content as below:
+  database:
+    username: root
+    password: "123456"
 
 基于rails的jquery [jquery-rails](https://github.com/rails/jquery-rails)
 jQuery-UI [jquery-ui-rails](https://github.com/joliss/jquery-ui-rails)
@@ -39,5 +40,3 @@ Rails默认使用sass代替css [sass-rails](https://github.com/rails/sass-rails)
 测试email [email_spec](https://github.com/conradwt/email_spec)
 行为模拟 [capybara](https://github.com/jnicklas/capybara)
 行为测试 [rspec-rails](https://github.com/rspec/rspec-rails)
-
-
