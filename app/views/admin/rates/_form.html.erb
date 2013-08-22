@@ -21,28 +21,5 @@
 
 <% content_for :foot do %>
   <%= javascript_include_tag "jRating.jquery" %>
-  <script type="text/javascript">
-    $(document).ready(function() {
-
-      var options = {
-        bigStarsPath: '/assets/jRating/stars.png',
-        smallStarsPath: '/assets/jRating/small.png',
-        type : 'big',
-        decimalLength: 0,
-        length: 5,
-        rateMax: 5,
-        showRateInfo: false,
-        sendRequest: false,
-        step: true,
-        canRateAgain: true,
-        nbRates: 100,
-
-        onClick: function(element, rate){
-          $("#rate_rank").val(rate);
-        }
-      }
-
-      $("#rate_star").jRating(options);
-    });
-  </script>
+  <%= javascript_include_tag "admin/rates.js" %>
 <% end %>
