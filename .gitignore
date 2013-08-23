@@ -11,6 +11,7 @@ capybara-*.html
 /public/system/*
 /public/uploads/*
 /public/admin/*
+/public/assets/*
 /config/database.yml
 /coverage/
 /spec/tmp/*
