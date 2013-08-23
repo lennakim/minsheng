@@ -25,7 +25,6 @@
 //= require admin/jquery.uniform.min
 //= require admin/jquery.toggle.buttons
 //= require admin/filter
-//= require admin/custom
 //= require admin/charts
 
 //= require jquery
