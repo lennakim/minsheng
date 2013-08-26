@@ -1,3 +1,24 @@
-<h3>User</h3>
-<p>User: <%= @user.name %></p>
-<p>Email: <%= @user.email if @user.email %></p>
+<div class="row-fluid">
+  <div class="span12">
+    <div class="widget">
+      <div class="widget-head">
+        <div class="pull-left">查看用户</div>
+        <div class="widget-icons pull-right">
+          <a href="#" class="wminimize"><i class="icon-chevron-up"></i></a>
+          <a href="#" class="wclose"><i class="icon-remove"></i></a>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+
+      <div class="widget-content">
+        <p><b>用户：</b><%= @user.name %></p>
+        <p><b>邮箱：</b><%= @user.email %></p>
+        <p><b>登录时间：</b><%= @user.created_at.to_date %></p>
+        <p><b>角色：</b><%= view_role(@user.role) %></p>
+
+        <%= link_to '返回', admin_users_path, class: 'btn btn-small' %>
+        <%= link_to '编辑', edit_admin_user_path(@user), class: 'btn btn-small btn-primary' %>
+      </div>
+    </div>
+  </div>
+</div>
