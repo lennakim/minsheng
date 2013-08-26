@@ -4,7 +4,7 @@ class Admin::CategoriesController < ApplicationController
   # GET /categories
   # GET /categories.json
   def index
-    @categories = Category.all
+    @categories = Category.where(ancestry: nil)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -45,7 +45,7 @@ class Admin::CategoriesController < ApplicationController
     @category = Category.new(params[:category])
 
     respond_to do |format|
-      if @category.insert(params[:category][:parent_id]) 
+      if @category.insert(params[:category][:parent_id])
         format.html { redirect_to admin_category_path(@category.id.to_s), notice: 'Category was successfully created.' }
         format.json { render json: @category, status: :created, location: @category }
       else
@@ -81,5 +81,10 @@ class Admin::CategoriesController < ApplicationController
       format.html { redirect_to admin_categories_url }
       format.json { head :no_content }
     end
+  end
+
+  def children
+    @categories = Category.find(params[:id]).children
+    render 'index'
   end
 end

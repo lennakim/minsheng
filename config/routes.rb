@@ -7,7 +7,11 @@ Minsheng::Application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
 
   namespace :admin do
-    resources :categories
+    resources :categories do
+      member do
+        get :children
+      end
+    end
     resources :shops do
       resources :rates
     end
