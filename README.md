@@ -28,6 +28,8 @@
 * Timepicker [time-picker](https://github.com/trentrichardson/jQuery-Timepicker-Addon)
 * CSS/HTML框架 [bootstrap-sass](https://github.com/thomas-mcdonald/bootstrap-sass)
 * DOM节点绑定ready事件 [ready-selector](https://github.com/Verba/jquery-readyselector)
+* 图片切换 [anything-slider](https://github.com/CSS-Tricks/AnythingSlider)
+* 图片预览 放大效果[elevatezoom](https://github.com/elevateweb/elevatezoom) 图片显示[pikachoose](http://www.pikachoose.com/versions/)  注：与elevatezoom结合使用需要修改源码
 
 * rails服务器 [thin](https://github.com/macournoyer/thin)
 * V8 JavaScript解释器 [therubyracer](https://github.com/cowboyd/therubyracer)
