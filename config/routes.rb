@@ -12,7 +12,12 @@ Minsheng::Application.routes.draw do
       resources :rates
     end
     resources :tags
-    resources :users
+    resources :users do
+      member do
+        get :edit_role
+        put :update_role
+      end
+    end
     resources :shop_images
     resources :notices
   end

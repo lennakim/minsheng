@@ -1,7 +1,9 @@
 class Admin::RatesController < ApplicationController
   layout 'admin'
 
+  before_filter :authenticate_user!
   before_filter :find_shop
+  load_and_authorize_resource
   # GET /rates
   # GET /rates.json
   def index

@@ -30,8 +30,12 @@
             <td><div class="star" data-average="<%= rate.rank %>"></div> </td>
             <td><%= rate.comment %></td>
             <td><%= link_to '显示', admin_shop_rate_path(@shop,rate) %>
+              <% if can? :update, rate %>
                 <%= link_to '编辑', edit_admin_shop_rate_path(@shop, rate) %>
+              <% end %>
+              <% if can? :destroy, rate %>
                 <%= link_to '删除', admin_shop_rate_path(@shop,rate), method: :delete, data: { confirm: '确定删除么' } %>
+              <% end %>
             </td>
           </tr>
         <% end %>
