@@ -40,7 +40,7 @@
         <ul class="nav pull-right">
           <li class="dropdown pull-right">
             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-              <i class="icon-user"></i> <%= current_user.name %> <b class="caret"></b>
+              <i class="icon-user"></i> <%= current_user.name if current_user %> <b class="caret"></b>
             </a>
 
             <!-- Dropdown menu -->
