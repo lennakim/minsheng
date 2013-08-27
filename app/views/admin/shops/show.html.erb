@@ -1,3 +1,7 @@
+<% content_for :head do %>
+  <%= stylesheet_link_tag "jRating.jquery"%>
+<% end %>
+
 <div class="row-fluid">
   <div class="span12">
     <div class="widget">
@@ -39,7 +43,16 @@
           <%= render 'admin/rates/rate_list', :rates => @rates %>
         </div>
       </div>
+      <% unless @rates.count == 0 %>
+      <div class="rates" style="margin-top:20px;">
+        <%= render 'admin/rates/rate_list', :rates => @rates %>
+      </div>
+      <% end %>
     </div>
   </div>
 </div>
 
+<% content_for :foot do %>
+  <%= javascript_include_tag "minsheng/jRating.jquery" %>
+  <%= javascript_include_tag "minsheng/rates.js" %>
+<% end %>

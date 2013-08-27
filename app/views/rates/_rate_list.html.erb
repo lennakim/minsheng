@@ -16,7 +16,14 @@
       <td><%= rate.user.name %></td>
       <td><div class="star" data-average="<%= rate.rank ||= 0 %>"></div></td>
       <td><%= rate.comment %></td>
-      <td><%= link_to '显示', shop_rate_path(@shop,rate) %></td>
+      <td><%= link_to '显示', shop_rate_path(@shop,rate) %>
+          <% if can? :update, rate %>
+            <%= link_to '编辑', edit_shop_rate_path(@shop, rate) %>
+          <% end %>
+          <% if can? :destroy, rate %>
+            <%= link_to '删除', shop_rate_path(@shop,rate), method: :delete, data: { confirm: '确定删除么' } %>
+          <% end %>
+      </td>
     </tr>
   <% end %>
   </table>

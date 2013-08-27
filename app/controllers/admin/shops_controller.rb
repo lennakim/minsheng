@@ -18,6 +18,7 @@ class Admin::ShopsController < Admin::BaseController
   # GET /shops/1.json
   def show
     @shop = Shop.find(params[:id])
+    @rates = @shop.rates
 
     respond_to do |format|
       format.html # show.html.erb

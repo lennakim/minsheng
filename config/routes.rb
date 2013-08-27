@@ -12,7 +12,9 @@ Minsheng::Application.routes.draw do
         get :children
       end
     end
-    resources :shops
+    resources :shops do
+      resources :rates
+    end
     resources :tags
     resources :users do
       member do
