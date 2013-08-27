@@ -197,3 +197,10 @@ zh-CN:
   activerecord:
     errors:
       <<: *errors
+  views:
+    pagination:
+      first: "«"
+      last: "»"
+      previous: "‹"
+      next: "›"
+      truncate: "..."

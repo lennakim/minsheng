@@ -4,7 +4,7 @@ class Admin::CategoriesController < Admin::BaseController
   # GET /categories
   # GET /categories.json
   def index
-    @categories = Category.where(ancestry: nil)
+    @categories = Category.where(ancestry: nil).page(params[:page])
 
     respond_to do |format|
       format.html # index.html.erb

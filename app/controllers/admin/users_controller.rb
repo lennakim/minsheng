@@ -7,7 +7,7 @@ class Admin::UsersController < Admin::BaseController
   before_filter :admin_only, :except => :show
 
   def index
-    @users = User.all
+    @users = User.order('created_at DESC').page(params[:page])
   end
 
   def show
