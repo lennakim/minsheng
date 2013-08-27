@@ -31,7 +31,7 @@ Minsheng::Application.routes.draw do
     resources :rates
   end
 
-  get "/admin" => "mcenter#index"
+  get "/admin" => "admin/mcenter#index"
 
   authenticated :user do
     root :to => 'home#index'
