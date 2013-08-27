@@ -2,6 +2,7 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
+    @user = user
     account_modify_authority
     account_rw_authority
 
@@ -20,12 +21,12 @@ class Ability
 
     can :rw, User
     can :modify, User do |user|
-      user == user
+      user == @user
     end
 
     can :rw, Rate
     can :modify, Rate do |rate|
-      rate.user == user
+      rate.user == @user
     end
 
   end

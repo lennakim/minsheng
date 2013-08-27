@@ -27,7 +27,9 @@ Minsheng::Application.routes.draw do
   end
 
   resources :categories
-  resources :shops
+  resources :shops do
+    resources :rates
+  end
 
   get "/mcenter" => "admin/mcenter#index"
 

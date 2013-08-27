@@ -16,4 +16,4 @@
 //= require bootstrap
 //= require ckeditor/init
 //= require jquery.readyselector
-//= require_tree .
+//= require_tree ./minsheng
