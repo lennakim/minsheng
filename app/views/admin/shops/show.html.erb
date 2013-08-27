@@ -1,7 +1,5 @@
 <div class="row-fluid">
-
   <div class="span12">
-
     <div class="widget">
 
       <div class="widget-head">
@@ -16,46 +14,37 @@
       <div class="widget-content">
         <%= @shop.id %>
         <p>
-        <b>Title:</b>
-        <%= @shop.title %>
+          <b>Title:</b>
+          <%= @shop.title %>
         </p>
 
-        <p> <b>Phone:</b> <%= @shop.phone %>
-      </p>
+        <p><b>Phone:</b> <%= @shop.phone %></p>
 
         <p>
-        <b>Address:</b>
-        <%= @shop.address %>
+          <b>Address:</b>
+          <%= @shop.address %>
         </p>
         <p>
-        <b>Tags:</b>
-        <%= @shop.tag_list %>
+          <b>Tags:</b>
+          <%= @shop.tag_list %>
         </p>
         <p>
-        <b>Images</b>
-        <% @shop.shopImages.each do |image| %>
-          <img src="<%= image.url %>" alt="" />
-      <% end %>
+          <b>Images</b>
+          <% @shop.shopImages.each do |image| %>
+            <img src="<%= image.url %>" alt="" />
+          <% end %>
         </p>
 
         <%= link_to 'Edit', edit_admin_shop_path(@shop) %> |
-        <%= link_to 'Back', admin_shops_path %>|
-        <%= link_to '新点评', new_admin_shop_rate_path(@shop) %>
-
+        <%= link_to 'Back', admin_shops_path %>
+        <% if can? :new, :rate %>
+          |<%= link_to '新点评', new_admin_shop_rate_path(@shop) %>
+        <% end %>
         <div class="rates" style="margin-top:20px;">
           <%= render 'admin/rates/rate_list', :rates => @rates %>
         </div>
-
       </div>
-
     </div>
-
-
   </div>
-
 </div>
-
-        </div>
-      </div>
-
 

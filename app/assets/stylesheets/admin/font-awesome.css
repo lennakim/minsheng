@@ -22,10 +22,10 @@
     */
 @font-face {
   font-family: 'FontAwesome';
-  src: url('./admin/font/fontawesome-webfont.eot');
-  src: url('./admin/font/fontawesome-webfont.eot?#iefix') format('embedded-opentype'),
-    url('./admin/font/fontawesome-webfont.woff') format('woff'),
-    url('./admin/font/fontawesome-webfont.ttf') format('truetype');
+  src: url('/assets/admin/font/fontawesome-webfont.eot');
+  src: url('/assets/admin/font/fontawesome-webfont.eot?#iefix') format('embedded-opentype'),
+    url('/assets/admin/font/fontawesome-webfont.woff') format('woff'),
+    url('/assets/admin/font/fontawesome-webfont.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }

@@ -7,12 +7,21 @@ Minsheng::Application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
 
   namespace :admin do
-    resources :categories
+    resources :categories do
+      member do
+        get :children
+      end
+    end
     resources :shops do
       resources :rates
     end
     resources :tags
-    resources :users
+    resources :users do
+      member do
+        get :edit_role
+        put :update_role
+      end
+    end
     resources :shop_images
     resources :notices
   end
@@ -20,7 +29,6 @@ Minsheng::Application.routes.draw do
   resources :categories
   resources :shops
 
-  get "/mcenter" => "mcenter#index"
   get "/admin" => "mcenter#index"
 
   authenticated :user do

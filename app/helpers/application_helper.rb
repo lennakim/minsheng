@@ -7,4 +7,7 @@ module ApplicationHelper
     end
   end
 
+  def format_datetime(datetime, format_str = '%Y-%m-%d %H:%M:%S')
+    datetime.nil? ? nil : datetime.strftime(format_str)
+  end
 end

@@ -1,5 +1,4 @@
-class Admin::ShopImagesController < ApplicationController
-  layout 'admin'
+class Admin::ShopImagesController < Admin::BaseController
   # GET /shop_images
   # GET /shop_images.json
   def index
