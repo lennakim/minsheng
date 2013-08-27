@@ -17,7 +17,7 @@ module Minsheng
     config.generators do |g|
       g.view_specs false
       g.helper_specs false
-      
+      g.orm :active_record 
     end
 
     # Settings in config/environments/* take precedence over those specified here.
