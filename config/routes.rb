@@ -21,6 +21,7 @@ Minsheng::Application.routes.draw do
   resources :shops
 
   get "/mcenter" => "mcenter#index"
+  get "/admin" => "mcenter#index"
 
   authenticated :user do
     root :to => 'home#index'
