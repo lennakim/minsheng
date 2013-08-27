@@ -14,6 +14,15 @@ class ShopImageUploader < CarrierWave::Uploader::Base
   # storage :file
   # storage :fog
   storage :grid_fs
+  def root 
+    Rails.root.join('tmp')
+  end
+  def cache_dir 
+    "uploads"
+  end
+  def grid_fs_access_url 
+    "/images"
+  end
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
