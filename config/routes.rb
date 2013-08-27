@@ -1,5 +1,5 @@
 Minsheng::Application.routes.draw do
-
+  match "/images/uploads/*path" => "gridfs#serve"
   resources :shop_images
 
   get 'tags/:tag', to: 'admin/shops#index', as: :tag
