@@ -1,6 +1,16 @@
-<h1>Editing category</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @category %> |
-<%= link_to 'Back', admin_categories_path %>
+<div class="row-fluid">
+  <div class="span12">
+    <div class="widget">
+      <div class="widget-head">
+        <div class="pull-left">编辑分类</div>
+        <div class="clearfix"></div>
+      </div>
+      <div class="widget-content">
+        <%= render 'form' %>
+      </div>
+      <br/>
+      <%= link_to '显示', @category, class: 'btn btn-small btn-info' %>
+      <%= link_to '返回', admin_categories_path, class: 'btn btn-small' %>
+    </div>
+  </div>
+</div>

@@ -3,11 +3,7 @@
   <div class="span12">
     <div class="widget">
       <div class="widget-head">
-        <div class="pull-left">Tables</div>
-        <div class="widget-icons pull-right">
-          <a href="#" class="wminimize"><i class="icon-chevron-up"></i></a>
-          <a href="#" class="wclose"><i class="icon-remove"></i></a>
-        </div>
+        <div class="pull-left">分类管理</div>
         <div class="clearfix"></div>
       </div>
 
@@ -16,11 +12,11 @@
           <thead>
             <tr>
               <th>#</th>
-              <th>Parent</th>
-              <th>Name</th>
-              <th>Date</th>
-              <th>Chidren Count</th>
-              <th>Status</th>
+              <th>所属分类</th>
+              <th>名称</th>
+              <th>创建日期</th>
+              <th>子分类</th>
+              <th>操作</th>
             </tr>
           </thead>
           <tbody>
@@ -38,16 +34,16 @@
                     <%= children_count %>
                   <% end %>
                 </td>
-                <td><%= link_to 'Show', admin_category_path(category) %>
-                <%= link_to 'Edit', edit_admin_category_path(category) %>
-                  <%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                <td><%= link_to '显示', admin_category_path(category) %>
+                <%= link_to '编辑', edit_admin_category_path(category) %>
+                  <%= link_to '删除', admin_category_path(category), method: :delete, data: { confirm: 'Are you sure?' } %></td>
               </tr>
             <% end %>
           </tbody>
         </table>
 
         <br/>
-        <%= link_to 'New Category', new_admin_category_path %>
+        <%= link_to '新建分类', new_admin_category_path, class: 'btn btn-primary btn-small' %>
 
         <div class="widget-foot">
           <div class="pagination pull-right">
