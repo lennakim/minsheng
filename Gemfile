@@ -26,6 +26,9 @@ gem "thin"
 gem "quiet_assets", :group => :development
 gem 'china_region_fu'
 gem "carrierwave"
+gem 'mongoid'
+gem "carrierwave-mongoid", :require => 'carrierwave/mongoid'
+gem 'mongoid-grid_fs', github: 'ahoward/mongoid-grid_fs'
 gem "mini_magick"
 gem "ckeditor"
 gem 'ancestry'
