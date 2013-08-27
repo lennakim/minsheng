@@ -1,27 +1,19 @@
-<% content_for :head do %>
-  <%= stylesheet_link_tag "jRating.jquery" %>
-<% end %>
-
 <div id="shop_rates_container">
   <table class="table table-bordered table-striped table-hover">
     <tr>
       <th>用户</th>
       <th>评分</th>
       <th>评论</th>
+      <th>操作</th>
     </tr>
 
   <% rates.each do |rate| %>
     <tr>
       <td><%= rate.user.name %></td>
-      <td><div class="star" data-average="<%= rate.rank %>"></div></td>
+      <td><div class="star" data-average="<%= rate.rank ||= 0 %>"></div></td>
       <td><%= rate.comment %></td>
+      <td><%= link_to '显示', admin_shop_rate_path(@shop,rate) %></td>
     </tr>
   <% end %>
   </table>
 </div>
-
-
-<% content_for :foot do %>
-  <%= javascript_include_tag "jRating.jquery" %>
-  <%= javascript_include_tag "admin/rates.js" %>
-<% end %>

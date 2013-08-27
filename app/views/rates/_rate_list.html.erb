@@ -1,0 +1,33 @@
+<% content_for :head do %>
+  <%= stylesheet_link_tag "jRating.jquery" %>
+<% end %>
+
+<div id="shop_rates_container">
+  <table class="table table-bordered table-striped table-hover">
+    <tr>
+      <th>用户</th>
+      <th>评分</th>
+      <th>评论</th>
+      <th>操作</th>
+    </tr>
+
+  <% rates.each do |rate| %>
+    <tr>
+      <td><%= rate.user.name %></td>
+      <td><div class="star" data-average="<%= rate.rank ||= 0 %>"></div></td>
+      <td><%= rate.comment %></td>
+      <td><%= link_to '显示', shop_rate_path(@shop,rate) %>
+          <% if can? :update, rate %>
+            <%= link_to '编辑', edit_shop_rate_path(@shop, rate) %>
+          <% end %>
+          <% if can? :destroy, rate %>
+            <%= link_to '删除', shop_rate_path(@shop,rate), method: :delete, data: { confirm: '确定删除么' } %>
+          <% end %>
+      </td>
+    </tr>
+  <% end %>
+  </table>
+  <% if can? :new, Rate %>
+    <%= link_to '新点评', new_shop_rate_path(@shop) %>
+  <% end %>
+</div>

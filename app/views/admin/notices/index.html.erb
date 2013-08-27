@@ -2,10 +2,6 @@
   <div class="widget">
     <div class="widget-head">
       <div class="pull-left">公告管理</div>
-      <div class="widget-icons pull-right">
-        <a href="#" class="wminimize"><i class="icon-chevron-up"></i></a>
-        <a href="#" class="wclose"><i class="icon-remove"></i></a>
-      </div>
       <div class="clearfix"></div>
     </div>
 
@@ -42,17 +38,7 @@
       <%= link_to '新建公告', new_admin_notice_path, class: 'btn btn-primary btn-small' %>
 
       <div class="widget-foot">
-        <div class="pagination pull-right">
-          <ul>
-            <li><a href="#">Prev</a></li>
-            <li><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">Next</a></li>
-          </ul>
-        </div>
-        <div class="clearfix"></div>
+        <h3><%= paginate @notices %></h3>
       </div>
 
     </div>

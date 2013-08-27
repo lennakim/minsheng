@@ -1,42 +1,41 @@
+<% content_for :head do %>
+  <%= stylesheet_link_tag "jRating.jquery"%>
+<% end %>
+
 <div class="row-fluid">
   <div class="span12">
     <div class="widget">
 
       <div class="widget-head">
-        <div class="pull-left">Form</div>
-        <div class="widget-icons pull-right">
-          <a href="#" class="wminimize"><i class="icon-chevron-up"></i></a>
-          <a href="#" class="wclose"><i class="icon-remove"></i></a>
-        </div>
+        <div class="pull-left">查看商店</div>
         <div class="clearfix"></div>
       </div>
 
       <div class="widget-content">
         <%= @shop.id %>
         <p>
-          <b>Title:</b>
+          <b>标题:</b>
           <%= @shop.title %>
         </p>
 
-        <p><b>Phone:</b> <%= @shop.phone %></p>
+        <p><b>电话:</b> <%= @shop.phone %></p>
 
         <p>
-          <b>Address:</b>
+          <b>地址:</b>
           <%= @shop.address %>
         </p>
         <p>
-          <b>Tags:</b>
+          <b>标签:</b>
           <%= @shop.tag_list %>
         </p>
         <p>
-          <b>Images</b>
+          <b>图片</b>
           <% @shop.shopImages.each do |image| %>
             <img src="<%= image.url %>" alt="" />
           <% end %>
         </p>
-
-        <%= link_to 'Edit', edit_admin_shop_path(@shop) %> |
-        <%= link_to 'Back', admin_shops_path %>
+        <%= link_to '编辑', edit_admin_shop_path(@shop), class: 'btn btn-small btn-primary' %>
+        <%= link_to '返回', admin_shops_path, class: 'btn btn-small' %>
         <% if can? :new, :rate %>
           |<%= link_to '新点评', new_admin_shop_rate_path(@shop) %>
         <% end %>
@@ -44,7 +43,16 @@
           <%= render 'admin/rates/rate_list', :rates => @rates %>
         </div>
       </div>
+      <% unless @rates.count == 0 %>
+      <div class="rates" style="margin-top:20px;">
+        <%= render 'admin/rates/rate_list', :rates => @rates %>
+      </div>
+      <% end %>
     </div>
   </div>
 </div>
 
+<% content_for :foot do %>
+  <%= javascript_include_tag "minsheng/jRating.jquery" %>
+  <%= javascript_include_tag "minsheng/rates.js" %>
+<% end %>

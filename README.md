@@ -13,6 +13,7 @@
 * 图片上传 [carrierwave](https://github.com/carrierwaveuploader/carrierwave)
 * 表树形结果的方式存储 [ancestry](https://github.com/stefankroes/ancestry)
 * 禁止assets日志请求 [quiet_assets](https://github.com/evrone/quiet_assets)
+* 分页 [kaminari](https://github.com/amatsuda/kaminari)
 * 配置rails的插件：[rails_config](https://github.com/railsjedi/rails_config)
   >new a file: /config/settings.local.yml
   >
