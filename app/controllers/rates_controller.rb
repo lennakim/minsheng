@@ -1,4 +1,4 @@
-class Admin::RatesController < Admin::BaseController
+class RatesController < ApplicationController
   load_and_authorize_resource
   before_filter :authenticate_user!
   before_filter :find_shop
@@ -49,7 +49,7 @@ class Admin::RatesController < Admin::BaseController
 
     respond_to do |format|
       if @rate.save
-        format.html { redirect_to admin_shop_path(@shop), notice: 'Rate was successfully created.' }
+        format.html { redirect_to shop_path(@shop), notice: 'Rate was successfully created.' }
         format.json { render json: @rate, status: :created, location: @rate }
       else
         format.html { render action: "new" }
@@ -65,7 +65,7 @@ class Admin::RatesController < Admin::BaseController
 
     respond_to do |format|
       if @rate.update_attributes(params[:rate])
-        format.html { redirect_to admin_shop_rate_path(@shop, @rate), notice: 'Rate was successfully updated.' }
+        format.html { redirect_to shop_rate_path(@shop, @rate), notice: 'Rate was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -81,7 +81,7 @@ class Admin::RatesController < Admin::BaseController
     @rate.destroy
 
     respond_to do |format|
-      format.html { redirect_to admin_shop_rates_url(@shop)}
+      format.html { redirect_to shop_rates_url(@shop)}
       format.json { head :no_content }
     end
   end

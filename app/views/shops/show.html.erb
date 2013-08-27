@@ -17,8 +17,13 @@
     <p>
     <b>Address:</b>
     <%= @shop.address %>
-    </p>    
+    </p>
   </div>
+  <% unless @rates.count == 0 %>
+  <div class="rates" style="margin-top:20px;">
+    <%= render 'rates/rate_list', :rates => @rates %>
+  </div>
+  <% end %>
 </div>
 
 

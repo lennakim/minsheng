@@ -1,0 +1,25 @@
+<% content_for :head do %>
+  <%= stylesheet_link_tag "jRating.jquery" %>
+<% end %>
+
+<%= form_for([@shop,@rate], :html => { :class=> "formhorizontal uni" }) do |f| %>
+  <div class="controlgroup">
+    <%= f.hidden_field :rank %>
+    <div id="rate_star" class="controls" dataaverage="<%= @rate.rank ||= 0 %>"></div>
+  </div>
+  <div class="controlgroup">
+    <%= f.label :comment, "评论", class: "controllabel"%>
+    <div class="controls">
+      <%= f.text_area :comment %>
+    <div>
+  </div>
+  <div class="actions">
+    <%= f.submit "保存", class: "btn btnsmall btnprimary" %>
+    <%= link_to "返回", shop_rates_path, class: "btn btnsmall" %>
+  </div>
+<% end %>
+
+<% content_for :foot do %>
+  <%= javascript_include_tag "jRating.jquery" %>
+  <%= javascript_include_tag "rates.js" %>
+<% end %>

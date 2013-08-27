@@ -29,6 +29,9 @@
             <li>
               <%= link_to '编辑账号信息', edit_user_registration_path %>
             </li>
+            <li>
+              <%= link_to '商店', shops_path %>
+            </li>
             <% if current_user.has_role? :admin %>
                 <li>
                   <%= link_to '后台管理', '/mcenter' %>
@@ -43,7 +46,7 @@
     </div>
   </nav>
 </div>
-<div id="main" role="main">
+<div id="main" role="main" style="margin-top: 20px">
   <div class="container">
     <div class="content">
       <div class="row">
@@ -60,6 +63,7 @@
         </div>
       </div>
       <footer>
+        <%= yield(:foot) %>
       </footer>
     </div>
   </div> <!--! end of .container -->
