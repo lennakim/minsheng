@@ -1,7 +1,6 @@
-class Admin::TagsController < ApplicationController
+class Admin::TagsController < Admin::BaseController
   before_filter :admin_only, :except => :show
-  layout 'admin'
-  before_filter :admin_only, :except => :show
+
   def index
   end
 

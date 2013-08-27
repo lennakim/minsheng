@@ -1,10 +1,9 @@
 # encoding: utf-8
 
-class Admin::NoticesController < ApplicationController
+class Admin::NoticesController < Admin::BaseController
   before_filter :authenticate_user!
   before_filter :admin_only, except: [:index]
   before_filter :set_notice, only: [:show, :edit, :update, :destroy]
-  layout 'admin'
 
   def index
   	@notices = Notice.all

@@ -1,5 +1,4 @@
-class Admin::ShopsController < ApplicationController
-  layout 'admin'
+class Admin::ShopsController < Admin::BaseController
   # GET /shops
   # GET /shops.json
   def index

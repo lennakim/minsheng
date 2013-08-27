@@ -29,7 +29,7 @@ Minsheng::Application.routes.draw do
   resources :categories
   resources :shops
 
-  get "/mcenter" => "mcenter#index"
+  get "/mcenter" => "admin/mcenter#index"
 
   authenticated :user do
     root :to => 'home#index'

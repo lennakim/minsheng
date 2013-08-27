@@ -1,6 +1,6 @@
-class Admin::CategoriesController < ApplicationController
+class Admin::CategoriesController < Admin::BaseController
   before_filter :admin_only, :except => :show
-  layout 'admin'
+
   # GET /categories
   # GET /categories.json
   def index
