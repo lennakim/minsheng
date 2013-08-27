@@ -37,7 +37,7 @@ Minsheng::Application.routes.draw do
     root :to => 'home#index'
   end
   root :to => "home#index"
-  devise_for :users, :controllers => { :registrations => "devise/registrations" }
+  devise_for :users, :controllers => { :registrations => "devise/registrations",:omniauth_callbacks => "devise/omniauth_callbacks" }
   resources :users
 
   resources :notices, only: [:index, :show]
