@@ -1,10 +1,10 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Name:</b>
+  <b>名称:</b>
   <%= @category.name %>
 </p>
 
 
-<%= link_to 'Edit', edit_admin_category_path(@category) %> |
-<%= link_to 'Back', admin_categories_path %>
+<%= link_to '编辑', edit_admin_category_path(@category), class: 'btn btn-small btn-primary' %>
+<%= link_to '返回', admin_categories_path, class: 'btn btn-small' %>
