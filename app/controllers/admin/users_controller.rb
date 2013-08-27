@@ -1,10 +1,10 @@
 # encoding: utf-8
-class Admin::UsersController < ApplicationController
+
+class Admin::UsersController < Admin::BaseController
   load_and_authorize_resource
 
   before_filter :authenticate_user!
   before_filter :admin_only, :except => :show
-  layout 'admin'
 
   def index
     @users = User.all
