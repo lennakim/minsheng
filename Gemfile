@@ -33,3 +33,4 @@ gem "mini_magick"
 gem "ckeditor"
 gem 'ancestry'
 gem "rails_config" #https://github.com/railsjedi/rails_config
+gem 'kaminari'

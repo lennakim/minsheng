@@ -6,7 +6,7 @@ class Admin::NoticesController < Admin::BaseController
   before_filter :set_notice, only: [:show, :edit, :update, :destroy]
 
   def index
-  	@notices = Notice.all
+    @notices = Notice.order('issue_time DESC').page(params[:page])
   end
 
   def new

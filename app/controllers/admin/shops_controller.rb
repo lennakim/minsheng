@@ -3,9 +3,9 @@ class Admin::ShopsController < Admin::BaseController
   # GET /shops.json
   def index
     if params[:tag]
-        @shops = Shop.tagged_with(params[:tag])
-      else
-        @shops = Shop.all
+      @shops = Shop.tagged_with(params[:tag]).order('created_at').page(params[:page])
+    else
+      @shops = Shop.order('created_at').page(params[:page])
     end
 
     respond_to do |format|
