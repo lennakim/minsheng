@@ -4,7 +4,9 @@ class NoticesController < ApplicationController
   load_resource
 
   def index
-    @notices = Notice.order('issue_time DESC')
+    datetime = Time.now
+    @notices = Notice.where('finish_time > ? AND issue_time < ?', datetime, datetime).
+      order('issue_time DESC')
   end
 
   def show

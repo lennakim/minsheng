@@ -1,4 +1,4 @@
-<h1><%= @notice.title %></h1><%= @notice.format_date %>
+<h1><%= @notice.title %></h1><%= format_datetime(@notice.issue_time) %>
 <ul>
   <li>
     <%=raw @notice.content %>

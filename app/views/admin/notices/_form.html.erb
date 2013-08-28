@@ -17,7 +17,14 @@
 <div class="control-group">
   <%= f.label :issue_time, "发布时间：", class: "control-label" %>
   <div class="controls">
-    <%= f.text_field :issue_time, value: notice.format_date, style: "width: 300px;" %>
+    <%= f.text_field :issue_time, value: format_datetime(notice.issue_time), style: "width: 300px;" %>
+  </div>
+</div>
+
+<div class="control-group">
+  <%= f.label :finish, "结束时间：", class: "control-label" %>
+  <div class="controls">
+    <%= f.text_field :finish_time, value: format_datetime(notice.finish_time), style: "width: 300px;" %>
   </div>
 </div>
 
