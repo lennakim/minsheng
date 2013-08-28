@@ -4,10 +4,12 @@ class Devise::OmniauthCallbacksController < DeviseController
     oauth_data = request.env["omniauth.auth"]
     # p oauth_data
     @user = User.find_or_create_for_doorkeeper_oauth(oauth_data)
-    @user.update_doorkeeper_credentials(oauth_data)
-    @user.save
-
-    sign_in_and_redirect @user
+    if @user
+        sign_in_and_redirect @user
+        return
+    else
+        render :status => 404, :text => "Not found. Authentication passthru."
+    end
   end
 
   def passthru
