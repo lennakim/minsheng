@@ -8,9 +8,9 @@
 
       <div class="widget-content">
         <p><b>标题：</b><%= @notice.title %></p>
-        <p><b>类型：</b><%= @notice.tag_text %></p>
-        <p><b>发布时间：</b><%= format_datetime(@notice.issue_time) %></p>
-        <p><b>结束时间：</b><%= format_datetime(@notice.finish_time) %></p>
+        <p><b>类型：</b><%= @notice.flag_text %></p>
+        <p><b>发布时间：</b><%= format_datetime(@notice.start_time) %></p>
+        <p><b>结束时间：</b><%= format_datetime(@notice.end_time) %></p>
         <p><b>内容：</b><%= raw @notice.content %></p>
 
         <%= link_to '编辑', edit_admin_notice_path(@notice), class: 'btn btn-primary btn-small' %>

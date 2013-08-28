@@ -26,9 +26,9 @@
       	      <td class="left">
       	        <%= link_to notice.title, admin_notice_path(notice), class: 'bluelink' %>
       	      </td>
-      	      <td><%= notice.tag_text %></td>
-              <td><%= format_datetime(notice.issue_time) %></td>
-              <td><%= format_datetime(notice.finish_time) %></td>
+      	      <td><%= notice.flag_text %></td>
+              <td><%= format_datetime(notice.start_time) %></td>
+              <td><%= format_datetime(notice.end_time) %></td>
       	      <td>
                   <%= link_to '编辑', edit_admin_notice_path(notice), class: 'bluelink' %>
                   &nbsp;
