@@ -39,3 +39,4 @@ gem 'kaminari'
 
 gem "omniauth"
 gem "omniauth-oauth2"
+gem 'acts-as-taggable-on'
