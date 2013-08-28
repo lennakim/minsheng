@@ -4,7 +4,9 @@ class HomeController < ApplicationController
       redirect_to shops_url
     else
       @provinces = Province.all
-      @notices = Notice.order('issue_time DESC').limit(5)
+      datetime = Time.now
+      @notices = Notice.where('finish_time > ? AND issue_time < ?', datetime, datetime).
+        order('issue_time DESC').limit(5)
     end
   end
 end
