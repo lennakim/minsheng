@@ -22,7 +22,8 @@
             </li>
         <% else %>
             <li>
-              <%= link_to '登录', new_user_session_path %>
+              <%# <%= link_to '登录', new_user_session_path %>
+              <a href="/users/auth/doorkeeper">Sign in with Doorkeeper</a>
             </li>
         <% end %>
         <% if user_signed_in? %>
@@ -39,7 +40,8 @@
             <% end %>
         <% else %>
             <li>
-              <%= link_to '注册', new_user_registration_path %>
+              <%# <%= link_to '注册', new_user_registration_path %>
+              <li><a href="<%= DOORKEEPER_APP_URL%>/users/sign_up">Sign up</a></li>
             </li>
         <% end %>
       </ul>

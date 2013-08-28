@@ -49,8 +49,6 @@ Minsheng::Application.routes.draw do
 
   devise_for :users, :controllers => { :registrations => "devise/registrations",:omniauth_callbacks => "devise/omniauth_callbacks" }
 
-  devise_for :users, :controllers => { :registrations => "devise/registrations" }
-
   resources :users
 
   resources :notices, only: [:index, :show]
