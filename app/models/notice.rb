@@ -5,7 +5,7 @@ class Notice < ActiveRecord::Base
   # includes ..................................................................
 
   # security (i.e. attr_accessible) ...........................................
-  attr_accessible :content, :tag_type, :title, :issue_time
+  attr_accessible :content, :tag_type, :title, :issue_time, :finish_time
 
   # relationships .............................................................
 
@@ -13,7 +13,7 @@ class Notice < ActiveRecord::Base
   TAG_TYPE = { '前' => 1, '后' => 2, '左' => 3, '右' => 4 }
 
   # validations ...............................................................
-  validates :content, :tag_type, :title, :issue_time, presence: true
+  validates :content, :tag_type, :title, :issue_time, :finish_time, presence: true
 
   # callbacks .................................................................
   # scopes ....................................................................
@@ -21,10 +21,6 @@ class Notice < ActiveRecord::Base
   # class methods .............................................................
 
   # public instance methods ...................................................
-  def format_date(format_str = '%Y-%m-%d %H:%M:%S')
-    issue_time.nil? ? nil : issue_time.strftime(format_str)
-  end
-
   def tag_text
     tag_type.nil? ? nil : TAG_TYPE.key(tag_type.to_i)
   end
