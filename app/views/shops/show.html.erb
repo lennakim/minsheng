@@ -19,9 +19,18 @@
     <%= @shop.address %>
     </p>
   </div>
-  <% unless @rates.count == 0 %>
-  <div class="rates" style="margin-top:20px;">
-    <%= render 'rates/rate_list', :rates => @rates %>
+  <div class="span3">
+    <% if can? :new, Rate %>
+      <%= link_to '添加点评', new_shop_rate_path(@shop), class: "btn btn-small" %>
+    <% end %>
   </div>
+</div>
+
+<div class="row">
+  <% unless @rates.count == 0 %>
+    <div class="rates" style="margin-top:20px;">
+      <%= render 'rates/rate_list', :rates => @rates %>
+    </div>
+    <%= paginate @rates %>
   <% end %>
 </div>
