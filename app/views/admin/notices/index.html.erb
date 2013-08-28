@@ -2,6 +2,7 @@
   <div class="widget">
     <div class="widget-head">
       <div class="pull-left">公告管理</div>
+      <div class="pull-right"><%= link_to '新建公告', new_admin_notice_path, class: 'btn btn-primary btn-small' %></div>
       <div class="clearfix"></div>
     </div>
 
@@ -34,11 +35,8 @@
       	</table>
       </div>
 
-      <br/>
-      <%= link_to '新建公告', new_admin_notice_path, class: 'btn btn-primary btn-small' %>
-
       <div class="widget-foot">
-        <h3><%= paginate @notices %></h3>
+        <%= paginate @notices %>
       </div>
 
     </div>

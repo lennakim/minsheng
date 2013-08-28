@@ -815,25 +815,25 @@ header .header-data .hdata em{
 
 /* Bread crumb */
 
-.mainbar .bread-crumb{
+.nav-collapse .bread-crumb{
 	font-size: 11px;
 	margin-top: 10px;
 	color: #aaa;
 }
 
-.mainbar .bread-crumb i{
+.nav-collapse .bread-crumb i{
 	margin-right: 3px;
 }
 
-.mainbar .bread-crumb .divider{
+.nav-collapse .bread-crumb .divider{
 	margin: 0px 3px;
 }
 
-.mainbar .bread-crumb a{
+.nav-collapse .bread-crumb a, a.magic{
 	color: #666;
 }
 
-.mainbar .bread-crumb a.bread-current{
+.nav-collapse .bread-crumb a.bread-current{
 	color: #888;
 }
 
@@ -990,6 +990,7 @@ header .header-data .hdata em{
   font-size: 12px;
   color: #555;
   box-shadow: inset 0px 1px 1px #fff;
+  line-height: 0px;
 }
 
 .widget.wblack .widget-foot{
