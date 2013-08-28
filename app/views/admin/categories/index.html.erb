@@ -4,6 +4,7 @@
     <div class="widget">
       <div class="widget-head">
         <div class="pull-left">分类管理</div>
+        <div class="pull-right"><%= link_to '新建分类', new_admin_category_path, class: 'btn btn-primary btn-small' %></div>
         <div class="clearfix"></div>
       </div>
 
@@ -42,11 +43,8 @@
           </tbody>
         </table>
 
-        <br/>
-        <%= link_to '新建分类', new_admin_category_path, class: 'btn btn-primary btn-small' %>
-
         <div class="widget-foot">
-          <h3><%= paginate @categories %></h3>
+          <%= paginate @categories %>
         </div>
 
       </div>

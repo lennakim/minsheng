@@ -6,6 +6,7 @@
 
       <div class="widget-head">
         <div class="pull-left">商店管理</div>
+        <div class="pull-right"><%= link_to '新建商店', new_admin_shop_path, class: 'btn btn-primary btn-small' %></div>
         <div class="clearfix"></div>
       </div>
 
@@ -39,12 +40,9 @@
             </tr>
           <% end %>
         </table>
-        <br/>
-
-        <%= link_to '新建商店', new_admin_shop_path, class: 'btn btn-primary btn-small' %>
 
         <div class="widget-foot">
-          <h3><%= paginate @shops %></h3>
+          <%= paginate @shops %>
         </div>
 
       </div>
