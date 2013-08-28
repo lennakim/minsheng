@@ -5,8 +5,8 @@ class NoticesController < ApplicationController
 
   def index
     datetime = Time.now
-    @notices = Notice.where('finish_time > ? AND issue_time < ?', datetime, datetime).
-      order('issue_time DESC')
+    @notices = Notice.where('end_time > ? AND start_time < ?', datetime, datetime).
+      order('start_time DESC')
   end
 
   def show

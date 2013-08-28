@@ -8,23 +8,23 @@
 </div>
 
 <div class="control-group">
-  <%= f.label :tag_type, "类型：", class: "control-label" %>
+  <%= f.label :flag_type, "类型：", class: "control-label" %>
   <div class="controls">
-    <%= f.select :tag_type, Notice::TAG_TYPE.to_a, {include_blank: true}, style: "width: 220px;" %>
+    <%= f.select :flag_type, Notice::FLAG_TYPE.to_a, {include_blank: true}, style: "width: 220px;" %>
   </div>
 </div>
 
 <div class="control-group">
-  <%= f.label :issue_time, "发布时间：", class: "control-label" %>
+  <%= f.label :start_time, "发布时间：", class: "control-label" %>
   <div class="controls">
-    <%= f.text_field :issue_time, value: format_datetime(notice.issue_time), style: "width: 300px;" %>
+    <%= f.text_field :start_time, value: format_datetime(notice.start_time), style: "width: 300px;" %>
   </div>
 </div>
 
 <div class="control-group">
-  <%= f.label :finish, "结束时间：", class: "control-label" %>
+  <%= f.label :end_time, "结束时间：", class: "control-label" %>
   <div class="controls">
-    <%= f.text_field :finish_time, value: format_datetime(notice.finish_time), style: "width: 300px;" %>
+    <%= f.text_field :end_time, value: format_datetime(notice.end_time), style: "width: 300px;" %>
   </div>
 </div>
 
@@ -38,5 +38,5 @@
 <div class="text-center">
   <%= f.submit "保存", class: "_submit btn btn-primary btn-small" %>
   &nbsp;
-  <%= link_to "取消", admin_notices_path, class: "_cancel btn btn-small" %>
+  <a href="javascript:history.go(-1);" class="btn btn-small">返回</a>
 </div>
