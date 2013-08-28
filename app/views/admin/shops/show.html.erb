@@ -36,12 +36,6 @@
         </p>
         <%= link_to '编辑', edit_admin_shop_path(@shop), class: 'btn btn-small btn-primary' %>
         <%= link_to '返回', admin_shops_path, class: 'btn btn-small' %>
-        <% if can? :new, :rate %>
-          |<%= link_to '新点评', new_admin_shop_rate_path(@shop) %>
-        <% end %>
-        <div class="rates" style="margin-top:20px;">
-          <%= render 'admin/rates/rate_list', :rates => @rates %>
-        </div>
       </div>
       <% unless @rates.count == 0 %>
       <div class="rates" style="margin-top:20px;">

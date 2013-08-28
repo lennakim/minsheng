@@ -5,7 +5,7 @@
 <%= form_for([@shop,@rate], :html => { :class=> "formhorizontal uni" }) do |f| %>
   <div class="controlgroup">
     <%= f.hidden_field :rank %>
-    <div id="rate_star" class="controls" dataaverage="<%= @rate.rank ||= 0 %>"></div>
+    <div id="rate_star" class="controls" data-average="<%= @rate.rank ||= 0 %>"></div>
   </div>
   <div class="controlgroup">
     <%= f.label :comment, "评论", class: "controllabel"%>

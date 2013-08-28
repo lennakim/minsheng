@@ -34,7 +34,7 @@
             </li>
             <% if current_user.has_role? :admin %>
                 <li>
-                  <%= link_to '后台管理', '/mcenter' %>
+                  <%= link_to '后台管理', '/admin' %>
                 </li>
             <% end %>
         <% else %>
