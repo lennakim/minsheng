@@ -6,7 +6,7 @@ class RatesController < ApplicationController
   # GET /rates
   # GET /rates.json
   def index
-    @rates = @shop.rates
+    @rates = @shop.rates.page(params[:page])
 
     respond_to do |format|
       format.html # index.html.erb
