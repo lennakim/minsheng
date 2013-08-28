@@ -37,6 +37,18 @@
           <!-- Navigation starts -->
           <div class="nav-collapse collapse">
             <!-- Links -->
+
+              <h2 class="pull-left"><a class="magic" href="/admin"><i class="icon-magic"></i>管理页面</a></h2>
+
+              <!-- Breadcrumb -->
+              <div class="bread-crumb pull-right">
+                <a href="/admin"><i class="icon-home"></i>首页</a>
+                <!-- Divider -->
+                <span class="divider">/</span>
+                <%= link_to controller_name %>
+              </div>
+
+
             <ul class="nav pull-right">
               <li class="dropdown pull-right">
                 <a data-toggle="dropdown" class="dropdown-toggle" href="#">
@@ -96,26 +108,7 @@
 
       <!-- Main bar -->
       <div class="mainbar">
-
-        <!-- Page heading -->
-        <div class="page-head">
-          <h2 class="pull-left"><i class="icon-magic"></i> 管理页面</h2>
-
-          <!-- Breadcrumb -->
-          <div class="bread-crumb pull-right">
-            <a href="/admin"><i class="icon-home"></i>首页</a>
-            <!-- Divider -->
-            <span class="divider">/</span>
-            <%= link_to controller_name %>
-          </div>
-
-          <div class="clearfix"></div>
-
-        </div>
-        <!-- Page heading ends -->
-
         <!-- Matter -->
-
         <div class="matter">
           <div class="container-fluid">
 
