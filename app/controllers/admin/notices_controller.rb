@@ -6,7 +6,7 @@ class Admin::NoticesController < Admin::BaseController
   before_filter :set_notice, only: [:show, :edit, :update, :destroy]
 
   def index
-    @notices = Notice.order('issue_time DESC').page(params[:page])
+    @notices = Notice.order('start_time DESC').page(params[:page])
   end
 
   def new
@@ -14,10 +14,10 @@ class Admin::NoticesController < Admin::BaseController
   end
 
   def create
-    issue_time = params[:notice][:issue_time]
-    finish_time = params[:notice][:finish_time]
-    params[:notice][:issue_time] = issue_time.to_time unless issue_time.blank?
-    params[:notice][:finish_time] = finish_time.to_time unless finish_time.blank?
+    start_time = params[:notice][:start_time]
+    end_time = params[:notice][:end_time]
+    params[:notice][:start_time] = start_time.to_time unless start_time.blank?
+    params[:notice][:end_time] = end_time.to_time unless end_time.blank?
     @notice = Notice.new(params[:notice])
     if @notice.save
       redirect_to admin_notices_path
@@ -34,10 +34,10 @@ class Admin::NoticesController < Admin::BaseController
   end
 
   def update
-    issue_time = params[:notice][:issue_time]
-    finish_time = params[:notice][:finish_time]
-    params[:notice][:issue_time] = issue_time.to_time unless issue_time.blank?
-    params[:notice][:finish_time] = finish_time.to_time unless finish_time.blank?
+    start_time = params[:notice][:start_time]
+    end_time = params[:notice][:end_time]
+    params[:notice][:start_time] = start_time.to_time unless start_time.blank?
+    params[:notice][:end_time] = end_time.to_time unless end_time.blank?
     if @notice.update_attributes(params[:notice])
       redirect_to admin_notices_path
     else

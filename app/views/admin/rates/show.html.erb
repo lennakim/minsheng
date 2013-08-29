@@ -15,7 +15,7 @@
         <p><b>评分:</b><div class="star" data-average="<%= @rate.rank ||= 0 %>" ></div></p>
         <p><b>评论:</b><%= @rate.comment %></p>
 
-        <%= link_to '返回', admin_shop_rate_path(@shop), class: "btn btn-small" %>
+        <a href="javascript:history.go(-1);" class="btn btn-small">返回</a>
       </div>
     </div>
   </div>

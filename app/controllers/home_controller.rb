@@ -5,8 +5,8 @@ class HomeController < ApplicationController
     else
       @provinces = Province.all
       datetime = Time.now
-      @notices = Notice.where('finish_time > ? AND issue_time < ?', datetime, datetime).
-        order('issue_time DESC').limit(5)
+      @notices = Notice.where('end_time > ? AND start_time < ?', datetime, datetime).
+        order('start_time DESC').limit(5)
     end
   end
 end
