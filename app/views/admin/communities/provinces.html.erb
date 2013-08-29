@@ -1,0 +1,5 @@
+<ul>
+  <% @provinces.each do |province| %>
+    <li><strong><a href="/admin/provinces/<%= province.id %>/cities"><%= province.name %></a></strong></li>
+  <% end %>
+</ul>

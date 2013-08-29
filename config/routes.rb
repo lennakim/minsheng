@@ -1,5 +1,10 @@
 Minsheng::Application.routes.draw do
   match "/images/uploads/*path" => "gridfs#serve"
+
+
+  match "admin/cities" => "admin/communities#cities"
+  match "admin/cities/:city_id/districts" => "admin/communities#districts"
+
   resources :shop_images
 
   get 'tags/:tag', to: 'admin/shops#index', as: :tag
@@ -30,6 +35,11 @@ Minsheng::Application.routes.draw do
     resources :shop_images
 
     resources :notices
+
+    resources :districts, only: :show do
+      resources :communities
+    end
+
   end
 
   resources :categories

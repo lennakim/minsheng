@@ -1,0 +1,7 @@
+
+<h4><%= @city.name %></h4>
+<ul>
+  <% @districts.each do |district| %>
+    <li><strong><a href="/admin/districts/<%=district.id%>/communities"><%= district.name %></a></strong></li>
+  <% end %>
+</ul>
