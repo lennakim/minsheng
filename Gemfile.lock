@@ -1,5 +1,5 @@
 GIT
-  remote: git://github.com/ahoward/mongoid-grid_fs.git
+  remote: https://github.com/ahoward/mongoid-grid_fs.git
   revision: 544070ac3120a71870dec974bbb3364a93845765
   specs:
     mongoid-grid_fs (1.9.0)
@@ -36,6 +36,8 @@ GEM
     activesupport (3.2.13)
       i18n (= 0.6.1)
       multi_json (~> 1.0)
+    acts-as-taggable-on (2.4.1)
+      rails (>= 3, < 5)
     addressable (2.3.4)
     ancestry (2.0.0)
       activerecord (>= 3.0.0)
@@ -226,6 +228,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts-as-taggable-on
   ancestry
   bootstrap-sass (>= 2.1.0.0)
   cancan (>= 1.6.8)
