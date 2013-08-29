@@ -91,6 +91,7 @@ class Admin::CategoriesController < Admin::BaseController
 
   def children
     @category_id = params[:id]
+    @parent_category = Category.find(@category_id)
     @categories = Category.find(@category_id).children.page(params[:page])
     render 'index'
   end
