@@ -26,6 +26,7 @@ class Admin::CategoriesController < Admin::BaseController
   # GET /categories/new
   # GET /categories/new.json
   def new
+    @parent_id = params[:parent_id]
     @category = Category.new
 
     respond_to do |format|
@@ -46,7 +47,9 @@ class Admin::CategoriesController < Admin::BaseController
 
     respond_to do |format|
       if @category.insert(params[:category][:parent_id])
-        format.html { redirect_to admin_category_path(@category.id.to_s), notice: 'Category was successfully created.' }
+        _pre_path =  params[:category][:parent_id].blank? ? admin_categories_path :
+          children_admin_category_path(@category.parent)
+        format.html { redirect_to _pre_path, notice: 'Category was successfully created.' }
         format.json { render json: @category, status: :created, location: @category }
       else
         format.html { render action: "new" }
@@ -75,16 +78,20 @@ class Admin::CategoriesController < Admin::BaseController
   # DELETE /categories/1.json
   def destroy
     @category = Category.find(params[:id])
+    parent_category = @category.parent
+    _pre_path = parent_category.nil? ? admin_categories_path :
+      children_admin_category_path(parent_category)
     @category.destroy
 
     respond_to do |format|
-      format.html { redirect_to admin_categories_url }
+      format.html { redirect_to _pre_path }
       format.json { head :no_content }
     end
   end
 
   def children
-    @categories = Category.find(params[:id]).children.page(params[:page])
+    @category_id = params[:id]
+    @categories = Category.find(@category_id).children.page(params[:page])
     render 'index'
   end
 end

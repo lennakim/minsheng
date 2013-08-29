@@ -10,10 +10,16 @@
       </ul>
     </div>
   <% end %>
+
   <div class="control-group">
     <%= f.label :parent, '所属分类：', class: 'control-label' %>
     <div class="controls">
-      <%= f.select(:parent_id, Category.all.collect {|c| [ c.name, c.id ] }, {include_blank: 'Root'})%>
+      <% if @parent_id %>
+        <%= hidden_field_tag :'[category][parent_id]', @parent_id %>
+        <%= f.select(:parent_id, options_for_select(Category.all.collect {|c| [ c.name, c.id ] }, @parent_id),{}, disabled: :disabled) %>
+      <% else %>
+        <%= f.select(:parent_id, Category.all.collect {|c| [ c.name, c.id ] }, {include_blank: 'Root'}) %>
+      <% end %>
     </div>
   </div>
 
