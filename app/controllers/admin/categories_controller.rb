@@ -84,7 +84,7 @@ class Admin::CategoriesController < Admin::BaseController
   end
 
   def children
-    @categories = Category.find(params[:id]).children
+    @categories = Category.find(params[:id]).children.page(params[:page])
     render 'index'
   end
 end
