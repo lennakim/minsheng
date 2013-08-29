@@ -7,4 +7,4 @@
 
 
 <%= link_to '编辑', edit_admin_category_path(@category), class: 'btn btn-small btn-primary' %>
-<%= link_to '返回', admin_categories_path, class: 'btn btn-small' %>
+<%= link_to '返回', @category.parent_id.nil? ? admin_categories_path : children_admin_category_path(@category.parent), class: 'btn btn-small' %>
