@@ -1,0 +1,44 @@
+<div class="row-fluid">
+  <div class="widget">
+    <div class="widget-head">
+      <div class="pull-left">友情链接管理</div>
+      <div class="pull-right"><%= link_to '新建友情链接', new_admin_friendly_link_path, class: 'btn btn-primary btn-small' %></div>
+      <div class="clearfix"></div>
+    </div>
+
+    <div class="widget-content">
+
+      <div id='friendly_link_container'>
+        <table class="table table-bordered table-striped table-hover">
+      	  <thead>
+      	    <tr>
+      	      <th>名称</th>
+      	      <th>路径</th>
+      	      <th>排序</th>
+      	      <th>操作</th>
+      	    </tr>
+      	  </thead>
+      	  <% @friendly_links.each_with_index do |friendly_link, idx| %>
+      	    <tr>
+      	      <td>
+      	        <%= link_to friendly_link.name, admin_friendly_link_path(friendly_link) %>
+      	      </td>
+      	      <td><%= friendly_link.url %></td>
+              <td><%= friendly_link.sort %></td>
+      	      <td>
+                  <%= link_to '编辑', edit_admin_friendly_link_path(friendly_link) %>
+                  &nbsp;
+                  <%= link_to '删除', admin_friendly_link_path(friendly_link), method: :delete, data: {confirm: '确定删除？'} %>
+      	      </td>
+      	    </tr>
+      	  <% end %>
+      	</table>
+      </div>
+
+      <div class="widget-foot">
+        <%= paginate @friendly_links %>
+      </div>
+
+    </div>
+  </div>
+</div>
