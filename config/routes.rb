@@ -38,6 +38,8 @@ Minsheng::Application.routes.draw do
 
     resources :friendly_links
 
+    resources :shop_recommendations, except: :show
+
     resources :districts, only: :show do
       resources :communities
     end
