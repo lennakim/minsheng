@@ -1,0 +1,28 @@
+<%
+  category_select = Category.where(ancestry: nil).select('name, id').map{|ca| [ca.name, ca.id]}
+  old_category_id = @category && @category.id
+%>
+
+<%= hidden_field_tag :id, tag.id %>
+<%= hidden_field_tag :old_name, tag.name %>
+<%= hidden_field_tag :old_category_id, old_category_id %>
+
+<div class="control-group">
+  <%= label_tag :category_id, "分类名称：", class: "control-label" %>
+  <div class="controls">
+    <%= select_tag :category_id, options_for_select(category_select, old_category_id), style: "width: 220px;" %>
+  </div>
+</div>
+
+<div class="control-group">
+  <%= f.label :name, "标签名称：", class: "control-label" %>
+  <div class="controls">
+    <%= f.text_field :name, style: "width: 300px;" %>
+  </div>
+</div>
+
+<div class="text-center">
+  <%= f.submit "保存", class: "btn btn-primary btn-small" %>
+  &nbsp;
+  <a href="javascript:history.go(-1);" class="btn btn-small">返回</a>
+</div>
