@@ -1,54 +1,29 @@
-class Shop < ActiveRecord::Base
+# encoding: utf-8
+
+class ShopRecommendation < ActiveRecord::Base
   # extends ...................................................................
   # includes ..................................................................
 
   # security (i.e. attr_accessible) ...........................................
-  attr_accessible :address, :phone, :title, :shopImages_attributes, :tag_list,:category_id
+  attr_accessible :end_time, :shop_id, :start_time, :flag_type, :sort
 
   # relationships .............................................................
-  has_many :shopImages
-
-  accepts_nested_attributes_for :shopImages , :allow_destroy => true
-
-  belongs_to :category
-
-  has_many :taggings
-
-  has_many :tags, through: :taggings
-
-  has_many :rates, dependent: :destroy
-
-  has_one :shop_recommendation
+  belongs_to :shop
 
   # constants definition ......................................................
+  FLAG_TYPE = { '前' => 1, '后' => 2, '左' => 3, '右' => 4 }
+
   # validations ...............................................................
+  validates :shop_id, :flag_type, :start_time, :end_time, :sort, presence: true
+
   # callbacks .................................................................
   # scopes ....................................................................
   # additional config .........................................................
   # class methods .............................................................
 
   # public instance methods ...................................................
-  def self.tag_list
-    Tag.all.map(&:name).join(", ")
-  end
-
-  def self.tagged_with(name)
-    Tag.find_by_name!(name).shops
-  end
-
-  def self.tag_counts
-    Tag.select("tags.*, count(taggings.tag_id) as count").
-      joins(:taggings).group("taggings.tag_id")
-  end
-
-  def tag_list
-    tags.map(&:name).join(", ")
-  end
-
-  def tag_list=(names)
-    self.tags = names.split(",").map do |n|
-      Tag.where(name: n.strip).first_or_create!
-    end
+  def flag_text
+    flag_type.nil? ? nil : FLAG_TYPE.key(flag_type.to_i)
   end
 
   # protected instance methods ................................................
