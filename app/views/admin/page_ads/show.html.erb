@@ -1,0 +1,45 @@
+
+
+<div class="row-fluid">
+  <div class="span12">
+    <div class="widget">
+
+      <div class="widget-head">
+        <div class="pull-left">广告详细信息</div>
+        <div class="clearfix"></div>
+      </div>
+
+      <div class="widget-content">
+        <table>
+          <tr>
+            <td>ID</td>
+            <td><%= @page_ad.id %></td>
+          </tr>
+          <tr>
+            <td>类型</td>
+            <td><%= PageAd::FLAG_TYPE_DESC[@page_ad.flag_type] %></td>
+          </tr>
+          <tr>
+            <td>名称</td>
+            <td><%= @page_ad.name %></td>
+          </tr>
+          <tr>
+            <td>URL</td>
+            <td><%= @page_ad.href %></td>
+          </tr>
+          <tr>
+            <td>排序</td>
+            <td><%= @page_ad.sort %></td>
+          </tr>
+          <tr>
+            <td>广告图片</td>
+            <td><img src="<%= @page_ad.image_url %>" alt="<%= @page_ad.ad_desc %>" /></td>
+          </tr>
+        </table>
+
+        <%= link_to '编辑', edit_admin_page_ad_path(@page_ad), class: 'btn btn-small btn-primary' %>
+        <a class="btn btn-small btn-primary" href="#" onclick="history.go(-1)">返回</a>
+      </div>
+    </div>
+  </div>
+</div>
