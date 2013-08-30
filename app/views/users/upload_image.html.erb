@@ -1,0 +1,10 @@
+<%= form_for(@user) do |f| %>
+  <%= hidden_field_tag :id, @user.id %>
+  <div class="field">
+    <%= f.label :image_url, '上传图片' %><br />
+    <%= f.file_field :image_url %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

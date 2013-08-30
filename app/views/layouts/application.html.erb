@@ -31,6 +31,9 @@
               <%= link_to '编辑账号信息', edit_user_registration_path %>
             </li>
             <li>
+              <%= link_to '编辑图片', upload_image_user_path(current_user) %>
+            </li>
+            <li>
               <%= link_to '商店', shops_path %>
             </li>
             <% if current_user.has_role? :admin %>

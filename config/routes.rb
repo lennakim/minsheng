@@ -10,6 +10,8 @@ Minsheng::Application.routes.draw do
 
   match "/productimages/uploads/*path" => "gridfs#productimage"
 
+  match "/userimages/uploads/*path" => "gridfs#userimage"
+
 
   match "admin/cities" => "admin/communities#cities"
   match "admin/cities/:city_id/districts" => "admin/communities#districts"
@@ -73,7 +75,11 @@ Minsheng::Application.routes.draw do
 
   devise_for :users, :controllers => { :registrations => "devise/registrations",:omniauth_callbacks => "devise/omniauth_callbacks" }
 
-  resources :users
+  resources :users do
+    member do
+      get :upload_image
+    end
+  end
 
   resources :notices, only: [:index, :show]
 end
