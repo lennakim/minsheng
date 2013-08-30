@@ -1,0 +1,43 @@
+<div class="row-fluid">
+  <div class="widget">
+    <div class="widget-head">
+      <div class="pull-left">小区</div>
+      <div class="widget-icons pull-right">
+        <a href="#" class="wminimize"><i class="icon-chevron-up"></i></a>
+        <a href="#" class="wclose"><i class="icon-remove"></i></a>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+
+    <div class="widget-content">
+
+        <table class="table table-bordered table-striped table-hover">
+            <tr>
+              <th>名称</th>
+              <th>地址</th>
+              <th>备注</th>
+              <th>操作</th>
+            </tr>
+
+          <% @communities.each do |community| %>
+            <tr>
+              <td><%= community.name %></td>
+              <td><%= community.address %></td>
+              <td><%= community.description %></td>
+              <td><%= link_to '显示', admin_district_community_path(@district, community) %>
+                 <%= link_to '编辑', edit_admin_district_community_path(@district,community) %>
+                 <%= link_to '删除', admin_district_community_path(@district, community), method: :delete, data: { confirm: '确定删除么?' } %>
+               </td>
+            </tr>
+          <% end %>
+        </table>
+
+     <%= link_to '添加', new_admin_district_community_path, class: "btn btn-small btn-primary" %>
+
+      <div class="widget-foot">
+        <h3><%= paginate @communities %></h3>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+  </div>
+</div>

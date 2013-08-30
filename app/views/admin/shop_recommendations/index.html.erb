@@ -1,0 +1,48 @@
+<div class="row-fluid">
+  <div class="widget">
+    <div class="widget-head">
+      <div class="pull-left">商户推荐管理</div>
+      <div class="pull-right"><%= link_to '新建商户推荐', new_admin_shop_recommendation_path, class: 'btn btn-primary btn-small' %></div>
+      <div class="clearfix"></div>
+    </div>
+
+    <div class="widget-content">
+
+      <div id='shop_recommendation_container'>
+        <table class="table table-bordered table-striped table-hover">
+      	  <thead>
+      	    <tr>
+      	      <th>序号</th>
+      	      <th>类型</th>
+              <th>商店</th>
+              <th>排序</th>
+              <th>发布时间</th>
+              <th>结束时间</th>
+      	      <th>操作</th>
+      	    </tr>
+      	  </thead>
+      	  <% @shop_recommendations.each_with_index do |sr, idx| %>
+      	    <tr>
+      	      <td><%= idx+1 %></td>
+      	      <td><%= sr.flag_text %></td>
+              <td><%=link_to sr.shop.title, admin_shop_path(sr.shop, from_recommendation: true) %></td>
+              <td><%= sr.sort %></td>
+              <td><%= format_datetime(sr.start_time) %></td>
+              <td><%= format_datetime(sr.end_time) %></td>
+      	      <td>
+                  <%= link_to '编辑', edit_admin_shop_recommendation_path(sr) %>
+                  &nbsp;
+                  <%= link_to '删除', admin_shop_recommendation_path(sr), method: :delete, data: {confirm: '确定删除？'} %>
+      	      </td>
+      	    </tr>
+      	  <% end %>
+      	</table>
+      </div>
+
+      <div class="widget-foot">
+        <%= paginate @shop_recommendations %>
+      </div>
+
+    </div>
+  </div>
+</div>

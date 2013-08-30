@@ -38,7 +38,7 @@
           <div class="nav-collapse collapse">
             <!-- Links -->
 
-              <h2 class="pull-left"><a class="magic" href="/admin"><i class="icon-magic"></i>管理页面</a></h2>
+              <h2 class="pull-left"><a class="magic" href="/admin"><i class="icon-magic"></i>后台管理</a></h2>
 
               <!-- Breadcrumb -->
               <div class="bread-crumb pull-right">
@@ -88,10 +88,24 @@
                 <%= link_to raw('<i class="icon-money"></i>商店管理'), '/admin/shops' %>
               </li>
               <li>
+                <%= link_to raw('<i class="icon-money"></i>商品管理'), '/admin/products' %>
+              <li>
                 <%= link_to raw('<i class="icon-group"></i>用户管理'), '/admin/users' %>
               </li>
               <li>
                 <%= link_to raw('<i class="icon-comments"></i>公告管理'), admin_notices_path %>
+              </li>
+              <li>
+                <%= link_to raw('<i class="icon-comments"></i>友情链接管理'), admin_friendly_links_path %>
+              </li>
+              <li>
+                <%= link_to raw('<i class="icon-comments"></i>商户推荐'), admin_shop_recommendations_path %>
+              </li>
+              <li>
+                <%= link_to raw('<i class="icon-comments"></i>标签管理'), admin_tags_path %>
+              </li>
+              <li>
+                <%= link_to raw('<i class="icon-comments"></i>区域管理'), "/admin/cities" %>
               </li>
           <% else %>
               <li>

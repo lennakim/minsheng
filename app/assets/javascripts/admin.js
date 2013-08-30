@@ -39,5 +39,6 @@
 // later use require_tree ./admin
 //= require admin/notices
 //= require admin/page_ads
+//= require admin/shop_recommendations
 
 

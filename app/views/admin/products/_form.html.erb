@@ -1,0 +1,38 @@
+<%= form_for [:admin,@product],:html => {:class=>"form-horizontal uni"}  do |f| %>
+  <% if @product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+      <ul>
+      <% @product.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="control-group">
+    <%= f.label :category_id , '所属分类：',:class=>"control-label" %>
+    <%= f.select(:shop_id, Shop.all.collect {|c| [ c.title, c.id ] }, {include_blank: 'None'})%>
+  </div>
+  <div class="control-group">
+    <%= f.label :name ,'Name', :class=>"control-label"%><br />
+
+    <div class="controls">
+    <%= f.text_field :name %>
+  </div>
+  </div>
+  <div class="control-group">
+    <h4>上传图片：</h4>
+    <%= f.fields_for :productImages  do |image| %>
+      <div class="controls">
+      <%= image.file_field :url  %>
+    </div>
+  <% end %>
+  </div>
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
