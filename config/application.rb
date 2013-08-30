@@ -18,6 +18,10 @@ module Minsheng
       g.view_specs false
       g.helper_specs false
       g.orm :active_record 
+      g.stylesheets false
+      g.javascripts false
+      g.helper false
+      g.rspec false
     end
 
     # Settings in config/environments/* take precedence over those specified here.

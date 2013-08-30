@@ -14,6 +14,8 @@ class Shop < ActiveRecord::Base
 
   has_many :taggings
 
+  has_many :products
+
   has_many :tags, through: :taggings
 
   has_many :rates, dependent: :destroy

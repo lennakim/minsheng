@@ -1,5 +1,14 @@
 Minsheng::Application.routes.draw do
-  match "/images/uploads/*path" => "gridfs#serve"
+
+  resources :product_images
+
+
+  # resources :products
+
+
+  match "/images/uploads/*path" => "gridfs#shopimage"
+
+  match "/productimages/uploads/*path" => "gridfs#productimage"
 
 
   match "admin/cities" => "admin/communities#cities"
@@ -39,6 +48,8 @@ Minsheng::Application.routes.draw do
     resources :districts, only: :show do
       resources :communities
     end
+
+    resources :products
 
   end
 

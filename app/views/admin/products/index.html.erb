@@ -1,0 +1,27 @@
+<h1>Listing products</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th>Name</th>
+    <th>Shop</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @products.each do |product| %>
+  <tr>
+    <td><img src="<%= product.productImages.first.url if  product.productImages.first%>" alt="" /></td>
+    <td><%= product.name %></td>
+    <td><%= product.shop_id %></td>
+    <td><%= link_to 'Show', admin_product_path(product) %></td>
+    <td><%= link_to 'Edit', edit_admin_product_path(product) %></td>
+    <td><%= link_to 'Destroy', admin_product_path(product), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Product', new_admin_product_path %>
