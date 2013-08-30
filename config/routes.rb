@@ -6,9 +6,7 @@ Minsheng::Application.routes.draw do
   # resources :products
 
 
-  match "/images/uploads/*path" => "gridfs#shopimage"
-
-  match "/productimages/uploads/*path" => "gridfs#productimage"
+  match "/images/upload/:model/url/:id/:filename" => "gridfs#serve"
 
 
   match "admin/cities" => "admin/communities#cities"
