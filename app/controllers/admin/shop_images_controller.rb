@@ -25,7 +25,6 @@ class Admin::ShopImagesController < Admin::BaseController
   # GET /shop_images/new.json
   def new
     @shop_image = ShopImage.new
-
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @shop_image }

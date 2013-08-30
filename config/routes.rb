@@ -1,5 +1,19 @@
 Minsheng::Application.routes.draw do
-  match "/images/uploads/*path" => "gridfs#serve"
+
+  resources :product_images
+
+
+  # resources :products
+
+
+  match "/images/uploads/*path" => "gridfs#shopimage"
+
+  match "/productimages/uploads/*path" => "gridfs#productimage"
+
+
+  match "admin/cities" => "admin/communities#cities"
+  match "admin/cities/:city_id/districts" => "admin/communities#districts"
+
   resources :shop_images
 
   get 'tags/:tag', to: 'admin/shops#index', as: :tag
@@ -18,7 +32,7 @@ Minsheng::Application.routes.draw do
       resources :rates, only: :show
     end
 
-    resources :tags
+    resources :tags, except: :show
 
     resources :users do
       member do
@@ -30,6 +44,16 @@ Minsheng::Application.routes.draw do
     resources :shop_images
 
     resources :notices
+
+    resources :friendly_links
+
+    resources :shop_recommendations, except: :show
+
+    resources :districts, only: :show do
+      resources :communities
+    end
+
+    resources :products
   end
 
   resources :categories
