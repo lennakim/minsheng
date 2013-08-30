@@ -9,5 +9,8 @@ class CreateShopRecommendations < ActiveRecord::Migration
 
       t.timestamps
     end
+
+    add_index :shop_recommendations, :flag_type
+    add_index :shop_recommendations, :sort
   end
 end

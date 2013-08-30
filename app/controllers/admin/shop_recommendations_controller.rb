@@ -5,7 +5,7 @@ class Admin::ShopRecommendationsController < Admin::BaseController
   load_resource
 
   def index
-    @shop_recommendations = ShopRecommendation.includes(:shop).order('flag_type DESC').page(params[:page])
+    @shop_recommendations = ShopRecommendation.includes(:shop).order('flag_type DESC, sort').page(params[:page])
   end
 
   def new
