@@ -32,7 +32,7 @@ Minsheng::Application.routes.draw do
       resources :rates, only: :show
     end
 
-    resources :tags
+    resources :tags, except: :show
 
     resources :users do
       member do
@@ -45,12 +45,15 @@ Minsheng::Application.routes.draw do
 
     resources :notices
 
+    resources :friendly_links
+
+    resources :shop_recommendations, except: :show
+
     resources :districts, only: :show do
       resources :communities
     end
 
     resources :products
-
   end
 
   resources :categories

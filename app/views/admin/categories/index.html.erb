@@ -13,6 +13,7 @@
           <% end %>
         </div>
         <div class="pull-right">
+          <%= link_to '标签管理', admin_tags_path, class: 'btn btn-primary btn-small' %>
           <%= link_to '新建分类', new_admin_category_path(parent_id: @category_id), class: 'btn btn-primary btn-small' %>
         </div>
         <div class="clearfix"></div>
