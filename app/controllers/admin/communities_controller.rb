@@ -1,7 +1,7 @@
 # encoding: utf-8
 class Admin::CommunitiesController < Admin::BaseController
-  # before_filter :admin_only
-  before_filter :find_district, except: [ :provinces, :cities, :districts]
+  before_filter :admin_only
+  before_filter :find_district, except: [:cities, :districts]
 
   # GET /admin/communities
   # GET /admin/communities.json
