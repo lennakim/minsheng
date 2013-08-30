@@ -1,0 +1,18 @@
+<div>
+  <h5>热门城市</h5>
+  <% @top_cities.each do |city| %>
+    <strong><a href="/admin/cities/<%= city.id %>/districts"><%= city.name %></a></strong>
+  <% end %>
+</div>
+
+
+<div>
+  <% @cities.each do |k,v| %>
+    <dl>
+    <dt><%= k.upcase %></dt>
+    <% v.each do |city| %>
+      <dd style="display: inline-block"><a href="/admin/cities/<%=city.id%>/districts"><%= city.name %></a></dd>
+    <% end %>
+  </dl>
+  <% end %>
+</div>
