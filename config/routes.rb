@@ -30,6 +30,8 @@ Minsheng::Application.routes.draw do
     resources :shop_images
 
     resources :notices
+
+    resources :page_ads
   end
 
   resources :categories

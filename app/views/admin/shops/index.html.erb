@@ -36,7 +36,7 @@
               <td><%= raw shop.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ') %></td>
               <td><%= link_to '显示', admin_shop_path(shop) %></td>
               <td><%= link_to '编辑', edit_admin_shop_path(shop) %></td>
-              <td><%= link_to '删除', admin_shop_path(shop), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <td><%= link_to '删除', admin_shop_path(shop), method: :delete, data: { confirm: '确定删除?' } %></td>
             </tr>
           <% end %>
         </table>

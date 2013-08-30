@@ -22,7 +22,7 @@
   <link rel="shortcut icon" href="/assets/admin/favicon/favicon.png">
 </head>
 
-<%= content_tag :body, class: ['admin', controller_name, action_name].join(' ') do %>
+<%= content_tag :body, class: [controller_name, action_name].join('_') do %>
 
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
