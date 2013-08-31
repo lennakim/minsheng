@@ -1,0 +1,62 @@
+<!-- Table -->
+<div class="row-fluid">
+  <div class="span12">
+    <div class="widget">
+      <div class="widget-head">
+        <div class="pull-left">
+          <%= link_to '广告管理', admin_page_ads_path %>&nbsp;&nbsp;&nbsp;
+        </div>
+        <div class="pull-right">
+          <%= link_to '新建', new_admin_page_ad_path, class: 'btn btn-primary btn-small' %>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+
+      <div class="widget-content">
+        <table class="table table-striped table-bordered table-hover">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>广告位置</th>
+              <th>广告名称</th>
+              <th>url</th>
+              <th>开始时间</th>
+              <th>结束时间</th>
+              <th>同位置内排序</th>
+              <th>创建日期</th>
+              <th>更新日期</th>
+              <th>操作</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% (@page_ads ||= []).each do |page_ad| %>
+              <tr>
+                <td>
+                  <a href="<%= page_ad.image_url %>" target="_blank">
+                  <img height="100px" width="100px" src="<%= page_ad.image_url %>" alt="<%= page_ad.ad_desc %>" /></a>
+                </td>
+                <td><%= PageAd::FLAG_TYPE_DESC[page_ad.flag_type] %></td>
+                <td><%= page_ad.name %></td>
+                <td><%= page_ad.href %></td>
+                <td><%= format_datetime(page_ad.start_time) %></td>
+                <td><%= format_datetime(page_ad.end_time) %></td>
+                <td><%= page_ad.sort %></td>
+                <td><%= format_datetime(page_ad.created_at) %></td>
+                <td><%= format_datetime(page_ad.updated_at) %></td>
+                <td>
+                  <%= link_to '显示', admin_page_ad_path(page_ad) %>
+                  <%= link_to '编辑', edit_admin_page_ad_path(page_ad) %>
+                  <%= link_to '删除', admin_page_ad_path(page_ad), method: :delete, data: { confirm: '确定删除?' } %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+
+        <div class="widget-foot">
+          <%= paginate @page_ads %>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

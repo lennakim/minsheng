@@ -1,0 +1,74 @@
+<%= form_for [:admin, @page_ad], :html => {:class => "form-horizontal uni"} do |f| %>
+    <% if @page_ad.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@page_ad.errors.count, "error") %> 操作发生错误:</h2>
+
+          <ul>
+            <% @page_ad.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="control-group">
+      <%= f.label :flag_type, '广告位置：', class: 'control-label' %>
+      <div class="controls">
+        <%= f.select :flag_type, PageAd::FLAG_TYPE_DESC.invert.to_a %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :href, 'URL：', class: 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :href %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :name, '名称：', class: 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :name %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :start_time, '开始时间：', class: 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :start_time, :class => 'datetime' %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :end_time, '结束时间：', class: 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :end_time, :class => 'datetime' %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :sort, '排序：', class: 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :sort %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :name, '描述：', class: 'control-label' %>
+      <div class="controls">
+        <%= f.text_area :name, :cols => 80, :rows => 3 %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :image_url, '图片', class: 'control-label' %>
+      <div class="controls">
+        <%= f.file_field :image_url %>
+        <% if @page_ad.id.present? && @page_ad.id > 0 %>
+            <div><img src="<%= @page_ad.image_url %>" alt=""/></div>
+        <% end %>
+      </div>
+    </div>
+
+
+    <div class="actions">
+      <%= f.submit '保存', class: 'btn btn-primary btn-small' %>
+      <a href="javascript:history.go(-1);" class="btn btn-small">返回</a>
+    </div>
+<% end %>
