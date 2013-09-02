@@ -8,9 +8,6 @@ Minsheng::Application.routes.draw do
 
   match "/images/upload/:model/:field_name/:id/:filename" => "gridfs#serve"
 
-  match "/userimages/uploads/*path" => "gridfs#userimage"
-
-
   match "admin/cities" => "admin/communities#cities"
   match "admin/cities/:city_id/districts" => "admin/communities#districts"
 
