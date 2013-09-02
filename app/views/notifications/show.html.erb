@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Receiver:</b>
+  <%= @notification.receiver %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @notification.title %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= @notification.content %>
+</p>
+
+<% if can? @notification, :edit %>
+  <%= link_to '编辑', edit_notification_path(@notification) %>
+<% end %>
+<% if can? @notification, :reply %>
+  <%= link_to '回复', reply_notification_path(@notification) %>
+<% end %>
+<%= link_to '返回', notifications_path %>

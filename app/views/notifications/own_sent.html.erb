@@ -1,0 +1,22 @@
+<div>
+  我发送的信息
+  <table>
+    <tr>
+      <th>标题</th>
+      <th>Content</th>
+      <th>操作</th>
+    </tr>
+
+  <% @notifications.each do |notification| %>
+    <tr>
+      <td><%= notification.title %></td>
+      <td><%= notification.content %></td>
+      <td><%= format_datetime(notification.expire_at) %></td>
+      <td><%= link_to '显示', notification %>
+        <%= link_to '编辑', edit_notification_path(notification) %>
+        <%= link_to '删除', notification_path(notification),  method: :delete, data: { confirm: '确定删除么' }%>
+      </td>
+    </tr>
+  <% end %>
+  </table>
+</div>

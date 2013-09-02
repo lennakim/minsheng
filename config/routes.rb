@@ -1,13 +1,21 @@
 Minsheng::Application.routes.draw do
 
-  resources :product_images
+  resources :notifications do
+    collection do
+      get :own_sent
+    end
 
+    member do
+      get :reply
+      put :have_read
+    end
+  end
+
+  resources :product_images
 
   # resources :products
 
-
   match "/images/upload/:model/:field_name/:id/:filename" => "gridfs#serve"
-
 
   match "admin/cities" => "admin/communities#cities"
   match "admin/cities/:city_id/districts" => "admin/communities#districts"
