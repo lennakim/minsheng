@@ -61,7 +61,7 @@ class User < ActiveRecord::Base
   end
 
   def not_read_notifications
-    Notification.where("receiver = ?  AND is_read = ? AND (expire_at > ? OR expire_at is null)", self.id, false, Time.now)
+     Notification.where(:receiver => self.id, :is_read => false )
   end
 
   def own_sent_notifications

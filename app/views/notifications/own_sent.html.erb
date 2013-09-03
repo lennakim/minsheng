@@ -1,22 +1,49 @@
-<div>
-  我发送的信息
-  <table>
-    <tr>
-      <th>标题</th>
-      <th>Content</th>
-      <th>操作</th>
-    </tr>
+<div class="row-fluid">
+  <div class="widget">
+    <div class="widget-head">
+      <div class="pull-left">Notifications</div>
+      <div class="widget-icons pull-right">
+        <a href="#" class="wminimize"><i class="icon-chevron-up"></i></a>
+        <a href="#" class="wclose"><i class="icon-remove"></i></a>
+      </div>
+      <div class="clearfix"></div>
+    </div>
 
-  <% @notifications.each do |notification| %>
-    <tr>
-      <td><%= notification.title %></td>
-      <td><%= notification.content %></td>
-      <td><%= format_datetime(notification.expire_at) %></td>
-      <td><%= link_to '显示', notification %>
-        <%= link_to '编辑', edit_notification_path(notification) %>
-        <%= link_to '删除', notification_path(notification),  method: :delete, data: { confirm: '确定删除么' }%>
-      </td>
-    </tr>
-  <% end %>
-  </table>
+    <div class="widget-content">
+
+        <table class="table table-bordered table-striped table-hover">
+          <tr>
+            <th>发送给</th>
+            <th>标题</th>
+            <th>内容</th>
+            <th>操作</th>
+
+          </tr>
+
+        <% @notifications.each do |notification| %>
+          <tr>
+            <td><%= view_user_name(notification.receiver)%></td>
+            <td><%= notification.title %></td>
+            <td><%= notification.content%></td>
+            <td><%= link_to '显示', notification %>
+              <% if can? :update, notification %>
+                <%= link_to '编辑', edit_notification_path(notification) %>
+              <% end %>
+              <% if can? :destroy, notification %>
+                <%= link_to '删除', notification_path(notification),method: :delete, data: { confirm: '确定删除么' } %>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+        </table>
+        <%= link_to '发送信息', new_notification_path, class: "btn btn-small btn-primary" %>
+        <%= link_to '发出的信息', own_sent_notifications_path, class: "btn btn-small" %>
+        <%= link_to '已读信息', read_infos_notifications_path, class: "btn btn-small" %>
+      <div class="widget-foot">
+        <h3><%= paginate @notifications %></h3>
+        <div class="clearfix"></div>
+      </div>
+
+    </div>
+  </div>
 </div>

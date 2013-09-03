@@ -1,3 +1,3 @@
 class Notification < ActiveRecord::Base
-  attr_accessible :sender, :content, :expire_at, :is_read, :receiver, :title
+  attr_accessible :sender, :content, :is_read, :receiver, :title
 end

@@ -37,6 +37,8 @@ class Ability
     can [:reply,:have_read], Notification do |notification|
       notification.receiver == @user.id
     end
+
+    can [:read_infos,:own_sent], Notification
   end
 
   def guest_can

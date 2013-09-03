@@ -3,6 +3,7 @@ Minsheng::Application.routes.draw do
   resources :notifications do
     collection do
       get :own_sent
+      get :read_infos
     end
 
     member do

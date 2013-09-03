@@ -10,35 +10,27 @@
     </div>
 
     <div class="widget-content">
+
         <table class="table table-bordered table-striped table-hover">
           <tr>
-            <th>发送者</th>
+            <th>发送给</th>
             <th>标题</th>
-            <th>操作</th>
           </tr>
 
-        <% @not_read_notifications.each do |notification| %>
+        <% @read_notifications.each do |notification| %>
           <tr>
-            <td><%= view_user_name(notification.sender)%></td>
+            <td><%= view_user_name(notification.receiver)%></td>
             <td><%= link_to notification.title, notification %></td>
-            <td>
-              <% if can? :hava_read, notification %>
-                <%= link_to '设为已读', have_read_notification_path(notification), method: :put %>
-              <% end %>
-              <% if can? :reply, notification %>
-                <%= link_to '回复', reply_notification_path(notification) %>
-              <% end %>
-            </td>
           </tr>
         <% end %>
         </table>
         <%= link_to '发送信息', new_notification_path, class: "btn btn-small btn-primary" %>
-        <%= link_to '发出的信息', own_sent_notifications_path, class: "btn btn-small" %>
-        <%= link_to '已读信息', read_infos_notifications_path, class: "btn btn-small" %>
+       <%= link_to '发出的信息', own_sent_notifications_path, class: "btn btn-small" %>
       <div class="widget-foot">
-        <h3><%= paginate @not_read_notifications %></h3>
+        <h3><%= paginate @read_notifications %></h3>
         <div class="clearfix"></div>
       </div>
+
     </div>
   </div>
 </div>

@@ -5,8 +5,7 @@ class NotificationsController < ApplicationController
 
   # GET /notifications
   def index
-    @read_notifications = current_user.read_notifications
-    @not_read_notifications = current_user.not_read_notifications
+    @not_read_notifications = current_user.not_read_notifications.page(params[:page])
 
     respond_to do |format|
       format.html
@@ -86,7 +85,15 @@ class NotificationsController < ApplicationController
   end
 
   def own_sent
-    @notifications = current_user.own_sent_notifications
+    @notifications = current_user.own_sent_notifications.page(params[:page])
+
+    respond_to do |format|
+      format.html
+    end
+  end
+
+  def read_infos
+    @read_notifications = current_user.read_notifications.page(params[:page])
 
     respond_to do |format|
       format.html
@@ -96,7 +103,7 @@ class NotificationsController < ApplicationController
   def reply
     orgin_notification = Notification.find(params[:id])
     orgin_notification.is_read = true
-    orgin_notification.save
+    orgin_notification.save #设为已读
 
     @notification = Notification.new(:sender => current_user.id, :receiver => orgin_notification.sender)
   end

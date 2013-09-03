@@ -5,7 +5,6 @@ class CreateNotifications < ActiveRecord::Migration
       t.integer :receiver, :null => false
       t.string :title
       t.text :content
-      t.datetime :expire_at #失效时间
       t.boolean :is_read, :default => false
 
       t.timestamps
