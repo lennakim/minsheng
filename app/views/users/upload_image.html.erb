@@ -1,10 +1,27 @@
+
+<div style="padding-top:50px;">
 <%= form_for(@user) do |f| %>
   <%= hidden_field_tag :id, @user.id %>
+  <%= hidden_field_tag :top %>
+  <%= hidden_field_tag :left %>
+  <%= hidden_field_tag :width %>
+  <%= hidden_field_tag :height %>
+  <%= hidden_field_tag :original_w %>
+  <%= hidden_field_tag :original_h %>
   <div class="field">
     <%= f.label :image_url, '上传图片' %><br />
     <%= f.file_field :image_url %>
   </div>
+
+  <img id="show_image" src="" alt=""/>
+
+  <div style="width:150px;height:150px;overflow:hidden;">
+    <img src="" id="preview" alt="Preview"/>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+
+</div>

@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me,
     :confirmed_at, :doorkeeper_access_token, :doorkeeper_uid, :image_url
   attr_accessible :role, :as => "admin"
+  attr_accessor :image_data
+
   # relationships .............................................................
   has_many :rates, dependent: :destroy
 
