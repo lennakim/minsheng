@@ -19,9 +19,9 @@
     </div>
 
     <div class="control-group">
-      <%= f.label :href, 'URL：', class: 'control-label' %>
+      <%= f.label :link, '链接：', class: 'control-label' %>
       <div class="controls">
-        <%= f.text_field :href %>
+        <%= f.text_field :link %>
       </div>
     </div>
     <div class="control-group">
@@ -57,11 +57,11 @@
       </div>
     </div>
     <div class="control-group">
-      <%= f.label :image_url, '图片', class: 'control-label' %>
+      <%= f.label :image, '图片', class: 'control-label' %>
       <div class="controls">
-        <%= f.file_field :image_url %>
+        <%= f.file_field :image %>
         <% if @page_ad.id.present? && @page_ad.id > 0 %>
-            <div><img src="<%= @page_ad.image_url %>" alt=""/></div>
+            <div><img src="<%= @page_ad.image %>" alt=""/></div>
         <% end %>
       </div>
     </div>
