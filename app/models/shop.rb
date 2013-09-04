@@ -20,7 +20,7 @@ class Shop < ActiveRecord::Base
 
   has_many :rates, dependent: :destroy
 
-  has_one :shop_recommendation
+  has_many :shop_recommendations
 
   # constants definition ......................................................
   # validations ...............................................................
