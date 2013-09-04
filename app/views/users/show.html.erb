@@ -1,4 +1,4 @@
 <h3>User</h3>
-<p>Image: <img id="target" src="<%= @user.image_url_url(:small) %>" alt=""/></p>
+<p>Image: <img id="target" src="<%= @user.image.url(:small) %>" alt=""/></p>
 <p>User: <%= @user.name %></p>
 <p>Email: <%= @user.email if @user.email %></p>
