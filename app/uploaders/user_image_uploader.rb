@@ -47,15 +47,16 @@ class UserImageUploader < CarrierWave::Uploader::Base
   # end
 
   # Create different versions of your uploaded files:
-
-
   version :small do
     process :crop_area
+    process :convert => 'png'
 
-    #def full_filename (for_file = model.logo.file)
-    #  "small.png"
-    #end
+    def full_filename (for_file = model.image.file)
+      "small.png"
+    end
   end
+
+
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
@@ -66,12 +67,10 @@ class UserImageUploader < CarrierWave::Uploader::Base
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
   def filename
-    if original_filename.present?
-      "#{secure_token}.#{file.path.split('.').last.downcase}"
-    else
-      super
-    end
+    'origin.jpg' if original_filename
   end
+
+
 
   private
   def secure_token
@@ -83,8 +82,6 @@ class UserImageUploader < CarrierWave::Uploader::Base
     manipulate! do |img|
       image = model.image_data
       unless image.nil?
-        w_ratio = image[:original_w].to_f / image[:width].to_f
-        h_ratio = image[:original_h].to_f / image[:height].to_f
         img.crop("#{image[:width]}x#{image[:height]}+#{image[:top]}+#{image[:left]}")
       end
       img
