@@ -1,20 +1,17 @@
 /*
- *= require admin/bootstrap
+ *= require lib/bootstrap
  *= require admin/font-awesome
  *= require admin/jquery-ui
 
- *= require admin/prettyPhoto
  *= require admin/rateit
- *= require admin/bootstrap-datetimepicker.min
- *= require admin/jquery.cleditor
 
- *= require admin/bootstrap-toggle-buttons
+ *= require lib/bootstrap-toggle-buttons
  *= require admin/style
 
  *= require admin/widgets
- *= require admin/bootstrap-responsive
+ *= require lib/bootstrap-responsive
 
  *= require jquery.ui.all
- *= require jquery-ui-timepicker-addon
+ *= require lib/jquery-ui-timepicker-addon
  * */
 
