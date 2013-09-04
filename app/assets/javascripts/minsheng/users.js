@@ -1,5 +1,5 @@
 $("body.users.upload_image").ready(function(){
-  $("#user_image_url").change(function(){
+  $("#user_image").change(function(){
     if (this.files && this.files[0]) {
       reader = new FileReader();
       reader.onload = function (event) {
