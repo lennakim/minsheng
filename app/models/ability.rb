@@ -29,6 +29,16 @@ class Ability
       rate.user == @user
     end
 
+    can :rw, Notification
+    can :modify, Notification do |notification|
+      notification.sender == @user.id
+    end
+
+    can [:reply,:have_read], Notification do |notification|
+      notification.receiver == @user.id
+    end
+
+    can [:read_infos,:own_sent], Notification
   end
 
   def guest_can

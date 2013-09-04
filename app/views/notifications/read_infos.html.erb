@@ -1,0 +1,36 @@
+<div class="row-fluid">
+  <div class="widget">
+    <div class="widget-head">
+      <div class="pull-left">Notifications</div>
+      <div class="widget-icons pull-right">
+        <a href="#" class="wminimize"><i class="icon-chevron-up"></i></a>
+        <a href="#" class="wclose"><i class="icon-remove"></i></a>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+
+    <div class="widget-content">
+
+        <table class="table table-bordered table-striped table-hover">
+          <tr>
+            <th>发送给</th>
+            <th>标题</th>
+          </tr>
+
+        <% @read_notifications.each do |notification| %>
+          <tr>
+            <td><%= view_user_name(notification.receiver)%></td>
+            <td><%= link_to notification.title, notification %></td>
+          </tr>
+        <% end %>
+        </table>
+        <%= link_to '发送信息', new_notification_path, class: "btn btn-small btn-primary" %>
+       <%= link_to '发出的信息', own_sent_notifications_path, class: "btn btn-small" %>
+      <div class="widget-foot">
+        <h3><%= paginate @read_notifications %></h3>
+        <div class="clearfix"></div>
+      </div>
+
+    </div>
+  </div>
+</div>

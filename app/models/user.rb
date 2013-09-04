@@ -56,4 +56,15 @@ class User < ActiveRecord::Base
     return user
   end
 
+  def read_notifications
+    Notification.where(:receiver => self.id, :is_read => true)
+  end
+
+  def not_read_notifications
+     Notification.where(:receiver => self.id, :is_read => false )
+  end
+
+  def own_sent_notifications
+    Notification.where(:sender => self.id)
+  end
 end

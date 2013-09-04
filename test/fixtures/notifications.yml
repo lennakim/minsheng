@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  receiver: 1
+  title: MyString
+  content: MyText
+  expire_at: 2013-09-02 22:19:26
+  is_read: false
+
+two:
+  receiver: 1
+  title: MyString
+  content: MyText
+  expire_at: 2013-09-02 22:19:26
+  is_read: false
