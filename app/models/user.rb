@@ -4,8 +4,11 @@ class User < ActiveRecord::Base
   # includes ..................................................................
 
   # security (i.e. attr_accessible) ...........................................
-  attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :confirmed_at, :doorkeeper_access_token, :doorkeeper_uid
+  attr_accessible :name, :email, :password, :password_confirmation, :remember_me,
+    :confirmed_at, :doorkeeper_access_token, :doorkeeper_uid, :image_url
   attr_accessible :role, :as => "admin"
+  attr_accessor :image_data
+
   # relationships .............................................................
   has_many :rates, dependent: :destroy
 
@@ -16,6 +19,7 @@ class User < ActiveRecord::Base
 
   # additional config .........................................................
   rolify
+  mount_uploader :image_url, UserImageUploader
 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,

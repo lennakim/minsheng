@@ -23,5 +23,4 @@ class GridfsController < ActionController::Metal
       self.response_body = 'not found'
     end
   end
-
 end
