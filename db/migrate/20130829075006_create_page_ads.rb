@@ -3,8 +3,8 @@ class CreatePageAds < ActiveRecord::Migration
     create_table :page_ads do |t|
       t.integer :flag_type, :null => false
       t.string :name, :null => false, :default => ''
-      t.string :href, :null => false, :default => ''
-      t.string :image_url, :null => false, :default => ''
+      t.string :link, :null => false, :default => ''
+      t.string :image, :null => false, :default => ''
       t.string :ad_desc, :null => false, :default => ''
       t.datetime :start_time
       t.datetime :end_time

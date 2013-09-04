@@ -25,7 +25,7 @@
           </tr>
           <tr>
             <td>URL</td>
-            <td><%= @page_ad.href %></td>
+            <td><%= @page_ad.link %></td>
           </tr>
           <tr>
             <td>排序</td>
@@ -33,7 +33,7 @@
           </tr>
           <tr>
             <td>广告图片</td>
-            <td><img src="<%= @page_ad.image_url %>" alt="<%= @page_ad.ad_desc %>" /></td>
+            <td><%= image_tag(@page_ad.image, :alt => @page_ad.ad_desc) %></td>
           </tr>
         </table>
 

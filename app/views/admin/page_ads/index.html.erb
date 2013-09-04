@@ -32,12 +32,12 @@
             <% (@page_ads ||= []).each do |page_ad| %>
               <tr>
                 <td>
-                  <a href="<%= page_ad.image_url %>" target="_blank">
-                  <img height="100px" width="100px" src="<%= page_ad.image_url %>" alt="<%= page_ad.ad_desc %>" /></a>
+                  <a href="<%= page_ad.image %>" target="_blank">
+                  <img height="100px" width="100px" src="<%= page_ad.image %>" alt="<%= page_ad.ad_desc %>" /></a>
                 </td>
                 <td><%= PageAd::FLAG_TYPE_DESC[page_ad.flag_type] %></td>
                 <td><%= page_ad.name %></td>
-                <td><%= page_ad.href %></td>
+                <td><%= page_ad.link %></td>
                 <td><%= format_datetime(page_ad.start_time) %></td>
                 <td><%= format_datetime(page_ad.end_time) %></td>
                 <td><%= page_ad.sort %></td>
