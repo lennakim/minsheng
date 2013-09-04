@@ -15,7 +15,7 @@ class GridfsController < ActionController::Metal
       model_inst = model_class_inst.find(model_id)
       field_body = model_inst.send(field_name)
       self.response_body = field_body.read
-      # self.content_type = @gridfs_file.contentType
+      self.content_type = @gridfs_file.contentType if @gridfs_file
     rescue SystemCallError
       # p SystemCallError
       self.status = :file_not_found
