@@ -49,16 +49,17 @@ class ProductImageUploader < CarrierWave::Uploader::Base
   # Create different versions of your uploaded files:
   version :small do
     process :resize_to_fill => [50, 50]
-    def full_filename
+    def full_filename (for_file = model.logo.file) 
         "small.png" 
     end
   end
 
   version :large do
     process :resize_to_limit => [800,800]
-    def full_filename
+    def full_filename (for_file = model.logo.file) 
         "large.png" 
     end
+
   end
 
   # Add a white list of extensions which are allowed to be uploaded.
