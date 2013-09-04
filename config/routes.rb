@@ -1,10 +1,20 @@
 Minsheng::Application.routes.draw do
 
+  resources :notifications do
+    collection do
+      get :own_sent
+      get :read_infos
+    end
+
+    member do
+      get :reply
+      put :have_read
+    end
+  end
+
   resources :product_images
 
-
   # resources :products
-
 
   match "/images/upload/:model/:field_name/:id/:filename" => "gridfs#serve"
 

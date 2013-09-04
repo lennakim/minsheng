@@ -47,8 +47,18 @@ class ProductImageUploader < CarrierWave::Uploader::Base
   # end
 
   # Create different versions of your uploaded files:
-  version :thumb do
+  version :small do
     process :resize_to_fill => [50, 50]
+    def full_filename
+        "small.png" 
+    end
+  end
+
+  version :large do
+    process :resize_to_limit => [800,800]
+    def full_filename
+        "large.png" 
+    end
   end
 
   # Add a white list of extensions which are allowed to be uploaded.
@@ -59,8 +69,17 @@ class ProductImageUploader < CarrierWave::Uploader::Base
 
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
-  # def filename
-  #   "something.jpg" if original_filename
-  # end
+  def filename
+    if original_filename.present?
+      "#{secure_token}.#{file.path.split('.').last.downcase}"
+    else
+      super
+    end
+  end
 
+  private
+  def secure_token
+    var = :"@#{mounted_as}_secure_token"
+    model.instance_variable_get(var) or model.instance_variable_set(var, SecureRandom.uuid)
+  end
 end
