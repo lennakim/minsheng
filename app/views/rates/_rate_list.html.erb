@@ -1,5 +1,5 @@
 <% content_for :head do %>
-  <%= stylesheet_link_tag "jRating.jquery" %>
+  <%= stylesheet_link_tag "lib/jRating.jquery" %>
 <% end %>
 
 <div id="shop_rates_container">
@@ -28,3 +28,7 @@
   <% end %>
   </table>
 </div>
+<% content_for :foot do %>
+  <%= javascript_include_tag "lib/jRating.jquery" %>
+  <%= javascript_include_tag "minsheng/rates.js" %>
+<% end %>

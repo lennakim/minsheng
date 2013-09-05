@@ -10,7 +10,7 @@
 <%= yield(:head) %>
 </head>
 
-<%= content_tag :body, class: [controller_name, action_name].join(' ') do %>
+<%= content_tag :body, class: [controller_name, action_name].join('_') do %>
 <div class="navbar navbar-fixed-top">
   <nav class="navbar-inner">
     <div class="container">

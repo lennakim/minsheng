@@ -8,5 +8,5 @@
 //= require admin/notices
 //= require admin/page_ads
 //= require admin/shop_recommendations
-
+//= require jquery_ujs
 

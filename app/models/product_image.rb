@@ -1,5 +1,6 @@
 class ProductImage < ActiveRecord::Base
-  attr_accessible :product_id, :url
+  attr_accessible :product_id, :image
   belongs_to :product
-  mount_uploader :url, ProductImageUploader
+  mount_uploader :image, ProductImageUploader
+
 end

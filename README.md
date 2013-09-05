@@ -49,3 +49,6 @@
 
 ### jquery插件
 * 评星插件 [jRating](https://github.com/alpixel/jRating)
+
+rake db:migrate:down VERSION=20130813144732
+rake db:migrate:down VERSION=20130830081625
