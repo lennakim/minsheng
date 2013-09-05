@@ -34,13 +34,13 @@
     <div class="control-group">
       <%= f.label :start_time, '开始时间：', class: 'control-label' %>
       <div class="controls">
-        <%= f.text_field :start_time, :class => 'datetime' %>
+        <%= f.text_field :start_time, :value => format_datetime(@page_ad.start_time), :class => 'datetime' %>
       </div>
     </div>
     <div class="control-group">
       <%= f.label :end_time, '结束时间：', class: 'control-label' %>
       <div class="controls">
-        <%= f.text_field :end_time, :class => 'datetime' %>
+        <%= f.text_field :end_time, :value => format_datetime(@page_ad.end_time), :class => 'datetime' %>
       </div>
     </div>
     <div class="control-group">
@@ -71,4 +71,10 @@
       <%= f.submit '保存', class: 'btn btn-primary btn-small' %>
       <a href="javascript:history.go(-1);" class="btn btn-small">返回</a>
     </div>
+<% end %>
+
+<% content_for :foot do %>
+  <%= javascript_include_tag "lib/jquery-ui-sliderAccess" %>
+  <%= javascript_include_tag "lib/jquery-ui-timepicker-addon" %>
+  <%= javascript_include_tag "lib/jquery-ui-timepicker-zh-CN" %>
 <% end %>

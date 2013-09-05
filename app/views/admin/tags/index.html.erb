@@ -21,11 +21,9 @@
             <% tag.categories.each_with_index do |category, idx| %>
         	    <% category_id = category.id %>
               <tr>
-                <% if idx.zero? %>
-          	      <td rowspan="<%= tag.category_tags.count %>" style='vertical-align: middle;'>
-          	        <%= tag.name %>
-          	      </td>
-                <% end %>
+        	      <td style='vertical-align: middle;'>
+        	        <%= tag.name %>
+        	      </td>
         	      <td><%= category.name %></td>
         	      <td>
                     <%= link_to '编辑', edit_admin_tag_path(tag, category_id: category_id) %>
