@@ -1,3 +1,6 @@
+<% content_for :head do %>
+  <%= stylesheet_link_tag "lib/jRating.jquery"%>
+<% end %>
 <div id="shop_rates_container">
   <table class="table table-bordered table-striped table-hover">
     <tr>
@@ -19,3 +22,8 @@
 </div>
 
 <%= paginate @rates %>
+
+<% content_for :foot do %>
+  <%= javascript_include_tag "lib/jRating.jquery" %>
+  <%= javascript_include_tag "minsheng/rates.js" %>
+<% end %>

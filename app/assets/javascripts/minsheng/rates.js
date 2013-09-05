@@ -1,4 +1,4 @@
-$("body.rates.new, body.rates.edit").ready(function(){
+$("body.rates_new, body.rates_edit").ready(function(){
   var options = {
     bigStarsPath: '/assets/jRating/stars.png',
     mallStarsPath: '/assets/jRating/small.png',
@@ -19,7 +19,7 @@ $("body.rates.new, body.rates.edit").ready(function(){
   $("#rate_star").jRating(options);
 });
 
-$("body.rates.index, body.rates.show, #shop_rates_container").ready(function(){
+$("body.rates_index, body.rates_show, #shop_rates_container").ready(function(){
   var options = {
     bigStarsPath: '/assets/jRating/stars.png',
     smallStarsPath: '/assets/jRating/small.png',
