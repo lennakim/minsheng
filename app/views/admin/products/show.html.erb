@@ -7,7 +7,8 @@
 
 <p>
   <b>Shop:</b>
-  <img src="<%= @product.productImages.first.url %>" alt="" />
+  <img src="<%= @product.productImages.first.image %>" alt="" />
+   <img src="<%= @product.productImages.first.image_url(:small)%>" alt="" /> 
 </p>
 
 

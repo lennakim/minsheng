@@ -1,7 +1,7 @@
 class CreateShopImages < ActiveRecord::Migration
   def change
     create_table :shop_images do |t|
-      t.string :url
+      t.string :image
       t.integer :shop_id
 
       t.timestamps

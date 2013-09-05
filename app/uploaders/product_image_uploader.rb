@@ -55,7 +55,7 @@ class ProductImageUploader < CarrierWave::Uploader::Base
   end
 
   version :large do
-    process :resize_to_limit => [800,800]
+    process :resize_to_fill => [800,800]
     def full_filename (for_file = model.logo.file) 
         "large.png" 
     end
@@ -72,15 +72,17 @@ class ProductImageUploader < CarrierWave::Uploader::Base
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
   def filename
     if original_filename.present?
-      "#{secure_token}.#{file.path.split('.').last.downcase}"
+      # "#{secure_token}.#{file.path.split('.').last.downcase}"
+      "origin.png"
     else
       super
     end
   end
 
-  private
-  def secure_token
-    var = :"@#{mounted_as}_secure_token"
-    model.instance_variable_get(var) or model.instance_variable_set(var, SecureRandom.uuid)
-  end
+  # private
+  # def secure_token
+  #   var = :"@#{mounted_as}_secure_token"
+  #   model.instance_variable_get(var) or model.instance_variable_set(var, SecureRandom.uuid)
+  # end
+  
 end

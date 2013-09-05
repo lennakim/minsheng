@@ -51,7 +51,7 @@ class UserImageUploader < CarrierWave::Uploader::Base
     process :crop_area
     process :convert => 'png'
 
-    def full_filename (for_file = model.image.file)
+    def full_filename (for_file = model.image_url.file)
       "small.png"
     end
   end
@@ -73,11 +73,6 @@ class UserImageUploader < CarrierWave::Uploader::Base
 
 
   private
-  def secure_token
-    var = :"@#{mounted_as}_secure_token"
-    model.instance_variable_get(var) or model.instance_variable_set(var, SecureRandom.uuid)
-  end
-
   def crop_area
     manipulate! do |img|
       image = model.image_data

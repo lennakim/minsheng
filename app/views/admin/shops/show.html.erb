@@ -31,7 +31,7 @@
         <p>
           <b>图片</b>
           <% @shop.shopImages.each do |image| %>
-            <img src="<%= image.url %>" alt="" />
+              <%= image_tag image.image %>
           <% end %>
         </p>
         <%= link_to '编辑', edit_admin_shop_path(@shop), class: 'btn btn-small btn-primary' %>
