@@ -29,7 +29,7 @@ gem "carrierwave"
 gem "carrierwave-mongoid", :require => 'carrierwave/mongoid'
 
 gem 'mongoid'
-gem 'mongoid-grid_fs', github: 'ahoward/mongoid-grid_fs'
+gem 'mongoid-grid_fs', github: 'ahoward/mongoid-grid_fs', :ref => '54407'
 
 gem "mini_magick"
 gem "ckeditor"
