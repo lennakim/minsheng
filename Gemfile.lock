@@ -1,6 +1,7 @@
 GIT
   remote: git://github.com/ahoward/mongoid-grid_fs.git
   revision: 544070ac3120a71870dec974bbb3364a93845765
+  ref: 54407
   specs:
     mongoid-grid_fs (1.9.0)
       mime-types (~> 1.19)
