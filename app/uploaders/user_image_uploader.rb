@@ -67,10 +67,10 @@ class UserImageUploader < CarrierWave::Uploader::Base
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
   def filename
-    'origin.jpg' if original_filename
+    if original_filename.present?
+      "origin.png"
+    end
   end
-
-
 
   private
   def crop_area
