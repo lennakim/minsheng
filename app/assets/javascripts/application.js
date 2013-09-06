@@ -13,8 +13,9 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require lib/jquery.readyselector
 
 //= require bootstrap
 
-//= require lib/jquery.readyselector
+
 
