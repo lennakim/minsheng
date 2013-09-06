@@ -2,4 +2,4 @@
 //= require jquery_ujs
 //= require lib/bootstrap
 //= require lib/jquery.readyselector
-//= require lib/jquery-ui.min
+//= require jquery-ui/jquery-ui.min
