@@ -1,16 +1,16 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Name:</b>
+  <b>名称:</b>
   <%= @product.name %>
 </p>
 
 <p>
-  <b>Shop:</b>
+  <b>图片:</b>
   <img src="<%= @product.productImages.first.image %>" alt="" />
-   <img src="<%= @product.productImages.first.image_url(:small)%>" alt="" /> 
+   <img src="<%= @product.productImages.first.image_url(:small)%>" alt="" />
 </p>
 
 
-<%= link_to 'Edit', edit_admin_product_path(@product) %> |
-<%= link_to 'Back', admin_products_path %>
+<%= link_to '编辑', edit_admin_product_path(@product) %> |
+<%= link_to '返回', admin_products_path %>

@@ -5,7 +5,7 @@ class Admin::TagsController < Admin::BaseController
   before_filter :admin_only, except: :show
 
   def index
-    @tags = Tag.order('name DESC').page(params[:page])
+    @tags = Tag.includes(:categories).order('name DESC').page(params[:page])
   end
 
   def new

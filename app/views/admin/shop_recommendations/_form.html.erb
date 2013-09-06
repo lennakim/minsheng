@@ -40,3 +40,10 @@
   &nbsp;
   <a href="javascript:history.go(-1);" class="btn btn-small">返回</a>
 </div>
+
+<% content_for :foot do %>
+  <%= javascript_include_tag "lib/jquery-ui-sliderAccess" %>
+  <%= javascript_include_tag "lib/jquery-ui-timepicker-addon" %>
+  <%= javascript_include_tag "lib/jquery-ui-timepicker-zh-CN" %>
+  <%= javascript_include_tag "admin/shop_recommendations" %>
+<% end %>

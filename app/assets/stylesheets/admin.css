@@ -11,7 +11,7 @@
  *= require admin/widgets
  *= require lib/bootstrap-responsive
 
- *= require jquery.ui.all
+ *= require jquery-ui/jquery-ui.min
  *= require lib/jquery-ui-timepicker-addon
  * */
 

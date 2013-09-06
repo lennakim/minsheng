@@ -17,7 +17,7 @@ module Minsheng
     config.generators do |g|
       g.view_specs false
       g.helper_specs false
-      g.orm :active_record 
+      g.orm :active_record
       g.stylesheets false
       g.javascripts false
       g.helper false
@@ -73,5 +73,8 @@ module Minsheng
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    #assets
+    config.assets.paths << Rails.root.join("app", "assets", "lib")
   end
 end
