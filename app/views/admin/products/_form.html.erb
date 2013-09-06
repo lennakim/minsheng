@@ -16,7 +16,7 @@
     <%= f.select(:shop_id, Shop.all.collect {|c| [ c.title, c.id ] }, {include_blank: 'None'})%>
   </div>
   <div class="control-group">
-    <%= f.label :name ,'Name', :class=>"control-label"%><br />
+    <%= f.label :name ,'名称：', :class=>"control-label"%><br />
 
     <div class="controls">
     <%= f.text_field :name %>
@@ -33,6 +33,6 @@
 
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit '保存' %>
   </div>
 <% end %>

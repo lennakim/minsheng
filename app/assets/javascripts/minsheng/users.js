@@ -1,4 +1,4 @@
-$("body.users.upload_image").ready(function(){
+$("body.users_upload_image").ready(function(){
   $("#user_image").change(function(){
     if (this.files && this.files[0]) {
       reader = new FileReader();
