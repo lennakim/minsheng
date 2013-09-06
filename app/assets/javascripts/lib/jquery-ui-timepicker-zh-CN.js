@@ -25,7 +25,10 @@
 		dayNamesShort: ['周日','周一','周二','周三','周四','周五','周六'],
 		dayNamesMin: ['日','一','二','三','四','五','六'],
 		addSliderAccess: true,
-    sliderAccessArgs: { touchonly: false}
+    sliderAccessArgs: { touchonly: false},
+    timezone: '',
+    timezoneList: [''],
+    alwaysSetTime: false
 	};
 	$.timepicker.setDefaults($.timepicker.regional['zh-CN']);
 })(jQuery);
