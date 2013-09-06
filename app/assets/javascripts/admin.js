@@ -1,5 +1,5 @@
-//= require admin/jquery
+//= require lib/jquery
 //= require jquery_ujs
 //= require lib/bootstrap
 //= require lib/jquery.readyselector
-//= require jquery-ui/jquery-ui.min
+//= require plugins/jquery-ui/jquery-ui
