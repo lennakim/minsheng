@@ -52,7 +52,8 @@ Minsheng::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = true
 end
-DOORKEEPER_APP_ID = "734ce40f511e9475b20c44ec73376228ea7a6277482934ca6b985b86d71123d3"
-DOORKEEPER_APP_SECRET = "c010825ac9fee6b0200ca0947b03a22981a80f0698f9e8d2ebd867d30541cd57"
-DOORKEEPER_APP_URL = "http://localhost:4000"
+
+DOORKEEPER_APP_ID = "c6ca9b01f3ef417a17f2705e5ca8b1daea1594c42da02e28c56af8fd9ff5dfab"
+DOORKEEPER_APP_SECRET = "083fa04114badcc643524412ed23766662570d06bae8d9b1850a3a196765c30c"
+DOORKEEPER_APP_URL = "http://linlishop.com:4000"
 
