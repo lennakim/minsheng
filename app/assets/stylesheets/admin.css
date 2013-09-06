@@ -1,17 +1,11 @@
 /*
  *= require lib/bootstrap
  *= require admin/font-awesome
- *= require admin/jquery-ui
-
- *= require admin/rateit
-
- *= require lib/bootstrap-toggle-buttons
  *= require admin/style
 
- *= require admin/widgets
- *= require lib/bootstrap-responsive
+  *= require plugins/jquery-ui/jquery-ui
+  *= require lib/jquery-ui-timepicker-addon
+  *= require admin/rateit
 
- *= require jquery-ui/jquery-ui.min
- *= require lib/jquery-ui-timepicker-addon
  * */
 
