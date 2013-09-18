@@ -2,3 +2,4 @@
 <p>Image: <img id="target" src="<%= @user.image.url(:small) %>" alt=""/></p>
 <p>User: <%= @user.name %></p>
 <p>Email: <%= @user.email if @user.email %></p>
+<%= link_to "验证手机号码",verification_mobile_user_path %>

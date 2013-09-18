@@ -5,7 +5,8 @@ class User < ActiveRecord::Base
 
   # security (i.e. attr_accessible) ...........................................
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me,
-    :confirmed_at, :doorkeeper_access_token, :doorkeeper_uid, :image
+    :confirmed_at, :doorkeeper_access_token, :doorkeeper_uid, :image, :mobile, :is_auth_for_mobile
+
   attr_accessible :role, :as => "admin"
   attr_accessor :image_data
 
@@ -70,5 +71,10 @@ class User < ActiveRecord::Base
 
   def own_sent_notifications
     Notification.where(:sender => self.id)
+  end
+
+  def is_auth?(mobile)
+    user = User.where(:id => self.id, :mobile => mobile).order("created_at DESC").first
+    user.nil? ? false : user.is_auth_for_mobile
   end
 end
