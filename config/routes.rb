@@ -80,7 +80,9 @@ Minsheng::Application.routes.draw do
 
   root :to => "home#index"
 
-  devise_for :users, :controllers => { :registrations => "devise/registrations",:omniauth_callbacks => "devise/omniauth_callbacks" }
+  devise_for :users, :controllers => { :registrations => "devise/registrations",:omniauth_callbacks => "devise/omniauth_callbacks" } do
+    get "/users/mobile" => "devise/registrations#mobile"
+  end
 
   resources :users do
     member do
