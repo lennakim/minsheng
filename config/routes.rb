@@ -100,9 +100,6 @@ Minsheng::Application.routes.draw do
   resources :users do
     member do
       get :upload_image
-      get :verification_mobile
-      get :sent_mobile_captcha_code
-      get :verify
     end
   end
 
