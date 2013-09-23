@@ -124,10 +124,4 @@ class Devise::RegistrationsController < DeviseController
   def account_update_params
     devise_parameter_sanitizer.sanitize(:account_update)
   end
-
-  ###########################################
-  def mobile
-    build_resource({})
-    respond_with self.resource
-  end
 end

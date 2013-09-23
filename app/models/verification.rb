@@ -1,11 +1,11 @@
 class Verification < ActiveRecord::Base
-  attr_accessible :user_id, :mobile, :mobile_captcha_code, :is_auth_for_mobile, :mobile_last_sent_at
+  attr_accessible :user_id, :mobile, :mobile_captcha_code, :is_auth_for_mobile, :mobile_last_sent_at, :temp_email
 
   INTERVAL_TIME = 60
   EXPIRE_TIME = 60*60*24
 
   # get user verification
-  def self.last_verification(user_id, mobile = nil)
+  def self.last_verification(user_id = nil, mobile)
     Verification.where("user_id = ? OR mobile = ? ", user_id, mobile).order("created_at DESC").first
   end
 

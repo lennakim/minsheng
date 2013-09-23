@@ -1,5 +1,20 @@
 Minsheng::Application.routes.draw do
 
+  get "ucenter" => 'ucenter#index'
+  get "ucenter/suggestion"
+  get "ucenter/inbox"
+  get "ucenter/comment"
+  get "ucenter/settings"
+  get "ucenter/change_password"
+  get "ucenter/favorite"
+  get "ucenter/view_history"
+
+
+  get "mobile/sign_up" => "mobile#sign_up"
+  get "mobile/send_sms" => "mobile#send_sms"
+  get "mobile/verify_mobile" => "mobile#verify_mobile"
+  post "mobile/create" => "mobile#create"
+
   resources :notifications do
     collection do
       get :own_sent
@@ -80,9 +95,7 @@ Minsheng::Application.routes.draw do
 
   root :to => "home#index"
 
-  devise_for :users, :controllers => { :registrations => "devise/registrations",:omniauth_callbacks => "devise/omniauth_callbacks" } do
-    get "/users/mobile" => "devise/registrations#mobile"
-  end
+  devise_for :users, :controllers => { :registrations => "devise/registrations",:omniauth_callbacks => "devise/omniauth_callbacks" }
 
   resources :users do
     member do
