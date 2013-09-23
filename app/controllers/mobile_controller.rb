@@ -19,6 +19,8 @@ class MobileController < ApplicationController
           redirect_to root_url
         end
       end
+    else
+      redirect_to mobile_sign_up_path
     end
   end
 

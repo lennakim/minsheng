@@ -16,7 +16,7 @@
 
     <div><%= f.label :mobile, "手机号码" %>
       <br/>
-      <%= f.text_field :mobile %>
+      <%= f.number_field :mobile %>
         <input type="button" id="sendCaptchaCodeBtn" class="btn" value="免费获取验证码" url="<%=mobile_send_sms_path %>">
     </div>
     <div>
