@@ -1,5 +1,14 @@
 Minsheng::Application.routes.draw do
 
+  get "ucenter" => 'ucenter#index'
+  get "ucenter/suggestion"
+  get "ucenter/inbox"
+  get "ucenter/comment"
+  get "ucenter/settings"
+  get "ucenter/change_password"
+  get "ucenter/favorite"
+  get "ucenter/view_history"
+
   resources :notifications do
     collection do
       get :own_sent

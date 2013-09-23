@@ -11,8 +11,7 @@
 </head>
 
 <%= content_tag :body, class: [controller_name, action_name].join('_') do %>
-  <div class="navbar navbar-fixed-top">
-  <nav class="navbar-inner">
+  <div class="navbar navbar-fixed-top"> <nav class="navbar-inner">
     <div class="container">
       <%= link_to "Minsheng", root_path, :class => 'brand' %>
       <ul class="nav">
@@ -30,9 +29,9 @@
         </li>
         <% if user_signed_in? %>
           <li>
-            <a href="/ucenter">wodejiayuan</a>
-          </li>
-             <% if current_user.has_role? :admin %>
+        <a href="/ucenter">我的家园</a>
+        </li>
+        <% if current_user.has_role? :admin %>
           <li>
         <%= link_to '后台管理', '/admin' %>
         </li>
@@ -67,7 +66,36 @@
           </div>
         <% end %>
         <% end %>
-          <%= yield %>
+          <div class="row">
+            <div class="span3">
+              <div class="well sidebar-nav">
+                <ul class="nav nav-list">
+                  <li class="nav-header">Sidebar</li>
+                  <li class="active"><a href="#">我的收藏</a></li>
+                  <li><a href="#"> 最近浏览</a></li>
+                  <li><a href="#">修改密码</a></li>
+                  <li><a href="#">我的点评</a></li>
+                  <li><a href="#">投诉建议</a></li>
+                  <li>
+                  <%= link_to ' 账户设置', edit_user_registration_path %>
+                  </li>
+                  <li>
+                  <%= link_to '编辑图片', upload_image_user_path(current_user) %>
+                  </li>
+                  <li>
+                  <%= link_to raw("信息提醒 <strong style='color:red'>#{current_user.not_read_notifications.size}</strong>"), notifications_path %>
+                  </li> 
+                </ul>
+              </div><!--/.well -->
+            </div><!--/span-->
+
+
+            <div class="span9">
+
+              <%= yield %>
+            </div>
+          </div>
+
         </div>
       </div>
       <footer>
@@ -78,3 +106,4 @@
 </div> <!--! end of #main -->
 <% end %>
 </html>
+
