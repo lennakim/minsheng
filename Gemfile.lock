@@ -56,6 +56,7 @@ GEM
       mongoid-grid_fs (~> 1.3)
     china_region_fu (0.0.4)
       jquery-rails
+    china_sms (0.0.5)
     ckeditor (3.7.1)
       mime-types
       orm_adapter
@@ -191,6 +192,7 @@ DEPENDENCIES
   carrierwave
   carrierwave-mongoid
   china_region_fu
+  china_sms (~> 0.0.5)
   ckeditor
   devise (>= 2.1.2)
   jquery-rails
