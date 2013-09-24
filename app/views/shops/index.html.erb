@@ -3,11 +3,11 @@
     <h2>Categories</h2>
     <% Category.all.each do |category| %>
       <h3><a href="/categories/<%= category.id %>"><%= category.name %></a> </h3>
-    <% end %>      
-      <h2>Tags</h2>
-      <% Tag.all.each do |tag| %>
-        <h3><%= tag.name %></h3>
-      <% end %>
+  <% end %>      
+    <h2>Tags</h2>
+    <% Tag.all.each do |tag| %>
+      <h3><%= tag.name %></h3>
+  <% end %>
   </div>
   <div class="span8">
     <table>
@@ -30,8 +30,8 @@
     <% end %>
     </table>
 
-        </div>
-      </div>
+  </div>
+</div>
     </div>
   </div>
 </div>

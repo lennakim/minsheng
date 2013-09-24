@@ -1,4 +1,8 @@
 Minsheng::Application.routes.draw do
+  
+  namespace :mobile do
+    get "home" => 'home#index'
+  end
 
   get "ucenter" => 'ucenter#index'
   get "ucenter/suggestion"
