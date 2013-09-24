@@ -1,18 +1,230 @@
-<ul>
-<% @provinces.each do |province| %>
-    <li><strong><%= province.name %></strong><br/>
-      <% province.cities.each do |city| %>
-        <a href="/?city=<%= city.name %>"><%= city.name %></a>
-      <% end %>
-    </li>
-  <% end %>
-</ul>
+<%= stylesheet_link_tag "screen" %>
+<%= stylesheet_link_tag "reset" %>
+<%= javascript_include_tag "application" %>
 
-<h1>公告栏</h1>
-&nbsp;
-<%= link_to '更多', notices_path %>
-<ul>
-  <% (@notices || []).each do |notice| %>
-    <li><%= link_to notice.title, notice_path(notice) %></li>
-  <% end %>
-</ul>
+<!--第一屏开始-->
+<div class="one">
+  <%= render "top", type: "index" %>
+
+  <div class="content">
+    <div class="nav-index">
+      <form action="" method="get">
+        <dl>
+          <dd><a href="/">首页</a></dd>
+          <dd><%= link_to '特惠商户', shops_path %></dd>
+          <dd><a href="#">生活缴费</a></dd>
+          <dd><a href="#">业务预约 </a></dd>
+          <dt><input name="" type="text" />
+          <input name="" type="image" src="/assets/images/index05.jpg" class="search-btn"/>
+          </dt>
+        </dl>
+      </form>
+    </div>
+
+    <div class="logo">
+      <span>生活 · 服务</span>
+      <strong>[ 武汉 | 百步亭小区 ]</strong>
+      <a href="#" class="logo-a"> [ 切换地址&nbsp;&nbsp;]</a>
+      <div class="one-menu"><a href="#">百步亭</a><a href="#">地球村</a><a href="#">更多</a></div>
+    </div>
+
+    <div class="sidebar-right">
+      <a href="#" class="title-login">登&nbsp;&nbsp;&nbsp;录</a>
+      <p><a href="#">登录民生家园网，尊享更多生活优惠，为您的生活添加更多精彩！</a></p>
+      <div class="title-news">小区播报</div>
+      <div class="content-news">
+        <dl>
+          <dd><a href="#">百步亭小区停水停电公告</a></dd>
+          <dd><a href="#">关于小区居委会选举</a></dd>
+          <dd><a href="#">小区居委会选举通知</a></dd>
+          <dd><a href="#">小区居委会选举结果</a></dd>
+          <dd><a href="#">百步亭小区居委会选举通知..</a></dd>
+          <dt><a href="#">更多 >></a></dt>
+        </dl>
+      </div>
+    </div>
+
+    <div class="banner-index">
+      <div class="banner-img"><img src="/assets/images/banner.jpg" /></div>
+      <div class="banner-indexnav"><a href="#" class="current"></a><a href="#"></a><a href="#"></a><a href="#"></a></div>
+    </div>
+
+    <div class="bottom">
+      <div class="footer-nav"><a href="#">关于我们</a>  |  <a href="#">免则条款</a>  |  <a href="#">隐私保护</a>  |  <a href="#">法律声明</a>  |  <a href="#">联系我们</a>  |  <a href="#">网站地图</a></div>
+    <p>中国域名：中国民生银行 京ICP备05202372号  电信业务审批[2004]字第440函</p>
+      <p>24小时客户服务热线：95568 对公专线：4006895568  小微金融服务热专线：4008695568 电信业务审批[2004]字第520函</p>
+    </div>
+  </div>
+</div>
+<!--第一屏结束-->
+
+<!--第二屏开始-->
+<div class="two">
+  <%= render 'top' %>
+
+  <div class="two-content">
+    <%= render "header" %>
+
+    <div class="sidebar-right">
+      <a href="#" class="title-login">登&nbsp;&nbsp;&nbsp;录</a>
+      <p><a href="#">登录民生家园网，尊享更多生活优惠，为您的生活添加更多精彩！</a></p>
+      <div class="title-news">小区播报</div>
+      <div class="content-news">
+        <dl>
+          <dd><a href="#">百步亭小区停水停电公告</a></dd>
+          <dd><a href="#">关于小区居委会选举</a></dd>
+          <dd><a href="#">小区居委会选举通知</a></dd>
+          <dd><a href="#">小区居委会选举结果</a></dd>
+          <dd><a href="#">百步亭小区居委会选举通知..</a></dd>
+          <dt><a href="#">更多 >></a></dt>
+        </dl>
+      </div>
+    </div>
+
+    <div class="two-left">
+      <div class="two-banner mr20"></div>
+      <div class="two-food mr20 mt20">
+        <h2><span>美食</span><a href="#" class="more">更多火锅 ></a><a href="#" class="current">超人气的火锅</a>  |  <a href="#">超赞的新疆/清真菜</a>  |  <a href="#">味道很好的日本菜</a>  |  <a href="#">环境很好的咖啡厅</a></h2>
+        <ul>
+          <li><a href="#"><img src="/assets/img/meishi.jpg" /></a><a href="#" class="mt10">湖锦火锅(菱角湖万达店)</a><em>电话： 027-85889977</em><strong><a href="#" class="review"></a><a href="#" class="review"></a><a href="#" class="review"></a><a href="#" class="review"></a><a href="#" class="review"></a></strong></li>
+        <li><a href="#"><img src="/assets/img/meishi.jpg" /></a><a href="#" class="mt10">湖锦火锅(菱角湖万达店)</a><em>电话： 027-85889977</em><strong><a href="#" class="review"></a><a href="#" class="review"></a><a href="#" class="review"></a><a href="#" class="review"></a><a href="#" class="review"></a></strong></li>
+        <li><a href="#"><img src="/assets/img/meishi.jpg" /></a><a href="#" class="mt10">湖锦火锅(菱角湖万达店)</a><em>电话： 027-85889977</em><strong><a href="#" class="review"></a><a href="#" class="review"></a><a href="#" class="review"></a><a href="#" class="review"></a><a href="#" class="review"></a></strong></li>
+        <li><a href="#"><img src="/assets/img/meishi.jpg" /></a><a href="#" class="mt10">湖锦火锅(菱角湖万达店)</a><em>电话： 027-85889977</em><strong><a href="#" class="review"></a><a href="#" class="review"></a><a href="#" class="review"></a><a href="#" class="review"></a><a href="#" class="review"></a></strong></li>
+        </ul>
+      </div>
+      <div class="two-food two-tourism mr20 mt20">
+        <h2><span>景点</span><a href="#" class="more">更多景点 ></a><a href="#" class="current">景点·郊游</a>  |  <a href="#">足疗按摩</a>  |  <a href="#">桌面游戏</a>  |  <a href="#">咖啡厅</a>  |  <a href="#">酒吧</a>  |  <a href="#">KTV</a></h2>
+        <ul>
+          <li><a href="#"><img src="/assets/img/meishi.jpg" /></a><a href="#" class="mt10">湖锦火锅(菱角湖万达店)</a><em>电话： 027-85889977</em><strong><a href="#" class="review"></a><a href="#" class="review"></a><a href="#" class="review"></a><a href="#" class="review"></a><a href="#" class="review"></a></strong></li>
+        <li><a href="#"><img src="/assets/img/meishi.jpg" /></a><a href="#" class="mt10">湖锦火锅(菱角湖万达店)</a><em>电话： 027-85889977</em><strong><a href="#" class="review"></a><a href="#" class="review"></a><a href="#" class="review"></a><a href="#" class="review"></a><a href="#" class="review"></a></strong></li>
+        <li><a href="#"><img src="/assets/img/meishi.jpg" /></a><a href="#" class="mt10">湖锦火锅(菱角湖万达店)</a><em>电话： 027-85889977</em><strong><a href="#" class="review"></a><a href="#" class="review"></a><a href="#" class="review"></a><a href="#" class="review"></a><a href="#" class="review"></a></strong></li>
+        <li><a href="#"><img src="/assets/img/meishi.jpg" /></a><a href="#" class="mt10">湖锦火锅(菱角湖万达店)</a><em>电话： 027-85889977</em><strong><a href="#" class="review"></a><a href="#" class="review"></a><a href="#" class="review"></a><a href="#" class="review"></a><a href="#" class="review"></a></strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="merchant">
+      <div class="title-merchant">热门商户</div>
+      <a href="#" class="bb br"></a>
+      <a href="#" class="bb"></a>
+      <a href="#" class="bb br"></a>
+      <a href="#" class="bb"></a>
+      <a href="#" class="bb br"></a>
+      <a href="#" class="bb"></a>
+      <a href="#" class="bb br"></a>
+      <a href="#" class="bb"></a>
+    </div>
+
+    <%= render "footer" %>
+  </div>
+</div>
+<!--第二屏结束-->
+
+<!--第三屏开始-->
+<div class="two mt20">
+  <%= render "top" %>
+
+  <div class="two-content">
+    <%= render "header" %>
+
+    <div class="sidebar-right">
+      <a href="#" class="title-login">登&nbsp;&nbsp;&nbsp;录</a>
+      <p><a href="#">登录民生家园网，尊享更多生活优惠，为您的生活添加更多精彩！</a></p>
+      <div class="title-news">小区播报</div>
+      <div class="content-news">
+        <dl>
+          <dd><a href="#">百步亭小区停水停电公告</a></dd>
+          <dd><a href="#">关于小区居委会选举</a></dd>
+          <dd><a href="#">小区居委会选举通知</a></dd>
+          <dd><a href="#">小区居委会选举结果</a></dd>
+          <dd><a href="#">百步亭小区居委会选举通知..</a></dd>
+          <dt><a href="#">更多 >></a></dt>
+        </dl>
+      </div>
+    </div>
+
+    <div class="two-left">
+      <div class="two-banner mr20"></div>
+      <div class="three-pay mr20 mt20">
+        <h1><a href="#">更多缴费&nbsp;></a>生活缴费</h1>
+         <ul>
+          <li><a href="#"><img src="/assets/images/water-ico.jpg" /></a><a href="#" class="mt10 three-paytext">水费</a></li>
+        <li><a href="#"><img src="/assets/images/electricity-ico.jpg" /></a><a href="#" class="mt10 three-paytext">电费</a></li>
+        <li><a href="#"><img src="/assets/images/property-ico.jpg" /></a><a href="#" class="mt10 three-paytext">物业费</a></li>
+        <li><a href="#"><img src="/assets/images/phone-ico.jpg" /></a><a href="#" class="mt10 three-paytext">手机话费</a></li>
+        <li><a href="#"><img src="/assets/images/tel-ico.jpg" /></a><a href="#" class="mt10 three-paytext">固话费</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <%= render "footer" %>
+  </div>
+</div>
+<!--第三屏结束-->
+<!--第四屏开始-->
+<div class="two mt20">
+  <%= render "top" %>
+
+  <div class="two-content">
+    <%= render "header" %>
+
+    <div class="sidebar-right">
+      <a href="#" class="title-login">登&nbsp;&nbsp;&nbsp;录</a>
+      <p><a href="#">登录民生家园网，尊享更多生活优惠，为您的生活添加更多精彩！</a></p>
+      <div class="title-news">小区播报</div>
+      <div class="content-news">
+        <dl>
+          <dd><a href="#">百步亭小区停水停电公告</a></dd>
+          <dd><a href="#">关于小区居委会选举</a></dd>
+          <dd><a href="#">小区居委会选举通知</a></dd>
+          <dd><a href="#">小区居委会选举结果</a></dd>
+          <dd><a href="#">百步亭小区居委会选举通知..</a></dd>
+          <dt><a href="#">更多 >></a></dt>
+        </dl>
+      </div>
+    </div>
+
+    <div class="two-left">
+      <div class="two-banner mr20"></div>
+      <div class="four-arrangement mr20 mt20">
+        <h1><a href="#">更多&nbsp;></a>业务预约</h1>
+          <div class="list">
+          <div class="left"><a href="#"><img src="/assets/images/arrangement-ico.jpg" width="72" height="73" /></a><a href="#" class="mt10 four-paytext">大额存取预约</a></div>
+          <p class="four-arrangement-border"><span>业务介绍：</span>一次性从储蓄账户（包括银行卡户）提取现金5万元（不含5万元）以上的，柜台人员应请取款人提供本人的有效身份证件，查验无误后给予以..</p>
+        </div>
+        <div class="list">
+          <div class="left"><a href="#"><img src="/assets/images/arrangement-ico.jpg" width="72" height="73" /></a><a href="#" class="mt10 four-paytext">大额存取预约</a></div>
+          <p><span>业务介绍：</span>一次性从储蓄账户（包括银行卡户）提取现金5万元（不含5万元）以上的，柜台人员应请取款人提供本人的有效身份证件，查验无误后给予以..</p>
+        </div>
+        <div class="list">
+          <div class="left"><a href="#"><img src="/assets/images/arrangement-ico.jpg" width="72" height="73" /></a><a href="#" class="mt10 four-paytext">大额存取预约</a></div>
+          <p class="four-arrangement-border"><span>业务介绍：</span>一次性从储蓄账户（包括银行卡户）提取现金5万元（不含5万元）以上的，柜台人员应请取款人提供本人的有效身份证件，查验无误后给予以..</p>
+        </div>
+        <div class="list">
+          <div class="left"><a href="#"><img src="/assets/images/arrangement-ico.jpg" width="72" height="73" /></a><a href="#" class="mt10 four-paytext">大额存取预约</a></div>
+          <p><span>业务介绍：</span>一次性从储蓄账户（包括银行卡户）提取现金5万元（不含5万元）以上的，柜台人员应请取款人提供本人的有效身份证件，查验无误后给予以..</p>
+        </div>
+        <div class="list">
+          <div class="left"><a href="#"><img src="/assets/images/arrangement-ico.jpg" width="72" height="73" /></a><a href="#" class="mt10 four-paytext">大额存取预约</a></div>
+          <p class="four-arrangement-border"><span>业务介绍：</span>一次性从储蓄账户（包括银行卡户）提取现金5万元（不含5万元）以上的，柜台人员应请取款人提供本人的有效身份证件，查验无误后给予以..</p>
+        </div>
+        <div class="list">
+          <div class="left"><a href="#"><img src="/assets/images/arrangement-ico.jpg" width="72" height="73" /></a><a href="#" class="mt10 four-paytext">大额存取预约</a></div>
+          <p><span>业务介绍：</span>一次性从储蓄账户（包括银行卡户）提取现金5万元（不含5万元）以上的，柜台人员应请取款人提供本人的有效身份证件，查验无误后给予以..</p>
+        </div>
+      </div>
+    </div>
+
+    <%= render "footer" %>
+  </div>
+</div>
+<!--第四屏结束-->
+<script>
+  $(document).ready(function(){
+    $('body').css({
+    'background-image': 'url(/assets/images/index-bg.jpg)',
+    'background-repeat': 'repeat-x',
+    'background-color': '#dfefff'
+    });
+  })
+</script>

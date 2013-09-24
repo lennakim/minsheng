@@ -1,0 +1,141 @@
+/* 欢迎页开始 */
+body{background:#dfefff; font-size:12px;}
+.top-bar{ background:#3c99f6; height:35px; margin:0 auto; width:980px; font:12px/280% 宋体; color:#d8ebfd; }
+.top-bar .left{ float:left; line-height:35px; position:relative;}
+.top-bar .left a{color:#fff; font: bold 12px/280% 宋体; margin-left:20px; text-decoration:none;}
+.top-bar .left a:hover{color:#dfefff; }
+.top-bar .left em{ position:absolute; top:12px; left:200px;}
+
+.top-bar .right{ float:right; line-height:35px; position:relative; color:#fff; font: 12px/280% 宋体;}
+.top-bar .right a{color:#d8ebfd; font:12px/280% 宋体; margin-left:20px; text-decoration:none;}
+.top-bar .right a:hover{color:#fff;}
+.top-bar .right em{position:absolute; top:12px; left:53px;}
+.top-bar .right strong{ background:url(/assets/images/indexioc.jpg) 0 0 no-repeat; width:15px; height:19px; display:block; position:absolute; top:7px; left:-5px;}
+
+.content{width:980px; margin:0 auto;}
+
+.logo{width:293px; height:51px; background:url(/assets/images/logo.jpg) 0 0 no-repeat; margin-top:46px; position:relative;}
+.logo span{font: bold 14px/280% 微软雅黑; float:right; color:#fff;}
+.logo strong,.logo-a{font:12px/280% 宋体; float:right; color:#fff; position:absolute; top:30px; left:75px;}
+.logo-a{left:210px; text-decoration:none; background:url(/assets/images/index02.jpg) 62px 15px no-repeat;}
+.logo-a:hover{color:#dfefff; background:url(/assets/images/index03.jpg) 62px 15px no-repeat;}
+.one-menu{ width:75px; height:92px; *height:92px; _height:80px; background:#e9f4ff; left:212px; top:55px; position:absolute;}
+.one-menu a{display:block; text-align:center; font:12px/30px 宋体; color:#3c99f6; text-decoration:none; border-bottom:1px solid #cae3fd;}
+.one-menu a:hover{color:#62a51b;}
+
+.nav-index,.nav-indextwo{ background:url(/assets/images/index04.jpg) 0 0 no-repeat; width:652px; height:35px; float:right; margin-top:15px; *margin-top:62px; _margin-top:62px;  position:relative;}
+.nav-index dl,.nav-indextwo dl{ padding-left:10px; }
+.nav-index dl dd,.nav-indextwo dl dd{ display:block; float:left;}
+.nav-index dl dd a,.nav-indextwo dl dd a{ width:100px; height:32px; display:block; font: bold 14px/30px 微软雅黑; color:#62a51b; text-align:center;  text-decoration:none;}
+.nav-index dl dd a:hover,.nav-indextwo dl dd a:hover{background:url(/assets/images/navbg.jpg) 0 0 no-repeat;  color:#fff;}
+.nav-index dl dt input,.nav-indextwo dl dt input{border:none;overflow:hidden;*border:red; height:23px; margin-top:4px; margin-left:33px;  *margin-left:33px;  _margin-left:30px; line-height:25px;}
+.search-btn{position:absolute; float:right; right:25px;}
+
+.banner-index{ width:780px; height:405px;float:left;}
+.banner-indexnav{width:200px; margin:0 auto;}
+.banner-indexnav a{ display:block; width:40px; height:10px; background:#339aff; float:left; overflow:hidden; margin-right:10px;}
+.banner-indexnav a:hover{ background:#62a51b;}
+.banner-indexnav .current{background:#62a51b;}
+
+.gaodu{ height:300px;}
+
+.sidebar-right{ background:#f3f9ff; width:200px; height:350px; float:right; margin-top:50px; position:relative;}
+.sidebar-right p a,.content-news a{ text-decoration:none; color:#3399ff;}
+.sidebar-right p a:hover,.content-news a:hover{ color:#62a51b;}
+.title-login,.title-news{ background:#238af3; width:160px; position:absolute; top:-15px; height:30px; left:20px; text-align:center; color:#fff; font: bold 16px/30px 宋体; text-decoration:none;}
+.title-login:hover{ color:#d8ebfd;}
+
+.title-news{top:130px;}
+.sidebar-right p{ color:#3399ff; text-indent:2em; padding:40px 20px 0px 20px; line-height:22px;}
+.content-news{ padding-top:70px; padding-left:20px;}
+.content-news dl dd{line-height:25px; background:url(/assets/images/list-dot.jpg) 0 10px no-repeat; display:block; text-indent:1em;}
+.content-news dl dt{ float:right; padding-right:20px; padding-top:5px;}
+
+.bottom{ height:100px; *height:100px; _height:80px; color:#228af2; display:block; width:980px; float:left; margin-top:70px;}
+.bottom a{ color:#228af2; font:bold 14px/30px 宋体;  text-decoration:none; padding:0 10px;}
+.bottom a:hover{ color:#62a51b;}
+.footer-nav{ text-align:center;}
+.bottom p{ text-align:center; line-height:22px;}
+
+
+.two{background:url(/assets/images/index06.jpg) 0 0 repeat-x; clear:both;}
+.top-bar02{ background:#3c99f6; height:35px; margin:0 auto; width:980px; font:12px/280% 宋体; color:#d8ebfd; }
+.top-bar02 .left{ float:left; line-height:35px; position:relative;}
+.top-bar02 .left a{color:#fff; font: bold 12px/280% 宋体; margin-left:20px; text-decoration:none;}
+.top-bar02 .left a:hover{color:#dfefff; }
+.top-bar02 .left em{ position:absolute; top:12px; left:200px;}
+
+.top-bar02{ background:#3c99f6; height:35px; margin:0 auto; width:980px; font:12px/280% 宋体; color:#d8ebfd; }
+.top-bar02 .right{ float:right; line-height:35px; position:relative; color:#fff; font: 12px/280% 宋体;}
+.top-bar02 .right a{color:#d8ebfd; font:12px/280% 宋体; margin-left:20px; text-decoration:none;}
+.top-bar02 .right a:hover{color:#fff;}
+.top-bar02 .right em{position:absolute; top:12px; left:53px;}
+.top-bar02 .right strong{ background:url(/assets/images/indexioc.jpg) 0 0 no-repeat; width:15px; height:19px; display:block; position:absolute; top:7px; left:-5px;}
+
+.two-content{width:980px; margin:0 auto;}
+.two-left{ width:780px; float:left;}
+.two-banner{ height:140px; background:#f3f9ff; margin-top:40px;}
+
+.two-logo{width:293px; height:51px; background:url(/assets/images/logo02.jpg) 0 0 no-repeat; margin-top:46px; position:relative;}
+.two-logo span{font: bold 14px/280% 微软雅黑; float:right; color:#029ff6;}
+.two-logo strong,.two-logo-a{font:12px/280% 宋体; float:right; color:#0a9d57; position:absolute; top:30px; left:75px;}
+.two-logo-a{left:210px; text-decoration:none; background:url(/assets/images/index07.jpg) 62px 15px no-repeat;}
+.two-logo-a:hover{color:#3399ff; background:url(/assets/images/index08.jpg) 62px 15px no-repeat;}
+.two-menu{ width:75px; height:92px; *height:92px; _height:80px; background:#e9f4ff; left:212px; top:55px; position:absolute;}
+.two-menu a{display:block; text-align:center; font:12px/30px 宋体; color:#3c99f6; text-decoration:none; border-bottom:1px solid #cae3fd;}
+.two-menu a:hover{color:#62a51b;}
+
+.nav-indextwo{ background:url(/assets/images/index09.jpg) 0 0 no-repeat; width:652px; height:35px; float:right; margin-top:15px; *margin-top:62px; _margin-top:62px;  position:relative;}
+
+.two-food,.three-pay,.four-arrangement{background:#f3f9ff; height:250px; color:#444; padding:30px 0px 0px 20px; position:relative;}
+.two-food h2 a{ color:#444; padding:5px; text-decoration:none;}
+.two-food h2 a:hover{ background:#f1a718; color:#fff; padding:5px;}
+.two-food .current{ background:#f1a718; color:#fff;}
+.two-food span{ background:url(/assets/images/food.gif) 0 0 no-repeat; width:79px; height:82px; display:block; position:absolute; top:-5px; left:20px; text-align:center; color:#fff; font:bold 16px/60px 宋体;}
+.two-food .more{ color:#f1a718; float:right; margin-right:20px; margin-top:-5px;}
+.two-food .more:hover{ color:#fff;}
+.two-food ul{ display:block; clear:both; float:left;}
+.two-food ul li{ float:left; margin:10px; display:block; width:160px; height:140px; text-align:center;}
+.two-food ul li a,.two-food em,.two-food strong{ display:block; color:#444; font: bold 12px/22px 宋体; text-decoration:none;}
+.two-food em{color:#888; font-weight:normal;}
+.two-food strong a{ float:left; margin:0px 2px;}
+.two-food strong{padding-left:30px;}
+.two-food h2{ margin-left:120px;}
+.review{ background:url(/assets/images/star.jpg) 0 0 no-repeat; width:15px; height:15px;}
+.review:hover{background:url(/assets/images/star02.jpg) 0 0 no-repeat;}
+
+.two-tourism span{ background:url(/assets/images/tourism.gif) 0 0 no-repeat; width:79px; height:82px; display:block; position:absolute; top:-5px; left:20px; text-align:center; color:#fff; font:bold 16px/60px 宋体;}
+.two-tourism h2 a{ color:#444; padding:5px; text-decoration:none;}
+.two-tourism h2 a:hover{ background:#228af2; color:#fff; padding:5px;}
+.two-tourism .current{ background:#228af2; color:#fff;}
+.two-tourism .more{ color:#228af2; float:right; margin-right:20px; margin-top:-5px;}
+
+.merchant{ background:#f3f9ff; width:200px; height:284px; float:right; margin-top:40px; position:relative; padding-top:15px;}
+.title-merchant{background:#238af3; width:160px; position:absolute; height:30px; left:20px; text-align:center; color:#fff; font: bold 16px/30px 宋体; text-decoration:none; top:-20px;}
+.merchant a{ background:url(/assets/img/shangjia02.jpg) 0 0 no-repeat; width:98px; *width:99px; _width:98px; height:70px; display:block; float:left;}
+.merchant a:hover{ background:url(/assets/img/shangjia.jpg) 0 0 no-repeat;}
+
+.two-bottom{ height:100px; *height:100px; _height:80px; color:#fff; display:block; float:left; margin:40px 0px; width:100%;}
+.two-bottom a{ color:#fff; font:bold 14px/30px 宋体;  text-decoration:none; padding:0 10px;}
+.two-bottom a:hover{ color:#d6ebff;}
+.two-footer-nav{ text-align:center; background:#3399ff; width:100%;}
+.two-bottom p{ text-align:center; line-height:22px; color:#228af2;}
+
+.three-pay,.four-arrangement{padding:20px; height:180px;}
+.three-pay h1,.four-arrangement h1{height:30px; background:#228af2; font: bold 16px/30px 宋体; color:#fff; padding-left:20px;}
+.three-pay h1 a,.four-arrangement h1 a{ float:right; display:block; font:12px/30px 宋体; color:#fff; padding-right:20px; text-decoration:none;}
+.three-pay h1 a:hover,.four-arrangement h1 a:hover{ color:#f3f9ff;}
+.three-pay ul li{float:left; display:block; width:111px; height:140px; text-align:center; padding:16px;}
+.three-paytext{display:block; font: bold 16px/30px 宋体; color:#fff; background:url(/assets/images/index10.jpg) 0 0 no-repeat; width:111px; height:28px; text-decoration:none;}
+.three-paytext:hover{background:url(/assets/images/index11.jpg) 0 0 no-repeat;}
+
+.four-arrangement{ height:440px; padding-bottom:20px; *padding-bottom:20px; _padding-bottom:0px;}
+.four-paytext{ color:#21a4f0; font: bold 12px/30px 宋体;}
+.four-arrangement .list{ width:360px; display:block; float:left;}
+.four-arrangement .list .left{ width:80px; padding:20px; text-align:center; float:left; }
+.four-arrangement .list .left a{ text-decoration:none;}
+.four-arrangement .list .left a:hover{ color:#62a51b;}
+.four-arrangement .list p{ width:229px; float:right; display:block; line-height:22px; margin-top:20px; padding:0px 10px 0px 0px;}
+.four-arrangement .list p span{ font-weight:bold;}
+
+/* 欢迎页结束 */
