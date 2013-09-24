@@ -5,15 +5,20 @@ class User < ActiveRecord::Base
 
   # security (i.e. attr_accessible) ...........................................
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me,
-    :confirmed_at, :doorkeeper_access_token, :doorkeeper_uid, :image
+    :confirmed_at, :doorkeeper_access_token, :doorkeeper_uid, :image, :mobile, :is_auth_for_mobile, :login
+
+
   attr_accessible :role, :as => "admin"
-  attr_accessor :image_data
+  attr_accessor :image_data, :login
 
   # relationships .............................................................
   has_many :rates, dependent: :destroy
 
   # constants definition ......................................................
   # validations ...............................................................
+  validates :name, :uniqueness => { :case_sensitive => false }
+
+  validates :mobile, :uniqueness => true, :numericality => { :only_integer => true }, :allow_blank => true, :allow_nil => true
   # callbacks .................................................................
   # scopes ....................................................................
 
@@ -26,7 +31,7 @@ class User < ActiveRecord::Base
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
-         :confirmable,:omniauthable
+         :confirmable,:omniauthable, :authentication_keys =>[ :login ]
   #, :token_authenticatable
 
   # class methods .............................................................
@@ -34,6 +39,15 @@ class User < ActiveRecord::Base
   # protected instance methods ................................................
   # private instance methods ..................................................
   # Setup accessible (or protected) attributes for your model
+
+  def self.find_first_by_auth_conditions(warden_conditions)
+    conditions = warden_conditions.dup
+    if login = conditions.delete(:login)
+      where(conditions).where(["lower(name) = :value OR lower(email) = :value OR lower(mobile) =:value ", { :value => login }]).first
+    else
+      where(conditions).first
+    end
+  end
 
   def role
     self.roles.pluck(:name).first
@@ -70,5 +84,10 @@ class User < ActiveRecord::Base
 
   def own_sent_notifications
     Notification.where(:sender => self.id)
+  end
+
+  def is_auth?(mobile)
+    user = User.where(:id => self.id, :mobile => mobile).order("created_at DESC").first
+    user.nil? ? false : user.is_auth_for_mobile
   end
 end
