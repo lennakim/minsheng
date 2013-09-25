@@ -72,10 +72,10 @@
                 <ul class="nav nav-list">
                   <li class="nav-header">Sidebar</li>
                   <li class="active"><a href="ucenter/favorite">我的收藏</a></li>
-                  <li><a href="ucenter/view_history"> 最近浏览</a></li>
-                  <li><a href="ucenter/change_password">修改密码</a></li>
-                  <li><a href="ucenter/comment">我的点评</a></li>
-                  <li><a href="ucenter/sugguestion">投诉建议</a></li>
+                  <li><a href="/ucenter/view_history"> 最近浏览</a></li>
+                  <li><a href="/ucenter/change_password">修改密码</a></li>
+                  <li><a href="/ucenter/comment">我的点评</a></li>
+                  <li><a href="/ucenter/suggestion">投诉建议</a></li>
                   <li>
                   <%= link_to ' 账户设置', edit_user_registration_path %>
                   </li>
@@ -84,7 +84,7 @@
                   </li>
                   <li>
                   <%= link_to raw("信息提醒 <strong style='color:red'>#{current_user.not_read_notifications.size}</strong>"), notifications_path %>
-                  </li> 
+                  </li>
                 </ul>
               </div><!--/.well -->
             </div><!--/span-->

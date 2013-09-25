@@ -73,11 +73,67 @@ class MobileController < ApplicationController
     render :json => { :status => result, :message => message }
   end
 
+  def reset_password_page
+
+  end
+
+  def send_password_token
+    mobile = params[:mobile].to_i
+    user = User.find_by_mobile(mobile)
+    message = ""
+
+    if user
+      password_token = User.generate_password_token
+      content = generate_reset_password_content(mobile,password_token)
+      result = Sms.send_message_by_smsbao(mobile,content)
+
+      if result[:success]
+        user.update_attributes(:reset_password_token_for_mobile => password_token, :reset_password_sent_at_for_mobile => Time.now)
+        message = "发送成功"
+      else
+        message = "发送失败"
+      end
+    else
+      message = "此号码不存在"
+    end
+
+    render :json => { :message => message }
+  end
+
+  def reset_password
+    mobile = params[:mobile].to_i
+    token = params[:token]
+    message = ""
+
+    user = User.where(:reset_password_token_for_mobile => token, :mobile=>mobile).first
+
+    if user
+      user.password = params[:password]
+      user.password_confirmation = params[:password_confirmation]
+      user.reset_password_token_for_mobile = nil
+      user.reset_password_sent_at_for_mobile = nil
+      user.save
+      sign_in(:user, user)
+      message = "修改成功"
+    else
+      message = "无效的"
+    end
+
+    redirect_to root_url, :flash => { :notice => message }
+  end
+
 private
 
   def generate_sms_content(phone,captcha_code)
     content = <<-EOF
       您的手机号码是: #{phone},验证码是: #{captcha_code},请在一天内注册.
+      如果不是您本人的操作,请忽略此条短信.
+    EOF
+  end
+
+  def generate_reset_password_content(mobile, token)
+    content = <<-EOF
+      您的手机号码是: #{mobile},重置验证码是: #{token}.
       如果不是您本人的操作,请忽略此条短信.
     EOF
   end
