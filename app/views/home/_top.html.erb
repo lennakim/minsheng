@@ -2,7 +2,15 @@
 <div class="<%= type.nil? ? 'top-bar02' : 'top-bar' %>">
   <div class="left">
     民生家园，你的生活助手！
+
+        <% if user_signed_in? %>
+
+            <a href="/ucenter">我的家园</a>
+        <%= link_to ' 退出', destroy_user_session_path, :method => 'delete' %>
+        <% else %>
     <%= link_to '登录', new_user_session_path %><em><img src="/assets/images/index01.jpg" /></em><%= link_to '免费注册', new_user_registration_path %>
+
+    <% end %>
   </div>
   <div class="right">
     <strong></strong>
