@@ -1,0 +1,11 @@
+<% type ||= nil %>
+<div class="<%= type.nil? ? 'top-bar02' : 'top-bar' %>">
+  <div class="left">
+    民生家园，你的生活助手！
+    <%= link_to '登录', new_user_session_path %><em><img src="/assets/images/index01.jpg" /></em><%= link_to '免费注册', new_user_registration_path %>
+  </div>
+  <div class="right">
+    <strong></strong>
+    <a href="/">首页</a><em><img src="/assets/images/index01.jpg" /></em><a href="#" class="mr20">帮助中心</a>客服热线:95568#123
+  </div>
+</div>

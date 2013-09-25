@@ -1,4 +1,6 @@
 class HomeController < ApplicationController
+  layout false
+
   def index
     if params[:city]
       redirect_to shops_url

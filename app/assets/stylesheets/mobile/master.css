@@ -1,0 +1,113 @@
+/* 欢迎页开始 */
+body{background:url(/assets/mobile/bg.jpg) 0 0 repeat-y; position:relative;}
+
+.topbar{width:1200px; margin:0 auto; height:96px; padding:25px 0px; margin-bottom:30px;}
+.topbar .logo{ width:370px; height:96px; float:left;}
+.topbar .seach{ background:url(/assets/mobile/seach.png) 0 0 no-repeat; width:778px; height:82px; float:right; margin-top:10px;}
+.topbar .search-input{border:none; background:none;width:610px; height:82px; float:left; font: bold 18px/82px 微软雅黑; color:#c09208; padding-left:40px;}
+.topbar .search-btn{ margin-top:10px;}
+.content{background:url(/assets/mobile/bg-bottom.jpg) center bottom no-repeat; height:980px; width:1920px; padding-top:100px;}
+.main{width:1458px; height:610px; margin:0 auto;  text-align:center; position:relative;}
+.touch-l{background:url(/assets/mobile/left-nav.jpg) 0 0 no-repeat; width:64px; height:118px; display:block; position:absolute; left:3%; top:40%;}
+.touch-r{background:url(/assets/mobile/right-nav.jpg) 0 0 no-repeat; width:64px; height:118px; display:block; position:absolute; float:right; right:10px; top:40%;}
+
+.ad01{ float:left; display:block; height: 560px; width: 349px; background: url(/assets/mobile/ad01.png) 0 0 no-repeat;}
+.ad01:hover{background: url(/assets/mobile/ad01hover.png) 0 0 no-repeat; }
+
+.ad02{ position:absolute; top:-50px; left:349px; margin-left:20px;float:left; display:block; height: 293px; width: 719px; background: url(/assets/mobile/ad02.png) 0 0 no-repeat;}
+.ad02:hover{background: url(/assets/mobile/ad02hover.png) 0 0 no-repeat;}
+
+.ad03{ top:260px; left:349px; position:absolute; margin-left:20px;float:left; display:block; height: 296px; width: 351px; background: url(/assets/mobile/ad03.png) 0 0 no-repeat;}
+.ad03:hover{background: url(/assets/mobile/ad03hover.png) 0 0 no-repeat;}
+
+.ad04{top:260px; left:712px;position:absolute; margin-left:20px;float:left; display:block; height:291px; width: 351px; background: url(/assets/mobile/ad04.png) 0 0 no-repeat;}
+.ad04:hover{background: url(/assets/mobile/ad04hover.png) 0 0 no-repeat;}
+
+.ad05{left:1090px;position:absolute; margin-left:20px;float:left; display:block; height: 550px; width: 349px; background: url(/assets/mobile/ad05.png) 0 0 no-repeat;}
+.ad05:hover{background: url(/assets/mobile/ad05hover.png) 0 0 no-repeat;}
+
+.touch-nav{ background:url(/assets/mobile/nav-bg.png) 0 0 no-repeat; width: 807px; height:310px; margin:0 auto; position:relative;}
+.touch-navup{width: 506px; height:103px; margin:0 auto; position:relative; margin-top:91px; display:block; background:url(/assets/mobile/nav-bg02.png) 0 0 no-repeat;}
+.touch-navup:hover{background:url(/assets/mobile/nav-bg02hover.png) 0 0 no-repeat;}
+
+.button01{ background:url(/assets/mobile/nav-01.png) 0 0 no-repeat; width: 113px; height:113px; margin:0 auto; position:absolute; top:150px;}
+.button01:hover{background:url(/assets/mobile/nav-01hover.png) 0 0 no-repeat;  width: 125px; height:127px;}
+
+.button02{ background:url(/assets/mobile/nav-02.png) 0 0 no-repeat; width: 113px; height:113px; margin:0 auto; position:absolute; top:50px; left:90px;}
+.button02:hover{background:url(/assets/mobile/nav-02hover.png) 0 0 no-repeat; width: 125px; height:127px; margin:0 auto; position:absolute; top:50px; left:90px;}
+
+.button03{ background:url(/assets/mobile/nav-03.png) 0 0 no-repeat; width: 113px; height:113px; margin:0 auto; position:absolute; top:-20px; left:210px;}
+.button03:hover{background:url(/assets/mobile/nav-03hover.png) 0 0 no-repeat;width: 125px; height:127px; margin:0 auto; position:absolute; top:-20px; left:210px;}
+
+.buttonzhankai{ background:url(/assets/mobile/zhankai.png) 0 0 no-repeat; width: 74px; height:85px; margin:0 auto; position:absolute; top:-20px; left:370px;}
+.buttonzhankai:hover{background:url(/assets/mobile/zhankai02.png) 0 0 no-repeat; width: 74px; height:85px; margin:0 auto; position:absolute; top:-20px; left:370px;}
+
+.button06{ background:url(/assets/mobile/nav-06.png) 0 0 no-repeat; width: 113px; height:113px; margin:0 auto; position:absolute; top:170px; left:682px;}
+.button06:hover{background:url(/assets/mobile/nav-06.png) 0 0 no-repeat; width: 113px; height:113x; margin:0 auto; position:absolute; top:170px;}
+
+.button05{ background:url(/assets/mobile/nav-05.png) 0 0 no-repeat; width: 113px; height:113px; margin:0 auto; position:absolute; top:50px; left:610px;}
+.button05:hover{background:url(/assets/mobile/nav-05hover.png) 0 0 no-repeat; width: 125px; height:127px; margin:0 auto; position:absolute; top:50px; left:610px;}
+
+.button04{ background:url(/assets/mobile/nav-04.png) 0 0 no-repeat; width: 113px; height:113px; margin:0 auto; position:absolute; top:-20px; left:480px;}
+.button04:hover{background:url(/assets/mobile/nav-04hover.png) 0 0 no-repeat; width: 125px; height:127px; margin:0 auto; position:absolute; top:-20px; left:480px;}
+
+.qiehuandizhi{width:276px; height:32px; display:block; position:absolute; top:270px; left:270px; font: bold 18px/32px 微软雅黑; text-align:center; color:#fff; text-decoration:none; text-align:center;}
+.qiehuandizhi span{color:#ffd372;}
+.qiehuandizhi .left{ background:url(/assets/mobile/qiehuandizhi-left.jpg) 0 0 no-repeat; width:17px; height:32px; float:left;}
+.qiehuandizhi .centre{ background:#ff6600; height:32px; float:left; text-align:right;}
+.qiehuandizhi .right{ background:url(/assets/mobile/qiehuandizhi-right.jpg) 0 0 no-repeat; width:20px; height:32px; float:left;}
+
+
+
+/* 欢迎页结束 */
+
+/* 支付页开始 */
+.main02{background:url(/assets/mobile/main-bg.png) 0 0 no-repeat; width:1459px; height:558px; margin:0 auto;}
+
+.pay-leftnav{ float:left; width:280px;}
+
+.pay-leftnav01{ background:url(/assets/mobile/pay01.png) 0 0 no-repeat; width:139px; height:125px; float:left; border-bottom:1px solid #66cc66;  border-right:1px solid #66cc66;}
+.pay-leftnav01:hover{ background:url(/assets/mobile/pay01hover.png) 0 0 no-repeat;}
+
+.pay-leftnav02{ background:url(/assets/mobile/pay02.png) 0 0 no-repeat; width:138px; height:125px; float:left; border-bottom:1px solid #66cc66; border-right:1px solid #66cc66;}
+.pay-leftnav02:hover{ background:url(/assets/mobile/pay02hover.png) 0 0 no-repeat;}
+
+.pay-leftnav03{ background:url(/assets/mobile/pay03.png) 0 0 no-repeat; width:139px; height:125px; float:left; border-bottom:1px solid #66cc66; border-right:1px solid #66cc66;}
+.pay-leftnav03:hover{ background:url(/assets/mobile/pay03hover.png) 0 0 no-repeat;}
+
+.pay-leftnav04{ background:url(/assets/mobile/pay04.png) 0 0 no-repeat; width:138px; height:125px; float:left; border-bottom:1px solid #66cc66;  border-right:1px solid #66cc66;}
+.pay-leftnav04:hover{ background:url(/assets/mobile/pay04hover.png) 0 0 no-repeat;}
+
+.pay-leftnav05{ background:url(/assets/mobile/pay05.png) 0 0 no-repeat; width:139px; height:125px; float:left; border-bottom:1px solid #66cc66; border-right:1px solid #66cc66;}
+.pay-leftnav05:hover{ background:url(/assets/mobile/pay05hover.png) 0 0 no-repeat;}
+
+.pay-leftnav06{ background:url(/assets/mobile/pay06.png) 0 0 no-repeat; width:138px; height:125px; float:left; border-bottom:1px solid #66cc66; border-right:1px solid #66cc66;}
+.pay-leftnav06:hover{ background:url(/assets/mobile/pay06hover.png) 0 0 no-repeat;}
+
+.pay-leftnav07{ background:url(/assets/mobile/pay07.png) 0 0 no-repeat; width:139px; height:125px; float:left;  border-right:1px solid #66cc66;}
+.pay-leftnav07:hover{ background:url(/assets/mobile/pay07hover.png) 0 0 no-repeat;}
+
+.pay-leftnav08{ background:url(/assets/mobile/pay08.png) 0 0 no-repeat; width:138px; height:125px; float:left;  border-right:1px solid #66cc66;}
+.pay-leftnav08:hover{ background:url(/assets/mobile/pay08.png) 0 0 no-repeat;}
+
+.pay-right{ float:left; width:1179px; position:relative;}
+.tab-shuifei{ background:url(/assets/mobile/payshuifei01.png) 0 0 no-repeat; width:220px; height:94px; position:absolute; top:-3px; left:85px;}
+.tab-shuifei:hover{background:url(/assets/mobile/payshuifei01hover.png) 0 0 no-repeat;}
+.tab-jiaofeijilu{ background:url(/assets/mobile/payjiaofeijilu01.png) 0 0 no-repeat; width:220px; height:94px; position:absolute; top:-3px; left:325px;}
+.tab-jiaofeijilu:hover{background:url(/assets/mobile/payshuifei01hover.png) 0 0 no-repeat; }
+.pay-right .current{background:url(/assets/mobile/payshuifei01hover.png) 0 0 no-repeat; }
+.tab-shuifeic{ background:url(/assets/mobile/pay09.png) 0 0 repeat-x; height:351px; width:1080px; position:relative; float:left; top:80px; padding-top:20px; padding-left:90px;} 
+.tab-shuifeic .city,.tab-shuifeic .unit,.tab-shuifeic .tips{ width:1000px; height:40px; color:#1d891d; font:24px/32px 微软雅黑; float:left}
+.tab-shuifeic .tips{font:14px/32px 微软雅黑; padding-left:150px;}
+.selectbg-left{ background:url(/assets/mobile/selectbg-left.png) 0 0 no-repeat; width:20px; height:40px; float:left;}
+.selectbg-center{background:url(/assets/mobile/selectbg-center.png) 0 0 repeat-x; float:left; height:40px; padding:0px 20px; width:220px;}
+.selectbg-right{ background:url(/assets/mobile/selectbg-right.png) 0 0 no-repeat; float:left; height:40px; width:46px;}
+.selectbg-right02{background:url(/assets/mobile/selectbg-right02.png) 0 0 no-repeat; float:left; height:40px; width:20px;}
+.citytitle{ width:130px; float:left;}
+.querybtn{ background:url(/assets/mobile/query-btn.png) 0 0 no-repeat; width:143px; height:51px; display:block; float:left; margin-left:130px;}
+.client-input{border:none; background:none; height:40px; line-height:40px; font:22px/32px 微软雅黑; color:#339933; width:600px;} 
+
+.shuifeixiangdan{ background:url(/assets/mobile/shuifeixiangdan.png) 0 0 no-repeat; width:209px; height:236px; display:block; position:absolute; left:910px; top:100px;}
+.shuifeixiagndan02{ background:url(/assets/mobile/shuifeixiangdanfangda.png) 0 0 no-repeat; width:708px; height:502px; position:absolute; left:350px; top:100px; z-index:9999; display:block;}
+
+/* 支付页结束 */
