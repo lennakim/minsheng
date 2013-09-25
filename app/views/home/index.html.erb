@@ -1,6 +1,8 @@
 <%= stylesheet_link_tag "master" %>
 <%= stylesheet_link_tag "reset" %>
+<%= stylesheet_link_tag "plugins/anythingslider/css/anythingslider" %>
 <%= javascript_include_tag "application" %>
+<%= javascript_include_tag "plugins/anythingslider/jquery.anythingslider.min" %>
 
 <!--第一屏开始-->
 <div class="one">
@@ -45,7 +47,12 @@
     </div>
 
     <div class="banner-index">
-      <div class="banner-img"><img src="/assets/images/banner.jpg" /></div>
+      <div id="slider" class="banner-img">
+        <img src="/assets/images/banner.jpg" />
+        <img src="/assets/images/banner.jpg" />
+        <img src="/assets/images/banner.jpg" />
+        <img src="/assets/images/banner.jpg" />
+      </div>
       <div class="banner-indexnav"><a href="#" class="current"></a><a href="#"></a><a href="#"></a><a href="#"></a></div>
     </div>
 
@@ -222,9 +229,15 @@
 <script>
   $(document).ready(function(){
     $('body').css({
-    'background-image': 'url(/assets/images/index-bg.jpg)',
-    'background-repeat': 'repeat-x',
-    'background-color': '#dfefff'
+      'background-image': 'url(/assets/images/index-bg.jpg)',
+      'background-repeat': 'repeat-x',
+      'background-color': '#dfefff'
+    });
+
+    $('#slider').anythingSlider({
+      autoPlay: true, autoPlayDelayed: true, autoPlayLocked: true,
+      buildStartStop: false, buildArrows: false, resumeDelay: 2000,
+      clickControls: 'mouseenter'
     });
   })
 </script>
