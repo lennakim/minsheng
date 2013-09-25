@@ -13,6 +13,12 @@ Minsheng::Application.routes.draw do
   get "ucenter/favorite"
   get "ucenter/view_history"
 
+
+  get "mobile/sign_up" => "mobile#sign_up"
+  get "mobile/send_sms" => "mobile#send_sms"
+  get "mobile/verify_mobile" => "mobile#verify_mobile"
+  post "mobile/create" => "mobile#create"
+
   resources :notifications do
     collection do
       get :own_sent
