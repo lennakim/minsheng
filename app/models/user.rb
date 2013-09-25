@@ -5,8 +5,8 @@ class User < ActiveRecord::Base
 
   # security (i.e. attr_accessible) ...........................................
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me,
-    :confirmed_at, :doorkeeper_access_token, :doorkeeper_uid, :image, :mobile, :is_auth_for_mobile, :login
-
+    :confirmed_at, :doorkeeper_access_token, :doorkeeper_uid, :image, :mobile, :login,
+    :is_auth_for_mobile, :reset_password_token_for_mobile, :reset_password_sent_at_for_mobile
 
   attr_accessible :role, :as => "admin"
   attr_accessor :image_data, :login
@@ -72,6 +72,10 @@ class User < ActiveRecord::Base
       user = User.update(user.id,:doorkeeper_access_token => oauth_data.credentials.token)
     end
     return user
+  end
+
+  def self.generate_password_token
+    [*'a'..'z',*'1'..'9'].sample(4).join
   end
 
   def read_notifications
