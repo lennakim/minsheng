@@ -1,11 +1,10 @@
 Minsheng::Application.routes.draw do
   
-  get "users/sign_up"
-
-  get "users/sign_in"
 
   namespace :mobile do
     get "home" => 'home#index'
+    get "users/sign_up"
+    get "users/sign_in"
   end
 
   get "ucenter" => 'ucenter#index'
