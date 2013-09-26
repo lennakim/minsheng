@@ -1,0 +1,5 @@
+<%= form_for(Favor.new) do |f| %>
+  <%= f.hidden_field :shop_id,:value => shop_id %>
+    <%= f.hidden_field :user_id,:value=>current_user.id %>
+    <%= f.submit %>
+<% end %>

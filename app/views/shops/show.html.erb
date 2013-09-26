@@ -23,7 +23,8 @@
     <% if can? :new, Rate %>
       <%= link_to '添加点评', new_shop_rate_path(@shop), class: "btn btn-small" %>
     <% end %>
-    <a href="#">shoucang</a>
+    <%= @shop.favors.count %>
+    <%= render 'favors/form',:shop_id => @shop.id %>
   </div>
 </div>
 <div class="row">
@@ -44,14 +45,14 @@
   </div>
   <div class="span3">
     <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=5137590cb1542c726a6d5cc5a2aa690b"></script>
-    <div id="allmap" style="width:300px;height:200px;"></div>
+    <div id="allmap" style="width:240px;height:240px;"></div>
   </div>
 
 </div>
 <%= content_for :foot do %>
   <script type="text/javascript">
 
-// 百度地图API功能
+  // 百度地图API功能
   var map = new BMap.Map("allmap");
   map.centerAndZoom(new BMap.Point(<%=@shop.lng %>,<%= @shop.lat %>), 26);
   var marker1 = new BMap.Marker(new BMap.Point(<%=@shop.lng %>,<%= @shop.lat %>));  // 创建标注
