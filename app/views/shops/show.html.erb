@@ -6,20 +6,19 @@
 
 <div class="row">
   <div class="span3">
-      <img src="<%= @shop.shopImages.first.image if @shop.shopImages.first %>" alt="" />
+    <img src="<%= @shop.shopImages.first.image if @shop.shopImages.first %>" alt="" />
   </div>
   <div class="span9">
     <p>
-    <b>Phone:</b>
-    <%= @shop.phone %>
+      <b>Phone:</b>
+      <%= @shop.phone %>
     </p>
-
     <p>
-    <b>Address:</b>
-    <%= @shop.address %>
+      <b>Address:</b>
+      <%= @shop.address %>
     </p>
-    
   </div>
+
   <div class="span3">
     <% if can? :new, Rate %>
       <%= link_to '添加点评', new_shop_rate_path(@shop), class: "btn btn-small" %>
@@ -28,16 +27,42 @@
   </div>
 </div>
 <div class="row">
-      <% @shop.products.each do |product| %>  
-        <span><%= product.name %></span>
-        <img src="<%= product.productImages.first.image.url %>" alt="" />
-      <% end %>
+  <% @shop.products.each do |product| %>  
+    <span><%= product.name %></span>
+  <img style="height:100px;width:100px;" src="<%= product.productImages.first.image.url %>" alt="" />
+<% end %>
 </div>
 <div class="row">
-  <% unless @rates.count == 0 %>
-    <div class="rates" style="margin-top:20px;">
+  <div class="span9">
+    <% unless @rates.count == 0 %>
+      <div class="rates" style="margin-top:20px;">
       <%= render 'rates/rate_list', :rates => @rates %>
     </div>
     <%= paginate @rates %>
   <% end %>
+
+  </div>
+  <div class="span3">
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=5137590cb1542c726a6d5cc5a2aa690b"></script>
+    <div id="allmap" style="width:300px;height:200px;"></div>
+  </div>
+
 </div>
+<%= content_for :foot do %>
+  <script type="text/javascript">
+
+// 百度地图API功能
+  var map = new BMap.Map("allmap");
+  map.centerAndZoom(new BMap.Point(<%=@shop.lng %>,<%= @shop.lat %>), 26);
+  var marker1 = new BMap.Marker(new BMap.Point(<%=@shop.lng %>,<%= @shop.lat %>));  // 创建标注
+  map.addOverlay(marker1);              // 将标注添加到地图中
+
+  //创建信息窗口
+  var infoWindow1 = new BMap.InfoWindow("普通标注");
+  marker1.addEventListener("click", function(){this.openInfoWindow(infoWindow1);});
+
+
+</script>
+
+  <% end %>
+

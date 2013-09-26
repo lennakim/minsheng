@@ -10,7 +10,6 @@
 <%= yield(:head) %>
 </head>
 
-<%= content_tag :body, class: [controller_name, action_name].join('_') do %>
   <div class="navbar">
   <nav class="navbar-inner">
     <div class="container">
@@ -73,11 +72,8 @@
           <%= yield %>
         </div>
       </div>
-      <footer>
-        <%= yield(:foot) %>
-      </footer>
     </div>
   </div> <!--! end of .container -->
 </div> <!--! end of #main -->
-<% end %>
 </html>
+<%= yield(:foot) %>
