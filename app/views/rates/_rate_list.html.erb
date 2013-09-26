@@ -13,7 +13,7 @@
 
   <% rates.each do |rate| %>
     <tr>
-      <td><%= rate.user.name %></td>
+      <td><%= rate.user.email %></td>
       <td><div class="star" data-average="<%= rate.rank ||= 0 %>"></div></td>
       <td><%= rate.comment %></td>
       <td><%= link_to '显示', shop_rate_path(@shop,rate) %>

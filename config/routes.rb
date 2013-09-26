@@ -1,7 +1,13 @@
 Minsheng::Application.routes.draw do
   
+
+  resources :favors
+
+
   namespace :mobile do
     get "home" => 'home#index'
+    get "users/sign_up"
+    get "users/sign_in"
   end
 
   get "ucenter" => 'ucenter#index'
@@ -18,6 +24,9 @@ Minsheng::Application.routes.draw do
   get "mobile/send_sms" => "mobile#send_sms"
   get "mobile/verify_mobile" => "mobile#verify_mobile"
   post "mobile/create" => "mobile#create"
+  get "mobile/reset_password_page" => "mobile#reset_password_page"
+  get "mobile/send_password_token" => "mobile#send_password_token"
+  post "mobile/reset_password" => "mobile#reset_password"
 
   resources :notifications do
     collection do

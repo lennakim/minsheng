@@ -43,6 +43,20 @@
   </div>
 
   <div class="control-group">
+    <%= f.label :lng, 'lng：', :class=>"control-label" %>
+    <div class="controls">
+    <%= f.text_field :lng %>
+  </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :lat, 'lat：', :class=>"control-label" %>
+    <div class="controls">
+    <%= f.text_field :lat %>
+  </div>
+  </div>
+
+  <div class="control-group">
     <%= f.label :tag_list, '标签：', :class=>"control-label" %><br />
     <%= f.hidden_field :tag_list,:value=>@shop.tag_list %>
     <div class="controls">

@@ -3,7 +3,7 @@ class Shop < ActiveRecord::Base
   # includes ..................................................................
 
   # security (i.e. attr_accessible) ...........................................
-  attr_accessible :address, :phone, :title, :shopImages_attributes, :tag_list,:category_id
+  attr_accessible :address, :phone, :title, :shopImages_attributes, :tag_list,:category_id, :lng, :lat
 
   # relationships .............................................................
   has_many :shopImages
@@ -21,6 +21,8 @@ class Shop < ActiveRecord::Base
   has_many :rates, dependent: :destroy
 
   has_many :shop_recommendations
+
+  has_many :favors
 
   # constants definition ......................................................
   # validations ...............................................................

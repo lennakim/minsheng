@@ -63,6 +63,7 @@ body{background:url(/assets/mobile/bg.jpg) 0 0 repeat-y; position:relative;}
 
 /* 支付页开始 */
 .main02{background:url(/assets/mobile/main-bg.png) 0 0 no-repeat; width:1459px; height:558px; margin:0 auto;}
+.main03{background:url(/assets/mobile/main-bg.png) 0 0 no-repeat; width:1459px; height:463px; margin:0 auto; padding-top:95px;}
 
 .pay-leftnav{ float:left; width:280px;}
 
@@ -100,10 +101,12 @@ body{background:url(/assets/mobile/bg.jpg) 0 0 repeat-y; position:relative;}
 .tab-shuifeic .city,.tab-shuifeic .unit,.tab-shuifeic .tips{ width:1000px; height:40px; color:#1d891d; font:24px/32px 微软雅黑; float:left}
 .tab-shuifeic .tips{font:14px/32px 微软雅黑; padding-left:150px;}
 .selectbg-left{ background:url(/assets/mobile/selectbg-left.png) 0 0 no-repeat; width:20px; height:40px; float:left;}
-.selectbg-center{background:url(/assets/mobile/selectbg-center.png) 0 0 repeat-x; float:left; height:40px; padding:0px 20px; width:220px;}
+.selectbg-center{background:url(/assets/mobile/selectbg-center.png) 0 0 repeat-x; float:left; height:40px; padding:0px 20px; width:140px;}
+.selectbg-center02{background:url(/assets/mobile/selectbg-center.png) 0 0 repeat-x; float:left; height:40px; padding:0px 20px; width:220px;}
 .selectbg-right{ background:url(/assets/mobile/selectbg-right.png) 0 0 no-repeat; float:left; height:40px; width:46px;}
 .selectbg-right02{background:url(/assets/mobile/selectbg-right02.png) 0 0 no-repeat; float:left; height:40px; width:20px;}
 .citytitle{ width:130px; float:left;}
+
 .querybtn{ background:url(/assets/mobile/query-btn.png) 0 0 no-repeat; width:143px; height:51px; display:block; float:left; margin-left:130px;}
 .client-input{border:none; background:none; height:40px; line-height:40px; font:22px/32px 微软雅黑; color:#339933; width:600px;} 
 
@@ -111,3 +114,71 @@ body{background:url(/assets/mobile/bg.jpg) 0 0 repeat-y; position:relative;}
 .shuifeixiagndan02{ background:url(/assets/mobile/shuifeixiangdanfangda.png) 0 0 no-repeat; width:708px; height:502px; position:absolute; left:350px; top:100px; z-index:9999; display:block;}
 
 /* 支付页结束 */
+
+/* 登录开始 */
+.login,.regsiter{ background:url(/assets/mobile/pay09.png) 0 0 repeat-x; height:371px; width:1180px; margin:0 auto; padding-top:80px;} 
+.login-title{ width:220px; height:93px; margin:0 auto; position:relative;}
+.regsiterbtn{ width:200px; position:absolute; right:260px; top:310px; color:#339933; font:22px/32px 微软雅黑; text-decoration:none;}
+.regsiterbtn:hover{color:#444;}
+.regsiterbar-left{ background:url(/assets/mobile/mail.jpg) 0 0 no-repeat; width:37px; height:40px; float:left;}
+.regsiterbar-left02{ background:url(/assets/mobile/key.jpg) 0 0 no-repeat; width:37px; height:40px; float:left;}
+.regsiterbar-left03{ background:url(/assets/mobile/tips.jpg) 0 0 no-repeat; width:37px; height:40px; float:left;}
+.regsiterbar-center{background:url(/assets/mobile/tips-center.jpg) 0 0 repeat-x; float:left; height:40px; padding:0px 20px; width:220px;}
+.regsiterbar-right{background:url(/assets/mobile/tips-right.jpg) 0 0 no-repeat; float:left; height:40px; width:20px;}
+.loginbar01,.loginbar02{width:687px; display:block; font:22px/32px 微软雅黑; color:#339933; height:60px; position:relative;}
+.loginbar02{color:#767676;font:18px/32px 微软雅黑;}
+.loginbtn{ float:left;}
+.keytips{font:18px/51px 微软雅黑; height:51px; display:block; float:left; margin-left:20px; color:#333333; text-decoration:none;}
+.keytips:hover{ color:#339933;}
+.regsubmit{width:300px; margin:0 auto; padding-left:40px;}
+/* 登录结束 */
+
+/* 注册开始 */
+.regsiter{ padding-top:20px;}
+.regsiter-tab{ width:468px; height:100px; position:absolute; top:275px; left:720px;}
+.regsiter-title,.regsiter-title02{ width:220px; height:93px; float:left; background:url(/assets/mobile/phonetabhover.png) 0 0 no-repeat; width:220px; height:93px;}
+.regsiter-title:hover{background:url(/assets/mobile/phonetab.png) 0 0 no-repeat;}
+.regsiter-title02{background:url(/assets/mobile/mailtabhover.png) 0 0 no-repeat;}
+.regsiter-title02:hover{background:url(/assets/mobile/mailtab.png) 0 0 no-repeat;}
+.regsiter-tab .current{background:url(/assets/mobile/phonetab.png) 0 0 no-repeat;}
+.regsiter-tab .current02{background:url(/assets/mobile/mailtab.png) 0 0 no-repeat;}
+
+.username,.password,.password02,.phoneon,.phoneon02{ width:800px; height:60px; color:#1d891d; font:24px/32px 微软雅黑;  margin:0 auto; position:relative;}
+.usernametitle{ width:120px; float:left; text-align:right;}
+.usernametitle span{ display:block; padding:5px; width:10px; float:left;}
+
+.passwordtitle{ width:100px; float:left; text-align:right; padding-left:20px;}
+.passwordtitle span{ display:block; padding:5px; width:10px; float:left;}
+
+.password02{ width:850px; margin-right:190px;}
+.passwordtitle02{ width:150px; float:left; text-align:right; padding-left:20px;}
+.passwordtitle02 span{ display:block; padding:5px; width:10px; float:left;}
+
+.phoneon{ width:870px; margin-right:170px;}
+
+.phoneontitle{ width:150px; float:left; text-align:right; padding-left:20px;}
+.phoneontitle span{ display:block; padding:5px; width:10px; float:left;}
+.phoneon .client-input,.phoneon02 .client-input{border:none; background:none; height:40px; line-height:40px; font:22px/32px 微软雅黑; color:#339933; width:170px;} 
+.phoneon .selectbg-center02{background:url(/assets/mobile/selectbg-center.png) 0 0 repeat-x; float:left; height:40px;  width:140px;}
+.selectbar200{width:200px; display:block; float:left; font:22px/32px 微软雅黑; color:#339933; text-decoration:none;}
+.selectbar220{width:220px; display:block; float:left; font:22px/32px 微软雅黑; color:#339933; text-decoration:none;}
+
+.phoneon02{ width:850px; margin-right:220px;}
+.phoneontitle02{ width:180px; float:left; text-align:right; padding-left:20px;}
+.phoneontitle02 span{ display:block; padding:5px; width:10px; float:left;}
+.treaty{ padding-left:300px; font:16px/32px 微软雅黑;}
+.regsiter-btn,.regsiter-btn02{ margin:0 auto; width:350px; margin-top:25px; display:block; text-decoration:none;}
+.regsiter-btn02{ margin-top:10px;}
+.regsiter-btn .left,.regsiter-btn02 .left{ background:url(/assets/mobile/btnleft.png) 0 0 no-repeat; width:26px; height:51px; float:left;}
+.regsiter-btn .center,.regsiter-btn02 .center{ background:url(/assets/mobile/btncentr.png) 0 0 repeat-x; height:51px; float:left; font:22px/45px 微软雅黑; color:#cc9900; display:block;}
+.regsiter-btn .right,.regsiter-btn02 .right{ background:url(/assets/mobile/btnright.png) 0 0 no-repeat; height:51px; width:25px; float:left;}
+
+.wrongtips{font:14px/16px 微软雅黑; color:#f00; position:absolute; right:-200px; width:200px; top:10px;}
+.wrongtips img{ display:block; margin-right:5px; float:left;}
+
+.wrongtips02{font:14px/16px 微软雅黑; color:#f00; width:180px; float:left; padding-top:10px; padding-right:10px;}
+.wrongtips02 img{ display:block; margin-right:5px; float:left;}
+
+.phoneon02 .{}
+
+/* 注册结束 */
