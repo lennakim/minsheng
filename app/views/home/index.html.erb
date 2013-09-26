@@ -3,9 +3,10 @@
 <%= stylesheet_link_tag "plugins/anythingslider/css/anythingslider" %>
 <%= javascript_include_tag "application" %>
 <%= javascript_include_tag "plugins/anythingslider/jquery.anythingslider.min" %>
+<%= javascript_include_tag "plugins/url-parser/jquery.url" %>
 
 <!--第一屏开始-->
-<div class="one">
+<div id="A" class="one _screen">
   <%= render "top", type: "index" %>
 
   <div class="content">
@@ -66,7 +67,7 @@
 <!--第一屏结束-->
 
 <!--第二屏开始-->
-<div class="two">
+<div id="B" class="two _screen">
   <%= render 'top' %>
 
   <div class="two-content">
@@ -128,7 +129,7 @@
 <!--第二屏结束-->
 
 <!--第三屏开始-->
-<div class="two mt20">
+<div id="C" class="two mt20 _screen">
   <%= render "top" %>
 
   <div class="two-content">
@@ -169,7 +170,7 @@
 </div>
 <!--第三屏结束-->
 <!--第四屏开始-->
-<div class="two mt20">
+<div id="D" class="two mt20 _screen">
   <%= render "top" %>
 
   <div class="two-content">
@@ -222,7 +223,7 @@
       </div>
     </div>
 
-    <%= render "footer" %>
+    <%= render "footer", foot_type: 'D' %>
   </div>
 </div>
 <!--第四屏结束-->
@@ -234,10 +235,48 @@
       'background-color': '#dfefff'
     });
 
+    /*屏幕滚动效果开始*/
+    lastScroll = 0;
+    time = 1000;
+    $(window).scroll(function() {
+      anchor = $.url.attr("anchor");
+      current_scroll = $(window).scrollTop();
+      if(anchor.indexOf('#') > 0){
+        screen_alp = anchor.slice(-1);
+        if(screen_alp != $('.actived').attr('id')){
+          current_alp = '';
+          $('._screen').removeClass("actived")
+          alp_array = ['A', 'B', 'C', 'D', 'E'];
+          idx = alp_array.indexOf(screen_alp);
+          if(current_scroll > lastScroll){
+            current_alp = alp_array[idx + 1];
+            if(idx == 0){current_alp = alp_array[1]}
+          }else{
+            current_alp = alp_array[idx - 1];
+            if(idx == alp_array.length - 1){current_alp = alp_array[3]}
+          }
+          $("body").animate({scrollTop: $('#' + current_alp).position().top}, time);
+          setTimeout(function(){$('._screen').removeClass('actived');}, time + 100);
+          window.location.href = window.location.href.replace(screen_alp, current_alp);
+          $.url.setUrl(window.location.href);
+          $('#' + current_alp).addClass('actived');
+        }
+      }else{
+        window.location.href = window.location.href + "#B";
+        $.url.setUrl(window.location.href);
+        $("body").animate({scrollTop: $('#B').position().top}, time);
+        $('#B').addClass('actived');
+        setTimeout(function(){$('._screen').removeClass('actived');}, time + 100);
+      }
+      lastScroll = current_scroll;
+    });
+    /* 屏幕滚动效果结束 */
+
     $('#slider').anythingSlider({
       autoPlay: true, autoPlayDelayed: true, autoPlayLocked: true,
       buildStartStop: false, buildArrows: false, resumeDelay: 2000,
       clickControls: 'mouseenter'
     });
+
   })
 </script>
