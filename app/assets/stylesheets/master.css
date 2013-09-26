@@ -34,7 +34,7 @@ body{background:#dfefff; font-size:12px;}
 .banner-index{ width:780px; height:405px;float:left;}
 .banner-indexnav{width:200px; margin:0 auto;}
 .banner-indexnav a{ display:block; width:40px; height:10px; background:#339aff; float:left; overflow:hidden; margin-right:10px;}
-.banner-indexnav a:hover{ background:#62a51b;}
+/*.banner-indexnav a:hover{ background:#62a51b;}*/
 .banner-indexnav .current{background:#62a51b;}
 
 .gaodu{ height:300px;}

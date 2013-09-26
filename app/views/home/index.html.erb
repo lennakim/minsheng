@@ -2,10 +2,12 @@
 <%= stylesheet_link_tag "reset" %>
 <%= stylesheet_link_tag "plugins/anythingslider/css/anythingslider" %>
 <%= javascript_include_tag "application" %>
-<%= javascript_include_tag "plugins/anythingslider/jquery.anythingslider.min" %>
+<%= javascript_include_tag "plugins/anythingslider/jquery.anythingslider" %>
+<%= javascript_include_tag "plugins/url-parser/jquery.url" %>
+<%= javascript_include_tag "minsheng/home" %>
 
 <!--第一屏开始-->
-<div class="one">
+<div id="A" class="one _screen">
   <%= render "top", type: "index" %>
 
   <div class="content">
@@ -53,7 +55,12 @@
         <img src="/assets/images/banner.jpg" />
         <img src="/assets/images/banner.jpg" />
       </div>
-      <div class="banner-indexnav"><a href="#" class="current"></a><a href="#"></a><a href="#"></a><a href="#"></a></div>
+      <div class="banner-indexnav _banner_nav">
+        <a href="#" class="panel1"></a>
+        <a href="#" class="panel2"></a>
+        <a href="#" class="panel3"></a>
+        <a href="#" class="panel4"></a>
+      </div>
     </div>
 
     <div class="bottom">
@@ -66,7 +73,7 @@
 <!--第一屏结束-->
 
 <!--第二屏开始-->
-<div class="two">
+<div id="B" class="two _screen">
   <%= render 'top' %>
 
   <div class="two-content">
@@ -128,7 +135,7 @@
 <!--第二屏结束-->
 
 <!--第三屏开始-->
-<div class="two mt20">
+<div id="C" class="two mt20 _screen">
   <%= render "top" %>
 
   <div class="two-content">
@@ -169,7 +176,7 @@
 </div>
 <!--第三屏结束-->
 <!--第四屏开始-->
-<div class="two mt20">
+<div id="D" class="two mt20 _screen">
   <%= render "top" %>
 
   <div class="two-content">
@@ -222,22 +229,7 @@
       </div>
     </div>
 
-    <%= render "footer" %>
+    <%= render "footer", foot_type: 'D' %>
   </div>
 </div>
 <!--第四屏结束-->
-<script>
-  $(document).ready(function(){
-    $('body').css({
-      'background-image': 'url(/assets/images/index-bg.jpg)',
-      'background-repeat': 'repeat-x',
-      'background-color': '#dfefff'
-    });
-
-    $('#slider').anythingSlider({
-      autoPlay: true, autoPlayDelayed: true, autoPlayLocked: true,
-      buildStartStop: false, buildArrows: false, resumeDelay: 2000,
-      clickControls: 'mouseenter'
-    });
-  })
-</script>
