@@ -39,13 +39,18 @@
           <div class="phoneon">
                 <div class="phoneontitle"><span class="cred pt50">*</span>手机号码：</div>
                 <div class="selectbar312"><div class="selectbg-left"></div><div class="selectbg-center"> <%= f.text_field :mobile, :class => "client-input" %></div><div class="selectbg-right02"></div></div>
-                 <input name=""  type="image" src="/assets/images/yanzheng.png"/>
+                <img src="/assets/images/yanzheng.png" url = "<%= mobile_send_sms_path %>" id="sendCaptchaCode"/>
                 <div class="clear"></div>
 
           </div>
           <div class="phoneon02">
                 <div class="phoneontitle02"><span class="cred pt50">*</span>手机验证码：</div>
-                <div class="selectbar312"><div class="selectbg-left"></div><div class="selectbg-center"> <input type="text" name="captcha_code" id="captcha_code" class="client-input"></div><div class="selectbg-right02"></div></div>
+                <div class="selectbar312"><div class="selectbg-left"></div>
+                <div class="selectbg-center">
+                  <input type="text" name="captcha_code" id="captcha_code" class="client-input">
+                </div>
+                <div class="selectbg-right02"></div>
+              </div>
           </div>
           <div class="treaty">
               <p>
@@ -108,7 +113,7 @@
 <script type="text/javascript">
   $(".main03.mb143").tabs();
 
-  $("#sendCaptchaCodeBtn").click(function(){
+  $("#sendCaptchaCode").click(function(){
       var mobile = $("#user_mobile").val();
       var url = $(this).attr("url");
 
