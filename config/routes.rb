@@ -1,12 +1,7 @@
 Minsheng::Application.routes.draw do
-  
-
-
-
   resources :favors
-
-
   namespace :mobile do
+    resources :shops
     get "home" => 'home#index'
     get "users/sign_up"
     get "users/sign_in"
