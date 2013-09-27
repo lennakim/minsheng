@@ -1,6 +1,8 @@
 Minsheng::Application.routes.draw do
   
 
+
+
   resources :favors
 
 
@@ -91,6 +93,8 @@ Minsheng::Application.routes.draw do
     end
 
     resources :products
+
+    resources :promos
   end
 
   resources :categories

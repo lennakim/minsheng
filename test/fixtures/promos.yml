@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  web_image: MyString
+  mobile_image: MyString
+  description: MyText
+  end_date: 2013-09-27 15:09:24
+  content: MyString
+  shop_id: 1
+
+two:
+  web_image: MyString
+  mobile_image: MyString
+  description: MyText
+  end_date: 2013-09-27 15:09:24
+  content: MyString
+  shop_id: 1

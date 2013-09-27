@@ -1,0 +1,41 @@
+<%= form_for [:admin,@promo] do |f| %>
+  <% if @promo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@promo.errors.count, "error") %> prohibited this promo from being saved:</h2>
+
+      <ul>
+      <% @promo.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :shop_id,'Shop' %><br />
+    <%= f.select(:shop_id, Shop.all.collect {|c| [ c.title, c.id ] }, {include_blank: 'None'})%>
+  </div>
+  <div class="field">
+    <%= f.label :web_image %><br />
+    <%= f.file_field :web_image %>
+  </div>
+  <div class="field">
+    <%= f.label :mobile_image %><br />
+    <%= f.file_field :mobile_image %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :end_date %><br />
+    <%= f.datetime_select :end_date %>
+  </div>
+  <div class="field">
+    <%= f.label :content %><br />
+    <%= f.text_field :content %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

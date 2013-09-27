@@ -1,0 +1,33 @@
+<h1>Listing promos</h1>
+
+<table class="table">
+  <tr>
+    <th>Shop</th>
+    <th>Web image</th>
+    <th>Mobile image</th>
+    <th>Description</th>
+    <th>End date</th>
+    <th>Content</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @promos.each do |promo| %>
+  <tr>
+    <td><%= promo.shop.title if promo.shop %></td>
+    <td><img src="<%= promo.web_image %>" alt="" /></td>
+    <td><img src="<%= promo.mobile_image %>" alt="" /></td>
+    <td><%= promo.description %></td>
+    <td><%= promo.end_date %></td>
+    <td><%= promo.content %></td>
+    <td><%= link_to 'Show', admin_promo_path(promo) %></td>
+    <td><%= link_to 'Edit', edit_admin_promo_path(promo) %></td>
+    <td><%= link_to 'Destroy', admin_promo_path(promo), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Promo', new_admin_promo_path %>
