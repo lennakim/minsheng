@@ -60,6 +60,7 @@ GEM
     ckeditor (3.7.1)
       mime-types
       orm_adapter
+    client_side_validations (3.2.6)
     daemons (1.1.9)
     devise (2.2.4)
       bcrypt-ruby (~> 3.0)
@@ -194,6 +195,7 @@ DEPENDENCIES
   china_region_fu
   china_sms (~> 0.0.5)
   ckeditor
+  client_side_validations (~> 3.2.6)
   devise (>= 2.1.2)
   jquery-rails
   jquery-ui-rails
