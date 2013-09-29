@@ -72,7 +72,9 @@
     <h4>上传图片：</h4>
     <%= f.fields_for :shopImages  do |image| %>
       <div class="controls">
-      <%= image.file_field :image  %>
+        flag_type: <%= image.select(:flag_type,[['展示图','展示图'],['全部图片','全部图片'],['门面','门面'],['店内环境','店内环境'],['菜式菜单','菜式菜单'],['店内员工','店内员工'],['其他','其他']])%>
+        name:<%= image.text_field :name  %>
+        <%= image.file_field :image  %>
     </div>
   <% end %>
   </div>

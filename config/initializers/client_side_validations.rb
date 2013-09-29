@@ -19,3 +19,18 @@
 #   end
 # end
 
+ActionView::Base.field_error_proc = Proc.new do |html_tag, instance|
+
+  unless html_tag =~ /^<label/
+    html_content(instance.error_message.first).html_safe
+  else
+    html_content(instance.error_message.first).html_safe
+  end
+end
+
+
+def html_content(message)
+  content = <<-EOF
+    <div class="wrongtips02"><img src="/assets/images/wrongtips.jpg" width="19" height="19">#{message}</div>
+  EOF
+end

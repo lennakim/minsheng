@@ -1,5 +1,6 @@
 class Mobile::UsersController < ApplicationController
   layout 'mobile'
+
   def sign_up
   end
 

@@ -195,7 +195,7 @@ DEPENDENCIES
   china_region_fu
   china_sms (~> 0.0.5)
   ckeditor
-  client_side_validations
+  client_side_validations (~> 3.2.6)
   devise (>= 2.1.2)
   jquery-rails
   jquery-ui-rails

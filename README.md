@@ -24,6 +24,7 @@
     >
     >password: "123456"
 
+* 读取服务端的验证逻辑并生成对应的客户端验证逻辑[client_side_validations](https://github.com/bcardarella/client_side_validations)
 * 基于rails的jquery [jquery-rails](https://github.com/rails/jquery-rails)
 * jQuery-UI [jquery-ui-rails](https://github.com/joliss/jquery-ui-rails)
 * Timepicker [time-picker](https://github.com/trentrichardson/jQuery-Timepicker-Addon)
