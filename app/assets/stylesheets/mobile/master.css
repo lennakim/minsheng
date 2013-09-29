@@ -128,7 +128,7 @@ body{background:url(/assets/mobile/bg.jpg) 0 0 repeat-y; position:relative;}
 .regsiterbar-right{background:url(/assets/mobile/tips-right.jpg) 0 0 no-repeat; float:left; height:40px; width:20px;}
 .loginbar01,.loginbar02{width:687px; display:block; font:22px/32px 微软雅黑; color:#339933; height:60px; position:relative;}
 .loginbar02{color:#767676;font:18px/32px 微软雅黑;}
-.loginbtn{ float:left; background-image: url(/assets/mobile/login.jpg); background-position:  0px 0px; background-repeat: no-repeat; width: 143px; height: 51px; border: 0 none;}
+.loginbtn{ float:left;}
 .keytips{font:18px/51px 微软雅黑; height:51px; display:block; float:left; margin-left:20px; color:#333333; text-decoration:none;}
 .keytips:hover{ color:#339933;}
 .regsubmit{width:300px; margin:0 auto; padding-left:40px;}
@@ -180,7 +180,6 @@ body{background:url(/assets/mobile/bg.jpg) 0 0 repeat-y; position:relative;}
 .wrongtips02{font:14px/16px 微软雅黑; color:#f00; width:180px; float:left; padding-top:10px; padding-right:10px;}
 .wrongtips02 img{ display:block; margin-right:5px; float:left;}
 
-.phoneon02 .{}
 
 /* 注册结束 */
 
@@ -301,3 +300,59 @@ body{background:url(/assets/mobile/bg.jpg) 0 0 repeat-y; position:relative;}
 .pre-current06{ background:url(/assets/mobile/preferential15hover.png) 0 0 no-repeat; width:137px; height:167px; float:left; border-right:1px solid #66cc66;}
 
 /* 特惠商户页结束 */
+
+/* 弹出框开始 */
+.tips01{ background:url(/assets/mobile/tips02.png) 0 0 no-repeat #fff; width:532px; height:500px; }
+.tips01 h2{ color:#fff; font:24px/58px 微软雅黑; display:block; margin-left:30px; width:460px; float:left; height:58px;}
+.tips01-close{ display:block; float:left; margin-top:15px;}
+.tips01-center{ background:url(/assets/mobile/tips04.png) 0 0 repeat-y; height:406px; width:472px; clear:both; padding:30px;}
+.tips01-center h3{ display:block; font:24px/50px 微软雅黑; color:#444; width:400px; height:50px;}
+.tips01-center h3 img{ margin-left:20px;}
+.tips01-center p{font:18px/30px 微软雅黑; height:30px; display:block;}
+.shoujiyanzheng{ border-top:#dcdcdc solid 1px; border-bottom:#dcdcdc solid 1px; margin:20px 0px; padding:20px; height:150px; position:relative;}
+.shoujiyanzheng p{ background:url(/assets/mobile/tips05.png) 70px 0 no-repeat;  height:35px; margin-bottom:20px; }
+.shoujiyanzheng input{border:none; background:none; margin-left:20px; font:18px/30px 微软雅黑; color:#444;}
+.shoujiyanzheng a{font:18px/50px 微软雅黑; color:#47aa46; height:50px; display:block; text-decoration:none; width:400px;}
+.yanzhengkey{ margin:0px 20px 0px 80px;float:left;}
+.shoujiyanzheng-btn{width:350px; position:absolute; top:210px; left:50px;}
+.queding,.xuxiao{ float:left; display:block; width:153px; height:46px;}
+
+
+.tips02{ background:url(/assets/mobile/tips02.png) 0 0 no-repeat #fff; width:532px; height:500px; float:left;}
+.tips02 h2{ color:#fff; font:24px/58px 微软雅黑; display:block; margin-left:30px; width:460px; float:left; height:58px;}
+.tips02-close{ display:block; float:left; margin-top:15px;}
+.tips02-center{ background:url(/assets/mobile/tips04.png) 0 0 repeat-y; height:406px; width:472px; clear:both; padding:30px;}
+.tips02-center h3{ display:block; width:420px; height:50px; border-bottom:#47aa46 1px solid; padding-left:50px;}
+.tips02-center-a{ display:block; width:141px; height:36px; float:left; text-decoration:none; font:22px/32px 微软雅黑; color:#444; text-align:center; margin:0px 20px;}
+.tips02-center-a:hover{ background:url(/assets/mobile/tips09.png) 0 0 no-repeat; color:#fff;}
+.tips02-current{background:url(/assets/mobile/tips09.png) 0 0 no-repeat; color:#fff;}
+.tips02-center h3 img{ margin-left:20px;}
+.tips02-center p{font:18px/30px 微软雅黑; height:30px; display:block; width:400px;}
+.shoujiyanzheng02{ border-top:#dcdcdc solid 1px; border-bottom:#dcdcdc solid 1px; margin:20px 0px; padding:20px; height:150px; position:relative;}
+.shoujiyanzheng02 p{ background:url(/assets/mobile/tips05.png) 70px 0 no-repeat;  height:35px; margin-bottom:20px; }
+.shoujiyanzheng02 input{border:none; background:none; margin-left:20px; font:18px/30px 微软雅黑; color:#444;}
+.shoujiyanzheng02 a{font:18px/50px 微软雅黑; color:#47aa46; height:50px; display:block; text-decoration:none; width:400px;}
+.yanzhengkey02{ margin:0px 20px 0px 80px;float:left;}
+.shoujiyanzheng-btn02{width:350px; position:absolute; top:210px; left:50px;}
+.queding02,.xuxiao02{ float:left; display:block; width:153px; height:46px;}
+.shoujiyanzheng03{ background:url(/assets/mobile/tips10.png) 0 0 no-repeat; width:271px; height:256px; margin:0 auto; margin-top:60px; text-align:center; padding-top:15px;}
+
+/* 弹出框结束 */
+
+/* 搜索开始 */
+
+.seach-right{ float:left; width:1379px; position:relative;}
+.seach-right .up-down{ margin-left:350px;}
+.seach-title{}
+.seach-title h3{height:87px; text-align:left; display:block; font:32px/87px 微软雅黑; color:#393; text-decoration:none; padding-left:50px; position:relative; float:left;}
+.qiehuandizhi02{width:276px; height:32px; display:block; font: bold 18px/32px 微软雅黑; text-align:center; color:#fff; text-decoration:none; float:left;}
+.qiehuandizhi02 span{color:#ffd372;}
+.qiehuandizhi02 .left{ background:url(/assets/mobile/qiehuandizhi-left.jpg) 0 0 no-repeat; width:17px; height:32px; float:left;}
+.qiehuandizhi02 .center{ background:#ff6600; height:32px; float:left; text-align:right;}
+.qiehuandizhi02 .right{ background:url(/assets/mobile/qiehuandizhi-right.jpg) 0 0 no-repeat; width:20px; height:32px; float:left;}
+.seachmain{background:url(/assets/mobile/pay09.png) 0 0 repeat-x; height:351px; width:1410px; position:absolute; left:5px; top:80px; padding-top:20px; padding-left:40px; }
+.seach-right .current{background:url(/assets/mobile/payshuifei01hover.png) 0 0 no-repeat; }
+.seach-right .up-down{ position:absolute; top:435px; left:325px; }
+.seach-right .up-down a{ margin-left:150px;}
+/* 搜索结束 */
+
