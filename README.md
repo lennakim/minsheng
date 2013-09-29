@@ -54,3 +54,6 @@
 rake db:migrate:down VERSION=20130813144732
 rake db:migrate:down VERSION=20130830081625
 rake db:migrate:down VERSION=20130830105819
+更新 然后  rake db:migrate:down VERSION=20130917081621
+
+rake db:migrate:up  VERSION=20130917081621
