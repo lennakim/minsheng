@@ -21,8 +21,8 @@ class User < ActiveRecord::Base
   validates :name, :uniqueness => { :case_sensitive => false, :message =>"用户已注册"}
 
   validates :mobile, :uniqueness => true, :numericality => { :only_integer => true }, :allow_blank => true, :allow_nil => true
-  validates :password, :presence => { :message => "请输入密码" }
-  validates_confirmation_of :password, :message => "重复密码"
+  # validates :password, :presence => { :message => "请输入密码" }
+  # validates_confirmation_of :password, :message => "重复密码"
   # callbacks .................................................................
   # scopes ....................................................................
 

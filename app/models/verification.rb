@@ -5,7 +5,7 @@ class Verification < ActiveRecord::Base
   EXPIRE_TIME = 60*60*24
 
   # get user verification
-  def self.last_verification(user_id = nil, mobile)
+  def self.last_verification(mobile, user_id = nil)
     Verification.where("user_id = ? OR mobile = ? ", user_id, mobile).order("created_at DESC").first
   end
 

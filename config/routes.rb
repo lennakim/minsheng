@@ -18,6 +18,8 @@ Minsheng::Application.routes.draw do
   get "ucenter/view_history"
   put "ucenter/update_password"
   get "ucenter/region_list"
+  get "ucenter/send_sms"
+  get "ucenter/verify_mobile_code"
 
 
   get "mobile/sign_up" => "mobile#sign_up"

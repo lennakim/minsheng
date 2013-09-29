@@ -50,12 +50,13 @@
           <p>
             <b>手 机：</b>
             <%= f.text_field :mobile %>
-            <a href="#">免费获取验证码</a>
+            <%= link_to '免费获取验证码', ucenter_send_sms_path, remote: true, id: 'send_mobile_code' %>
           </p>
           <p>
             <b>手机验证码：</b>
             <input type="text" name="code" id="code" >
-            <a href="#">验证手机</a>
+            <a href="#"></a>
+            <%= link_to '验证手机', ucenter_verify_mobile_code_path, remote: true, id: 'verify_mobile_code' %>
           </p>
         <% end %>
         <hr/>

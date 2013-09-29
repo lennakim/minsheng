@@ -35,6 +35,27 @@ $("body.users_upload_image").ready(function(){
     });
   });
 
+  $("#send_mobile_code").on('click', function(event){
+    mobile = $("#user_mobile").val();
+    url = $(this).attr("href");
+    $.get(url, {mobile: mobile}, function(result){
+      $.blockUI({message: result.msg});
+      setTimeout($.unblockUI, 2000);
+    });
+    return false;
+  });
+
+  $("#verify_mobile_code").on('click', function(event){
+      mobile = $("#user_mobile").val();
+      code = $("#code").val();
+      url = $(this).attr("href");
+      $.get(url, {verify_code: code}, function(result){
+        $.blockUI({message: result.msg});
+        setTimeout($.unblockUI, 2000);
+      });
+      return false;
+    });
+
   $("#user_image").change(function(){
     if (this.files && this.files[0]) {
       reader = new FileReader();
