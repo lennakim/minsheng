@@ -15,5 +15,6 @@ class UsersController < ApplicationController
 
   def upload_image
     @user = User.find(params[:id])
+    render 'users/upload_image', layout: 'ucenter'
   end
 end

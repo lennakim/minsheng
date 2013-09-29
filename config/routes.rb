@@ -1,5 +1,5 @@
 Minsheng::Application.routes.draw do
-  
+
 
   resources :favors
 
@@ -18,6 +18,8 @@ Minsheng::Application.routes.draw do
   get "ucenter/change_password"
   get "ucenter/favorite"
   get "ucenter/view_history"
+  put "ucenter/update_password"
+  get "ucenter/region_list"
 
 
   get "mobile/sign_up" => "mobile#sign_up"
@@ -117,4 +119,6 @@ Minsheng::Application.routes.draw do
   end
 
   resources :notices, only: [:index, :show]
+
+  resources :suggestions, only: :create
 end
