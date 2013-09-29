@@ -6,7 +6,8 @@ class User < ActiveRecord::Base
   # security (i.e. attr_accessible) ...........................................
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me,
     :confirmed_at, :doorkeeper_access_token, :doorkeeper_uid, :image, :mobile, :login,
-    :is_auth_for_mobile, :reset_password_token_for_mobile, :reset_password_sent_at_for_mobile
+    :is_auth_for_mobile, :reset_password_token_for_mobile, :reset_password_sent_at_for_mobile,
+    :sex, :province_id, :city_id, :community_id, :consignees_attributes
 
   attr_accessible :role, :as => "admin"
   attr_accessor :image_data, :login
@@ -15,6 +16,8 @@ class User < ActiveRecord::Base
   has_many :rates, dependent: :destroy
 
   has_many :favors
+  has_many :consignees
+
   # constants definition ......................................................
   # validations ...............................................................
   validates :name, :presence => { :message =>"请填写用户名" }
@@ -23,12 +26,14 @@ class User < ActiveRecord::Base
   validates :mobile, :uniqueness => true, :numericality => { :only_integer => true }, :allow_blank => true, :allow_nil => true
   # validates :password, :presence => { :message => "请输入密码" }
   # validates_confirmation_of :password, :message => "重复密码"
+
   # callbacks .................................................................
   # scopes ....................................................................
 
   # additional config .........................................................
   rolify
   mount_uploader :image, UserImageUploader
+  accepts_nested_attributes_for :consignees, :allow_destroy => true
 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,

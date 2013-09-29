@@ -14,7 +14,7 @@
       </div>
     <% end %>
 
-    <p>
+    <p class="field">
       <b><%= f.label :title, '标题' %></b>
       <%= f.text_field :title %>
     </p>
@@ -31,6 +31,7 @@
 </div>
 <%=content_for :foot do %>
   <%= javascript_include_tag "rails.validations" %>
+  <%= javascript_include_tag "lib/client_side_validation_setting" %>
   <%= javascript_include_tag "ckeditor/init" %>
   <%= javascript_include_tag "plugins/blockUI/jquery.blockUI" %>
   <%= javascript_include_tag "minsheng/ucenter" %>

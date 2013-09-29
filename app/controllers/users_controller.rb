@@ -15,6 +15,7 @@ class UsersController < ApplicationController
 
   def upload_image
     @user = User.find(params[:id])
+    @user.consignees.build if @user.consignees.blank?
     render 'users/upload_image', layout: 'ucenter'
   end
 end

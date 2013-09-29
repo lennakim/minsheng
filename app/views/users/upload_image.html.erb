@@ -30,7 +30,8 @@
             <%= @user.email %>
           <% end %>
         </p>
-        <p data-url="<%= ucenter_region_list_path %>">
+        <p data-url="<%= ucenter_region_list_path %>" data-city-id="<%= @user.city_id %>"
+          data-community-id="<%= @user.community_id %>">
           <b><%= f.label :province_id, '所在地区：' %></b>
           省：<%= f.select :province_id, province_data, {include_blank: true} %>
           市：<%= f.select :city_id, city_data, {include_blank: true} %>
@@ -60,6 +61,27 @@
           </p>
         <% end %>
         <hr/>
+        <%= f.fields_for :consignees do |consignee| %>
+          <p>
+            <b>收货人姓名：</b>
+            <%= consignee.text_field :name %>
+          </p>
+          <p>
+            <b>收货地址：</b>
+            <%= consignee.text_field :address %>
+          </p>
+          <p>
+            <b>邮编：</b>
+            <%= consignee.text_field :postcode %>
+          </p>
+          <p>
+            <b>联系电话：</b>
+            <%= consignee.text_field :mobile %>
+          </p>
+        <% end %>
+        <p>
+          <%= f.submit '保存' %>
+        </p>
       <% end %>
     </div>
 

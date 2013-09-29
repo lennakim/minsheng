@@ -89,7 +89,7 @@ class UcenterController < ApplicationController
         msg = '验证码错误'
       end
     end
-    render json: {msg: msg }
+    render json: {msg: msg}
   end
 
   private
