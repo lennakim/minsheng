@@ -4,7 +4,8 @@ class Mobile::PromosController < ApplicationController
   # GET /promos
   # GET /promos.json
   def index
-    @promos = Promo.all
+    @shop_id = params[:shop_id]
+    @promos = Promo.where(:shop_id => @shop_id)
 
     respond_to do |format|
       format.html # index.html.erb
