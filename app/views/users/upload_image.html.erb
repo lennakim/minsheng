@@ -60,7 +60,7 @@
             <%= link_to '验证手机', ucenter_verify_mobile_code_path, remote: true, id: 'verify_mobile_code' %>
           </p>
         <% end %>
-        <hr/>
+        <hr/><!--
         <%= f.fields_for :consignees do |consignee| %>
           <p>
             <b>收货人姓名：</b>
@@ -78,7 +78,7 @@
             <b>联系电话：</b>
             <%= consignee.text_field :mobile %>
           </p>
-        <% end %>
+        <% end %> -->
         <p>
           <%= f.submit '保存' %>
         </p>
@@ -110,21 +110,21 @@
     <div id="edit_password">
       <h1>修改密码</h1>
       <hr/>
-      <%= form_for @user, url: ucenter_update_password_path, remote: true,
+      <%= form_for @user, url: ucenter_update_password_path, remote: true, validate: true,
         html: {id: 'update_password', method: :put} do |f| %>
-        <p>
+        <p class="field">
           <b><%= f.label :current_password, '旧密码：' %></b>
-          <%= f.password_field :current_password %>
+          <%= f.password_field :current_password, :validate => true, :autocomplete => 'off' %>
         </p>
 
-        <p>
+        <p class="field">
           <b><%= f.label :password, '新密码：' %></b>
-          <%= f.password_field :password %>
+          <%= f.password_field :password, :validate => true %>
         </p>
 
-        <p>
-          <b><%= label :password_confirmation, '新密码：' %></b>
-          <%= f.password_field :password_confirmation %>
+        <p class="field">
+          <b><%= label :password_confirmation, '确认新密码：' %></b>
+          <%= f.password_field :password_confirmation, :validate => true %>
         </p>
 
         <p>
@@ -137,6 +137,8 @@
 
 <% content_for :foot do %>
   <%= javascript_include_tag 'jquery.ui.tabs' %>
+  <%= javascript_include_tag "rails.validations" %>
+  <%= javascript_include_tag "lib/client_side_validation_setting" %>
   <%= javascript_include_tag "plugins/blockUI/jquery.blockUI" %>
   <%= javascript_include_tag 'plugins/jcrop/jquery.Jcrop.min' %>
   <%= javascript_include_tag 'minsheng/users' %>

@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
     :sex, :province_id, :city_id, :community_id, :consignees_attributes
 
   attr_accessible :role, :as => "admin"
-  attr_accessor :image_data, :login
+  attr_accessor :image_data, :login, :current_password, :in_password_reset
 
   # relationships .............................................................
   has_many :rates, dependent: :destroy
@@ -26,6 +26,11 @@ class User < ActiveRecord::Base
   # validates :mobile, :uniqueness => true, :numericality => { :only_integer => true }, :allow_blank => true, :allow_nil => true
   # validates :password, :presence => { :message => "请输入密码" }
   # validates_confirmation_of :password, :message => "重复密码"
+
+  validates_with UserValidator, :if => proc{ |u| u.in_password_reset }
+  validates :current_password, :presence => true, :if => :in_password_reset
+  validates :password, confirmation: true, :if => :in_password_reset
+  validates :password_confirmation, presence: true, :if => :in_password_reset
 
   # callbacks .................................................................
   # scopes ....................................................................

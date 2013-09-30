@@ -30,12 +30,14 @@ class UcenterController < ApplicationController
 
   def update_password
     user = current_user.reload
+    user.current_password = params[:user][:current_password]
+    user.in_password_reset = true
     user_params = params[:user].slice(:current_password, :password, :password_confirmation)
     if user.update_with_password(user_params)
       sign_in :user, user, :bypass => true
-      result = {success: true}
+      result = {msg: '修改成功'}
     else
-      result = {success: false}
+      result = {msg: (user.errors.first || []).last}
     end
     render json: result
   end

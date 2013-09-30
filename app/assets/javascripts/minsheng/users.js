@@ -2,11 +2,7 @@ $("body.users_upload_image").ready(function(){
   $( "#account_tabs" ).tabs();
 
   $('#update_password').on('ajax:success', function(event, result){
-    if(result.success){
-      $.blockUI({message: '修改成功' });
-    }else{
-      $.blockUI({message: '修改失败'});
-    }
+    $.blockUI({message: result.msg});
     setTimeout($.unblockUI, 2000);
   });
 

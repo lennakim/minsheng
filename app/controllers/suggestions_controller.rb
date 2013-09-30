@@ -10,7 +10,7 @@ class SuggestionsController < ApplicationController
     else
       # todo
       #redirect_to ucenter_suggestion_path
-      render json: {msg: 'error'}
+      render json: {msg: (@suggestion.errors.first || []).last }
     end
   end
 end
