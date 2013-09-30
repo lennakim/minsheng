@@ -186,7 +186,7 @@ body{background:url(/assets/mobile/bg.jpg) 0 0 repeat-y; position:relative;}
 /* 密码找回开始 */
 .retrieve-title{ width:220px; height:93px; margin:0 auto; position:absolute; left:590px; top:-3px; }
 .retrieve-main{ background:url(/assets/mobile/pay09.png) 0 0 repeat-x; height:411px; width:1180px; margin:0 auto; padding-top:40px;}
-.retrieve-main h2{width:420px; display:block; font:18px/32px 微软雅黑; color:#444; height:60px; position:relative; margin:0 auto; background:url(/assets/mobile/retrieve01.jpg) 0 0 no-repeat; padding-left:30px;}
+.retrieve-main h2{width:420px; display:block; font:18px/32px 微软雅黑; color:#444; height:60px; position:relative; margin:0 auto; background:url(/assets/images/retrieve01.jpg) 0 0 no-repeat; padding-left:30px;}
 .retrieve-main .line{ width:1007px; height:65px; margin:0 auto; margin-bottom:20px;}
 
 .retrieveverify{ width:250px; float:left; font:24px/32px 微软雅黑; color:#339933;}
@@ -209,10 +209,10 @@ body{background:url(/assets/mobile/bg.jpg) 0 0 repeat-y; position:relative;}
 .retrieve04 a:hover{ color:#444;}
 
 .retrieve05{width:1200px; height:50px; margin:0 auto; display:block; margin-bottom:20px; margin-left:110px;}
-.retrieve05 .left,.retrieve05 .right{ background:url(/assets/mobile/retrieve07.jpg) 0 0 no-repeat; display:block; width:400px; float:left; height:200px; padding-left:50px; font:18px/32px 微软雅黑; color:#339933;}
+.retrieve05 .left,.retrieve05 .right{ background:url(/assets/images/retrieve07.jpg) 0 0 no-repeat; display:block; width:400px; float:left; height:200px; padding-left:50px; font:18px/32px 微软雅黑; color:#339933;}
 .retrieve05 .left span,.retrieve05 .right span{ display:block; font:16px/32px 微软雅黑; color:#444; margin-bottom:20px;}
 .retrieve05 .left strong{ color:#F00;}
-.retrieve05 .right{ margin-left:120px;  background:url(/assets/mobile/retrieve08.jpg) 0 0 no-repeat; padding-left:65px;}
+.retrieve05 .right{ margin-left:120px;  background:url(/assets/images/retrieve08.jpg) 0 0 no-repeat; padding-left:65px;}
 .retrieve05-input{ width:300px; height:30px; float:left; display:block; margin-bottom:30px; *margin-bottom:0px; _margin-bottom:30px;}
 
 .retrieveline{ height:192px; width:1px; float:left; margin-right:50px;}
