@@ -113,6 +113,16 @@
 <script type="text/javascript">
   $(".main03.mb143").tabs();
 
+  $("a[href='#regsiterForMobile']").mousedown(function(){
+    $(this).addClass('current');
+    $("a[href='#regsiterForEmail']").removeClass('current02');
+  });
+
+  $("a[href='#regsiterForEmail']").mousedown(function(){
+    $(this).addClass('current02');
+     $("a[href='#regsiterForMobile']").removeClass('current');
+  });
+
   $("#sendCaptchaCode").click(function(){
       var mobile = $("#user_mobile").val();
       var url = $(this).attr("url");

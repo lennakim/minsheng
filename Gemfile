@@ -3,7 +3,7 @@ source 'http://ruby.taobao.org/'
 gem 'rails', '3.2.13'
 gem 'mysql2'
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
+  # gem 'sass-rails',   '~> 3.2.3'
   # gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
 end
@@ -17,7 +17,7 @@ gem 'jquery-ui-rails'
 # gem "database_cleaner", ">= 0.8.0", :group => :test
 # gem "launchy", ">= 2.1.2", :group => :test
 # gem "factory_girl_rails", ">= 4.0.0", :group => [:development, :test]
-gem "bootstrap-sass", ">= 2.1.0.0"
+# gem "bootstrap", ">= 2.1.0.0"
 gem "devise", ">= 2.1.2"
 #gem "devise-i18n" #we copy the locale file on hand
 gem "cancan", ">= 1.6.8"
