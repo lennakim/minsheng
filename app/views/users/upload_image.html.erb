@@ -1,28 +1,145 @@
-
-<div style="padding-top:50px;">
-<%= form_for(@user) do |f| %>
-  <%= hidden_field_tag :id, @user.id %>
-  <%= hidden_field_tag :top %>
-  <%= hidden_field_tag :left %>
-  <%= hidden_field_tag :width %>
-  <%= hidden_field_tag :height %>
-  <%= hidden_field_tag :original_w %>
-  <%= hidden_field_tag :original_h %>
-  <div class="field">
-    <%= f.label :image, '上传图片' %><br />
-    <%= f.file_field :image %>
-  </div>
-
-  <img id="show_image" src="" alt=""/>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<% content_for :head do %>
+  <%= stylesheet_link_tag 'jquery.ui.tabs' %>
 <% end %>
 
+<%
+  province_data = Province.select('id, name').order('id').map{|p| [p.name, p.id]}
+  city_data = []
+  community_data = []
+%>
+<div style="padding-top:50px;">
+  <div id="account_tabs">
+    <ul>
+      <li><a href="#edit_account">个人资料</a></li>
+      <li><a href="#edit_image">修改头像</a></li>
+      <li><a href="#edit_password">修改密码</a></li>
+    </ul>
+    <div id="edit_account">
+      <h1>个人基本资料</h1>
+      <%= form_for @user do |f| %>
+        <p>
+          <b><%= f.label :username, '用户名：' %></b>
+          <%= @user.name %>
+        </p>
+        <p>
+          <% if @user.is_auth_for_mobile %>
+            <b><%= f.label :mobile, '手机号码：' %></b>
+            <%= @user.mobile %>
+          <% else %>
+            <b><%= f.label :email, '电子邮箱：' %></b>
+            <%= @user.email %>
+          <% end %>
+        </p>
+        <p data-url="<%= ucenter_region_list_path %>" data-city-id="<%= @user.city_id %>"
+          data-community-id="<%= @user.community_id %>">
+          <b><%= f.label :province_id, '所在地区：' %></b>
+          省：<%= f.select :province_id, province_data, {include_blank: true} %>
+          市：<%= f.select :city_id, city_data, {include_blank: true} %>
+          区：<%= f.select :community_id, community_data, {include_blank: true} %>
+        </p>
+        <p>
+          <b>性 别：</b>
+          <%= f.radio_button :sex, '男', id: 'male' %><label for="male" class="sex">男</label>
+          <%= f.radio_button :sex, '女', id: 'female' %><label for="female" class="sex">女</label>
+        </p>
+        <% if @user.is_auth_for_mobile %>
+          <p>
+            <b>电子邮箱：</b>
+            <%= f.text_field :email %>
+          </p>
+        <% else %>
+          <p>
+            <b>手 机：</b>
+            <%= f.text_field :mobile %>
+            <%= link_to '免费获取验证码', ucenter_send_sms_path, remote: true, id: 'send_mobile_code' %>
+          </p>
+          <p>
+            <b>手机验证码：</b>
+            <input type="text" name="code" id="code" >
+            <a href="#"></a>
+            <%= link_to '验证手机', ucenter_verify_mobile_code_path, remote: true, id: 'verify_mobile_code' %>
+          </p>
+        <% end %>
+        <hr/><!--
+        <%= f.fields_for :consignees do |consignee| %>
+          <p>
+            <b>收货人姓名：</b>
+            <%= consignee.text_field :name %>
+          </p>
+          <p>
+            <b>收货地址：</b>
+            <%= consignee.text_field :address %>
+          </p>
+          <p>
+            <b>邮编：</b>
+            <%= consignee.text_field :postcode %>
+          </p>
+          <p>
+            <b>联系电话：</b>
+            <%= consignee.text_field :mobile %>
+          </p>
+        <% end %> -->
+        <p>
+          <%= f.submit '保存' %>
+        </p>
+      <% end %>
+    </div>
+
+    <div id="edit_image">
+      <%= form_for @user do |f| %>
+        <%= hidden_field_tag :id, @user.id %>
+        <%= hidden_field_tag :top %>
+        <%= hidden_field_tag :left %>
+        <%= hidden_field_tag :width %>
+        <%= hidden_field_tag :height %>
+        <%= hidden_field_tag :original_w %>
+        <%= hidden_field_tag :original_h %>
+        <div class="field">
+          <%= f.label :image, '上传图片' %><br />
+          <%= f.file_field :image %>
+        </div>
+
+        <img id="show_image" src="" alt=""/>
+
+        <div class="actions">
+          <%= f.submit %>
+        </div>
+      <% end %>
+    </div>
+
+    <div id="edit_password">
+      <h1>修改密码</h1>
+      <hr/>
+      <%= form_for @user, url: ucenter_update_password_path, remote: true, validate: true,
+        html: {id: 'update_password', method: :put} do |f| %>
+        <p class="field">
+          <b><%= f.label :current_password, '旧密码：' %></b>
+          <%= f.password_field :current_password, :validate => true, :autocomplete => 'off' %>
+        </p>
+
+        <p class="field">
+          <b><%= f.label :password, '新密码：' %></b>
+          <%= f.password_field :password, :validate => true %>
+        </p>
+
+        <p class="field">
+          <b><%= label :password_confirmation, '确认新密码：' %></b>
+          <%= f.password_field :password_confirmation, :validate => true %>
+        </p>
+
+        <p>
+          <%= f.submit "保存" %>
+        </p>
+      <% end %>
+    </div>
+  </div>
 </div>
 
 <% content_for :foot do %>
+  <%= javascript_include_tag 'jquery.ui.tabs' %>
+  <%= javascript_include_tag "rails.validations" %>
+  <%= javascript_include_tag "lib/client_side_validation_setting" %>
+  <%= javascript_include_tag "plugins/blockUI/jquery.blockUI" %>
   <%= javascript_include_tag 'plugins/jcrop/jquery.Jcrop.min' %>
   <%= javascript_include_tag 'minsheng/users' %>
 <%  end %>
