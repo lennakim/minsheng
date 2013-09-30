@@ -1,2 +1,38 @@
-<h1>Ucenter#suggstion</h1>
-<p>Find me in app/views/ucenter/suggstion.html.erb</p>
+<div style="padding-top: 20px;">
+  <h1>我有意见：</h1>
+  <hr/>
+  <%= form_for @suggestion, remote: true, validate: true do |f| %>
+    <% if @suggestion.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@suggestion.errors.count, "error") %> prohibited this suggestion from being saved:</h2>
+
+        <ul>
+        <% @suggestion.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <p class="field">
+      <b><%= f.label :title, '标题' %></b>
+      <%= f.text_field :title %>
+    </p>
+
+    <p>
+      <b><%= f.label :content, '内容' %></b>
+      <%= f.text_field :content %>
+    </p>
+
+    <p>
+      <%= f.submit '提交', id: 'submit' %>
+    </p>
+  <% end %>
+</div>
+<%=content_for :foot do %>
+  <%= javascript_include_tag "rails.validations" %>
+  <%= javascript_include_tag "lib/client_side_validation_setting" %>
+  <%= javascript_include_tag "ckeditor/init" %>
+  <%= javascript_include_tag "plugins/blockUI/jquery.blockUI" %>
+  <%= javascript_include_tag "minsheng/ucenter" %>
+<% end %>
