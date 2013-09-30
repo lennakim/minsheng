@@ -1,136 +1,85 @@
 <div class="content"> 
 
-    <div class="topbar">
+  <div class="topbar">
 
-      <form action="" method="get">
+    <form action="" method="get">
 
-      <div class="logo"><img src="images/logo.png" width="379" height="96" /></div>
+      <div class="logo"><img src="/assets/mobile/logo.png" width="379" height="96" /></div>
 
       <div class="seach"><input name="" type="text"  class="search-input"/>
 
-    <input name="" type="image" src="images/seachbtn.png" class="search-btn"/></div>
+        <input name="" type="image" src="/assets/mobile/seachbtn.png" class="search-btn"/></div>
 
-      </form>
+    </form>
 
-    </div> 
+  </div> 
 
-<a href="#" class="touch-l"></a>
+  <a href="#" class="touch-l"></a>
 
   <a href="#" class="touch-r"></a>
 
   <div class="main02 mb143">
 
-       <div class="preferential-leftnav">
-
-         <a href="#" class="preferential-leftnav01 pre-current"></a>
-
-         <a href="#" class="preferential-leftnav02"></a>
-
-         <a href="#" class="preferential-leftnav03"></a>
-
-         <a href="#" class="preferential-leftnav04"></a>
-
-       </div>
-
-       <div class="pay-right">
-
-          <div href="#" class="preferential-xiangqing ">商户详情</div>
-
-  <div class="preferential-xiangqingmain">
-
-            <div class="preferential-left"><a href="#"><img src="img/shanghu01.png" width="340" height="240" /></a></div>
-
-            <div class="preferential-center">
-
-              <h2><%= @shop.title %><img src="images/msthico.png" width="76" height="23" /></h2>
-
-       <p>地 址： 汉口台北二路64号(近台北路)<br />
-
-                 电 话： 027-85758214<br />
-
-                 标 签： 川菜 香港路/台北路<br />
-
-                 <div class="youhuiquan">手机扫描优惠劵：持民生卡刷卡消费可享受9折优惠<div class="code"></div></div>
-
-                 <div class="preferential-btn"><a href="#"><img src="images/preferential06.png" width="304" height="51" /></a><a href="#"><img src="images/preferential07.png" width="157" height="51" /></a></div>
-
-              </p>
-
-         </div>
-
-         <div class="preferential-right"><img src="img/map.png" width="273" height="367" /></div>
-
-            
-
-                     
-
-         </div>
-
-       </div>
-
-    </div>      
-
-    <a href="#" class="touch-navup"></a>
-
-</div>
-
-
-<div class="row">
-  <div class="span3">
-  </div>
-  <div class="span9">
-    <p>
-      <b>Phone:</b>
-      <%= @shop.phone %>
-    </p>
-    <p>
-      <b>Address:</b>
-      <%= @shop.address %>
-    </p>
-  </div>
-
-  <div class="span3">
-    <% if can? :new, Rate %>
-      <%= link_to '添加点评', new_shop_rate_path(@shop), class: "btn btn-small" %>
-    <% end %>
-    <%= @shop.favors.count %>
-    <%= render 'favors/form',:shop_id => @shop.id %>
-  </div>
-</div>
-<div class="row">
-  <% @shop.products.each do |product| %>  
-    <span><%= product.name %></span>
-  <img style="height:100px;width:100px;" src="<%= product.productImages.first.image.url %>" alt="" />
-<% end %>
-</div>
-<div class="row">
-  <div class="span9">
-    <% unless @rates.count == 0 %>
-      <div class="rates" style="margin-top:20px;">
-      <%= render 'rates/rate_list', :rates => @rates %>
+    <div class="preferential-leftnav">
+         <a href="/mobile/shop/35" class="preferential-leftnav01"></a>
+         <a href="/mobile/products" class="preferential-leftnav02"></a>
+         <a href="/mobile/shop_images" class="preferential-leftnav03"></a>
+         <a href="/mobile/promos" class="preferential-leftnav04 pre-current05"></a>
     </div>
-    <%= paginate @rates %>
-  <% end %>
 
-  </div>
-  <div class="span3">
-    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=5137590cb1542c726a6d5cc5a2aa690b"></script>
-    <div id="allmap" style="width:240px;height:240px;"></div>
-  </div>
+    <div class="pay-right">
+
+      <div href="#" class="preferential-xiangqing ">商户详情</div>
+
+      <div class="preferential-xiangqingmain">
+
+        <div class="preferential-left"><a href="#"><img src="<%= @shop.shopImages.first.image.url %>" width="340" height="240" /></a></div>
+
+        <div class="preferential-center">
+
+          <h2><%= @shop.title %><img src="/assets/mobile/msthico.png" width="76" height="23" /></h2>
+
+          <p>地 址： <%= @shop.address %><br />
+
+          电 话： <%= @shop.phone %><br />
+
+          标 签： 川菜 香港路/台北路<br />
+
+          <div class="youhuiquan">手机扫描优惠劵：持民生卡刷卡消费可享受9折优惠<div class="code"></div></div>
+
+          <div class="preferential-btn"><a href="#"><img src="/assets/mobile/preferential06.png" width="304" height="51" /></a><a href="#"><img src="/assets/mobile/preferential07.png" width="157" height="51" /></a></div>
+
+          </p>
+
+        </div>
+
+        <div class="preferential-right">
+          <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=5137590cb1542c726a6d5cc5a2aa690b"></script>
+          <div id="allmap" style="width:273px;height:367px;"></div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>      
+
+  <a href="#" class="touch-navup"></a>
 
 </div>
+
+
 <%= content_for :foot do %>
-  <script type="text/javascript">
+<script type="text/javascript">
 
-  // 百度地图API功能
-  var map = new BMap.Map("allmap");
-  map.centerAndZoom(new BMap.Point(<%=@shop.lng %>,<%= @shop.lat %>), 26);
-  var marker1 = new BMap.Marker(new BMap.Point(<%=@shop.lng %>,<%= @shop.lat %>));  // 创建标注
-  map.addOverlay(marker1);              // 将标注添加到地图中
+// 百度地图API功能
+var map = new BMap.Map("allmap");
+map.centerAndZoom(new BMap.Point(<%=@shop.lng %>,<%= @shop.lat %>), 26);
+var marker1 = new BMap.Marker(new BMap.Point(<%=@shop.lng %>,<%= @shop.lat %>));  // 创建标注
+map.addOverlay(marker1);              // 将标注添加到地图中
 
-  //创建信息窗口
-  var infoWindow1 = new BMap.InfoWindow("普通标注");
-  marker1.addEventListener("click", function(){this.openInfoWindow(infoWindow1);});
+//创建信息窗口
+var infoWindow1 = new BMap.InfoWindow("普通标注");
+marker1.addEventListener("click", function(){this.openInfoWindow(infoWindow1);});
 
 
 </script>
