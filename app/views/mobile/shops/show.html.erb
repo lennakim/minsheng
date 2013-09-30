@@ -1,12 +1,82 @@
+<div class="content"> 
 
-<p id="notice"><%= notice %></p>
-<p>
-<h3><%= @shop.title %></h3>
-</p>
+    <div class="topbar">
+
+      <form action="" method="get">
+
+      <div class="logo"><img src="images/logo.png" width="379" height="96" /></div>
+
+      <div class="seach"><input name="" type="text"  class="search-input"/>
+
+    <input name="" type="image" src="images/seachbtn.png" class="search-btn"/></div>
+
+      </form>
+
+    </div> 
+
+<a href="#" class="touch-l"></a>
+
+  <a href="#" class="touch-r"></a>
+
+  <div class="main02 mb143">
+
+       <div class="preferential-leftnav">
+
+         <a href="#" class="preferential-leftnav01 pre-current"></a>
+
+         <a href="#" class="preferential-leftnav02"></a>
+
+         <a href="#" class="preferential-leftnav03"></a>
+
+         <a href="#" class="preferential-leftnav04"></a>
+
+       </div>
+
+       <div class="pay-right">
+
+          <div href="#" class="preferential-xiangqing ">商户详情</div>
+
+  <div class="preferential-xiangqingmain">
+
+            <div class="preferential-left"><a href="#"><img src="img/shanghu01.png" width="340" height="240" /></a></div>
+
+            <div class="preferential-center">
+
+              <h2><%= @shop.title %><img src="images/msthico.png" width="76" height="23" /></h2>
+
+       <p>地 址： 汉口台北二路64号(近台北路)<br />
+
+                 电 话： 027-85758214<br />
+
+                 标 签： 川菜 香港路/台北路<br />
+
+                 <div class="youhuiquan">手机扫描优惠劵：持民生卡刷卡消费可享受9折优惠<div class="code"></div></div>
+
+                 <div class="preferential-btn"><a href="#"><img src="images/preferential06.png" width="304" height="51" /></a><a href="#"><img src="images/preferential07.png" width="157" height="51" /></a></div>
+
+              </p>
+
+         </div>
+
+         <div class="preferential-right"><img src="img/map.png" width="273" height="367" /></div>
+
+            
+
+                     
+
+         </div>
+
+       </div>
+
+    </div>      
+
+    <a href="#" class="touch-navup"></a>
+
+</div>
+
 
 <div class="row">
   <div class="span3">
-    <img src="<%= @shop.shopImages.first.image if @shop.shopImages.first %>" alt="" />
   </div>
   <div class="span9">
     <p>
