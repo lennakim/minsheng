@@ -26,7 +26,7 @@ end
 namespace :assets do
   desc "run asstes:precompile"
   task :precompile do
-    run "cd #{current_path} && rake assets:precompile:primary"
+    run "cd #{current_path} && bundle exec rake RAILS_ENV=#{rails_env} assets:clean && bundle exec rake RAILS_ENV=#{rails_env} assets:precompile:primary"
   end
 end
 
