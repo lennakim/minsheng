@@ -1,7 +1,11 @@
 Minsheng::Application.routes.draw do
+
   resources :favors
   namespace :mobile do
     resources :shops
+    resources :shop_images
+    resources :products
+    resources :promos
     get "home" => 'home#index'
     get "users/sign_up"
     get "users/sign_in"
@@ -15,6 +19,10 @@ Minsheng::Application.routes.draw do
   get "ucenter/change_password"
   get "ucenter/favorite"
   get "ucenter/view_history"
+  put "ucenter/update_password"
+  get "ucenter/region_list"
+  get "ucenter/send_sms"
+  get "ucenter/verify_mobile_code"
 
 
   get "mobile/sign_up" => "mobile#sign_up"
@@ -116,4 +124,6 @@ Minsheng::Application.routes.draw do
   end
 
   resources :notices, only: [:index, :show]
+
+  resources :suggestions, only: :create
 end

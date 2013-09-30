@@ -1,4 +1,5 @@
 # ClientSideValidations Initializer
+
 # Uncomment to disable uniqueness validator, possible security issue
 # ClientSideValidations::Config.disabled_validators = [:uniqueness]
 
