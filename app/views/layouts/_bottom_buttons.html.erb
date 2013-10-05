@@ -1,0 +1,29 @@
+
+<div id="control_buttons" class="touch-nav">
+	  <a href="/mobile/user_center/index" class="button01"></a>
+	  <a href="#" class="button02"></a>
+	  <a href="#" class="button03"></a>
+	  <a id="button_to_close" href="#" class="buttonzhankai"></a>
+	  <a href="#" class="button04"></a>
+	  <a href="#" class="button05"></a>
+	  <a href="#" class="button06"></a>
+	  <a href="#" class="qiehuandizhi">
+	    <div class="left"></div>
+		<div class="centre">武汉·百步亭小区&nbsp;&nbsp;&nbsp;&nbsp;<span>切换地址</span></div>
+		<div class="right"></div>
+	  </a>
+</div>
+<a id="button_to_open" href="#" class="touch-navup" style="display: none"></a>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+      $("#button_to_close").click(function(){
+        $("#control_buttons").hide();
+        $("#button_to_open").show();
+      });
+      $("#button_to_open").click(function(){
+        $(this).hide();
+        $("#control_buttons").show();
+      });
+    });
+</script>
