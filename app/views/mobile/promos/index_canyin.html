@@ -1,38 +1,71 @@
-
 <div class="content">
+
     <div class="topbar">
-      <form action="" method="get">
+
+      <form action="/mobile/shops" method="get">
+
       <div class="logo"><img src="/assets/mobile/logo.png" width="379" height="96" /></div>
+
       <div class="seach"><input name="" type="text"  class="search-input"/>
-	  <input name="" type="image" src="/assets/mobile/seachbtn.png" class="search-btn"/></div>
+
+    <input name="" type="image" src="/assets/mobile/seachbtn.png" class="search-btn"/></div>
+
       </form>
+
     </div>
+
 <a href="#" class="touch-l"></a>
-	<a href="#" class="touch-r"></a>
-	<div class="main02 mb143">
-       <div class="preferential-leftnav">
-         <a href="/mobile/shops/<%= @shop.id %>" class="preferential-leftnav05"></a>
-         <a href="/mobile/shop_images?shop_id=<%= @shop.id%>" class="preferential-leftnav06"></a>
-         <a href="/mobile/promos?shop_id=<%= @shop.id%>" class="preferential-leftnav07 pre-current06"></a>
+
+  <a href="#" class="touch-r"></a>
+
+  <div class="main02 mb143">
+
+       <div class="preferential-leftnav ">
+         <a href="/mobile/shops/<%= @shop_id %>" class="preferential-leftnav01"></a>
+         <a href="/mobile/products?shop_id=<%= @shop_id %>" class="preferential-leftnav02"></a>
+         <a href="/mobile/shop_images?shop_id=<%= @shop_id %>" class="preferential-leftnav03"></a>
+         <a href="/mobile/promos?shop_id=<%= @shop_id %>" class="preferential-leftnav04 pre-current05"></a>
        </div>
+
        <div class="pay-right">
+
           <div href="#" class="preferential-xiangqing ">优惠信息</div>
+
           <div class="preferential-xiangqingmain02">
+
          <div class="youhuiquanmain02">
+
            <div class="left"></div>
-           <div class="center"><img src="<%= @promos.first.mobile_image.url %>" width="766" height="286" /><p><span>温馨提示:</span>无特殊说明，此项优惠不与店内其它优惠活动同时使用,本券仅限武汉使用请在2013年10月31日前使用。</p></div>
+
+           <div class="center"><img src="img/youhuiquan.png" width="766" height="286" /><p><span>温馨提示:</span>无特殊说明，此项优惠不与店内其它优惠活动同时使用,本券仅限武汉使用请在2013年10月31日前使用。</p></div>
+
            <div class="right">
+
              <h2>本优惠劵信息</h2>
+
              <p>本劵累计下载：<strong>29123</strong></p>
+
              <p>本周下载：<strong>2597</strong></p>
+
              <p>本劵到期时间：2013年10月31日</p>
+
              <p>2013-08-09添加</p>
+
              <p>含手机访问和下载优惠券的数</p>
+
              <a href="#"><img src="/assets/mobile/preferential06.png" width="304" height="51" /></a>
+
            </div>
+
          </div>
+
         </div>
+
        </div>
+
     </div>
+
     <a href="#" class="touch-navup"></a>
+
 </div>
+
