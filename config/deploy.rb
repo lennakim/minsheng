@@ -43,7 +43,10 @@ namespace :deploy do
     run "cd  #{current_path} && bundle exec thin stop -C config/thin.yml"
   end
   task :restart, :roles => :app, :except => { :no_release => true } do
-    run "cd  #{current_path} && bundle exec thin restart -C config/thin.yml"
+    #run "cd  #{current_path} && bundle exec thin restart -C config/thin.yml"
+    #lijg added temp for this error: /usr/local/lib/ruby/gems/1.9.1/gems/thin-1.5.1/lib/thin/daemonizing.rb:131:in `send_signal': Can't stop process, no PID found in /apps/minsheng/shared/pids/thin.pid (Thin::PidFileNotFound)
+    run "rm -rf /apps/minsheng/releases/*"
+    run "cd  #{current_path} && bundle exec thin start -C config/thin.yml"
   end
   task :seed do
     run "cd  #{current_path} && bundle exec rake RAILS_ENV=#{rails_env} db:seed"
