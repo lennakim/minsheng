@@ -20,7 +20,7 @@ Minsheng::Application.routes.draw do
     get "retrieve05"
     get "retrieve06"
 
-    get "user_center" => "user_center#index"
+    get "user_center/index"
     get "user_center/favorite"
     get "user_center/comment"
     get "user_center/foot_print"
