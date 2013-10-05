@@ -7,6 +7,7 @@ Minsheng::Application.routes.draw do
     resources :products
     resources :promos
     get "home" => 'home#index'
+    get "home/search"
     get "users/sign_up"
     get "users/sign_in"
 
