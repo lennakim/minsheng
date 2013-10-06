@@ -1,4 +1,4 @@
-<style type="text/css">
+<!--<style type="text/css">
     body {
         TEXT-ALIGN: center;
     }
@@ -28,11 +28,11 @@
         /*filter:alpha(opacity=70);*/
         opacity: 1.0;
     }
-</style>
+</style>-->
 
 <script type="text/javascript">
     $(document).ready(function(){
-        $("#img").click(function(){
+        /*$("#img").click(function(){
             $("#img").animate(
                     {
                         width:0,
@@ -57,33 +57,29 @@
                     },
                     2000
             );
-//            location.href = "/mobile/home/index"
-        });
+        });*/
     });
   </script>
 
-<div id="zhe_dang_container" class="ft tou_ming">
-  <div id="qi_dian" class="tou_ming" style="width: 1920px; height: 0;"></div>
-  <img id="img" class="" src="/assets/mobile/yindao.jpg" border="0" usemap="#Map"/>
-</div>
+<!--<div id="zhe_dang_container" class="ft tou_ming">-->
+  <!--<div id="qi_dian" class="tou_ming" style="width: 1920px; height: 0;"></div>-->
+  <!--<img id="img" class="" src="/assets/mobile/yindao.jpg" border="0" usemap="#Map"/>-->
+<!--</div>-->
 
-<div class="content"> 
-    <div class="topbar">
-      <form action="/mobile/home/search" method="get">
-      <div class="logo"><img src="/assets/mobile/logo.png" width="379" height="96" /></div>
-      <div class="seach"><input name="" type="text"  class="search-input"/>
-	  <input name="" type="image" src="/assets/mobile/seachbtn.png" class="search-btn"/></div>
-      </form>
-    </div> 
-    <a href="#" class="touch-l"></a>
-	<a href="#" class="touch-r"></a>
-	<div class="main">
-	  <a href="/mobile/shops" class="ad01"></a>
-      <a href="#" class="ad02"></a>
-	  <a href="#" class="ad03"></a>
-	  <a href="#" class="ad04"></a>
-	  <a href="#" class="ad05"></a>
-    </div>
+<div class="content">
+
+  <%= render :partial => "layouts/top_search" %>
+
+  <a href="#" class="touch-l"></a>
+  <a href="#" class="touch-r"></a>
+
+  <div class="main">
+    <a href="/mobile/shops" class="ad01"></a>
+    <a href="#" class="ad02"></a>
+    <a href="#" class="ad03"></a>
+    <a href="#" class="ad04"></a>
+    <a href="#" class="ad05"></a>
+  </div>
 
   <%= render :partial => "layouts/bottom_buttons" %>
 

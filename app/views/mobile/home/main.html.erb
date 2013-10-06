@@ -1,17 +1,38 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=gb2312"/>
-  <title>民生家园网</title>
-  <link href="/assets/mobile/master.css" rel="stylesheet" type="text/css"/>
-  <link href="/assets/mobile/reset.css" rel="stylesheet" type="text/css"/>
-  <%= javascript_include_tag "jquery" %>
-  <%= javascript_include_tag "jquery_ujs" %>
-  <%= javascript_include_tag "lib/rails.validations" %>
-  <%= javascript_include_tag "lib/client_side_validations" %>
-  <script type="text/javascript">
+<style type="text/css">
+    body {
+        TEXT-ALIGN: center;
+    }
+
+    .center {
+        MARGIN-RIGHT: auto;
+        MARGIN-LEFT: auto;
+    }
+
+    .footer {
+        position: fixed;
+        left: 500px;
+        right: 500px;
+        bottom: 0px;
+        height: 30px;
+        width: 100%;
+        background: #999;
+    }
+    .ft {
+            position: fixed;
+            left: 0px;
+            right: 0px;
+            background: #999;
+            z-index: 999999;
+        }
+    .tou_ming{
+        /*filter:alpha(opacity=70);*/
+        opacity: 1.0;
+    }
+</style>
+
+<script type="text/javascript">
     $(document).ready(function(){
-        $("body").click(function(){
+        $("#img").click(function(){
             $("#img").animate(
                     {
                         width:0,
@@ -19,12 +40,20 @@
                     },
                     2000,
                     function(){
-                        location.href = "/mobile/home/index"
+                        //location.href = "/mobile/home/index"
+                        $("#zhe_dang_container").hide();
                     }
             );
             $("#qi_dian").animate(
                     {
-                        height:"1080px"
+                        height:"1080px",
+                        opacity: 0
+                    },
+                    2000
+            );
+            $("#zhe_dang_container").animate(
+                    {
+                        opacity:0
                     },
                     2000
             );
@@ -32,31 +61,32 @@
         });
     });
   </script>
-  <style type="text/css">
-      body {TEXT-ALIGN: center;}
-      .center { MARGIN-RIGHT: auto; MARGIN-LEFT: auto; }
-      .footer {
-          position:fixed;
-          left:500px;
-          right: 500px;
-          bottom:0px;
-          height:30px;
-          width:100%;
-          background:#999;
-      }
-  </style>
-</head>
 
-<body style="width: 1920px;height: 1080px;">
-  <div id="qi_dian" style="width: 1920px; height: 0"></div>
-  <div id="container" class="center" style="">
-    <img id="img" src="/assets/mobile/yindao.jpg" border="0" usemap="#Map"/>
-    <map name="Map" id="Map">
-      <area shape="circle" coords="1530,503,108" href="#"/>
-      <area shape="circle" coords="1168,311,103" href="#"/>
-      <area shape="circle" coords="779,315,103" href="#"/>
-      <area shape="circle" coords="446,521,103" href="#"/>
-    </map>
+<div id="zhe_dang_container" class="ft tou_ming">
+  <div id="qi_dian" class="tou_ming" style="width: 1920px; height: 0;"></div>
+  <img id="img" class="" src="/assets/mobile/yindao.jpg" border="0" usemap="#Map"/>
+</div>
+
+<div class="content">
+
+  <%= render :partial => "layouts/top_search" %>
+
+  <a href="#" class="touch-l"></a>
+  <a href="#" class="touch-r"></a>
+
+  <div class="main">
+    <a href="/mobile/shops" class="ad01"></a>
+    <a href="#" class="ad02"></a>
+    <a href="#" class="ad03"></a>
+    <a href="#" class="ad04"></a>
+    <a href="#" class="ad05"></a>
   </div>
-</body>
-</html>
+
+  <%= render :partial => "layouts/bottom_buttons" %>
+
+</div>
+
+<% content_for :foot do -%>
+    <%#= javascript_include_tag "mobile/home" %>
+<% end -%>
+

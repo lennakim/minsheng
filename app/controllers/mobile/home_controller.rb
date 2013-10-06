@@ -1,7 +1,7 @@
 class Mobile::HomeController < ApplicationController
-  #layout 'mobile', :except => :main
+  layout 'mobile'
   #layout 'none', :only => :main
-  layout :resolve_layout
+  #layout :resolve_layout
 
   def main
 
