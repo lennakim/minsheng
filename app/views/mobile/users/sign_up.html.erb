@@ -36,13 +36,14 @@
           </div>
           <div class="clear"></div>
           <div class="wrongtips _tip_field">
-            <img src="/assets/images/wrongtips.jpg" width="19" height="19" />长度为6-12个字符！不能包含空格</div>
+            <!-- <img src="/assets/images/wrongtips.jpg" width="19" height="19" />长度为6-12个字符！不能包含空格 -->
+          </div>
         </div>
         <div class="password">
           <div class="passwordtitle">
             <span class="cred pt50">*</span>密码：
           </div>
-          <div class="selectbar670">
+          <div class="selectbar670 _parent_tip">
             <div class="selectbg-left"></div>
             <div class="selectbg-center w590">
               <%= f.password_field :password, :class => "client-input" %>
@@ -50,15 +51,15 @@
             <div class="selectbg-right02"></div>
           </div>
           <div class="clear"></div>
-          <div class="wrongtips">
-            <img src="/assets/images/wrongtips.jpg" width="19" height="19" />长度为6-12个字符！不能包含空格
+          <div class="wrongtips _tip_field">
+            <!-- <img src="/assets/images/wrongtips.jpg" width="19" height="19" />长度为6-12个字符！不能包含空格 -->
           </div>
         </div>
         <div class="password02">
           <div class="passwordtitle02">
             <span class="cred pt50">*</span>确认密码：
           </div>
-          <div class="selectbar670">
+          <div class="selectbar670 _parent_tip">
             <div class="selectbg-left"></div>
             <div class="selectbg-center w590">
               <%= f.password_field :password_confirmation, :class => "client-input" %>
@@ -66,20 +67,23 @@
             <div class="selectbg-right02"></div>
           </div>
           <div class="clear"></div>
-          <div class="wrongtips">
-            <img src="/assets/images/wrongtips.jpg" width="19" height="19" />长度为6-12个字符！不能包含空格
+          <div class="wrongtips _tip_field">
+            <!-- <img src="/assets/images/wrongtips.jpg" width="19" height="19" />长度为6-12个字符！不能包含空格 -->
           </div>
         </div>
         <div class="phoneon">
           <div class="phoneontitle">
             <span class="cred pt50">*</span>手机号码：
           </div>
-          <div class="selectbar312">
+          <div class="selectbar312 _parent_tip">
             <div class="selectbg-left"></div>
             <div class="selectbg-center">
               <%= f.text_field :mobile, :class => "client-input" %>
             </div>
             <div class="selectbg-right02"></div>
+          </div>
+          <div class="wrongtips _tip_field">
+            <!-- <img src="/assets/images/wrongtips.jpg" width="19" height="19" />长度为6-12个字符！不能包含空格 -->
           </div>
           <img src="/assets/images/yanzheng.png" url="<%= mobile_send_sms_path %>" id="sendCaptchaCode"/>
           <div class="clear"></div>
@@ -116,23 +120,23 @@
           <div class="usernametitle">
             <span class="cred pt50">*</span>用户名：
           </div>
-          <div class="selectbar670">
+          <div class="selectbar670 _parent_tip">
             <div class="selectbg-left"></div>
             <div class="selectbg-center w590">
-              <%= f.text_field :name, :class=>"client-input"%>
+              <%= f.text_field :name, :class=>"client-input" %>
             </div>
             <div class="selectbg-right02"></div>
           </div>
           <div class="clear"></div>
-          <div class="wrongtips">
-            <img src="/assets/images/wrongtips.jpg" width="19" height="19" />用户名已存在
+          <div class="wrongtips _tip_field">
+            <!-- <img src="/assets/images/wrongtips.jpg" width="19" height="19" />用户名已存在 -->
           </div>
         </div>
         <div class="password">
           <div class="passwordtitle">
             <span class="cred pt50">*</span>密码：
           </div>
-          <div class="selectbar670">
+          <div class="selectbar670 _parent_tip">
             <div class="selectbg-left"></div>
             <div class="selectbg-center w590">
               <%= f.password_field :password,:class=>"client-input" %>
@@ -140,8 +144,7 @@
             <div class="selectbg-right02"></div>
           </div>
           <div class="clear"></div>
-          <div class="wrongtips">
-            <img src="/assets/images/wrongtips.jpg" width="19" height="19" />长度为6-12个字符！不能包含空格
+          <div class="wrongtips _tip_field">
           </div>
         </div>
         <div class="password02">
@@ -157,14 +160,14 @@
           </div>
           <div class="clear"></div>
           <div class="wrongtips">
-            <img src="/assets/images/wrongtips.jpg" width="19" height="19" />长度为6-12个字符！不能包含空格
+            <!-- <img src="/assets/images/wrongtips.jpg" width="19" height="19" />长度为6-12个字符！不能包含空格 -->
           </div>
         </div>
         <div class="password02">
           <div class="passwordtitle02">
             <span class="cred pt50">*</span>电子邮箱：
           </div>
-          <div class="selectbar670">
+          <div class="selectbar670 _parent_tip">
             <div class="selectbg-left"></div>
             <div class="selectbg-center w590">
               <%= f.email_field :email,:class=>"client-input" %>
@@ -172,8 +175,8 @@
             <div class="selectbg-right02"></div>
           </div>
           <div class="clear"></div>
-          <div class="wrongtips">
-            <img src="/assets/images/wrongtips.jpg" width="19" height="19" />长度为6-12个字符！不能包含空格
+          <div class="wrongtips _tip_field">
+            <!-- <img src="/assets/images/wrongtips.jpg" width="19" height="19" />长度为6-12个字符！不能包含空格 -->
           </div>
         </div>
 
