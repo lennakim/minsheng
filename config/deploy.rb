@@ -1,8 +1,8 @@
 set :application, "minsheng"
 set :use_sudo, false
-set :scm, :none
-# set :branch, 'master'
-set :repository,  '.'
+set :scm, 'git'
+set :branch, 'master'
+set :repository,  'git@github.com:vissul/minsheng.git'
 set :keep_releases, 5
 set :user, "root"
 set :deploy_to, '/apps/minsheng'
@@ -13,8 +13,8 @@ role :web ,'192.168.1.17' #, '10.96.126.17' ,'10.96.126.20'
 role :app ,'192.168.1.17' #, '10.96.126.17' ,'10.96.126.20'
 role :db, '192.168.1.17', :primary => true #'10.96.126.17' ,'10.96.126.20', 
 
-# set :deploy_via, :remote_cache
-set :deploy_via, :copy
+set :deploy_via, :remote_cache
+# set :deploy_via, :copy
 
 namespace :bundle do
   desc "run bundle install and ensure all gem requirements are met"
