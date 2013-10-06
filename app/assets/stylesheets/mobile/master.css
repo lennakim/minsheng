@@ -259,7 +259,7 @@ body{background:url(/assets/mobile/bg.jpg) 0 0 repeat-y; position:relative;}
 .preferential-center p{display:block; font:18px/30px 微软雅黑; padding-left:30px; color:#444;}
 
 .youhuiquan{font:18px/30px 微软雅黑; color:#444; position:relative; padding-left:30px;}
-.preferential-center .code{background:url(../img/2wema.png) 0 0 no-repeat; width:100px; height:100px;  position:absolute; left:450px; top:-75px; }
+.preferential-center .code{background:url(/img/2wema.png) 0 0 no-repeat; width:100px; height:100px;  position:absolute; left:450px; top:-75px; }
 
 .preferential-btn{ padding-left:30px; margin-top:20px;}
 .preferential-btn a{ margin-right:15px;}
