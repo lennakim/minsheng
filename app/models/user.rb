@@ -27,8 +27,7 @@ class User < ActiveRecord::Base
   # validates :password, :presence => { :message => "请输入密码" }
   # validates_confirmation_of :password, :message => "重复密码"
 
-  validates_with UserValidator, :if => proc{ |u| u.in_password_reset }
-  validates :current_password, :presence => true, :if => :in_password_reset
+  validates :current_password, :presence => true, :user_attribute => true, :if => :in_password_reset
   validates :password, confirmation: true, :if => :in_password_reset
   validates :password_confirmation, presence: true, :if => :in_password_reset
 
