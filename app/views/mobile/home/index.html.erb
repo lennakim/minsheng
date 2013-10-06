@@ -1,13 +1,13 @@
 
 <div class="content"> 
     <div class="topbar">
-      <form action="" method="get">
+      <form action="/mobile/shops" method="get">
       <div class="logo"><img src="/assets/mobile/logo.png" width="379" height="96" /></div>
       <div class="seach"><input name="" type="text"  class="search-input"/>
 	  <input name="" type="image" src="/assets/mobile/seachbtn.png" class="search-btn"/></div>
       </form>
     </div> 
-<a href="#" class="touch-l"></a>
+    <a href="#" class="touch-l"></a>
 	<a href="#" class="touch-r"></a>
 	<div class="main">
 	  <a href="/mobile/shops" class="ad01"></a>
@@ -16,11 +16,11 @@
 	  <a href="#" class="ad04"></a>
 	  <a href="#" class="ad05"></a>
     </div>
-    	<div class="touch-nav">
+    <div id="control_buttons" class="touch-nav">
 	  <a href="#" class="button01"></a>
 	  <a href="#" class="button02"></a>
 	  <a href="#" class="button03"></a>
-	  <a href="#" class="buttonzhankai"></a>
+	  <a id="button_to_close" href="#" class="buttonzhankai"></a>
 	  <a href="#" class="button04"></a>
 	  <a href="#" class="button05"></a>
 	  <a href="#" class="button06"></a>
@@ -30,6 +30,10 @@
 		<div class="right"></div>
 	  </a>
 	</div>
-    <a href="#" class="touch-navup"></a>
+    <a id="button_to_open" href="#" class="touch-navup" style="display: none"></a>
 </div>
+
+<% content_for :foot do -%>
+    <%= javascript_include_tag "mobile/home" %>
+<% end -%>
 

@@ -21,10 +21,10 @@
   <div class="main02 mb143">
 
     <div class="preferential-leftnav ">
-         <a href="/mobile/shop/3" class="preferential-leftnav01"></a>
-         <a href="/mobile/products" class="preferential-leftnav02"></a>
-         <a href="/mobile/shop_images" class="preferential-leftnav03"></a>
-         <a href="/mobile/promos" class="preferential-leftnav04 pre-current05"></a>
+         <a href="/mobile/shops/<%=@shop_id%>" class="preferential-leftnav01"></a>
+         <a href="/mobile/products?shop_id=<%=@shop_id%>" class="preferential-leftnav02"></a>
+         <a href="/mobile/shop_images?shop_id=<%=@shop_id%>" class="preferential-leftnav03 pre-current03"></a>
+         <a href="/mobile/promos?shop_id=<%=@shop_id%>" class="preferential-leftnav04 "></a>
     </div>
 
     <div class="pay-right">
@@ -36,41 +36,18 @@
         <div class="pre-menu"><a href="#" class="pre-current03">所有</a><a href="#" class="pre-menu-a">门面</a><a href="#" class="pre-menu-a">店内环境</a><a href="#" class="pre-menu-a">菜式/菜单</a><a href="#" class="pre-menu-a">店内员工</a><a href="#" class="pre-menu-a">其他</a>
 
         </div>
-
+          
+      <% @shop_images.each do |shop_image|%>
 
 
         <div class="pre-img">
 
-          <a href="#"><img src="img/tuijiancai.png" width="257" height="197" /></a> 
+          <a href="#"><img src="<%=shop_image.image.url%>" width="257" height="197" /></a> 
 
-          <a href="#" class="">夫妻肺片</a>    
+          <a href="#" class=""><%=shop_image.name%></a>    
 
         </div>
-
-        <div class="pre-img">
-
-          <a href="#"><img src="img/tuijiancai.png" width="257" height="197" /></a> 
-
-          <a href="#" class="">夫妻肺片</a>    
-
-        </div>
-
-        <div class="pre-img">
-
-          <a href="#"><img src="img/tuijiancai.png" width="257" height="197" /></a> 
-
-          <a href="#" class="">夫妻肺片</a>    
-
-        </div>
-
-        <div class="pre-img">
-
-          <a href="#"><img src="img/tuijiancai.png" width="257" height="197" /></a> 
-
-          <a href="#" class="">夫妻肺片</a>    
-
-        </div>  
-
+      <% end %>
 
 
       </div>

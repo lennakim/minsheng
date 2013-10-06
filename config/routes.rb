@@ -9,6 +9,16 @@ Minsheng::Application.routes.draw do
     get "home" => 'home#index'
     get "users/sign_up"
     get "users/sign_in"
+
+    get "retrieve"
+    get "password_token"
+    get "verify_password_token"
+    get "retrieve02"
+    get "retrieve03"
+    post "reset_user_password"
+    get "retrieve04"
+    get "retrieve05"
+    get "retrieve06"
   end
 
   get "ucenter" => 'ucenter#index'

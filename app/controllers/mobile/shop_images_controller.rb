@@ -3,7 +3,8 @@ class Mobile::ShopImagesController < ApplicationController
   # GET /shop_images
   # GET /shop_images.json
   def index
-    @shop_images = ShopImage.all
+    @shop_id = params[:shop_id]
+    @shop_images = ShopImage.where(:shop_id=>@shop_id)
 
     respond_to do |format|
       format.html # index.html.erb
