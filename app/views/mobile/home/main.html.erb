@@ -67,23 +67,20 @@
   <img id="img" class="" src="/assets/mobile/yindao.jpg" border="0" usemap="#Map"/>
 </div>
 
-<div class="content"> 
-    <div class="topbar">
-      <form action="/mobile/home/search" method="get">
-      <div class="logo"><img src="/assets/mobile/logo.png" width="379" height="96" /></div>
-      <div class="seach"><input name="" type="text"  class="search-input"/>
-	  <input name="" type="image" src="/assets/mobile/seachbtn.png" class="search-btn"/></div>
-      </form>
-    </div> 
-    <a href="#" class="touch-l"></a>
-	<a href="#" class="touch-r"></a>
-	<div class="main">
-	  <a href="/mobile/shops" class="ad01"></a>
-      <a href="#" class="ad02"></a>
-	  <a href="#" class="ad03"></a>
-	  <a href="#" class="ad04"></a>
-	  <a href="#" class="ad05"></a>
-    </div>
+<div class="content">
+
+  <%= render :partial => "layouts/top_search" %>
+
+  <a href="#" class="touch-l"></a>
+  <a href="#" class="touch-r"></a>
+
+  <div class="main">
+    <a href="/mobile/shops" class="ad01"></a>
+    <a href="#" class="ad02"></a>
+    <a href="#" class="ad03"></a>
+    <a href="#" class="ad04"></a>
+    <a href="#" class="ad05"></a>
+  </div>
 
   <%= render :partial => "layouts/bottom_buttons" %>
 
