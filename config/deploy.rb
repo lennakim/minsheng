@@ -7,13 +7,12 @@ set :keep_releases, 5
 set :user, "root"
 set :deploy_to, '/apps/minsheng'
 set :rails_env, 'production'
-
+set :deploy_via, :remote_cache
 
 role :web ,'192.168.1.17' #, '10.96.126.17' ,'10.96.126.20'
 role :app ,'192.168.1.17' #, '10.96.126.17' ,'10.96.126.20'
 role :db, '192.168.1.17', :primary => true #'10.96.126.17' ,'10.96.126.20', 
 
-set :deploy_via, :remote_cache
 # set :deploy_via, :copy
 
 namespace :bundle do
@@ -30,28 +29,45 @@ namespace :assets do
   end
 end
 
+# namespace :deploy do
+#   task :copy_config_files, :roles => [:app] do
+#     config_files = "#{shared_path}/config/*.yml"
+#     run "cp #{config_files} #{release_path}/config/"
+#   end
+#   desc "Start the Thin processes"
+#   task :start do 
+#     run "cd  #{current_path} && bundle exec thin start -C config/thin.yml"
+#   end
+#   task :stop do 
+#     run "cd  #{current_path} && bundle exec thin stop -C config/thin.yml"
+#   end
+#   task :restart, :roles => :app, :except => { :no_release => true } do
+#     run "cd  #{current_path} && bundle exec thin restart -C config/thin.yml"
+#   end
+#   task :seed do
+#     run "cd  #{current_path} && bundle exec rake RAILS_ENV=#{rails_env} db:seed"
+#   end
+# end
+
+set :unicorn_config, "#{current_path}/config/unicorn.rb"
+set :unicorn_pid, "#{current_path}/tmp/pids/unicorn.pid"
+
 namespace :deploy do
-  task :copy_config_files, :roles => [:app] do
-    config_files = "#{shared_path}/config/*.yml"
-    run "cp #{config_files} #{release_path}/config/"
+  task :start, :roles => :app, :except => { :no_release => true } do
+    run "cd #{current_path} && RAILS_ENV=production bundle exec unicorn -c #{unicorn_config} -D"
   end
-  desc "Start the Thin processes"
-  task :start do 
-    run "cd  #{current_path} && bundle exec thin start -C config/thin.yml"
+ 
+  task :stop, :roles => :app, :except => { :no_release => true } do
+    run "if [ -f #{unicorn_pid} ]; then kill -QUIT `cat #{unicorn_pid}`; fi"
   end
-  task :stop do 
-    run "cd  #{current_path} && bundle exec thin stop -C config/thin.yml"
-  end
+  
   task :restart, :roles => :app, :except => { :no_release => true } do
-    run "cd  #{current_path} && bundle exec thin restart -C config/thin.yml"
-    #lijg added temp for this error: /usr/local/lib/ruby/gems/1.9.1/gems/thin-1.5.1/lib/thin/daemonizing.rb:131:in `send_signal': Can't stop process, no PID found in /apps/minsheng/shared/pids/thin.pid (Thin::PidFileNotFound)
-    #run "rm -rf /apps/minsheng/releases/*"
-    #run "cd  #{current_path} && bundle exec thin start -C config/thin.yml"
+    # 用USR2信号来实现无缝部署重启
+    run "if [ -f #{unicorn_pid} ]; then kill -s USR2 `cat #{unicorn_pid}`; fi"
   end
-  task :seed do
-    run "cd  #{current_path} && bundle exec rake RAILS_ENV=#{rails_env} db:seed"
-  end
+
 end
+
 
 before "deploy:migrate", "bundle:install"
 before "deploy:restart", "deploy:migrate" 
