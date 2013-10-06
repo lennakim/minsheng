@@ -1,7 +1,7 @@
 set :application, "minsheng"
 set :use_sudo, false
 set :scm, 'git'
-set :branch, 'develop'
+set :branch, 'master'
 set :repository,  'git@github.com:vissul/minsheng.git'
 set :keep_releases, 5
 set :user, "root"
