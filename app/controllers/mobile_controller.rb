@@ -21,7 +21,7 @@ class MobileController < ApplicationController
         end
       end
     else
-      redirect_to mobile_sign_up_path
+      redirect_to mobile_users_sign_up_url
     end
   end
 
@@ -122,6 +122,81 @@ class MobileController < ApplicationController
     end
 
     redirect_to root_url, :flash => { :notice => message }
+  end
+
+
+  def retrieve
+
+  end
+
+  def password_token
+    mobile = params[:mobile]
+    user = User.find_by_mobile(mobile)
+
+    uid, action_name, message = "", "", ""
+
+    if user
+      password_token = User.generate_password_token
+      content = generate_reset_password_content(mobile,password_token)
+      result = Sms.send_message_by_smsbao(mobile,content)
+
+      if result[:success]
+        user.update_attributes(:reset_password_token_for_mobile => password_token, :reset_password_sent_at_for_mobile => Time.now)
+        uid = user.id
+        action_name, message = "retrieve02", "发送成功"
+      else
+        action_name, message = "retrieve", "发送失败"
+      end
+    else
+      action_name, message = "retrieve", "不存在"
+    end
+
+      redirect_to :action => action_name, :id => uid, :notice => message
+  end
+
+  def retrieve02
+    @id = params[:id]
+  end
+
+  def verify_password_token
+    id = params[:id]
+    captcha_code = params[:captcha_code]
+    #验证手机 是否匹配
+    user = User.find(id)
+
+    if captcha_code.downcase == user.reset_password_token_for_mobile.downcase
+      redirect_to :action => "retrieve03", :id => id
+    else
+      redirect_to :action => "retrieve02", :id => id
+    end
+  end
+
+  def retrieve03
+    @user = User.find params[:id]
+  end
+
+  def reset_user_password
+    user = User.find(params[:user][:id])
+
+    user.password = params[:user][:password]
+    user.password_confirmation = params[:user][:password_confirmation]
+    user.reset_password_token_for_mobile = nil
+    user.reset_password_sent_at_for_mobile = nil
+    user.save
+
+    redirect_to :action => "retrieve04"
+  end
+
+  def retrieve04
+
+  end
+
+  def retrieve05
+
+  end
+
+  def retrieve06
+
   end
 
 private
