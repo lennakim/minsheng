@@ -20,9 +20,9 @@ class User < ActiveRecord::Base
 
   # constants definition ......................................................
   # validations ...............................................................
-  # validates :name, :presence => { :message =>"请填写用户名" }
-  # validates :name, :uniqueness => { :case_sensitive => false, :message =>"用户已注册"}
-
+  # validates :name, presence: true, length:
+  #   {minimum: 6, maximum: 12, message: '长度为6-12个字符！不能包含空格'}
+  validates :name, :uniqueness=>{:message => "用户已经注册"}
   # validates :mobile, :uniqueness => true, :numericality => { :only_integer => true }, :allow_blank => true, :allow_nil => true
   # validates :password, :presence => { :message => "请输入密码" }
   # validates_confirmation_of :password, :message => "重复密码"

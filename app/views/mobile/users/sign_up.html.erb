@@ -1,115 +1,201 @@
 <div class="content">
-    <div class="topbar">
-      <form action="" method="get">
+  <div class="topbar">
+    <form action="" method="get">
       <div class="logo"><img src="/assets/images/logo.png" width="379" height="96" /></div>
-      <div class="seach"><input name="" type="text"  class="search-input"/>
-    <input name="" type="image" src="/assets/mobile/seachbtn.png" class="search-btn"/></div>
-      </form>
-    </div>
-<a href="#" class="touch-l"></a>
+      <div class="seach">
+        <input name="" type="text"  class="search-input"/>
+        <input name="" type="image" src="/assets/mobile/seachbtn.png" class="search-btn"/>
+      </div>
+    </form>
+  </div>
+  <a href="#" class="touch-l"></a>
   <a href="#" class="touch-r"></a>
   <div class="main03 mb143">
-       <ul class="regsiter-tab center">
-        <li style="border:none"><a href="#regsiterForMobile" class="regsiter-title current"></a></li>
-        <li><a href="#regsiterForEmail" class="regsiter-title02 ml20"></a></li>
-       </ul>
+    <ul class="regsiter-tab center">
+      <li style="border:none">
+        <a href="#regsiterForMobile" class="regsiter-title current"></a>
+      </li>
+      <li>
+        <a href="#regsiterForEmail" class="regsiter-title02 ml20"></a>
+      </li>
+    </ul>
 
-       <!-- 手机注册 start-->
-       <div class="regsiter" id="regsiterForMobile">
-          <%= form_for(resource, :url => mobile_create_path, :validate => true) do |f| %>
-         <div class="username">
-          <div class="usernametitle"><span class="cred pt50">*</span>用户名：</div>
-           <div class="selectbar670"><div class="selectbg-left"></div>
-            <div class="selectbg-center w590"><%= f.text_field :name, :class => "client-input" %></div><div class="selectbg-right02"></div></div>
-                <div class="clear"></div>
-                <div class="wrongtips"><img src="/assets/images/wrongtips.jpg" width="19" height="19" />长度为6-12个字符！不能包含空格</div>
-         </div>
-          <div class="password">
-                <div class="passwordtitle"><span class="cred pt50">*</span>密码：</div>
-            <div class="selectbar670"><div class="selectbg-left"></div><div class="selectbg-center w590"> <%= f.password_field :password, :class => "client-input" %></div><div class="selectbg-right02"></div></div>
-                <div class="clear"></div>
-                <div class="wrongtips"><img src="/assets/images/wrongtips.jpg" width="19" height="19" />长度为6-12个字符！不能包含空格</div>
+    <!-- 手机注册 start-->
+    <div class="regsiter" id="regsiterForMobile">
+      <%= form_for(resource, :url => mobile_create_path, :validate => true) do |f| %>
+        <div class="username">
+          <div class="usernametitle">
+            <span class="cred pt50">*</span>用户名：
           </div>
-          <div class="password02">
-                <div class="passwordtitle02"><span class="cred pt50">*</span>确认密码：</div>
-                <div class="selectbar670"><div class="selectbg-left"></div><div class="selectbg-center w590"><%= f.password_field :password_confirmation, :class => "client-input" %></div><div class="selectbg-right02"></div></div>
-                <div class="clear"></div>
-                <div class="wrongtips"><img src="/assets/images/wrongtips.jpg" width="19" height="19" />长度为6-12个字符！不能包含空格</div>
+          <div class="selectbar670 _parent_tip">
+            <div class="selectbg-left"></div>
+            <div class="selectbg-center w590">
+              <%= f.text_field :name, :class => "client-input" %>
+            </div>
+            <div class="selectbg-right02"></div>
           </div>
-          <div class="phoneon">
-                <div class="phoneontitle"><span class="cred pt50">*</span>手机号码：</div>
-                <div class="selectbar312"><div class="selectbg-left"></div><div class="selectbg-center"> <%= f.text_field :mobile, :class => "client-input" %></div><div class="selectbg-right02"></div></div>
-                <img src="/assets/images/yanzheng.png" url = "<%= mobile_send_sms_path %>" id="sendCaptchaCode"/>
-                <div class="clear"></div>
-
+          <div class="clear"></div>
+          <div class="wrongtips _tip_field">
+            <img src="/assets/images/wrongtips.jpg" width="19" height="19" />长度为6-12个字符！不能包含空格</div>
+        </div>
+        <div class="password">
+          <div class="passwordtitle">
+            <span class="cred pt50">*</span>密码：
           </div>
-          <div class="phoneon02">
-                <div class="phoneontitle02"><span class="cred pt50">*</span>手机验证码：</div>
-                <div class="selectbar312"><div class="selectbg-left"></div>
-                <div class="selectbg-center">
-                  <input type="text" name="captcha_code" id="captcha_code" class="client-input">
-                </div>
-                <div class="selectbg-right02"></div>
-              </div>
+          <div class="selectbar670">
+            <div class="selectbg-left"></div>
+            <div class="selectbg-center w590">
+              <%= f.password_field :password, :class => "client-input" %>
+            </div>
+            <div class="selectbg-right02"></div>
           </div>
-          <div class="treaty">
-              <p>
-                <label>
-                  <input type="checkbox" name="CheckboxGroup1" value="复选框" id="CheckboxGroup1_0" />
-                  我已看过并同意《中国民生银行电子商务金融服务平台会员服务协议》</label>
-              </p>
+          <div class="clear"></div>
+          <div class="wrongtips">
+            <img src="/assets/images/wrongtips.jpg" width="19" height="19" />长度为6-12个字符！不能包含空格
           </div>
-           <input name=""  type="image" src="/assets/images/yanzheng02.png" class="regsiter-btn" width="447" height="51"/>
-          <% end %>
-       </div>
-       <!-- 手机注册 end -->
-
-       <!-- 邮箱注册 start -->
-       <div class="regsiter" id="regsiterForEmail">
-        <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :validate => true) do |f| %>
-         <div class="username">
-                <div class="usernametitle"><span class="cred pt50">*</span>用户名：</div>
-           <div class="selectbar670"><div class="selectbg-left"></div><div class="selectbg-center w590"><%= f.text_field :name, :class=>"client-input"%></div><div class="selectbg-right02"></div></div>
-                <div class="clear"></div>
-                <div class="wrongtips"><img src="/assets/images/wrongtips.jpg" width="19" height="19" />用户名已存在</div>
-         </div>
-          <div class="password">
-                <div class="passwordtitle"><span class="cred pt50">*</span>密码：</div>
-            <div class="selectbar670"><div class="selectbg-left"></div><div class="selectbg-center w590"><%= f.password_field :password,:class=>"client-input" %></div><div class="selectbg-right02"></div></div>
-                <div class="clear"></div>
-                <div class="wrongtips"><img src="/assets/images/wrongtips.jpg" width="19" height="19" />长度为6-12个字符！不能包含空格</div>
+        </div>
+        <div class="password02">
+          <div class="passwordtitle02">
+            <span class="cred pt50">*</span>确认密码：
           </div>
-          <div class="password02">
-                <div class="passwordtitle02"><span class="cred pt50">*</span>确认密码：</div>
-                <div class="selectbar670"><div class="selectbg-left"></div><div class="selectbg-center w590"><%= f.password_field :password_confirmation,:class=>"client-input" %></div><div class="selectbg-right02"></div></div>
-                <div class="clear"></div>
-                <div class="wrongtips"><img src="/assets/images/wrongtips.jpg" width="19" height="19" />长度为6-12个字符！不能包含空格</div>
+          <div class="selectbar670">
+            <div class="selectbg-left"></div>
+            <div class="selectbg-center w590">
+              <%= f.password_field :password_confirmation, :class => "client-input" %>
+            </div>
+            <div class="selectbg-right02"></div>
           </div>
-          <div class="password02">
-                <div class="passwordtitle02"><span class="cred pt50">*</span>电子邮箱：</div>
-                <div class="selectbar670"><div class="selectbg-left"></div><div class="selectbg-center w590"><%= f.email_field :email,:class=>"client-input" %></div><div class="selectbg-right02"></div></div>
-                <div class="clear"></div>
-                <div class="wrongtips"><img src="/assets/images/wrongtips.jpg" width="19" height="19" />长度为6-12个字符！不能包含空格</div>
+          <div class="clear"></div>
+          <div class="wrongtips">
+            <img src="/assets/images/wrongtips.jpg" width="19" height="19" />长度为6-12个字符！不能包含空格
           </div>
-
-          <div class="treaty">
-              <p>
-                <label>
-                  <input type="checkbox" name="CheckboxGroup1" value="复选框" id="CheckboxGroup1_0" />
-                  我已看过并同意《中国民生银行电子商务金融服务平台会员服务协议》</label>
-              </p>
+        </div>
+        <div class="phoneon">
+          <div class="phoneontitle">
+            <span class="cred pt50">*</span>手机号码：
           </div>
-          <input name=""  type="image" src="/assets/images/yanzheng02.png" class="regsiter-btn" width="447" height="51"/>
-          <% end %>
-       </div>
-       <!--邮箱注册 end  -->
-      </div>
-      <a href="#" class="touch-navup"></a>
+          <div class="selectbar312">
+            <div class="selectbg-left"></div>
+            <div class="selectbg-center">
+              <%= f.text_field :mobile, :class => "client-input" %>
+            </div>
+            <div class="selectbg-right02"></div>
+          </div>
+          <img src="/assets/images/yanzheng.png" url="<%= mobile_send_sms_path %>" id="sendCaptchaCode"/>
+          <div class="clear"></div>
+        </div>
+        <div class="phoneon02">
+          <div class="phoneontitle02">
+            <span class="cred pt50">*</span>手机验证码：
+          </div>
+          <div class="selectbar312">
+            <div class="selectbg-left"></div>
+            <div class="selectbg-center">
+              <input type="text" name="captcha_code" id="captcha_code" class="client-input">
+            </div>
+            <div class="selectbg-right02"></div>
+          </div>
+        </div>
+        <div class="treaty">
+          <p>
+            <label>
+              <input type="checkbox" name="CheckboxGroup1" value="复选框" id="CheckboxGroup1_0" />
+              我已看过并同意《中国民生银行电子商务金融服务平台会员服务协议》
+            </label>
+          </p>
+        </div>
+        <input name=""  type="image" src="/assets/images/yanzheng02.png" class="regsiter-btn" width="447" height="51"/>
+      <% end %>
     </div>
+    <!-- 手机注册 end -->
 
+    <!-- 邮箱注册 start -->
+    <div class="regsiter" id="regsiterForEmail">
+      <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :validate => true) do |f| %>
+        <div class="username">
+          <div class="usernametitle">
+            <span class="cred pt50">*</span>用户名：
+          </div>
+          <div class="selectbar670">
+            <div class="selectbg-left"></div>
+            <div class="selectbg-center w590">
+              <%= f.text_field :name, :class=>"client-input"%>
+            </div>
+            <div class="selectbg-right02"></div>
+          </div>
+          <div class="clear"></div>
+          <div class="wrongtips">
+            <img src="/assets/images/wrongtips.jpg" width="19" height="19" />用户名已存在
+          </div>
+        </div>
+        <div class="password">
+          <div class="passwordtitle">
+            <span class="cred pt50">*</span>密码：
+          </div>
+          <div class="selectbar670">
+            <div class="selectbg-left"></div>
+            <div class="selectbg-center w590">
+              <%= f.password_field :password,:class=>"client-input" %>
+            </div>
+            <div class="selectbg-right02"></div>
+          </div>
+          <div class="clear"></div>
+          <div class="wrongtips">
+            <img src="/assets/images/wrongtips.jpg" width="19" height="19" />长度为6-12个字符！不能包含空格
+          </div>
+        </div>
+        <div class="password02">
+          <div class="passwordtitle02">
+            <span class="cred pt50">*</span>确认密码：
+          </div>
+          <div class="selectbar670">
+            <div class="selectbg-left"></div>
+            <div class="selectbg-center w590">
+              <%= f.password_field :password_confirmation,:class=>"client-input" %>
+            </div>
+            <div class="selectbg-right02"></div>
+          </div>
+          <div class="clear"></div>
+          <div class="wrongtips">
+            <img src="/assets/images/wrongtips.jpg" width="19" height="19" />长度为6-12个字符！不能包含空格
+          </div>
+        </div>
+        <div class="password02">
+          <div class="passwordtitle02">
+            <span class="cred pt50">*</span>电子邮箱：
+          </div>
+          <div class="selectbar670">
+            <div class="selectbg-left"></div>
+            <div class="selectbg-center w590">
+              <%= f.email_field :email,:class=>"client-input" %>
+            </div>
+            <div class="selectbg-right02"></div>
+          </div>
+          <div class="clear"></div>
+          <div class="wrongtips">
+            <img src="/assets/images/wrongtips.jpg" width="19" height="19" />长度为6-12个字符！不能包含空格
+          </div>
+        </div>
+
+        <div class="treaty">
+          <p>
+            <label>
+              <input type="checkbox" name="CheckboxGroup1" value="复选框" id="CheckboxGroup1_0" />
+              我已看过并同意《中国民生银行电子商务金融服务平台会员服务协议》
+            </label>
+          </p>
+        </div>
+        <input name=""  type="image" src="/assets/images/yanzheng02.png" class="regsiter-btn" width="447" height="51"/>
+      <% end %>
+    </div>
+      <!--邮箱注册 end  -->
+    <a href="#" class="touch-navup"></a>
+  </div>
 </div>
 
 <%= javascript_include_tag "jquery.ui.tabs" %>
+<%= javascript_include_tag "rails.validations" %>
+<%= javascript_include_tag "lib/client_side_validation_setting" %>
 <script type="text/javascript">
   $(".main03.mb143").tabs();
 

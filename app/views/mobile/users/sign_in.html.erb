@@ -1,45 +1,50 @@
 <div class="content">
-
-    <div class="topbar">
-
-      <form action="" method="get">
-
+  <div class="topbar">
+    <form action="" method="get">
       <div class="logo"><img src="/assets/images/logo.png" width="379" height="96" /></div>
-
-      <div class="seach"><input name="" type="text"  class="search-input"/>
-
-    <input name="" type="image" src="/assets/images/seachbtn.png" class="search-btn"/></div>
-
-      </form>
-
-    </div>
-
-<a href="#" class="touch-l"></a>
-
-  <a href="#" class="touch-r"></a>
-
-  <div class="main04 mb143 pt150">
-
-       <div class="login-title"><img src="/assets/images/login-title.png" width="220" height="93" /></div>
-
-       <a href="#" class="regsiterbtn">免费注册</a>
-
-       <div class="login">
-
-         <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-
-         <div class="loginbar01 center"><div class="regsiterbar-left"></div><div class="selectbg-center w590"><%= f.text_field :login, :class=>"client-input", :placeholder=>"邮箱/手机号" %></div><div class="selectbg-right02"></div></div>
-
-         <div class="loginbar01 center"><div class="regsiterbar-left02"></div><div class="selectbg-center w590"><%= f.password_field :password, :class=>"client-input",:placeholder=>"密码" %></div><div class="selectbg-right02"></div></div>
-
-         <div class="loginbar02 center"><div class="regsiterbar-left03"></div><div class="regsiterbar-center w590">账号密码错误，请重试。</div><div class="regsiterbar-right"></div></div>
-
-         <div class="regsubmit"><input name="" type="image" src="/assets/images/login.jpg" class="loginbtn"/><a href="<%= new_password_path(resource_name) %>" class="keytips">忘记密码？</a></div>
-
-         <% end %>
-
+      <div class="seach">
+        <input name="" type="text"  class="search-input"/>
+        <input name="" type="image" src="/assets/images/seachbtn.png" class="search-btn"/>
       </div>
-
+    </form>
+  </div>
+  <a href="#" class="touch-l"></a>
+  <a href="#" class="touch-r"></a>
+  <div class="main04 mb143 pt150">
+    <div class="login-title">
+      <img src="/assets/images/login-title.png" width="220" height="93" />
     </div>
+    <a href="#" class="regsiterbtn">免费注册</a>
+    <div class="login">
+      <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+        <div class="loginbar01 center">
+          <div class="regsiterbar-left"></div>
+          <div class="selectbg-center w590">
+            <%= f.text_field :login, :class=>"client-input", :placeholder=>"邮箱/手机号" %>
+          </div>
+          <div class="selectbg-right02"></div>
+        </div>
+        <div class="loginbar01 center">
+          <div class="regsiterbar-left02"></div>
+          <div class="selectbg-center w590">
+            <%= f.password_field :password, :class=>"client-input",:placeholder=>"密码" %>
+          </div>
+          <div class="selectbg-right02"></div>
+        </div>
 
-    <a href="#" class="touch-navup"></a>
+        <div class="loginbar02 center">
+          <div class="regsiterbar-left03"></div>
+          <div class="regsiterbar-center w590">账号密码错误，请重试。</div>
+          <div class="regsiterbar-right"></div>
+        </div>
+
+        <div class="regsubmit">
+          <input name="" type="image" src="/assets/images/login.jpg" class="loginbtn"/>
+          <a href="<%= new_password_path(resource_name) %>" class="keytips">忘记密码？</a>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <a href="#" class="touch-navup"></a>
+</div>
