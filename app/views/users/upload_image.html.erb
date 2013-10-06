@@ -114,7 +114,7 @@
         html: {id: 'update_password', method: :put} do |f| %>
         <p class="field">
           <b><%= f.label :current_password, '旧密码：' %></b>
-          <%= f.password_field :current_password, :validate => true, :autocomplete => 'off' %>
+          <%= f.password_field :current_password, :validate => true, :autocomplete => 'off', data: {user_id: current_user.id} %>
         </p>
 
         <p class="field">

@@ -34,7 +34,9 @@ abbr,acronym { border: 0;
 }
 
 .mr20{margin-right:20px;}
+.mr10{margin-right:10px;}
 .mt20{margin-top:20px;}
+.mt40{margin-top:40px;}
 .mt60{margin-top:60px;}
 .mt10{margin-top:10px;}
 .mt5{margin-top:5px;}
@@ -43,24 +45,58 @@ abbr,acronym { border: 0;
 .bl{ border-left:1px solid #d4e8fd;}
 .bt{ border-top:1px solid #d4e8fd;}
 .mb143{ margin-bottom:143px;}
+.mb40{ margin-bottom:40px;}
 .ml20{ margin-left:20px;}
+.ml150{ margin-left:150px;}
+.ml50{ margin-left:50px;}
+.ml70{ margin-left:70px;}
+.ml90{ margin-left:90px;}
+.ml100{ margin-left:100px;}
+.ml110{ margin-left:110px;}
+.ml120{ margin-left:120px;}
+.ml130{ margin-left:130px;}
 .w246{width:246px;}
+.w186{width:186px;}
 .w166{width:166px;}
 .w590{width:590px;}
 .pt50{ padding-top:50px;}
+.pt30{ padding-top:30px;}
+.pt80{ padding-top:80px;}
+.pt20{ padding-top:20px;}
 .pt150{ padding-top:92px;}
+.pl10{ padding-left:10px;}
+.pl20{ padding-left:20px;}
+.pl40{ padding-left:40px;}
+.mt30{ margin-top:30px;}
+.indent{ text-indent:2em;}
 
 .center{ margin:0 auto;}
 
 .f14{font:14px/32px 微软雅黑;}
+.f16{font:16px/32px 微软雅黑;}
+.f18{font:18px/32px 微软雅黑;}
+.f30{font:30px/30px 微软雅黑;}
 
-.cred{ color:#F00;}
+.cred{color:#F00;}
+.corange{color:#f80;}
+.corange02{color:#ea5413;}
+.cgray{ color:#444;}
+.cgray02{ color:#888;}
+.cgreen{ color:#47aa46;}
+.cred{ color:#f00;}
+
 
 .clear{clear:both;}
-
-
+.line40{ line-height:40px;}
+.tc{ text-align:center;}
+.tr{ text-align:right;}
+.bt1{ border-top:1px solid #CCC;}
 
 
 .selectbar326{width:326px; display:block; float:left; font:22px/32px 微软雅黑; color:#339933; position:relative;}
 .selectbar312{width:230px; display:block; float:left; font:22px/32px 微软雅黑; color:#339933; position:relative;}
+.selectbar230{width:230px; display:block; float:left; font:22px/32px 微软雅黑; color:#339933;}
 .selectbar670{width:670px; display:block; float:left; font:22px/32px 微软雅黑; color:#339933;}
+.selectbar266{width:266px; display:block; float:left; font:22px/32px 微软雅黑; color:#339933;}
+.selectbar266{width:266px; display:block; float:left; font:22px/32px 微软雅黑; color:#339933;}
+

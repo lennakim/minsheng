@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
     :sex, :province_id, :city_id, :community_id, :consignees_attributes
 
   attr_accessible :role, :as => "admin"
-  attr_accessor :image_data, :login, :current_password, :in_password_reset
+  attr_accessor :image_data, :login, :current_password, :in_password
 
   # relationships .............................................................
   has_many :rates, dependent: :destroy
@@ -20,17 +20,18 @@ class User < ActiveRecord::Base
 
   # constants definition ......................................................
   # validations ...............................................................
-  # validates :name, :presence => { :message =>"请填写用户名" }
-  # validates :name, :uniqueness => { :case_sensitive => false, :message =>"用户已注册"}
-
-  # validates :mobile, :uniqueness => true, :numericality => { :only_integer => true }, :allow_blank => true, :allow_nil => true
+  validates :name, presence: true, length:
+    {minimum: 6, maximum: 12, message: '长度为6-12个字符！不能包含空格'}
+  validates :name, :uniqueness=>{:message => "用户已经注册"}
+  #validates :mobile, :presence => true#, :uniqueness => true#, :numericality => { :only_integer => true }
   # validates :password, :presence => { :message => "请输入密码" }
   # validates_confirmation_of :password, :message => "重复密码"
 
-  validates_with UserValidator, :if => proc{ |u| u.in_password_reset }
-  validates :current_password, :presence => true, :if => :in_password_reset
-  validates :password, confirmation: true, :if => :in_password_reset
-  validates :password_confirmation, presence: true, :if => :in_password_reset
+  validates :current_password, :presence => true, :user_attribute => true#, :if => :in_password
+  validates :password, presence: true, allow_blank: false, length:
+    {minimum: 6, maximum: 12, message: '长度为6-12个字符！不能包含空格'}#, :if => :in_password
+  validates :password, confirmation: true#, :if => :in_password
+  validates :password_confirmation, presence: true#, :if => :in_password
 
   # callbacks .................................................................
   # scopes ....................................................................

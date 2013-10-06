@@ -9,9 +9,11 @@
   <%= javascript_include_tag "jquery_ujs" %>
   <%= javascript_include_tag "lib/rails.validations" %>
   <%= javascript_include_tag "lib/client_side_validations" %>
+  <%= yield(:head) %>
 </head>
 
 <body style="background:url(/assets/mobile/bg.jpg) 0 0 repeat-y; position:relative;">
   <%= yield %>
 </body>
+  <%= yield :foot %>
 </html>
