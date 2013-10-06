@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  layout false
+
   def user
     current_user
   end
