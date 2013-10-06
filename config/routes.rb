@@ -17,8 +17,6 @@ Minsheng::Application.routes.draw do
     get "retrieve03"
     post "reset_user_password"
     get "retrieve04"
-    get "retrieve05"
-    get "retrieve06"
   end
 
   get "ucenter" => 'ucenter#index'
@@ -125,7 +123,11 @@ Minsheng::Application.routes.draw do
 
   root :to => "home#index"
 
-  devise_for :users, :controllers => { :registrations => "devise/registrations",:omniauth_callbacks => "devise/omniauth_callbacks" }
+  devise_for :users, :controllers => { :registrations => "devise/registrations",:omniauth_callbacks => "devise/omniauth_callbacks" } do
+    post "mobile/retrieve_mail", :to => "mobile/password#create"
+    get "mobile/retrieve05" => "mobile/password#retrieve05"
+    get "mobile/retrieve06" => "mobile/password#retrieve06"
+  end
 
   resources :users do
     member do
