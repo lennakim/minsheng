@@ -1,0 +1,92 @@
+<style type="text/css">
+    body {
+        TEXT-ALIGN: center;
+    }
+
+    .center {
+        MARGIN-RIGHT: auto;
+        MARGIN-LEFT: auto;
+    }
+
+    .footer {
+        position: fixed;
+        left: 500px;
+        right: 500px;
+        bottom: 0px;
+        height: 30px;
+        width: 100%;
+        background: #999;
+    }
+    .ft {
+            position: fixed;
+            left: 0px;
+            right: 0px;
+            background: #999;
+            z-index: 999999;
+        }
+    .tou_ming{
+        /*filter:alpha(opacity=70);*/
+        opacity: 1.0;
+    }
+</style>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#img").click(function(){
+            $("#img").animate(
+                    {
+                        width:0,
+                        height:0
+                    },
+                    2000,
+                    function(){
+                        //location.href = "/mobile/home/index"
+                        $("#zhe_dang_container").hide();
+                    }
+            );
+            $("#qi_dian").animate(
+                    {
+                        height:"1080px",
+                        opacity: 0
+                    },
+                    2000
+            );
+            $("#zhe_dang_container").animate(
+                    {
+                        opacity:0
+                    },
+                    2000
+            );
+//            location.href = "/mobile/home/index"
+        });
+    });
+  </script>
+
+<div id="zhe_dang_container" class="ft tou_ming">
+  <div id="qi_dian" class="tou_ming" style="width: 1920px; height: 0;"></div>
+  <img id="img" class="" src="/assets/mobile/yindao.jpg" border="0" usemap="#Map"/>
+</div>
+
+<div class="content">
+
+  <%= render :partial => "layouts/top_search" %>
+
+  <a href="#" class="touch-l"></a>
+  <a href="#" class="touch-r"></a>
+
+  <div class="main">
+    <a href="/mobile/shops" class="ad01"></a>
+    <a href="#" class="ad02"></a>
+    <a href="#" class="ad03"></a>
+    <a href="/mobile/user_center/index" class="ad04"></a>
+    <a href="#" class="ad05"></a>
+  </div>
+
+  <%= render :partial => "layouts/bottom_buttons" %>
+
+</div>
+
+<% content_for :foot do -%>
+    <%#= javascript_include_tag "mobile/home" %>
+<% end -%>
+

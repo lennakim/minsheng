@@ -57,3 +57,7 @@ rake db:migrate:down VERSION=20130830105819
 更新 然后  rake db:migrate:down VERSION=20130917081621
 
 rake db:migrate:up  VERSION=20130917081621
+
+
+start web server
+./start.sh

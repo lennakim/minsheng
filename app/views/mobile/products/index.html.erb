@@ -1,11 +1,5 @@
 <div class="content"> 
-  <div class="topbar">
-    <form action="" method="get">
-      <div class="logo"><img src="/assets/mobile/logo.png" width="379" height="96" /></div>
-      <div class="seach"><input name="" type="text"  class="search-input"/>
-        <input name="" type="image" src="/assets/mobile/seachbtn.png" class="search-btn"/></div>
-    </form>
-  </div> 
+  <%= render :partial => "layouts/top_search" %>
 
   <a href="#" class="touch-l"></a>
   <a href="#" class="touch-r"></a>
@@ -43,7 +37,7 @@
 
   </div>      
 
-  <a href="#" class="touch-navup"></a>
 
+  <%= render :partial => "layouts/bottom_buttons" %>
 </div>
 
