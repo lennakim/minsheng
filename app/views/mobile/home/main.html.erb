@@ -12,20 +12,51 @@
   <script type="text/javascript">
     $(document).ready(function(){
         $("body").click(function(){
-            location.href = "/mobile/home/index"
+            $("#img").animate(
+                    {
+                        width:0,
+                        height:0
+                    },
+                    2000,
+                    function(){
+                        location.href = "/mobile/home/index"
+                    }
+            );
+            $("#qi_dian").animate(
+                    {
+                        height:"1080px"
+                    },
+                    2000
+            );
+//            location.href = "/mobile/home/index"
         });
     });
   </script>
+  <style type="text/css">
+      body {TEXT-ALIGN: center;}
+      .center { MARGIN-RIGHT: auto; MARGIN-LEFT: auto; }
+      .footer {
+          position:fixed;
+          left:500px;
+          right: 500px;
+          bottom:0px;
+          height:30px;
+          width:100%;
+          background:#999;
+      }
+  </style>
 </head>
 
-<body>
-<div><img src="/assets/mobile/yindao.jpg" border="0" usemap="#Map"/>
-  <map name="Map" id="Map">
-    <area shape="circle" coords="1530,503,108" href="#"/>
-    <area shape="circle" coords="1168,311,103" href="#"/>
-    <area shape="circle" coords="779,315,103" href="#"/>
-    <area shape="circle" coords="446,521,103" href="#"/>
-  </map>
-</div>
+<body style="width: 1920px;height: 1080px;">
+  <div id="qi_dian" style="width: 1920px; height: 0"></div>
+  <div id="container" class="center" style="">
+    <img id="img" src="/assets/mobile/yindao.jpg" border="0" usemap="#Map"/>
+    <map name="Map" id="Map">
+      <area shape="circle" coords="1530,503,108" href="#"/>
+      <area shape="circle" coords="1168,311,103" href="#"/>
+      <area shape="circle" coords="779,315,103" href="#"/>
+      <area shape="circle" coords="446,521,103" href="#"/>
+    </map>
+  </div>
 </body>
 </html>
