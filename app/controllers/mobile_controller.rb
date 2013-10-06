@@ -191,14 +191,6 @@ class MobileController < ApplicationController
 
   end
 
-  def retrieve05
-
-  end
-
-  def retrieve06
-
-  end
-
 private
 
   def generate_sms_content(phone,captcha_code)
