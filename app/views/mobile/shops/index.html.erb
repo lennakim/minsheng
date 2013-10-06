@@ -1,47 +1,27 @@
-<div class="row">
-  <span>分类:</span>
-    <% Category.all.each do |category| %>
-      <span><a href="/categories/<%= category.id %>"><%= category.name %></a> </span>
-  <% end %>      
-  <br />
-  <span>标签:</span>
-    <% Tag.all.each do |tag| %>
-    <span class="label"><%= tag.name %></span>
-  <% end %>
-    </div>
-  <div class="row">
-    <table class="table">
-      <tr>
-            <th>图片</th>
-            <th>标题</th>
-            <th>所属分类</th>
-            <th>电话</th>
-            <th>地址</th>
-            <th>标签</th>
-            <th></th>
-            <th></th>
-            <th></th>
-      </tr>
+<div class="content">
 
-      <% @shops.each do |shop| %>
-        <tr>
-              <td><img src="<%= shop.shopImages.first.image if shop.shopImages.first %>" alt="" style="width:100px;height:100px;"/></td>
-              <td><%= shop.title %></td>
-              <td><%= shop.category.name if shop.category %></td>
-              <td><%= shop.phone %></td>
-              <td><%= shop.address %></td>
-              <td><%= raw shop.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ') %></td>
-               <td></td>
-
-               <td><%= shop.rates.count %></td>
-
-              <td><%= link_to '显示', mobile_shop_path(shop) %></td>
-      </tr>
-    <% end %>
-    </table>
-
-</div>
-    </div>
+  <a href="#" class="touch-l"></a>
+  <a href="#" class="touch-r"></a>
+  <div class="main">
+    <a href="/mobile/shops/<%= @shops.first.id %>" class="ad06"></a>
+    <a href="/mobile/shops/<%= @shops.second.id %>" class="ad07"></a>
+    <a href="/mobile/shops/<%= @shops.third.id %>" class="ad08"></a>
+    <a href="/mobile/shops/<%= @shops.fourth.id %>" class="ad09"></a>
+    <a href="/mobile/home/search" class="ad10"></a>
   </div>
-</div>
+  <div class="touch-nav mt60">
+    <a href="/mobile/user_center/index" class="button01"></a>
+    <a href="#" class="button02"></a>
+    <a href="#" class="button03"></a>
+    <a href="#" class="buttonzhankai"></a>
+    <a href="#" class="button04"></a>
+    <a href="#" class="button05"></a>
+    <a href="#" class="button06"></a>
+    <a href="#" class="qiehuandizhi">
+      <div class="left"></div>
+      <div class="centre">武汉·百步亭小区&nbsp;&nbsp;&nbsp;&nbsp;<span>切换地址</span></div>
+      <div class="right"></div>
+    </a>
+  </div>
 
+</div>

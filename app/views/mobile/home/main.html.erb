@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=gb2312"/>
+  <title>民生家园网</title>
+  <link href="/assets/mobile/master.css" rel="stylesheet" type="text/css"/>
+  <link href="/assets/mobile/reset.css" rel="stylesheet" type="text/css"/>
+  <%= javascript_include_tag "jquery" %>
+  <%= javascript_include_tag "jquery_ujs" %>
+  <%= javascript_include_tag "lib/rails.validations" %>
+  <%= javascript_include_tag "lib/client_side_validations" %>
+  <script type="text/javascript">
+    $(document).ready(function(){
+        $("body").click(function(){
+            location.href = "/mobile/home/index"
+        });
+    });
+  </script>
+</head>
+
+<body>
+<div><img src="/assets/mobile/yindao.jpg" border="0" usemap="#Map"/>
+  <map name="Map" id="Map">
+    <area shape="circle" coords="1530,503,108" href="#"/>
+    <area shape="circle" coords="1168,311,103" href="#"/>
+    <area shape="circle" coords="779,315,103" href="#"/>
+    <area shape="circle" coords="446,521,103" href="#"/>
+  </map>
+</div>
+</body>
+</html>

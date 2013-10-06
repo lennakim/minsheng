@@ -1,88 +1,44 @@
-<div class="content"> 
-
+<div class="content">
   <div class="topbar">
-
     <form action="" method="get">
-
-      <div class="logo"><img src="/assets/mobile/logo.png" width="379" height="96" /></div>
-
-      <div class="seach"><input name="" type="text"  class="search-input"/>
-
+      <div class="logo"><img src="/assets/mobile/logo.png" width="379" height="96"/></div>
+      <div class="seach"><input name="" type="text" class="search-input"/>
         <input name="" type="image" src="/assets/mobile/seachbtn.png" class="search-btn"/></div>
-
     </form>
-
-  </div> 
-
+  </div>
   <a href="#" class="touch-l"></a>
-
   <a href="#" class="touch-r"></a>
 
   <div class="main02 mb143">
-
     <div class="preferential-leftnav">
-         <a href="/mobile/shops/<%= @shop.id %>" class="preferential-leftnav01 pre-current01"></a>
-         <a href="/mobile/products?shop_id=<%= @shop.id%>" class="preferential-leftnav02"></a>
-         <a href="/mobile/shop_images?shop_id=<%= @shop.id%>" class="preferential-leftnav03"></a>
-         <a href="/mobile/promos?shop_id=<%= @shop.id%>" class="preferential-leftnav04 "></a>
+      <a href="/mobile/shops/<%= @shop.id %>" class="preferential-leftnav05 pre-current08"></a>
+      <a href="/mobile/shop_images?shop_id=<%= @shop.id%>" class="preferential-leftnav06"></a>
+      <a href="/mobile/promos?shop_id=<%= @shop.id%>" class="preferential-leftnav07"></a>
     </div>
-
     <div class="pay-right">
-
       <div href="#" class="preferential-xiangqing ">商户详情</div>
-
       <div class="preferential-xiangqingmain">
-
-        <div class="preferential-left"><a href="#"><img src="<%= @shop.shopImages.first.image.url %>" width="340" height="240" /></a></div>
-
+        <div class="preferential-left"><a href="#"><img src="<%= @shop.shopImages.first.image.url %>" width="340" height="240"/></a></div>
         <div class="preferential-center">
+          <h2><%= @shop.title %><img src="/assets/mobile/msthico.png" width="76" height="23"/></h2>
 
-          <h2><%= @shop.title %><img src="/assets/mobile/msthico.png" width="76" height="23" /></h2>
+          <p>地 址： <%= @shop.address %><br/>
+            电 话： <%= @shop.phone %><br/>
+            标 签： <%= @shop.tags.map(&:name).join(" ") %><br/>
 
-          <p>地 址： <%= @shop.address %><br />
-
-          电 话： <%= @shop.phone %><br />
-
-          标 签： 川菜 香港路/台北路<br />
-
-          <div class="youhuiquan">手机扫描优惠劵：持民生卡刷卡消费可享受9折优惠<div class="code"></div></div>
-
-          <div class="preferential-btn"><a href="#"><img src="/assets/mobile/preferential06.png" width="304" height="51" /></a><a href="#"><img src="/assets/mobile/preferential07.png" width="157" height="51" /></a></div>
-
+          <div class="youhuiquan">手机扫描优惠劵：持民生卡刷卡消费可享受9折优惠
+            <div class="code"></div>
+          </div>
+          <div class="preferential-btn">
+            <a href="#"><img src="/assets/mobile/preferential06.png" width="304" height="51"/></a><a href="#"><img src="/assets/mobile/preferential07.png" width="157" height="51"/></a>
+          </div>
           </p>
-
         </div>
+        <div class="preferential-right"><img src="/img/map.png" width="273" height="367"/></div>
 
-        <div class="preferential-right">
-          <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=5137590cb1542c726a6d5cc5a2aa690b"></script>
-          <div id="allmap" style="width:273px;height:367px;"></div>
-        </div>
+
       </div>
-
     </div>
-
-  </div>      
-
+  </div>
   <a href="#" class="touch-navup"></a>
-
 </div>
-
-
-<%= content_for :foot do %>
-<script type="text/javascript">
-
-// 百度地图API功能
-var map = new BMap.Map("allmap");
-map.centerAndZoom(new BMap.Point(<%=@shop.lng %>,<%= @shop.lat %>), 26);
-var marker1 = new BMap.Marker(new BMap.Point(<%=@shop.lng %>,<%= @shop.lat %>));  // 创建标注
-map.addOverlay(marker1);              // 将标注添加到地图中
-
-//创建信息窗口
-var infoWindow1 = new BMap.InfoWindow("普通标注");
-marker1.addEventListener("click", function(){this.openInfoWindow(infoWindow1);});
-
-
-</script>
-
-  <% end %>
-

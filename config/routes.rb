@@ -6,7 +6,9 @@ Minsheng::Application.routes.draw do
     resources :shop_images
     resources :products
     resources :promos
-    get "home" => 'home#index'
+    get "home" => 'home#main'
+    get "home/index"
+    get "home/search"
     get "users/sign_up"
     get "users/sign_in"
 
@@ -19,6 +21,15 @@ Minsheng::Application.routes.draw do
     get "retrieve04"
     get "retrieve05"
     get "retrieve06"
+
+    get "user_center/index"
+    get "user_center/favorite"
+    get "user_center/comment"
+    get "user_center/foot_print"
+    get "user_center/system_message"
+    get "user_center/edit_info"
+    get "user_center/edit_image"
+    get "user_center/edit_password"
   end
 
   get "ucenter" => 'ucenter#index'
