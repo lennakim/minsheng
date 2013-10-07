@@ -20,20 +20,8 @@ class User < ActiveRecord::Base
 
   # constants definition ......................................................
   # validations ...............................................................
-  validates :name, presence: true, length:
-    {minimum: 6, maximum: 12, message: '长度为6-12个字符！不能包含空格'}
-  validates :name, :uniqueness=>{:message => "用户已经注册"}
-  #validates :mobile, :presence => true#, :uniqueness => true#, :numericality => { :only_integer => true }
-  # validates :password, :presence => { :message => "请输入密码" }
-  # validates_confirmation_of :password, :message => "重复密码"
-
-  validates :current_password, :presence => true, :user_attribute => true#, :if => :in_password
-  validates :password, presence: true, allow_blank: false, length:
-    {minimum: 6, maximum: 12, message: '长度为6-12个字符！不能包含空格'}#, :if => :in_password
-  validates :password, confirmation: true#, :if => :in_password
-  validates :password_confirmation, presence: true#, :if => :in_password
-
-  # callbacks .................................................................
+ 
+    # callbacks .................................................................
   # scopes ....................................................................
 
   # additional config .........................................................
@@ -46,8 +34,22 @@ class User < ActiveRecord::Base
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
-         :confirmable,:omniauthable, :authentication_keys =>[ :login ]
+         # :confirmable,
+         :omniauthable, :authentication_keys =>[ :login ]
   #, :token_authenticatable
+  #
+  validates :name, presence: true, length:
+    {minimum: 6, maximum: 12, message: '长度为6-12个字符！不能包含空格'}
+  validates :name, :uniqueness=>{:message => "用户已经注册"}
+  #validates :mobile, :presence => true#, :uniqueness => true#, :numericality => { :only_integer => true }
+  # validates :password, :presence => { :message => "请输入密码" }
+  # validates_confirmation_of :password, :message => "重复密码"
+  # validates :current_password, :presence => true, :user_attribute => true, :if => :in_password
+  validates :password, presence: true, allow_blank: false, length:
+    {minimum: 6, maximum: 12, message: '长度为6-12个字符！不能包含空格'}#, :if => :in_password
+  validates :password, confirmation: true#, :if => :in_password
+  validates :password_confirmation, presence: true#, :if => :in_password
+
 
   # class methods .............................................................
   # public instance methods ...................................................
