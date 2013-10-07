@@ -21,7 +21,7 @@
     </ul>
 
 <div class="regsiter" id="regsiterForEmail">
-      <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+      <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :validate => true) do |f| %>
           <input type="hidden" name="redirect_to" value="/mobile/home" />
         <div class="username">
           <div class="usernametitle">
@@ -102,3 +102,6 @@
 </div>
   <%= render :partial => "layouts/bottom_buttons" %>
 </div>
+
+<%= javascript_include_tag "rails.validations" %>
+<%= javascript_include_tag "lib/client_side_validation_setting" %>
