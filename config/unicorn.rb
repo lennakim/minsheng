@@ -16,8 +16,8 @@ pid "#{app_root}/tmp/pids/unicorn.pid"
 # By default, the Unicorn logger will write to stderr.
 # Additionally, some applications/frameworks log to stderr or stdout,
 # so prevent them from going to /dev/null when daemonized here:
-stderr_path "#{app_root}/log/unicorn.stderr.log"
-stdout_path "#{app_root}/log/unicorn.stdout.log"
+# stderr_path "#{app_root}/log/unicorn.stderr.log"
+# stdout_path "#{app_root}/log/unicorn.stdout.log"
 
 # To save some memory and improve performance
 preload_app true
