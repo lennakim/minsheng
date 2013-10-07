@@ -3,13 +3,11 @@ class Mobile::UsersController < ApplicationController
   layout 'mobile'
 
   def email_sign_up
-    #TODO if user login redirect_to home
-    # @user = User.new
+    redirect_to mobile_home_path  if current_user
   end
 
   def phone_sign_up
-    #TODO if user login redirect_to home
-    # @user = User.new
+    redirect_to mobile_home_path  if current_user
   end
 
   def create
