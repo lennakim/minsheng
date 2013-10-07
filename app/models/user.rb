@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
     :sex, :province_id, :city_id, :community_id, :consignees_attributes
 
   attr_accessible :role, :as => "admin"
-  attr_accessor :image_data, :login, :current_password, :in_password
+  attr_accessor :image_data, :login, :current_password, :in_password, :captcha_code
 
   # relationships .............................................................
   has_many :rates, dependent: :destroy
@@ -42,7 +42,7 @@ class User < ActiveRecord::Base
     {minimum: 6, maximum: 12}, :uniqueness => {:message => "用户已经注册"}
   validates :mobile, :presence => true, :uniqueness => true, :numericality => { :only_integer => true },
     format: {with: /\A1\d{10}\Z/, message: '请填写正确的手机号'}
-  validates :reset_password_token_for_mobile, presence: true,
+  validates :captcha_code, presence: true,
     format: {with: /^[a-z0-9_-]{4}$/, message: '请填写正确格式的验证码'}
   validates :password, presence: true, allow_blank: false, length:
     {minimum: 6, maximum: 12}, confirmation: true, :on => :create
