@@ -132,11 +132,11 @@ class Mobile::UsersController < ApplicationController
   end
 
 
-  def retrieve
+  def retrieve_all
 
   end
 
-  def password_token
+  def send_reset_password_token
     mobile = params[:mobile]
     user = User.find_by_mobile(mobile)
 
@@ -150,39 +150,39 @@ class Mobile::UsersController < ApplicationController
       if result[:success]
         user.update_attributes(:reset_password_token_for_mobile => password_token, :reset_password_sent_at_for_mobile => Time.now)
         uid = user.id
-        action_name, message = "retrieve02", "发送成功"
+        action_name, message = "retrieve_phone_step_one", "发送成功"
       else
-        action_name, message = "retrieve", "发送失败"
+        action_name, message = "retrieve_all", "发送失败"
       end
     else
-      action_name, message = "retrieve", "不存在"
+      action_name, message = "retrieve_all", "不存在"
     end
 
     redirect_to :action => action_name, :id => uid, :notice => message
   end
 
-  def retrieve02
+  def retrieve_phone_step_one
     @id = params[:id]
   end
 
-  def verify_password_token
+  def phone_verify_password_token
     id = params[:id]
     captcha_code = params[:captcha_code]
     #验证手机 是否匹配
     user = User.find(id)
 
     if captcha_code.downcase == user.reset_password_token_for_mobile.downcase
-      redirect_to :action => "retrieve03", :id => id
+      redirect_to :action => "retrieve_phone_step_two", :id => id
     else
-      redirect_to :action => "retrieve02", :id => id
+      redirect_to :action => "retrieve_phone_step_one", :id => id
     end
   end
 
-  def retrieve03
+  def retrieve_phone_step_two
     @user = User.find params[:id]
   end
 
-  def reset_user_password
+  def phone_reset_user_password
     user = User.find(params[:user][:id])
 
     user.password = params[:user][:password]
@@ -191,10 +191,10 @@ class Mobile::UsersController < ApplicationController
     user.reset_password_sent_at_for_mobile = nil
     user.save
 
-    redirect_to :action => "retrieve04"
+    redirect_to :action => "phone_reset_password_succcess"
   end
 
-  def retrieve04
+  def phone_reset_password_succcess
 
   end
 
