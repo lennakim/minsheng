@@ -44,7 +44,6 @@ class Mobile::UsersController < ApplicationController
       result = Sms.send_message_by_smsbao(mobile,content)
 
       if result[:success]
-        puts "captcha_code=#{captcha_code}"
         v = Verification.new(:mobile_captcha_code => captcha_code, :mobile_last_sent_at => Time.now, :mobile => mobile,:temp_email => temp_email )
         v.save
 
@@ -56,59 +55,6 @@ class Mobile::UsersController < ApplicationController
       status, message = true, "此手机已经注册"
     end
     render :json => { :status => status, :message => message }
-  end
-
-
-  def verify_mobile
-    captcha_code = params[:captcha_code]
-    mobile = params[:mobile]
-    verification = Verification.last_verification(mobile)
-
-    if verification
-
-      unless Verification.is_lt_expire_time?(verification.mobile_last_sent_at)
-        result, message = false, "时间已经过期"
-      else
-        if verification.mobile_captcha_code.downcase == captcha_code.downcase
-          temp_email = generate_temp_email(mobile)
-          verification.update_attributes(:is_auth_for_mobile => true,:temp_email => temp_email)
-
-          result, message = true, "绑定手机成功"
-        else
-          result, message = false, "验证码错误"
-        end
-      end
-    else
-      result, message = false, "手机号码不存在"
-    end
-    render :json => { :status => result, :message => message }
-  end
-
-  def reset_password_page
-
-  end
-
-  def send_password_token
-    mobile = params[:mobile].to_i
-    user = User.find_by_mobile(mobile)
-    message = ""
-
-    if user
-      password_token = User.generate_password_token
-      content = generate_reset_password_content(mobile,password_token)
-      result = Sms.send_message_by_smsbao(mobile,content)
-
-      if result[:success]
-        user.update_attributes(:reset_password_token_for_mobile => password_token, :reset_password_sent_at_for_mobile => Time.now)
-        message = "发送成功"
-      else
-        message = "发送失败"
-      end
-    else
-      message = "此号码不存在"
-    end
-
-    render :json => { :message => message }
   end
 
   def reset_password
@@ -148,7 +94,6 @@ class Mobile::UsersController < ApplicationController
       password_token = User.generate_password_token
       content = generate_reset_password_content(mobile,password_token)
       result = Sms.send_message_by_smsbao(mobile,content)
-
       if result[:success]
         user.update_attributes(:reset_password_token_for_mobile => password_token, :reset_password_sent_at_for_mobile => Time.now)
         uid = user.id
@@ -210,12 +155,10 @@ class Mobile::UsersController < ApplicationController
   end
 
   def generate_reset_password_content(mobile, token)
-
-    # content = <<-EOF
-    #   您的手机号码是: #{mobile},重置验证码是: #{token}.
-    #   如果不是您本人的操作,请忽略此条短信.
-    # EOF
-
+    content = <<-EOF
+      您的手机号码是: #{mobile},重置验证码是: #{token}.
+      如果不是您本人的操作,请忽略此条短信.
+    EOF
   end
 
   def generate_temp_email(phone)
@@ -227,3 +170,57 @@ class Mobile::UsersController < ApplicationController
   end
 
 end
+
+=begin
+  def verify_mobile
+    captcha_code = params[:captcha_code]
+    mobile = params[:mobile]
+    verification = Verification.last_verification(mobile)
+
+    if verification
+
+      unless Verification.is_lt_expire_time?(verification.mobile_last_sent_at)
+        result, message = false, "时间已经过期"
+      else
+        if verification.mobile_captcha_code.downcase == captcha_code.downcase
+          temp_email = generate_temp_email(mobile)
+          verification.update_attributes(:is_auth_for_mobile => true,:temp_email => temp_email)
+
+          result, message = true, "绑定手机成功"
+        else
+          result, message = false, "验证码错误"
+        end
+      end
+    else
+      result, message = false, "手机号码不存在"
+    end
+    render :json => { :status => result, :message => message }
+  end
+
+  def reset_password_page
+
+  end
+
+  def send_password_token
+    mobile = params[:mobile].to_i
+    user = User.find_by_mobile(mobile)
+    message = ""
+
+    if user
+      password_token = User.generate_password_token
+      content = generate_reset_password_content(mobile,password_token)
+      result = Sms.send_message_by_smsbao(mobile,content)
+
+      if result[:success]
+        user.update_attributes(:reset_password_token_for_mobile => password_token, :reset_password_sent_at_for_mobile => Time.now)
+        message = "发送成功"
+      else
+        message = "发送失败"
+      end
+    else
+      message = "此号码不存在"
+    end
+
+    render :json => { :message => message }
+  end
+=end

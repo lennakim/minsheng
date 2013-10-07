@@ -7,7 +7,7 @@ layout 'mobile'
     if successfully_sent?(resource)
       redirect_to mobile_users_sign_in_path
     else
-      redirect_to mobile_retrieve_all_path
+      redirect_to mobile_users_retrieve_all_path
     end
   end
 
