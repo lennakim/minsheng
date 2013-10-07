@@ -39,17 +39,17 @@ class User < ActiveRecord::Base
   #, :token_authenticatable
   #
   validates :name, presence: true, length:
-    {minimum: 6, maximum: 12}
-  validates :name, :uniqueness=>{:message => "用户已经注册"}
-  #validates :mobile, :presence => true#, :uniqueness => true#, :numericality => { :only_integer => true }
-  # validates :password, :presence => { :message => "请输入密码" }
-  # validates_confirmation_of :password, :message => "重复密码"
-  # validates :current_password, :presence => true, :user_attribute => true, :if => :in_password
+    {minimum: 6, maximum: 12}, :uniqueness => {:message => "用户已经注册"}
+  validates :mobile, :presence => true, :uniqueness => true, :numericality => { :only_integer => true },
+    format: {with: /\A1\d{10}\Z/, message: '请填写正确的手机号'}
   validates :password, presence: true, allow_blank: false, length:
-    {minimum: 6, maximum: 12}#, :if => :in_password
-  validates :password, confirmation: true#, :if => :in_password
-  validates :password_confirmation, presence: true#, :if => :in_password
+    {minimum: 6, maximum: 12}, confirmation: true, :on => :create
   validates :email, presence: true
+  validates :reset_password_token_for_mobile, presence: true,
+    format: {with: /^[a-z0-9_-]{4}$/, message: '请填写正确格式的验证码'}
+
+  validates :password, presence: true, allow_blank: false, length:
+    {minimum: 6, maximum: 12}, confirmation: true, :if => :in_password
 
 
   # class methods .............................................................
