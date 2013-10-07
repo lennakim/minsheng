@@ -14,13 +14,14 @@ Minsheng::Application.routes.draw do
     get "users/email_sign_up"
     get "users/sign_in"
 
-    get "retrieve"
-    get "password_token"
-    get "verify_password_token"
-    get "retrieve02"
-    get "retrieve03"
-    post "reset_user_password"
-    get "retrieve04"
+    get  "users/retrieve_all" => "users#retrieve_all"
+    get "users/phone_verify_password_token" => "users#phone_verify_password_token"
+
+    get  "users/retrieve_phone_step_one" => "users#retrieve_phone_step_one"
+    get  "users/send_reset_password_token" => "users#send_reset_password_token"
+    get  "users/retrieve_phone_step_two" => "users#retrieve_phone_step_two"
+    post "users/phone_reset_user_password" => "users#phone_reset_user_password"
+    get  "users/phone_reset_password_succcess" => "users#phone_reset_password_succcess"
 
     get "user_center/index"
     get "user_center/favorite"
@@ -31,7 +32,6 @@ Minsheng::Application.routes.draw do
     get "user_center/edit_image"
     get "user_center/edit_password"
 
-    get "users/sign_up" => "users#sign_up"
     get "users/send_sms" => "users#send_sms"
     get "users/verify_mobile" => "users#verify_mobile"
     get "users/reset_password_page" => "users#reset_password_page"
@@ -139,8 +139,8 @@ Minsheng::Application.routes.draw do
 
   devise_for :users, :controllers => { :registrations => "devise/registrations",:omniauth_callbacks => "devise/omniauth_callbacks" } do
     post "mobile/retrieve_mail", :to => "mobile/password#create"
-    get "mobile/retrieve05" => "mobile/password#retrieve05"
-    get "mobile/retrieve06" => "mobile/password#retrieve06"
+    get "mobile/users/retrieve_email_step_one" => "mobile/password#retrieve_email_step_one"
+    get "mobile/users/retrieve_email_step_two" => "mobile/password#retrieve_email_step_two"
   end
 
   resources :users do
