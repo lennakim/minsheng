@@ -17,7 +17,12 @@ class Devise::RegistrationsController < DeviseController
         set_flash_message :notice, :signed_up if is_navigational_format?
         sign_up(resource_name, resource)
         #Devise::Mailer.confirmation_instructions(resource).deliver #send email by hand
-        respond_with resource, :location => after_sign_up_path_for(resource)
+
+        if params[:redirect_to]
+          redirect_to params[:redirect_to]
+        else
+          respond_with resource, :location => after_sign_up_path_for(resource)
+        end
       else
         set_flash_message :notice, :"signed_up_but_#{resource.inactive_message}" if is_navigational_format?
         expire_session_data_after_sign_in!
