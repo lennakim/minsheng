@@ -54,4 +54,8 @@
       };
     };
   });
+
+  $('#new_user').on('ajax:success', function(event, result){
+    window.location = result.redirect
+  })
 </script>
