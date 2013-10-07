@@ -1,0 +1,104 @@
+<div class="content">
+  <div class="topbar">
+    <form action="" method="get">
+      <div class="logo"><img src="/assets/images/logo.png" width="379" height="96" /></div>
+      <div class="seach">
+        <input name="" type="text"  class="search-input"/>
+        <input name="" type="image" src="/assets/mobile/seachbtn.png" class="search-btn"/>
+      </div>
+    </form>
+  </div>
+  <a href="#" class="touch-l"></a>
+  <a href="#" class="touch-r"></a>
+  <div class="main03 mb143">
+    <ul class="regsiter-tab center">
+      <li style="border:none">
+        <a href="/mobile/users/phone_sign_up" class="regsiter-title "></a>
+      </li>
+      <li>
+        <a href="/mobile/users/email_sign_up" class="regsiter-title02 current02"></a>
+      </li>
+    </ul>
+
+<div class="regsiter" id="regsiterForEmail">
+      <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+          <input type="hidden" name="redirect_to" value="/mobile/home" />
+        <div class="username">
+          <div class="usernametitle">
+            <span class="cred pt50">*</span>用户名：
+          </div>
+          <div class="selectbar670 _parent_tip">
+            <div class="selectbg-left"></div>
+            <div class="selectbg-center w590">
+              <%= f.text_field :name, :class=>"client-input" %>
+            </div>
+            <div class="selectbg-right02"></div>
+          </div>
+          <div class="clear"></div>
+          <div class="wrongtips _tip_field">
+            <!-- <img src="/assets/images/wrongtips.jpg" width="19" height="19" />用户名已存在 -->
+          </div>
+        </div>
+        <div class="password">
+          <div class="passwordtitle">
+            <span class="cred pt50">*</span>密码：
+          </div>
+          <div class="selectbar670 _parent_tip">
+            <div class="selectbg-left"></div>
+            <div class="selectbg-center w590">
+              <%= f.password_field :password,:class=>"client-input" %>
+            </div>
+            <div class="selectbg-right02"></div>
+          </div>
+          <div class="clear"></div>
+          <div class="wrongtips _tip_field">
+          </div>
+        </div>
+        <div class="password02">
+          <div class="passwordtitle02">
+            <span class="cred pt50">*</span>确认密码：
+          </div>
+          <div class="selectbar670">
+            <div class="selectbg-left"></div>
+            <div class="selectbg-center w590">
+              <%= f.password_field :password_confirmation,:class=>"client-input" %>
+            </div>
+            <div class="selectbg-right02"></div>
+          </div>
+          <div class="clear"></div>
+          <div class="wrongtips">
+            <!-- <img src="/assets/images/wrongtips.jpg" width="19" height="19" />长度为6-12个字符！不能包含空格 -->
+          </div>
+        </div>
+        <div class="password02">
+          <div class="passwordtitle02">
+            <span class="cred pt50">*</span>电子邮箱：
+          </div>
+          <div class="selectbar670 _parent_tip">
+            <div class="selectbg-left"></div>
+            <div class="selectbg-center w590">
+              <%= f.email_field :email,:class=>"client-input" %>
+            </div>
+            <div class="selectbg-right02"></div>
+          </div>
+          <div class="clear"></div>
+          <div class="wrongtips _tip_field">
+            <!-- <img src="/assets/images/wrongtips.jpg" width="19" height="19" />长度为6-12个字符！不能包含空格 -->
+          </div>
+        </div>
+
+        <div class="treaty">
+          <p>
+            <label>
+              <input type="checkbox" name="CheckboxGroup1" value="复选框" id="CheckboxGroup1_0" />
+              我已看过并同意《中国民生银行电子商务金融服务平台会员服务协议》
+            </label>
+          </p>
+        </div>
+        <input  name=""  type="image" src="/assets/images/yanzheng02.png" class="regsiter-btn" width="447" height="51"/>
+      <% end %>
+    </div>
+
+</div>
+  <%= render :partial => "layouts/bottom_buttons" %>
+</div>
