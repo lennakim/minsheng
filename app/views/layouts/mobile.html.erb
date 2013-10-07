@@ -7,15 +7,12 @@
   <link href="/assets/mobile/reset.css" rel="stylesheet" type="text/css" />
   <%= javascript_include_tag "jquery" %>
   <%= javascript_include_tag "jquery_ujs" %>
-  <%= javascript_include_tag "lib/rails.validations" %>
-  <%= javascript_include_tag "lib/client_side_validations" %>
   <%= yield(:head) %>
 </head>
 
 <body style="background:url(/assets/mobile/bg.jpg) 0 0 repeat-y; position:relative;">
-  <%= link_to "注册", mobile_users_sign_up_path %>
+  <%= link_to "注册", mobile_users_phone_sign_up_path %>
   <%= link_to "登录", mobile_users_sign_in_path %>
-  <%= link_to "找回密码", mobile_retrieve_path %>
   <%= yield %>
 </body>
   <%= yield :foot %>
