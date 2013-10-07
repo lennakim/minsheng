@@ -29,11 +29,11 @@ namespace :assets do
   end
 end
 
-# namespace :deploy do
-#   task :copy_config_files, :roles => [:app] do
-#     config_files = "#{shared_path}/config/*.yml"
-#     run "cp #{config_files} #{release_path}/config/"
-#   end
+namespace :deploy do
+  task :copy_config_files, :roles => [:app] do
+    config_files = "#{shared_path}/config/*.yml"
+    run "cp #{config_files} #{release_path}/config/"
+  end
 #   desc "Start the Thin processes"
 #   task :start do 
 #     run "cd  #{current_path} && bundle exec thin start -C config/thin.yml"
@@ -47,7 +47,7 @@ end
 #   task :seed do
 #     run "cd  #{current_path} && bundle exec rake RAILS_ENV=#{rails_env} db:seed"
 #   end
-# end
+end
 
 set :unicorn_config, "#{current_path}/config/unicorn.rb"
 set :unicorn_pid, "#{current_path}/tmp/pids/unicorn.pid"

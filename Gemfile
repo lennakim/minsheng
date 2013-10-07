@@ -11,8 +11,13 @@ gem 'jquery-ui-rails'
 gem "devise", ">= 2.1.2"
 gem "cancan", ">= 1.6.8"
 gem "rolify", ">= 3.2.0"
-gem 'unicorn'
-gem 'unicorn-worker-killer'
+
+gem 'thin', :group => :development
+gem "quiet_assets", :group => :development
+
+gem 'unicorn', :group => :production
+gem 'unicorn-worker-killer', :group => :production
+
 gem "newrelic_rpm"
 gem 'china_region_fu'
 gem "carrierwave"
