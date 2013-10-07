@@ -137,7 +137,8 @@ Minsheng::Application.routes.draw do
 
   root :to => "home#index"
 
-  devise_for :users, :controllers => { :registrations => "devise/registrations",:omniauth_callbacks => "devise/omniauth_callbacks" } do
+  devise_for :users, :controllers => { :registrations => "devise/registrations",
+    :omniauth_callbacks => "devise/omniauth_callbacks", :sessions => "devise/sessions" } do
     post "mobile/retrieve_mail", :to => "mobile/password#create"
     get "mobile/retrieve05" => "mobile/password#retrieve05"
     get "mobile/retrieve06" => "mobile/password#retrieve06"
