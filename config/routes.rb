@@ -13,8 +13,9 @@ Minsheng::Application.routes.draw do
     get "users/phone_sign_up"
     get "users/email_sign_up"
     get "users/sign_in"
+    post "users/create" => "users#create"
 
-    get  "users/retrieve_all" => "users#retrieve_all"
+    get "users/retrieve_all" => "users#retrieve_all"
     get "users/phone_verify_password_token" => "users#phone_verify_password_token"
 
     get  "users/retrieve_phone_step_one" => "users#retrieve_phone_step_one"
@@ -32,7 +33,7 @@ Minsheng::Application.routes.draw do
     get "user_center/edit_image"
     get "user_center/edit_password"
 
-    get "users/send_sms" => "users#send_sms"
+    get "users/send_captcha_code" => "users#send_captcha_code"
     get "users/verify_mobile" => "users#verify_mobile"
     get "users/reset_password_page" => "users#reset_password_page"
     get "users/send_password_token" => "users#send_password_token"
