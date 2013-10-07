@@ -37,7 +37,7 @@
 
         <div class="regsubmit">
           <input name="" type="image" src="/assets/images/login.jpg" class="loginbtn"/>
-          <a href="<%= new_password_path(resource_name) %>" class="keytips">忘记密码？</a>
+          <%= link_to "忘记密码？", mobile_users_retrieve_all_path, :class=>"keytips" %>
         </div>
       <% end %>
     </div>

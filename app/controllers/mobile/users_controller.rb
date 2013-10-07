@@ -15,7 +15,6 @@ class Mobile::UsersController < ApplicationController
   def create
     user = User.new(params[:user])
     captcha_code = params[:captcha_code]
-
     unless is_mobile_exist?(user.mobile)
       verification = Verification.last_verification(user.mobile)
       if verification
@@ -24,15 +23,17 @@ class Mobile::UsersController < ApplicationController
           user.is_auth_for_mobile = true
           user.save
           sign_in(:user, user)
-          redirect_to root_url
+          redirect_to mobile_home_path
+        else
+        redirect_to phone_sign_up_path, :message => "验证码错误"
         end
       end
     else
-      redirect_to mobile_users_sign_up_url
+      redirect_to phone_sign_up_path
     end
   end
 
-  def send_sms
+  def send_captcha_code
     status, message = false, ""
     mobile = params[:mobile]
 
@@ -42,6 +43,7 @@ class Mobile::UsersController < ApplicationController
       temp_email = generate_temp_email(mobile)
 
       result = Sms.send_message_by_smsbao(mobile,content)
+      puts "result #{result}"
       if result[:success]
         v = Verification.new(:mobile_captcha_code => captcha_code, :mobile_last_sent_at => Time.now, :mobile => mobile,:temp_email => temp_email )
         v.save
@@ -132,11 +134,11 @@ class Mobile::UsersController < ApplicationController
   end
 
 
-  def retrieve
+  def retrieve_all
 
   end
 
-  def password_token
+  def send_reset_password_token
     mobile = params[:mobile]
     user = User.find_by_mobile(mobile)
 
@@ -150,39 +152,39 @@ class Mobile::UsersController < ApplicationController
       if result[:success]
         user.update_attributes(:reset_password_token_for_mobile => password_token, :reset_password_sent_at_for_mobile => Time.now)
         uid = user.id
-        action_name, message = "retrieve02", "发送成功"
+        action_name, message = "retrieve_phone_step_one", "发送成功"
       else
-        action_name, message = "retrieve", "发送失败"
+        action_name, message = "retrieve_all", "发送失败"
       end
     else
-      action_name, message = "retrieve", "不存在"
+      action_name, message = "retrieve_all", "不存在"
     end
 
     redirect_to :action => action_name, :id => uid, :notice => message
   end
 
-  def retrieve02
+  def retrieve_phone_step_one
     @id = params[:id]
   end
 
-  def verify_password_token
+  def phone_verify_password_token
     id = params[:id]
     captcha_code = params[:captcha_code]
     #验证手机 是否匹配
     user = User.find(id)
 
     if captcha_code.downcase == user.reset_password_token_for_mobile.downcase
-      redirect_to :action => "retrieve03", :id => id
+      redirect_to :action => "retrieve_phone_step_two", :id => id
     else
-      redirect_to :action => "retrieve02", :id => id
+      redirect_to :action => "retrieve_phone_step_one", :id => id
     end
   end
 
-  def retrieve03
+  def retrieve_phone_step_two
     @user = User.find params[:id]
   end
 
-  def reset_user_password
+  def phone_reset_user_password
     user = User.find(params[:user][:id])
 
     user.password = params[:user][:password]
@@ -191,22 +193,20 @@ class Mobile::UsersController < ApplicationController
     user.reset_password_sent_at_for_mobile = nil
     user.save
 
-    redirect_to :action => "retrieve04"
+    redirect_to :action => "phone_reset_password_succcess"
   end
 
-  def retrieve04
+  def phone_reset_password_succcess
 
   end
 
   private
 
   def generate_sms_content(phone,captcha_code)
-
-    # content = <<-EOF
-    #   您的手机号码是: #{phone},验证码是: #{captcha_code},请在一天内注册.
-    #   如果不是您本人的操作,请忽略此条短信.
-    # EOF
-
+    content = <<-EOF
+      您的手机号码是: #{phone},验证码是: #{captcha_code},请在一天内注册.
+      如果不是您本人的操作,请忽略此条短信.
+    EOF
   end
 
   def generate_reset_password_content(mobile, token)

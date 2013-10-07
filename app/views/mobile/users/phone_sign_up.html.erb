@@ -23,7 +23,7 @@
 
     <!-- 手机注册 start-->
     <div class="regsiter" id="regsiterForMobile">
-      <%= form_for(resource, :url => '', :validate => true) do |f| %>
+      <%= form_for(resource, :url => mobile_users_create_path, :validate => true) do |f| %>
         <div class="username">
           <div class="usernametitle">
             <span class="cred pt50">*</span>用户名：
@@ -86,7 +86,7 @@
           <div class="_tip_field _mobile">
             <!-- <img src="/assets/images/wrongtips.jpg" width="19" height="19" />长度为6-12个字符！不能包含空格 -->
           </div>
-          <img src="/assets/images/yanzheng.png" url="" id="sendCaptchaCode"/>
+          <img src="/assets/images/yanzheng.png" url="<%= mobile_users_send_captcha_code_path %>" id="sendCaptchaCode"/>
           <div class="clear"></div>
         </div>
         <div class="phoneon02">
