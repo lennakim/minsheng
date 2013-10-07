@@ -17,7 +17,7 @@ class UsersController < ApplicationController
   def upload_image
     @user = User.find(params[:id])
     #@user.consignees.build if @user.consignees.blank?
-    @user.in_password_reset = true
+    @user.in_password = true
     render 'users/upload_image', layout: 'ucenter'
   end
 end

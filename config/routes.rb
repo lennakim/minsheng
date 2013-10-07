@@ -1,6 +1,7 @@
 Minsheng::Application.routes.draw do
 
   resources :favors
+
   namespace :mobile do
     resources :shops
     resources :shop_images
@@ -9,7 +10,8 @@ Minsheng::Application.routes.draw do
     get "home" => 'home#main'
     get "home/index"
     get "home/search"
-    get "users/sign_up"
+    get "users/phone_sign_up"
+    get "users/email_sign_up"
     get "users/sign_in"
 
     get "retrieve"
@@ -19,8 +21,6 @@ Minsheng::Application.routes.draw do
     get "retrieve03"
     post "reset_user_password"
     get "retrieve04"
-    get "retrieve05"
-    get "retrieve06"
 
     get "user_center/index"
     get "user_center/favorite"
@@ -30,6 +30,15 @@ Minsheng::Application.routes.draw do
     get "user_center/edit_info"
     get "user_center/edit_image"
     get "user_center/edit_password"
+
+    get "users/sign_up" => "users#sign_up"
+    get "users/send_sms" => "users#send_sms"
+    get "users/verify_mobile" => "users#verify_mobile"
+    get "users/reset_password_page" => "users#reset_password_page"
+    get "users/send_password_token" => "users#send_password_token"
+    post "users/reset_password" => "users#reset_password"
+
+
   end
 
   get "ucenter" => 'ucenter#index'
@@ -45,14 +54,6 @@ Minsheng::Application.routes.draw do
   get "ucenter/send_sms"
   get "ucenter/verify_mobile_code"
 
-
-  get "mobile/sign_up" => "mobile#sign_up"
-  get "mobile/send_sms" => "mobile#send_sms"
-  get "mobile/verify_mobile" => "mobile#verify_mobile"
-  post "mobile/create" => "mobile#create"
-  get "mobile/reset_password_page" => "mobile#reset_password_page"
-  get "mobile/send_password_token" => "mobile#send_password_token"
-  post "mobile/reset_password" => "mobile#reset_password"
 
   resources :notifications do
     collection do
@@ -136,7 +137,11 @@ Minsheng::Application.routes.draw do
 
   root :to => "home#index"
 
-  devise_for :users, :controllers => { :registrations => "devise/registrations",:omniauth_callbacks => "devise/omniauth_callbacks" }
+  devise_for :users, :controllers => { :registrations => "devise/registrations",:omniauth_callbacks => "devise/omniauth_callbacks" } do
+    post "mobile/retrieve_mail", :to => "mobile/password#create"
+    get "mobile/retrieve05" => "mobile/password#retrieve05"
+    get "mobile/retrieve06" => "mobile/password#retrieve06"
+  end
 
   resources :users do
     member do

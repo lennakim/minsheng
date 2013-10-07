@@ -11,23 +11,28 @@
   <div class="main04 pt150 mb143">
        <div class="retrieve-title"><img src="/assets/images/retrievetitle02.png" width="275" height="93" /></div>
        <div class="retrieve-main">
-         <form action="" method="get">
+          <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f| %>
          <h2>已发送重置密码方式到该邮箱，请按照流程操作。</h2>
+         <input id="user_reset_password_token" name="user[reset_password_token]" type="hidden" value="<%= @reset_password_token %>" />
+
          <div class="line"><img src="/assets/images/retrieve05.jpg" width="1007" height="65" /></div>
          <div class="retrieve02">
                 <div class="retrieveverify02">输入新密码：</div>
-                <div class="selectbg-left"></div><div class="retrieve-center"><input name="" type="password" class="retrieve-input" /></div><div class="selectbg-right02"></div>
+                <div class="selectbg-left"></div><div class="retrieve-center">
+                <%= f.password_field :password, :class => "retrieve-input" %>
+                </div><div class="selectbg-right02"></div>
               <div class="wrongtips03"><img src="/assets/images/wrongtips.jpg" width="19" height="19" />两次密码不一致</div>
              </div>
       <div class="retrieve02">
                 <div class="retrieveverify02">重复新密码：</div>
-                <div class="selectbg-left"></div><div class="retrieve-center"><input name="" type="password" class="retrieve-input" /></div><div class="selectbg-right02"></div>
+                <div class="selectbg-left"></div><div class="retrieve-center">
+                <%= f.password_field :password_confirmation, :class => "retrieve-input" %>
+                </div><div class="selectbg-right02"></div>
                 <div class="wrongtips03"><img src="/assets/images/righttips.jpg" width="18" height="18" /></div>
            </div>
          <div class="nextbtn"><input name="" type="image" src="/assets/images/next.jpg" class="loginbtn"/></div>
-         </form>
+         <% end %>
       </div>
     </div>
   <%= render :partial => "layouts/bottom_buttons" %>
 </div>
-

@@ -30,8 +30,7 @@ class UcenterController < ApplicationController
 
   def update_password
     user = current_user.reload
-    user.current_password = params[:user][:current_password]
-    user.in_password_reset = true
+    user.in_password = true
     user_params = params[:user].slice(:current_password, :password, :password_confirmation)
     if user.update_with_password(user_params)
       sign_in :user, user, :bypass => true
