@@ -11,23 +11,24 @@ class Mobile::UsersController < ApplicationController
   end
 
   def create
-    user = User.new(params[:user])
-    captcha_code = params[:captcha_code]
+    user_attr = params[:user].except(:captcha_code)
+    captcha_code = params[:user][:captcha_code].to_s
+
+    user = User.new(user_attr)
+
     unless is_mobile_exist?(user.mobile)
       verification = Verification.last_verification(user.mobile)
-      if verification
-        if verification.mobile_captcha_code.downcase == captcha_code.downcase
-          user.email = verification.temp_email
-          user.is_auth_for_mobile = true
-          user.save
-          sign_in(:user, user)
-          redirect_to mobile_home_path
-        else
-        redirect_to phone_sign_up_path, :message => "验证码错误"
-        end
+      if verification and verification.mobile_captcha_code.downcase == captcha_code.downcase
+        user.email = verification.temp_email
+        user.is_auth_for_mobile = true
+        user.save
+        sign_in(:user, user)
+        redirect_to mobile_home_path
+      else
+        redirect_to mobile_users_phone_sign_up_path, :message => "验证码错误"
       end
     else
-      redirect_to phone_sign_up_path
+      redirect_to mobile_users_phone_sign_up_path
     end
   end
 
@@ -41,8 +42,9 @@ class Mobile::UsersController < ApplicationController
       temp_email = generate_temp_email(mobile)
 
       result = Sms.send_message_by_smsbao(mobile,content)
-      puts "result #{result}"
+
       if result[:success]
+        puts "captcha_code=#{captcha_code}"
         v = Verification.new(:mobile_captcha_code => captcha_code, :mobile_last_sent_at => Time.now, :mobile => mobile,:temp_email => temp_email )
         v.save
 
