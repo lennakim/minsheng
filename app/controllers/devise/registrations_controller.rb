@@ -12,14 +12,16 @@ class Devise::RegistrationsController < DeviseController
   def create
     # build_resource(sign_up_params)
     build_resource(params[resource_name])
+
+    if params[:touch_redirect_to]
+      resource.touch_redirect_to = params[:touch_redirect_to]
+    end
+
     if resource.save
       if resource.active_for_authentication?
         set_flash_message :notice, :signed_up if is_navigational_format?
-        sign_up(resource_name, resource)
-        #Devise::Mailer.confirmation_instructions(resource).deliver #send email by hand
-
-        if params[:redirect_to]
-          redirect_to params[:redirect_to]
+        if params[:touch_redirect_to]
+          redirect_to params[:touch_redirect_to]
         else
           respond_with resource, :location => after_sign_up_path_for(resource)
         end
