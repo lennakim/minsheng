@@ -10,7 +10,8 @@ class User < ActiveRecord::Base
     :sex, :province_id, :city_id, :community_id, :consignees_attributes, :captcha_code
 
   attr_accessible :role, :as => "admin"
-  attr_accessor :image_data, :login, :current_password, :in_password, :captcha_code
+  attr_accessor :image_data, :login, :current_password, :in_password, :captcha_code,
+                :touch_redirect_to #触屏页邮箱验证时跳转的路径
 
   # relationships .............................................................
   has_many :rates, dependent: :destroy
@@ -34,7 +35,7 @@ class User < ActiveRecord::Base
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
-         # :confirmable,
+         :confirmable,
          :omniauthable, :authentication_keys =>[ :login ]
   #, :token_authenticatable
   #
