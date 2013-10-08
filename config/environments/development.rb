@@ -28,7 +28,7 @@ Minsheng::Application.configure do
     :domain => 'exmail.qq.com',
     :authentication => :login,
     :user_name => 'service@shengtianbo.com',
-    :password => 'Service789',
+    :password => 'Service8',
   }
 
 
