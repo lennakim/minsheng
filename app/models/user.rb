@@ -43,9 +43,9 @@ class User < ActiveRecord::Base
 
   # validates :mobile, :presence => true, :uniqueness => true, :numericality => { :only_integer => true },
   #   format: {with: /\A1\d{10}\Z/, message: '请填写正确的手机号'}
-  # validates :captcha_code, presence: true,
-  #   format: {with: /^[a-z0-9_-]{4}$/, message: '请填写正确格式的验证码'}
   # validates :email, presence: true
+  validates :captcha_code, presence: true,
+    format: {with: /^[a-z0-9_-]{4}$/, message: '请填写正确格式的验证码'}, :on => :create
   validates :mobile, user_attribute: true
   validates :email, user_attribute: true
   validates :password, presence: true, allow_blank: false, length:
