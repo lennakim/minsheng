@@ -2,7 +2,7 @@ $("body.users_upload_image").ready(function(){
   window.ClientSideValidations.validators.remote['user_attribute'] = function(element, options){
     if($.ajax({
       url: '/validators/user_attribute',
-      data: { user_id: $('#user_current_password').data('user-id'), current_password: element.val() },
+      data: { attr_name: 'reset_password', user_id: $('#user_current_password').data('user-id'), current_password: element.val() },
       async: false
     }).status == 404) {return options.message; }
   };

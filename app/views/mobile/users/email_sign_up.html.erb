@@ -105,3 +105,12 @@
 
 <%= javascript_include_tag "rails.validations" %>
 <%= javascript_include_tag "lib/client_side_validation_setting" %>
+<script>
+  window.ClientSideValidations.validators.remote['user_attribute'] = function(element, options){
+    if($.ajax({
+      url: '/validators/user_attribute',
+      data: { attr_name: 'email', email: element.val() },
+      async: false
+    }).status == 404) {return options.message; }
+  };
+</script>

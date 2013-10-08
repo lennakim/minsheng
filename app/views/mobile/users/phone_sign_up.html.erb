@@ -128,6 +128,13 @@
 <%= javascript_include_tag "rails.validations" %>
 <%= javascript_include_tag "lib/client_side_validation_setting" %>
 <script type="text/javascript">
+  window.ClientSideValidations.validators.remote['user_attribute'] = function(element, options){
+    if($.ajax({
+      url: '/validators/user_attribute',
+      data: { attr_name: 'mobile', mobile: element.val() },
+      async: false
+    }).status == 404) {return options.message; }
+  };
 
   $("#sendCaptchaCode").click(function(){
       var mobile = $("#user_mobile").val();

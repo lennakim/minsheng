@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me,
     :confirmed_at, :doorkeeper_access_token, :doorkeeper_uid, :image, :mobile, :login,
     :is_auth_for_mobile, :reset_password_token_for_mobile, :reset_password_sent_at_for_mobile,
-    :sex, :province_id, :city_id, :community_id, :consignees_attributes
+    :sex, :province_id, :city_id, :community_id, :consignees_attributes, :captcha_code
 
   attr_accessible :role, :as => "admin"
   attr_accessor :image_data, :login, :current_password, :in_password, :captcha_code
@@ -40,13 +40,16 @@ class User < ActiveRecord::Base
   #
   validates :name, presence: true, length:
     {minimum: 6, maximum: 12}, :uniqueness => {:message => "用户已经注册"}
-  validates :mobile, :presence => true, :uniqueness => true, :numericality => { :only_integer => true },
-    format: {with: /\A1\d{10}\Z/, message: '请填写正确的手机号'}
-  validates :captcha_code, presence: true,
-    format: {with: /^[a-z0-9_-]{4}$/, message: '请填写正确格式的验证码'}
+
+  # validates :mobile, :presence => true, :uniqueness => true, :numericality => { :only_integer => true },
+  #   format: {with: /\A1\d{10}\Z/, message: '请填写正确的手机号'}
+  # validates :captcha_code, presence: true,
+  #   format: {with: /^[a-z0-9_-]{4}$/, message: '请填写正确格式的验证码'}
+  # validates :email, presence: true
+  validates :mobile, user_attribute: true
+  validates :email, user_attribute: true
   validates :password, presence: true, allow_blank: false, length:
     {minimum: 6, maximum: 12}, confirmation: true, :on => :create
-  validates :email, presence: true
 
   validates :password, presence: true, allow_blank: false, length:
     {minimum: 6, maximum: 12}, confirmation: true, :if => :in_password

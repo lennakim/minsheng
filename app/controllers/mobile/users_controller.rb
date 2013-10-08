@@ -3,10 +3,14 @@ class Mobile::UsersController < ApplicationController
   layout 'mobile'
 
   def email_sign_up
+    @user = User.new
+    @user.in_password = true
     redirect_to mobile_home_path  if current_user
   end
 
   def phone_sign_up
+    @user = User.new
+    @user.in_password = true
     redirect_to mobile_home_path  if current_user
   end
 
