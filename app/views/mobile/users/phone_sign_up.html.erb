@@ -130,26 +130,44 @@
 
 <script type="text/javascript">
   $('#new_user').validate({
+    onfocusout: function(element) {
+      this.element(element);
+    },
     rules: {
-      'user[name]': {
+      'user[name]':{
         required: true,
-        email: true
+        minlength: 6,
+        maxlength: 12,
+        remote: '/mobile/users/check_username'
+      },
+      'user[password]': {
+        required: true,
+        minlength: 6,
+        maxlength: 12,
+      },
+      'user[password_confirmation]':{
+        equalTo: '#user_password'
+      },
+      'user[mobile]':{
+        required: true,
+        mobile_phone: true,
+        remote: '/mobile/users/check_mobile',
+      },
+      'user[captcha_code]':{
+        required: true,
+        regex: /^[a-z0-9_-]{4}$/,
+        remote:{
+          url: '/mobile/users/check_mobile_code',
+          type: "get",
+          data: {mobile: $('#user_mobile').val()}
+        }
       }
     },
-    // showErrors: function(errorMap, errorList) {
-    //   if (errorList.length > 0) {
-    //     console.log(errorMap);
-    //     console.log('aaaaaaaaa');
-    //     console.log(errorList);
-    //     // return $.alert(errorList[0].message, function() {
-    //     //   return errorList[0].element.focus();
-    //     // });
-    //   }
-    // },
-    onfocusout: false
-  });
-  $('#user_name').on('blur', function() {
-    $("#new_user").validate().element(this);
+    messages: {
+      'user[name]': {remote: '用户名已被使用，请重新填写'},
+      'user[mobile]': {remote: '手机已被使用，请重新填写'},
+      'user[captcha_code]': {remote: '验证码不正确，请重新填写'}
+    }
   });
 
   $("#sendCaptchaCode").click(function(){
