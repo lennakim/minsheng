@@ -35,11 +35,9 @@ Minsheng::Application.routes.draw do
 
     get "users/send_captcha_code" => "users#send_captcha_code"
     get "users/verify_mobile" => "users#verify_mobile"
-    get "users/reset_password_page" => "users#reset_password_page"
-    get "users/send_password_token" => "users#send_password_token"
+    # get "users/reset_password_page" => "users#reset_password_page"
+    # get "users/send_password_token" => "users#send_password_token"
     post "users/reset_password" => "users#reset_password"
-
-
   end
 
   get "ucenter" => 'ucenter#index'
