@@ -125,16 +125,32 @@
   <%= render :partial => "layouts/bottom_buttons" %>
 </div>
 
-<%= javascript_include_tag "rails.validations" %>
-<%= javascript_include_tag "lib/client_side_validation_setting" %>
+<%= javascript_include_tag "plugins/validate/jquery.validate" %>
+<%= javascript_include_tag "plugins/validate/jquery-validate-setting" %>
+
 <script type="text/javascript">
-  window.ClientSideValidations.validators.remote['user_attribute'] = function(element, options){
-    if($.ajax({
-      url: '/validators/user_attribute',
-      data: { attr_name: 'mobile', mobile: element.val() },
-      async: false
-    }).status == 404) {return options.message; }
-  };
+  $('#new_user').validate({
+    rules: {
+      'user[name]': {
+        required: true,
+        email: true
+      }
+    },
+    // showErrors: function(errorMap, errorList) {
+    //   if (errorList.length > 0) {
+    //     console.log(errorMap);
+    //     console.log('aaaaaaaaa');
+    //     console.log(errorList);
+    //     // return $.alert(errorList[0].message, function() {
+    //     //   return errorList[0].element.focus();
+    //     // });
+    //   }
+    // },
+    onfocusout: false
+  });
+  $('#user_name').on('blur', function() {
+    $("#new_user").validate().element(this);
+  });
 
   $("#sendCaptchaCode").click(function(){
       var mobile = $("#user_mobile").val();
