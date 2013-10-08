@@ -175,7 +175,7 @@ class Mobile::UsersController < ApplicationController
     else
       valid = Verification.where(mobile: mobile, mobile_captcha_code: captcha_code).exists?
     end
-    render json: false
+    render json: valid
   end
 
   def check_email

@@ -58,7 +58,7 @@
           <div class="passwordtitle02">
             <span class="cred pt50">*</span>确认密码：
           </div>
-          <div class="selectbar670">
+          <div class="selectbar670 _parent_tip">
             <div class="selectbg-left"></div>
             <div class="selectbg-center w590">
               <%= f.password_field :password_confirmation,:class=>"client-input" %>
@@ -66,7 +66,7 @@
             <div class="selectbg-right02"></div>
           </div>
           <div class="clear"></div>
-          <div class="wrongtips">
+          <div class="wrongtips _tip_field">
             <!-- <img src="/assets/images/wrongtips.jpg" width="19" height="19" />长度为6-12个字符！不能包含空格 -->
           </div>
         </div>
@@ -134,7 +134,7 @@
     },
     messages: {
       'user[name]': {remote: '用户名已被使用，请重新填写'},
-      'user[mobile]': {remote: '手机已被使用，请重新填写'},
+      'user[password_confirmation]': {equalTo: '密码不一致，请重新填写'},
       'user[email]': {
         email: '请输入正确格式的电子邮件',
         remote: '邮箱已被使用，请重新填写'

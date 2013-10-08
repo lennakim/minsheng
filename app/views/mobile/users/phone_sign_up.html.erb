@@ -159,29 +159,31 @@
         remote:{
           url: '/mobile/users/check_mobile_code',
           type: "get",
-          data: {mobile: $('#user_mobile').val()}
+          data: {mobile: function(){return $('#user_mobile').val()}}
         }
       }
     },
     messages: {
       'user[name]': {remote: '用户名已被使用，请重新填写'},
+      'user[password_confirmation]': {equalTo: '密码不一致，请重新填写'},
       'user[mobile]': {remote: '手机已被使用，请重新填写'},
       'user[captcha_code]': {remote: '验证码不正确，请重新填写'}
     }
   });
 
   $("#sendCaptchaCode").click(function(){
-      var mobile = $("#user_mobile").val();
-      var url = $(this).attr("url");
-
-      $.ajax({
-        url: url,
-        type: 'GET',
-        data: { mobile: mobile },
-        success: function(data){
-          alert(data.message)
-        }
-      });
+      if($(this).siblings('._tip_field').children().length == 0){
+        var mobile = $("#user_mobile").val();
+        var url = $(this).attr("url");
+        $.ajax({
+          url: url,
+          type: 'GET',
+          data: { mobile: mobile },
+          success: function(data){
+            alert(data.message)
+          }
+        });
+      }
   });
 
   $("#verifyBtn").bind('click',function(){

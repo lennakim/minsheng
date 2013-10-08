@@ -2,7 +2,7 @@
 $.validator.addMethod("mobile_phone", function(value, element, param) {
     var reg = /^\d{11}$/;
     return this.optional(element) || reg.test(value);
-}, $.validator.format("移动电话不正确"));
+}, $.validator.format("移动电话格式不正确"));
 
 // --- regex
 $.validator.addMethod("regex", function(value, element, param) {
@@ -55,6 +55,5 @@ $.validator.setDefaults({
        this.defaultShowErrors();
     }
   },
-  onkeyup: false,
   onclick: false
 });
