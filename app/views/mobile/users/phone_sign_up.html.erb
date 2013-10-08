@@ -125,29 +125,65 @@
   <%= render :partial => "layouts/bottom_buttons" %>
 </div>
 
-<%= javascript_include_tag "rails.validations" %>
-<%= javascript_include_tag "lib/client_side_validation_setting" %>
+<%= javascript_include_tag "plugins/validate/jquery.validate" %>
+<%= javascript_include_tag "plugins/validate/jquery-validate-setting" %>
+
 <script type="text/javascript">
-  window.ClientSideValidations.validators.remote['user_attribute'] = function(element, options){
-    if($.ajax({
-      url: '/validators/user_attribute',
-      data: { attr_name: 'mobile', mobile: element.val() },
-      async: false
-    }).status == 404) {return options.message; }
-  };
+  $('#new_user').validate({
+    onfocusout: function(element) {
+      this.element(element);
+    },
+    rules: {
+      'user[name]':{
+        required: true,
+        minlength: 6,
+        maxlength: 12,
+        remote: '/mobile/users/check_username'
+      },
+      'user[password]': {
+        required: true,
+        minlength: 6,
+        maxlength: 12,
+      },
+      'user[password_confirmation]':{
+        equalTo: '#user_password'
+      },
+      'user[mobile]':{
+        required: true,
+        mobile_phone: true,
+        remote: '/mobile/users/check_mobile',
+      },
+      'user[captcha_code]':{
+        required: true,
+        regex: /^[a-z0-9_-]{4}$/,
+        remote:{
+          url: '/mobile/users/check_mobile_code',
+          type: "get",
+          data: {mobile: function(){return $('#user_mobile').val()}}
+        }
+      }
+    },
+    messages: {
+      'user[name]': {remote: '用户名已被使用，请重新填写'},
+      'user[password_confirmation]': {equalTo: '密码不一致，请重新填写'},
+      'user[mobile]': {remote: '手机已被使用，请重新填写'},
+      'user[captcha_code]': {remote: '验证码不正确，请重新填写'}
+    }
+  });
 
   $("#sendCaptchaCode").click(function(){
-      var mobile = $("#user_mobile").val();
-      var url = $(this).attr("url");
-
-      $.ajax({
-        url: url,
-        type: 'GET',
-        data: { mobile: mobile },
-        success: function(data){
-          alert(data.message)
-        }
-      });
+      if($(this).siblings('._tip_field').children().length == 0){
+        var mobile = $("#user_mobile").val();
+        var url = $(this).attr("url");
+        $.ajax({
+          url: url,
+          type: 'GET',
+          data: { mobile: mobile },
+          success: function(data){
+            alert(data.message)
+          }
+        });
+      }
   });
 
   $("#verifyBtn").bind('click',function(){

@@ -149,6 +149,44 @@ class Mobile::UsersController < ApplicationController
 
   end
 
+  def check_username
+    if params[:user][:name].blank?
+      valid = true
+    else
+      valid = !User.where(name: params[:user][:name]).exists?
+    end
+    render json: valid
+  end
+
+  def check_mobile
+    if params[:user][:mobile].blank?
+      valid = true
+    else
+      valid = !User.where(is_auth_for_mobile: true, mobile: params[:user][:mobile]).exists?
+    end
+    render json: valid
+  end
+
+  def check_mobile_code
+    mobile = params[:mobile]
+    captcha_code = params[:user][:captcha_code]
+    if mobile.blank? || captcha_code.blank?
+      valid = false
+    else
+      valid = Verification.where(mobile: mobile, mobile_captcha_code: captcha_code).exists?
+    end
+    render json: valid
+  end
+
+  def check_email
+    if params[:user][:email].blank?
+      valid = true
+    else
+      valid = !User.where("confirmed_at IS NOT NULL AND email = ?", params[:user][:email]).exists?
+    end
+    render json: valid
+  end
+
   private
 
   def generate_sms_content(phone,captcha_code)

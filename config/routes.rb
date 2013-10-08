@@ -13,6 +13,10 @@ Minsheng::Application.routes.draw do
     get "users/phone_sign_up"
     get "users/email_sign_up"
     get "users/sign_in"
+    get "users/check_username"
+    get "users/check_mobile"
+    get "users/check_mobile_code"
+    get "users/check_email"
     post "users/create" => "users#create"
 
     get "users/retrieve_all" => "users#retrieve_all"
