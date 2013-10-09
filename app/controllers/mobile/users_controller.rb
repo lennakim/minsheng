@@ -209,6 +209,19 @@ class Mobile::UsersController < ApplicationController
     render json: result
   end
 
+  def check_mobile_password_token
+    captcha_code = params[:captcha_code]
+    uid = params[:uid]
+
+    result = if captcha_code and uid
+      User.where(:id => uid, :reset_password_token_for_mobile => captcha_code).exists?
+    else
+      false
+    end
+    puts "result = #{result}"
+     render json: result
+  end
+
   private
 
   def generate_sms_content(phone,captcha_code)
