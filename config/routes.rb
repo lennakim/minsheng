@@ -17,6 +17,7 @@ Minsheng::Application.routes.draw do
     get "users/check_mobile"
     get "users/check_mobile_code"
     get "users/check_email"
+    get "users/check_mobile_exist"
     post "users/create" => "users#create"
 
     get "users/retrieve_all" => "users#retrieve_all"

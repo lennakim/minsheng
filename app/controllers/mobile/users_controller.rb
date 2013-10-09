@@ -193,7 +193,20 @@ class Mobile::UsersController < ApplicationController
     else
       valid = !User.where("confirmed_at IS NOT NULL AND email = ?", params[:user][:email]).exists?
     end
+
+    valid = !valid  if params[:validate_type] == 'retrieve_email'
     render json: valid
+  end
+
+######
+  def check_mobile_exist
+    mobile = params[:mobile]
+    if mobile
+      result = is_mobile_exist?(mobile)
+    else
+      result = false
+    end
+    render json: result
   end
 
   private
