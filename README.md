@@ -67,3 +67,6 @@ start web server
 rake db:migrate:up  VERSION=20130813144737
 
 rake db:migrate:down  VERSION=20130813144737
+
+
+cap production deploy
