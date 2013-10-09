@@ -7,10 +7,11 @@ class User < ActiveRecord::Base
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me,
     :confirmed_at, :doorkeeper_access_token, :doorkeeper_uid, :image, :mobile, :login,
     :is_auth_for_mobile, :reset_password_token_for_mobile, :reset_password_sent_at_for_mobile,
-    :sex, :province_id, :city_id, :community_id, :consignees_attributes
+    :sex, :province_id, :city_id, :community_id, :consignees_attributes, :captcha_code
 
   attr_accessible :role, :as => "admin"
-  attr_accessor :image_data, :login, :current_password, :in_password
+  attr_accessor :image_data, :login, :current_password, :in_password, :captcha_code,
+                :touch_redirect_to #触屏页邮箱验证时跳转的路径
 
   # relationships .............................................................
   has_many :rates, dependent: :destroy
@@ -20,7 +21,7 @@ class User < ActiveRecord::Base
 
   # constants definition ......................................................
   # validations ...............................................................
- 
+
     # callbacks .................................................................
   # scopes ....................................................................
 
@@ -34,21 +35,16 @@ class User < ActiveRecord::Base
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
-         # :confirmable,
+         :confirmable,
          :omniauthable, :authentication_keys =>[ :login ]
   #, :token_authenticatable
   #
   validates :name, presence: true, length:
-    {minimum: 6, maximum: 12, message: '长度为6-12个字符！不能包含空格'}
-  validates :name, :uniqueness=>{:message => "用户已经注册"}
-  #validates :mobile, :presence => true#, :uniqueness => true#, :numericality => { :only_integer => true }
-  # validates :password, :presence => { :message => "请输入密码" }
-  # validates_confirmation_of :password, :message => "重复密码"
-  # validates :current_password, :presence => true, :user_attribute => true, :if => :in_password
+    {minimum: 6, maximum: 12}, :uniqueness => {:message => "用户已经注册"}
   validates :password, presence: true, allow_blank: false, length:
-    {minimum: 6, maximum: 12, message: '长度为6-12个字符！不能包含空格'}#, :if => :in_password
-  validates :password, confirmation: true#, :if => :in_password
-  validates :password_confirmation, presence: true#, :if => :in_password
+    {minimum: 6, maximum: 12}, confirmation: true, :on => :create
+  validates :password, presence: true, allow_blank: false, length:
+    {minimum: 6, maximum: 12}, confirmation: true, :if => :in_password
 
 
   # class methods .............................................................

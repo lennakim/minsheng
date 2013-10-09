@@ -201,6 +201,10 @@ zh-CN:
           attributes:
             current_password:
               user_attribute: '原始秘填写密错误'
+            mobile:
+              user_attribute: '不合法'
+            email:
+              user_attribute: '不合法'
       <<: *errors
   views:
     pagination:

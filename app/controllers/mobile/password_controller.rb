@@ -5,9 +5,9 @@ layout 'mobile'
     self.resource = resource_class.send_reset_password_instructions(resource_params)
 
     if successfully_sent?(resource)
-      redirect_to mobile_home_path
+      redirect_to mobile_users_sign_in_path
     else
-      redirect_to mobile_retrieve_path
+      redirect_to mobile_users_retrieve_all_path
     end
   end
 
@@ -26,11 +26,11 @@ layout 'mobile'
     end
   end
 
-  def retrieve05
+  def retrieve_email_step_one
     @reset_password_token = params[:reset_password_token]
   end
 
-  def retrieve06
+  def retrieve_email_step_two
 
   end
 

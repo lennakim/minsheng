@@ -16,7 +16,7 @@
     </div>
     <a href="#" class="regsiterbtn">免费注册</a>
     <div class="login">
-      <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+      <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), remote: true) do |f| %>
         <div class="loginbar01 center">
           <div class="regsiterbar-left"></div>
           <div class="selectbg-center w590">
@@ -32,15 +32,12 @@
           <div class="selectbg-right02"></div>
         </div>
 
-        <div class="loginbar02 center">
-          <div class="regsiterbar-left03"></div>
-          <div class="regsiterbar-center w590">账号密码错误，请重试。</div>
-          <div class="regsiterbar-right"></div>
+        <div id="error_field">
         </div>
 
         <div class="regsubmit">
           <input name="" type="image" src="/assets/images/login.jpg" class="loginbtn"/>
-          <a href="<%= new_password_path(resource_name) %>" class="keytips">忘记密码？</a>
+          <%= link_to "忘记密码？", mobile_users_retrieve_all_path, :class=>"keytips" %>
         </div>
       <% end %>
     </div>
@@ -48,3 +45,17 @@
   <a href="#" class="touch-navup"></a>
 </div>
 <%= render :partial => "layouts/bottom_buttons" %>
+
+<script>
+  $(document).ajaxError(function(event, jqXHR, settings) {
+    if (settings.handleError !== false) {
+      if(jqXHR.status == 401){
+        $('#error_field').empty().addClass('loginbar02 center').append('<div class="regsiterbar-left03"></div><div class="regsiterbar-center w590">账号密码错误，请重试。</div><div class="regsiterbar-right"></div>');
+      };
+    };
+  });
+
+  $('#new_user').on('ajax:success', function(event, result){
+    window.location = result.redirect
+  })
+</script>

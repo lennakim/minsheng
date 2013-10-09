@@ -23,7 +23,7 @@
 
     <!-- 手机注册 start-->
     <div class="regsiter" id="regsiterForMobile">
-      <%= form_for(resource, :url => '', :validate => true) do |f| %>
+      <%= form_for(resource, :url => mobile_users_create_path, :validate => true) do |f| %>
         <div class="username">
           <div class="usernametitle">
             <span class="cred pt50">*</span>用户名：
@@ -83,24 +83,30 @@
             </div>
             <div class="selectbg-right02"></div>
           </div>
-          <div class="wrongtips _tip_field">
+          <div class="_tip_field _mobile">
             <!-- <img src="/assets/images/wrongtips.jpg" width="19" height="19" />长度为6-12个字符！不能包含空格 -->
           </div>
-          <img src="/assets/images/yanzheng.png" url="" id="sendCaptchaCode"/>
+          <img src="/assets/images/yanzheng.png" url="<%= mobile_users_send_captcha_code_path %>" id="sendCaptchaCode"/>
           <div class="clear"></div>
         </div>
         <div class="phoneon02">
           <div class="phoneontitle02">
             <span class="cred pt50">*</span>手机验证码：
           </div>
-          <div class="selectbar312">
+          <div class="selectbar312 _parent_tip">
             <div class="selectbg-left"></div>
             <div class="selectbg-center">
-              <input type="text" name="captcha_code" id="captcha_code" class="client-input">
+              <!-- <input type="text" name="captcha_code" id="captcha_code" class="client-input"> -->
+              <%= f.text_field :captcha_code, id: 'captcha_code', class: 'client-input' %>
             </div>
             <div class="selectbg-right02"></div>
           </div>
+          <div class="wrongtips02 _tip_field">
+            <!-- <img src="/assets/images/wrongtips.jpg" width="19" height="19" />长度为6-12个字符！不能包含空格 -->
+          </div>
+          <div class="clear"></div>
         </div>
+
         <div class="treaty">
           <p>
             <label>
@@ -119,22 +125,65 @@
   <%= render :partial => "layouts/bottom_buttons" %>
 </div>
 
-<%= javascript_include_tag "rails.validations" %>
-<%= javascript_include_tag "lib/client_side_validation_setting" %>
+<%= javascript_include_tag "plugins/validate/jquery.validate" %>
+<%= javascript_include_tag "plugins/validate/jquery-validate-setting" %>
+
 <script type="text/javascript">
+  $('#new_user').validate({
+    onfocusout: function(element) {
+      this.element(element);
+    },
+    rules: {
+      'user[name]':{
+        required: true,
+        minlength: 6,
+        maxlength: 12,
+        remote: '/mobile/users/check_username'
+      },
+      'user[password]': {
+        required: true,
+        minlength: 6,
+        maxlength: 12,
+      },
+      'user[password_confirmation]':{
+        equalTo: '#user_password'
+      },
+      'user[mobile]':{
+        required: true,
+        mobile_phone: true,
+        remote: '/mobile/users/check_mobile',
+      },
+      'user[captcha_code]':{
+        required: true,
+        regex: /^[a-z0-9_-]{4}$/,
+        remote:{
+          url: '/mobile/users/check_mobile_code',
+          type: "get",
+          data: {mobile: function(){return $('#user_mobile').val()}}
+        }
+      }
+    },
+    messages: {
+      'user[name]': {remote: '用户名已被使用，请重新填写'},
+      'user[password_confirmation]': {equalTo: '密码不一致，请重新填写'},
+      'user[mobile]': {remote: '手机已被使用，请重新填写'},
+      'user[captcha_code]': {remote: '验证码不正确，请重新填写'}
+    }
+  });
 
   $("#sendCaptchaCode").click(function(){
-      var mobile = $("#user_mobile").val();
-      var url = $(this).attr("url");
-
-      $.ajax({
-        url: url,
-        type: 'GET',
-        data: { mobile: mobile },
-        success: function(data){
-          alert(data.message)
-        }
-      });
+      if($(this).siblings('._tip_field').children().length == 0){
+        var mobile = $("#user_mobile").val();
+        var url = $(this).attr("url");
+        $.ajax({
+          url: url,
+          type: 'GET',
+          data: { mobile: mobile },
+          success: function(data){
+            alert(data.message)
+          }
+        });
+      }
   });
 
   $("#verifyBtn").bind('click',function(){

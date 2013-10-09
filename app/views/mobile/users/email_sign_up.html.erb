@@ -21,8 +21,9 @@
     </ul>
 
 <div class="regsiter" id="regsiterForEmail">
+
       <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-          <input type="hidden" name="redirect_to" value="/mobile/home" />
+        <input type="hidden" name="touch_redirect_to" value="/mobile/home" />
         <div class="username">
           <div class="usernametitle">
             <span class="cred pt50">*</span>用户名：
@@ -36,7 +37,6 @@
           </div>
           <div class="clear"></div>
           <div class="wrongtips _tip_field">
-            <!-- <img src="/assets/images/wrongtips.jpg" width="19" height="19" />用户名已存在 -->
           </div>
         </div>
         <div class="password">
@@ -58,7 +58,7 @@
           <div class="passwordtitle02">
             <span class="cred pt50">*</span>确认密码：
           </div>
-          <div class="selectbar670">
+          <div class="selectbar670 _parent_tip">
             <div class="selectbg-left"></div>
             <div class="selectbg-center w590">
               <%= f.password_field :password_confirmation,:class=>"client-input" %>
@@ -66,8 +66,7 @@
             <div class="selectbg-right02"></div>
           </div>
           <div class="clear"></div>
-          <div class="wrongtips">
-            <!-- <img src="/assets/images/wrongtips.jpg" width="19" height="19" />长度为6-12个字符！不能包含空格 -->
+          <div class="wrongtips _tip_field">
           </div>
         </div>
         <div class="password02">
@@ -83,7 +82,6 @@
           </div>
           <div class="clear"></div>
           <div class="wrongtips _tip_field">
-            <!-- <img src="/assets/images/wrongtips.jpg" width="19" height="19" />长度为6-12个字符！不能包含空格 -->
           </div>
         </div>
 
@@ -102,3 +100,43 @@
 </div>
   <%= render :partial => "layouts/bottom_buttons" %>
 </div>
+
+<%= javascript_include_tag "plugins/validate/jquery.validate" %>
+<%= javascript_include_tag "plugins/validate/jquery-validate-setting" %>
+
+<script>
+  $('#new_user').validate({
+    onfocusout: function(element){
+      this.element(element);
+    },
+    rules: {
+      'user[name]':{
+        required: true,
+        minlength: 6,
+        maxlength: 12,
+        remote: '/mobile/users/check_username'
+      },
+      'user[password]':{
+        required: true,
+        minlength: 6,
+        maxlength: 12,
+      },
+      'user[password_confirmation]':{
+        equalTo: '#user_password'
+      },
+      'user[email]':{
+        required: true,
+        email: true,
+        remote: '/mobile/users/check_email'
+      }
+    },
+    messages: {
+      'user[name]': {remote: '用户名已被使用，请重新填写'},
+      'user[password_confirmation]': {equalTo: '密码不一致，请重新填写'},
+      'user[email]': {
+        email: '请输入正确格式的电子邮件',
+        remote: '邮箱已被使用，请重新填写'
+      }
+    }
+  });
+</script>
