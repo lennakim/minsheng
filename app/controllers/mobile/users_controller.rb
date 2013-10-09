@@ -25,6 +25,7 @@ class Mobile::UsersController < ApplicationController
       if verification and verification.mobile_captcha_code.downcase == captcha_code.downcase
         user.email = verification.temp_email
         user.is_auth_for_mobile = true
+        user.confirmed_at = DateTime.now
         user.save
         sign_in(:user, user)
         redirect_to mobile_home_path
