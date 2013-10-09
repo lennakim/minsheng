@@ -17,6 +17,8 @@ Minsheng::Application.routes.draw do
     get "users/check_mobile"
     get "users/check_mobile_code"
     get "users/check_email"
+    get "users/check_mobile_exist"
+    get "users/check_mobile_password_token"
     post "users/create" => "users#create"
 
     get "users/retrieve_all" => "users#retrieve_all"
@@ -25,8 +27,11 @@ Minsheng::Application.routes.draw do
     get  "users/retrieve_phone_step_one" => "users#retrieve_phone_step_one"
     get  "users/send_reset_password_token" => "users#send_reset_password_token"
     get  "users/retrieve_phone_step_two" => "users#retrieve_phone_step_two"
-    post "users/phone_reset_user_password" => "users#phone_reset_user_password"
+    post "users/phone_modify_password"
     get  "users/phone_reset_password_succcess" => "users#phone_reset_password_succcess"
+
+    get "users/retrieve_email_step_one" => "users#retrieve_email_step_one"
+    get "users/email_reset_password_succcess" => "users#email_reset_password_succcess"
 
     get "user_center/index"
     get "user_center/favorite"
@@ -142,11 +147,7 @@ Minsheng::Application.routes.draw do
 
   devise_for :users, :controllers => { :registrations => "devise/registrations",
     :omniauth_callbacks => "devise/omniauth_callbacks", :sessions => "devise/sessions",
-    :confirmations => "devise/confirmations" } do
-    post "mobile/retrieve_mail", :to => "mobile/password#create"
-    get "mobile/users/retrieve_email_step_one" => "mobile/password#retrieve_email_step_one"
-    get "mobile/users/retrieve_email_step_two" => "mobile/password#retrieve_email_step_two"
-  end
+    :confirmations => "devise/confirmations" }
 
   resources :users do
     member do

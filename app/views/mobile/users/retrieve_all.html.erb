@@ -15,16 +15,17 @@
       <div class="retrieve-main">
       <div class="retrieve05">
         <!-- 手机 start -->
-        <%= form_tag(mobile_users_send_reset_password_token_path, :method => 'get') do %>
+        <%= form_tag(mobile_users_send_reset_password_token_path, :method => 'get', :id => "retrieveMobileForm") do %>
         <div class="left">验证手机号码找回<strong>[推荐]</strong>
           <span>请输入您的手机号，找回密码：</span>
-          <div class="retrieve05-input">
+          <div class="retrieve05-input _parent_tip">
             <div class="retrieveleft02"></div>
             <div class="retrieve-center02">
               <input id="mobile" name="mobile" type="text" class="retrieve-input" />
             </div>
             <div class="retrieve-right02"></div>
           </div>
+          <div class='_tip_field'></div>
           <div class="nextbtn02">
             <input name="" type="image" src="/assets/images/next02.jpg" class="loginbtn"/>
           </div>
@@ -35,15 +36,18 @@
           <img src="/assets/images/retrieveline.jpg" width="1" height="192" />
         </div>
         <!-- 邮箱 start -->
-        <%= form_for(resource, :as => resource_name, :url => mobile_retrieve_mail_path, :html => { :method => :post }) do |f| %>
+        <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
+        <input type="hidden" name="touch_redirect_to" value="/mobile/home"/>
+        <input type="hidden" name="type" value="touch" />
         <div class="right">验证电子邮箱找回<span>请输入您注册的电子邮箱，找回密码：</span>
-          <div class="retrieve05-input">
+          <div class="retrieve05-input _parent_tip">
             <div class="retrieveleft02"></div>
               <div class="retrieve-center02">
                  <%= f.email_field :email, :class=>"retrieve-input" %>
               </div>
             <div class="retrieve-right02"></div>
           </div>
+          <div class='_tip_field'></div>
           <div class="nextbtn02">
             <input name="" type="image" src="/assets/images/next02.jpg" class="loginbtn"/>
           </div>
@@ -55,3 +59,44 @@
     </div>
   <%= render :partial => "layouts/bottom_buttons" %>
 </div>
+
+<%= javascript_include_tag "plugins/validate/jquery.validate" %>
+<%= javascript_include_tag "plugins/validate/jquery-validate-setting" %>
+<script type="text/javascript">
+
+  $("#retrieveMobileForm").validate({
+    onfocusout: function(element) {
+      this.element(element);
+    },
+    rules: {
+      'mobile':{
+        required: true,
+        mobile_phone: true,
+        remote: '/mobile/users/check_mobile_exist'
+      }
+    },
+    messages: {
+      'mobile':{remote: '手机不存在'}
+    }
+  });
+
+$("#new_user").validate({
+  onfocusout: function(element){
+    this.element(element);
+  },
+  rules: {
+    'user[email]' :{
+      required: true,
+      email: true,
+      remote: '/mobile/users/check_email?validate_type=retrieve_email'
+    }
+  },
+  messages: {
+    'user[email]':{
+      email: '请输入正确格式的电子邮件',
+      remote: '邮箱没有注册'
+    }
+  }
+});
+
+</script>

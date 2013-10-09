@@ -134,7 +134,7 @@ class Mobile::UsersController < ApplicationController
     @user = User.find params[:id]
   end
 
-  def phone_reset_user_password
+  def phone_modify_password
     user = User.find(params[:user][:id])
 
     user.password = params[:user][:password]
@@ -147,6 +147,14 @@ class Mobile::UsersController < ApplicationController
   end
 
   def phone_reset_password_succcess
+
+  end
+
+  def retrieve_email_step_one
+    @reset_password_token = params[:reset_password_token]
+  end
+
+  def email_reset_password_succcess
 
   end
 
@@ -185,7 +193,33 @@ class Mobile::UsersController < ApplicationController
     else
       valid = !User.where("confirmed_at IS NOT NULL AND email = ?", params[:user][:email]).exists?
     end
+
+    valid = !valid  if params[:validate_type] == 'retrieve_email'
     render json: valid
+  end
+
+######
+  def check_mobile_exist
+    mobile = params[:mobile]
+    if mobile
+      result = is_mobile_exist?(mobile)
+    else
+      result = false
+    end
+    render json: result
+  end
+
+  def check_mobile_password_token
+    captcha_code = params[:captcha_code]
+    uid = params[:uid]
+
+    result = if captcha_code and uid
+      User.where(:id => uid, :reset_password_token_for_mobile => captcha_code).exists?
+    else
+      false
+    end
+    puts "result = #{result}"
+     render json: result
   end
 
   private

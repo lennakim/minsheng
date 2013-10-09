@@ -14,7 +14,7 @@
     <div class="login-title">
       <img src="/assets/images/login-title.png" width="220" height="93" />
     </div>
-    <a href="#" class="regsiterbtn">免费注册</a>
+    <%= link_to "免费注册", mobile_users_phone_sign_up_path, :class => "regsiterbtn"%>
     <div class="login">
       <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), remote: true) do |f| %>
         <div class="loginbar01 center">
