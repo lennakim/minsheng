@@ -70,3 +70,5 @@ rake db:migrate:down  VERSION=20130813144737
 
 
 cap production deploy
+cap development deploy
+cap testing deploy
