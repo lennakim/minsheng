@@ -134,7 +134,7 @@ class Mobile::UsersController < ApplicationController
     @user = User.find params[:id]
   end
 
-  def phone_reset_user_password
+  def phone_modify_password
     user = User.find(params[:user][:id])
 
     user.password = params[:user][:password]

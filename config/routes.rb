@@ -27,7 +27,7 @@ Minsheng::Application.routes.draw do
     get  "users/retrieve_phone_step_one" => "users#retrieve_phone_step_one"
     get  "users/send_reset_password_token" => "users#send_reset_password_token"
     get  "users/retrieve_phone_step_two" => "users#retrieve_phone_step_two"
-    post "users/phone_reset_user_password" => "users#phone_reset_user_password"
+    post "users/phone_modify_password"
     get  "users/phone_reset_password_succcess" => "users#phone_reset_password_succcess"
 
     get "users/retrieve_email_step_one" => "users#retrieve_email_step_one"

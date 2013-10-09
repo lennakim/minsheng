@@ -12,7 +12,7 @@
   <div class="main04 pt150 mb143">
        <div class="retrieve-title"><img src="/assets/images/retrievetitle.png" width="275" height="93" /></div>
        <div class="retrieve-main">
-       <%= form_for @user, :url => mobile_users_phone_reset_user_password_path, :method => 'post' do |f| %>
+       <%= form_for @user, :url => mobile_users_phone_modify_password_path, :method => 'post' do |f| %>
         <%= f.hidden_field :id %>
          <h2>已发送验证码到该手机，收到之前请勿关闭此页面。</h2>
          <div class="line">
