@@ -19,17 +19,22 @@
          <div class="line"><img src="/assets/images/retrieve05.jpg" width="1007" height="65" /></div>
          <div class="retrieve02">
                 <div class="retrieveverify02">输入新密码：</div>
-                <div class="selectbg-left"></div><div class="retrieve-center">
+                <div class="selectbg-left"></div>
+                <div class="retrieve-center _parent_tip">
                 <%= f.password_field :password, :class => "retrieve-input" %>
                 </div><div class="selectbg-right02"></div>
-              <div class="wrongtips03"><img src="/assets/images/wrongtips.jpg" width="19" height="19" />两次密码不一致</div>
+              <div class="wrongtips03 _tip_field">
+              </div>
              </div>
-      <div class="retrieve02">
+         <div class="retrieve02">
                 <div class="retrieveverify02">重复新密码：</div>
-                <div class="selectbg-left"></div><div class="retrieve-center">
+                <div class="selectbg-left"></div>
+                <div class="retrieve-center _parent_tip">
                 <%= f.password_field :password_confirmation, :class => "retrieve-input" %>
-                </div><div class="selectbg-right02"></div>
-                <div class="wrongtips03"><img src="/assets/images/righttips.jpg" width="18" height="18" /></div>
+                </div>
+                <div class="selectbg-right02"></div>
+                <div class="wrongtips03 _tip_field">
+                </div>
            </div>
          <div class="nextbtn"><input name="" type="image" src="/assets/images/next.jpg" class="loginbtn"/></div>
          <% end %>
@@ -37,3 +42,34 @@
     </div>
   <%= render :partial => "layouts/bottom_buttons" %>
 </div>
+
+<%= javascript_include_tag "plugins/validate/jquery.validate" %>
+<%= javascript_include_tag "plugins/validate/jquery-validate-setting" %>
+
+<script type="text/javascript">
+  $("#new_user").validate({
+    onfocusout: function(element){
+      this.element(element);
+    },
+    rules: {
+      'user[password]':{
+        required: true,
+        minlength: 6,
+        maxlength: 12
+      },
+      'user[password_confirmation]' :{
+        required: true,
+        minlength: 6,
+        maxlength: 12,
+        equalTo: '#user_password'
+      }
+    },
+    messages: {
+      'user[password_confirmation]' :{
+        equalTo: '两次输入密码不一致'
+      }
+    }
+
+  });
+
+</script>
