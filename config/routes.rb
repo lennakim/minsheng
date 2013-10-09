@@ -28,6 +28,9 @@ Minsheng::Application.routes.draw do
     post "users/phone_reset_user_password" => "users#phone_reset_user_password"
     get  "users/phone_reset_password_succcess" => "users#phone_reset_password_succcess"
 
+    get "users/retrieve_email_step_one" => "users#retrieve_email_step_one"
+    get "users/email_reset_password_succcess" => "users#email_reset_password_succcess"
+
     get "user_center/index"
     get "user_center/favorite"
     get "user_center/comment"
@@ -142,11 +145,7 @@ Minsheng::Application.routes.draw do
 
   devise_for :users, :controllers => { :registrations => "devise/registrations",
     :omniauth_callbacks => "devise/omniauth_callbacks", :sessions => "devise/sessions",
-    :confirmations => "devise/confirmations" } do
-    post "mobile/retrieve_mail", :to => "mobile/password#create"
-    get "mobile/users/retrieve_email_step_one" => "mobile/password#retrieve_email_step_one"
-    get "mobile/users/retrieve_email_step_two" => "mobile/password#retrieve_email_step_two"
-  end
+    :confirmations => "devise/confirmations" }
 
   resources :users do
     member do

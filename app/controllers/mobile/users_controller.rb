@@ -150,6 +150,14 @@ class Mobile::UsersController < ApplicationController
 
   end
 
+  def retrieve_email_step_one
+    @reset_password_token = params[:reset_password_token]
+  end
+
+  def email_reset_password_succcess
+
+  end
+
   def check_username
     if params[:user][:name].blank?
       valid = true

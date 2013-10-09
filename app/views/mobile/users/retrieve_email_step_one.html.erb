@@ -12,6 +12,7 @@
        <div class="retrieve-title"><img src="/assets/images/retrievetitle02.png" width="275" height="93" /></div>
        <div class="retrieve-main">
           <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f| %>
+          <input type="hidden" name="touch_redirect_to" value="<%= mobile_users_email_reset_password_succcess_path %>">
          <h2>已发送重置密码方式到该邮箱，请按照流程操作。</h2>
          <input id="user_reset_password_token" name="user[reset_password_token]" type="hidden" value="<%= @reset_password_token %>" />
 
