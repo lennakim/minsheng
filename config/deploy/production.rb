@@ -9,9 +9,9 @@ set :deploy_to, '/apps/minsheng'
 set :rails_env, 'production'
 set :deploy_via, :remote_cache
 
-role :web ,'192.168.1.17' #, '10.96.126.17' ,'10.96.126.20'
-role :app ,'192.168.1.17' #, '10.96.126.17' ,'10.96.126.20'
-role :db, '192.168.1.17', :primary => true #'10.96.126.17' ,'10.96.126.20', 
+role :web ,'112.124.29.252' #, '10.96.126.17' ,'10.96.126.20'
+role :app ,'112.124.29.252' #, '10.96.126.17' ,'10.96.126.20'
+role :db, '112.124.29.252', :primary => true #'10.96.126.17' ,'10.96.126.20', 
 
 # set :deploy_via, :copy
 
