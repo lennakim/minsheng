@@ -35,7 +35,9 @@
           <img src="/assets/images/retrieveline.jpg" width="1" height="192" />
         </div>
         <!-- 邮箱 start -->
-        <%= form_for(resource, :as => resource_name, :url => mobile_retrieve_mail_path, :html => { :method => :post }) do |f| %>
+        <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
+        <input type="hidden" name="touch_redirect_to" value="/mobile/home"/>
+        <input type="hidden" name="type" value="touch" />
         <div class="right">验证电子邮箱找回<span>请输入您注册的电子邮箱，找回密码：</span>
           <div class="retrieve05-input">
             <div class="retrieveleft02"></div>
