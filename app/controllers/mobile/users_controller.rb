@@ -93,24 +93,20 @@ class Mobile::UsersController < ApplicationController
     mobile = params[:mobile]
     user = User.find_by_mobile(mobile)
 
-    uid, action_name, message = "", "", ""
-
     if user
       password_token = User.generate_password_token
       content = generate_reset_password_content(mobile,password_token)
       result = Sms.send_message_by_smsbao(mobile,content)
       if result[:success]
+      # if true
         user.update_attributes(:reset_password_token_for_mobile => password_token, :reset_password_sent_at_for_mobile => Time.now)
-        uid = user.id
-        action_name, message = "retrieve_phone_step_one", "发送成功"
+        render :json => {:status => true, :redirect => mobile_users_retrieve_phone_step_one_url(:id => user.id)}
       else
-        action_name, message = "retrieve_all", "发送失败"
+        render :json => {:status => false, :message => "发送失败"}
       end
     else
-      action_name, message = "retrieve_all", "不存在"
+      render :json => {:status => false, :message => "不存在" }
     end
-
-    redirect_to :action => action_name, :id => uid, :notice => message
   end
 
   def retrieve_phone_step_one
@@ -218,7 +214,6 @@ class Mobile::UsersController < ApplicationController
     else
       false
     end
-    puts "result = #{result}"
      render json: result
   end
 
