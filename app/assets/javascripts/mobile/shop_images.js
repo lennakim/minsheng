@@ -18,7 +18,7 @@ $(document).ready(function(){
         $new_center_partial = $new_html.find('._center_partial');
         $new_center_partial.insertAfter($current_center_partial);
         $current_center_partial.animate({top: '-300px', opacity: 0}, {complete: setTimeout(removeUselessCenterPartial, 200)}).
-           next('._center_partial').css({top: '600px', opacity: 0, position: 'relative'}).
+           next('._center_partial').css({top: '180px', opacity: 0, position: 'relative'}).
            animate({top:'0', opacity: 1}, {complete: setTimeout(removeUselessCenterPartial, 200)});
       });
     return false;
@@ -36,7 +36,7 @@ $(document).ready(function(){
         $new_center_partial = $new_html.find('._center_partial');
         $new_center_partial.insertAfter($current_center_partial);
         $current_center_partial.animate({bottom: '-300px', opacity: 0}, {complete: setTimeout(removeUselessCenterPartial, 200)}).
-           next('._center_partial').css({bottom: '600px', opacity: 0, position: 'relative'}).
+           next('._center_partial').css({bottom: '180px', opacity: 0, position: 'relative'}).
            animate({bottom:'0', opacity: 1}, {complete: setTimeout(removeUselessCenterPartial, 200)});
       });
     }
