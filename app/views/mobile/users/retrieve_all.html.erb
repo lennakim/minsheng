@@ -15,7 +15,7 @@
       <div class="retrieve-main">
       <div class="retrieve05">
         <!-- 手机 start -->
-        <%= form_tag(mobile_users_send_reset_password_token_path, :method => 'get', :id => "retrieveMobileForm") do %>
+        <%= form_tag(mobile_users_send_reset_password_token_path, :method => 'get', :id => "retrieveMobileForm", :remote => true) do %>
         <div class="left">验证手机号码找回<strong>[推荐]</strong>
           <span>请输入您的手机号，找回密码：</span>
           <div class="retrieve05-input _parent_tip">
@@ -99,4 +99,11 @@ $("#new_user").validate({
   }
 });
 
+$("#retrieveMobileForm").on('ajax:success', function(event, data){
+  if(data.status){
+    window.location = data.redirect
+  }else{
+    alert(data.message)
+  }
+});
 </script>
