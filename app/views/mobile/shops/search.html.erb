@@ -1,0 +1,73 @@
+<div class="content"> 
+  <%= render 'layouts/top_search' %>'
+
+<a href="#" class="touch-l"></a>
+
+  <a href="#" class="touch-r"></a>
+
+  <div class="main02 mb143">       
+
+       <div class="seach-right">
+
+          <div href="#" class="seach-title">
+
+            <h3><a href="#" class="fanhui"><img src="/assets/fanhui.png" width="31" height="31" /></a>美食</h3>
+
+            <a href="#" class="qiehuandizhi02 mt30 ml20">
+
+            <div class="left"></div>
+
+              <div class="center">武汉·百步亭小区&nbsp;&nbsp;&nbsp;&nbsp;<span>切换地址</span></div>
+
+              <div class="right"></div>
+
+           </a>
+
+         </div>         
+
+          
+
+        <div class="seachmain">
+
+            <div class="seach-menu"><span>距离：</span><a href="#"  class="pre-current03">2公里范围内</a><a href="#" class="pre-menu-a">5公里范围内</a><a href="#" class="pre-menu-a">10公里范围内</a><a href="#" class="pre-menu-a">不限范围</a></div>
+
+
+              <div class="seachmain-list">
+
+              <% @shops.each do |shop| %>
+              <div class="seach-img">
+
+              <a href="#"><img src="<%= shop.shopImages.first.image.url %>" width="243" height="172" /></a> 
+
+              <a href="#" class="">夫妻肺片</a>    
+
+              </div> 
+
+                <% end %>
+              </div>
+
+          </div>
+
+          
+
+          
+
+          
+
+          <div class="up-down">
+
+            <a href="#"><img src="/assets/preferential08.png" width="100" height="32" /></a>
+
+            <a href="#"><img src="/assets/preferential09.png" width="100" height="32" /></a>
+
+          </div>
+
+       </div>
+
+    </div>      
+
+
+</div>
+
+
+

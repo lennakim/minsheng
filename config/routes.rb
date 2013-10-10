@@ -3,7 +3,12 @@ Minsheng::Application.routes.draw do
   resources :favors
 
   namespace :mobile do
-    resources :shops
+    resources :shops do
+      collection do
+        get 'search'
+      end
+    end
+
     resources :shop_images
     resources :products
     resources :promos
