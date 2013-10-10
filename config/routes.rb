@@ -4,7 +4,11 @@ Minsheng::Application.routes.draw do
 
   namespace :mobile do
     resources :shops
-    resources :shop_images
+    resources :shop_images do
+      collection do
+        get :show_images
+      end
+    end
     resources :products
     resources :promos
     get "home" => 'home#main'
