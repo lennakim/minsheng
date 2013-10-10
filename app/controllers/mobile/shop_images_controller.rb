@@ -4,8 +4,10 @@ class Mobile::ShopImagesController < ApplicationController
   # GET /shop_images.json
   def index
     @shop_id = params[:shop_id]
-    @shop = Shop.find(params[:shop_id])
-    @shop_images = ShopImage.where(:shop_id=>@shop_id)
+    @shop = Shop.find(@shop_id)
+    relation = @shop.shopImages.where('image IS NOT NULL').order(:id)
+    @is_next_image = relation.count > 4 ? true : false
+    @shop_images = relation.limit(4)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -82,5 +84,23 @@ class Mobile::ShopImagesController < ApplicationController
       format.html { redirect_to shop_images_url }
       format.json { head :no_content }
     end
+  end
+
+  def show_images
+    shop_id = params[:shop_id]
+    shop = Shop.find(shop_id)
+    relation = shop.shopImages.where('image IS NOT NULL').order(:id)
+    if params[:is_previous] == 'true'
+      relation = relation.where('id < ?', params[:next_image]) unless params[:next_image].blank?
+      is_previous_image = relation.count > 4 ? true : false
+      is_next_image = true
+    elsif params[:is_next] == 'true'
+      relation = relation.where('id > ?', params[:next_image]) unless params[:next_image].blank?
+      is_previous_image = true
+      is_next_image = relation.count > 4 ? true : false
+    end
+    shop_images = relation.limit(4)
+    render json: {html: render_to_string(partial: 'show_images', locals: {shop_id: shop_id,
+      shop_images: shop_images, is_previous_image: is_previous_image, is_next_image: is_next_image})}
   end
 end
