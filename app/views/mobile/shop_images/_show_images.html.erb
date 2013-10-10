@@ -2,8 +2,8 @@
   <div href="#" class="preferential-xiangqing _title_message">商家图片</div>
   <div class="preferential-xiangqingmain _image_partial">
     <% shop_images.each do |shop_image| %>
-      <div class="pre-img">
-        <a href="#"><img src="<%=shop_image.image.url%>" width="257" height="182" /></a>
+      <div class="pre-img _images_box">
+        <a href="javascript:" class="_shop_image"><img src="<%=shop_image.image.url%>" width="257" height="182" /></a>
         <a href="#" class=""><%= shop_image.name %></a>
       </div>
     <% end %>

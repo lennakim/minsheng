@@ -40,5 +40,18 @@ $(document).ready(function(){
            animate({bottom:'0', opacity: 1}, {complete: setTimeout(removeUselessCenterPartial, 200)});
       });
     }
+  }).on('click', '._shop_image', function(e){
+    e.preventDefault();
+    $clone = $(this).clone();
+    $clone.find('img').width(400).height(400);
+    $.blockUI({
+      message: $clone,
+      css: {
+        top:($(window).height() - 400) /2 + 'px',
+        left: ($(window).width() - 400) /2 + 'px',
+        width: '400px'
+      },
+      onOverlayClick: $.unblockUI
+    });
   });
 })
