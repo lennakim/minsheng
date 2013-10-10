@@ -3,11 +3,11 @@ class Mobile::ShopsController < ApplicationController
   # GET /shops
   # GET /shops.json
   def search
-    # if params[:term]
-      # @shops = Shop.where("title like '%term%'")
-    # else
+    if params[:term]
+      @shops = Shop.where("title like '%"+params[:term]+"%'")
+    else
       @shops = Shop.all
-    # end
+    end
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @shops }
