@@ -2,7 +2,7 @@
   <span>分类:</span>
     <% Category.all.each do |category| %>
       <span><a href="/categories/<%= category.id %>"><%= category.name %></a> </span>
-  <% end %>      
+  <% end %>
   <br />
   <span>标签:</span>
     <% Tag.all.each do |tag| %>
@@ -45,3 +45,4 @@
   </div>
 </div>
 
+<%= link_to "生成二维码", qrcodes_qrcode_path(:qr_content => "你好") %>

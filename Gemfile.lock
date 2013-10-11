@@ -1,5 +1,5 @@
 GIT
-  remote: https://github.com/ahoward/mongoid-grid_fs.git
+  remote: git://github.com/ahoward/mongoid-grid_fs.git
   revision: 544070ac3120a71870dec974bbb3364a93845765
   ref: 54407
   specs:
@@ -153,6 +153,9 @@ GEM
       json (~> 1.4)
     ref (1.0.5)
     rolify (3.2.0)
+    rqrcode (0.4.2)
+    rqrcode-rails3 (0.1.6)
+      rqrcode (>= 0.4.2)
     sprockets (2.2.2)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -212,6 +215,7 @@ DEPENDENCIES
   rails (= 3.2.13)
   rails_config
   rolify (>= 3.2.0)
+  rqrcode-rails3 (~> 0.1.6)
   therubyracer (>= 0.10.2)
   thin
   uglifier (>= 1.0.3)
