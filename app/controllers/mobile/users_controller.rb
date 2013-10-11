@@ -187,7 +187,7 @@ class Mobile::UsersController < ApplicationController
     if params[:user][:email].blank?
       valid = true
     else
-      valid = !User.where("confirmed_at IS NOT NULL AND email = ?", params[:user][:email]).exists?
+      valid = !User.where("email = ?", params[:user][:email]).exists?
     end
 
     valid = !valid  if params[:validate_type] == 'retrieve_email'
