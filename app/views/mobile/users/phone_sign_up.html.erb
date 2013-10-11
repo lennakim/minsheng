@@ -37,7 +37,6 @@
           </div>
           <div class="clear"></div>
           <div class="wrongtips _tip_field">
-            <!-- <img src="/assets/images/wrongtips.jpg" width="19" height="19" />长度为6-12个字符！不能包含空格 -->
           </div>
         </div>
         <div class="password">
@@ -53,7 +52,6 @@
           </div>
           <div class="clear"></div>
           <div class="wrongtips _tip_field">
-            <!-- <img src="/assets/images/wrongtips.jpg" width="19" height="19" />长度为6-12个字符！不能包含空格 -->
           </div>
         </div>
         <div class="password02">
@@ -69,7 +67,6 @@
           </div>
           <div class="clear"></div>
           <div class="wrongtips _tip_field">
-            <!-- <img src="/assets/images/wrongtips.jpg" width="19" height="19" />长度为6-12个字符！不能包含空格 -->
           </div>
         </div>
         <div class="phoneon">
@@ -84,7 +81,6 @@
             <div class="selectbg-right02"></div>
           </div>
           <div class="_tip_field _mobile">
-            <!-- <img src="/assets/images/wrongtips.jpg" width="19" height="19" />长度为6-12个字符！不能包含空格 -->
           </div>
           <img src="/assets/images/yanzheng.png" url="<%= mobile_users_send_captcha_code_path %>" id="sendCaptchaCode"/>
           <div class="clear"></div>
@@ -96,18 +92,16 @@
           <div class="selectbar312 _parent_tip">
             <div class="selectbg-left"></div>
             <div class="selectbg-center">
-              <!-- <input type="text" name="captcha_code" id="captcha_code" class="client-input"> -->
               <%= f.text_field :captcha_code, id: 'captcha_code', class: 'client-input' %>
             </div>
             <div class="selectbg-right02"></div>
           </div>
           <div class="wrongtips02 _tip_field">
-            <!-- <img src="/assets/images/wrongtips.jpg" width="19" height="19" />长度为6-12个字符！不能包含空格 -->
           </div>
           <div class="clear"></div>
         </div>
 
-        <div class="treaty">
+        <div class="treaty _parent_tip">
           <p>
             <label>
               <input type="checkbox" name="CheckboxGroup1" value="复选框" id="CheckboxGroup1_0" />
@@ -115,6 +109,7 @@
             </label>
           </p>
         </div>
+        <div class="_tip_field"></div>
         <input name=""  type="image" src="/assets/images/yanzheng02.png" class="regsiter-btn" width="447" height="51"/>
       <% end %>
     </div>
@@ -161,13 +156,15 @@
           type: "get",
           data: {mobile: function(){return $('#user_mobile').val()}}
         }
-      }
+      },
+      'CheckboxGroup1' :{ required: true }
     },
     messages: {
       'user[name]': {remote: '用户名已被使用，请重新填写'},
       'user[password_confirmation]': {equalTo: '密码不一致，请重新填写'},
       'user[mobile]': {remote: '手机已被使用，请重新填写'},
-      'user[captcha_code]': {remote: '验证码不正确，请重新填写'}
+      'user[captcha_code]': {remote: '验证码不正确，请重新填写'},
+      'CheckboxGroup1' : { required: "请勾选条款" }
     }
   });
 

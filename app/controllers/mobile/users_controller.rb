@@ -93,24 +93,20 @@ class Mobile::UsersController < ApplicationController
     mobile = params[:mobile]
     user = User.find_by_mobile(mobile)
 
-    uid, action_name, message = "", "", ""
-
     if user
       password_token = User.generate_password_token
       content = generate_reset_password_content(mobile,password_token)
       result = Sms.send_message_by_smsbao(mobile,content)
       if result[:success]
+      # if true
         user.update_attributes(:reset_password_token_for_mobile => password_token, :reset_password_sent_at_for_mobile => Time.now)
-        uid = user.id
-        action_name, message = "retrieve_phone_step_one", "发送成功"
+        render :json => {:status => true, :redirect => mobile_users_retrieve_phone_step_one_url(:id => user.id)}
       else
-        action_name, message = "retrieve_all", "发送失败"
+        render :json => {:status => false, :message => "发送失败"}
       end
     else
-      action_name, message = "retrieve_all", "不存在"
+      render :json => {:status => false, :message => "不存在" }
     end
-
-    redirect_to :action => action_name, :id => uid, :notice => message
   end
 
   def retrieve_phone_step_one
@@ -134,7 +130,7 @@ class Mobile::UsersController < ApplicationController
     @user = User.find params[:id]
   end
 
-  def phone_reset_user_password
+  def phone_modify_password
     user = User.find(params[:user][:id])
 
     user.password = params[:user][:password]
@@ -147,6 +143,14 @@ class Mobile::UsersController < ApplicationController
   end
 
   def phone_reset_password_succcess
+
+  end
+
+  def retrieve_email_step_one
+    @reset_password_token = params[:reset_password_token]
+  end
+
+  def email_reset_password_succcess
 
   end
 
@@ -183,9 +187,34 @@ class Mobile::UsersController < ApplicationController
     if params[:user][:email].blank?
       valid = true
     else
-      valid = !User.where("confirmed_at IS NOT NULL AND email = ?", params[:user][:email]).exists?
+      valid = !User.where("email = ?", params[:user][:email]).exists?
     end
+
+    valid = !valid  if params[:validate_type] == 'retrieve_email'
     render json: valid
+  end
+
+######
+  def check_mobile_exist
+    mobile = params[:mobile]
+    if mobile
+      result = is_mobile_exist?(mobile)
+    else
+      result = false
+    end
+    render json: result
+  end
+
+  def check_mobile_password_token
+    captcha_code = params[:captcha_code]
+    uid = params[:uid]
+
+    result = if captcha_code and uid
+      User.where(:id => uid, :reset_password_token_for_mobile => captcha_code).exists?
+    else
+      false
+    end
+     render json: result
   end
 
   private

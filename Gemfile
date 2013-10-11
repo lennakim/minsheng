@@ -38,3 +38,4 @@ gem 'acts-as-taggable-on'
 
 gem 'china_sms', "~> 0.0.5"
 gem "client_side_validations", "~> 3.2.6"
+gem "rqrcode-rails3", "~> 0.1.6"

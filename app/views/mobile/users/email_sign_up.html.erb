@@ -85,7 +85,7 @@
           </div>
         </div>
 
-        <div class="treaty">
+        <div class="treaty _parent_tip">
           <p>
             <label>
               <input type="checkbox" name="CheckboxGroup1" value="复选框" id="CheckboxGroup1_0" />
@@ -93,6 +93,7 @@
             </label>
           </p>
         </div>
+        <div class="_tip_field"></div>
         <input  name=""  type="image" src="/assets/images/yanzheng02.png" class="regsiter-btn" width="447" height="51"/>
       <% end %>
     </div>
@@ -128,7 +129,8 @@
         required: true,
         email: true,
         remote: '/mobile/users/check_email'
-      }
+      },
+      'CheckboxGroup1' :{ required:true }
     },
     messages: {
       'user[name]': {remote: '用户名已被使用，请重新填写'},
@@ -136,7 +138,8 @@
       'user[email]': {
         email: '请输入正确格式的电子邮件',
         remote: '邮箱已被使用，请重新填写'
-      }
+      },
+      'CheckboxGroup1' :{ required: "请勾选条款" }
     }
   });
 </script>

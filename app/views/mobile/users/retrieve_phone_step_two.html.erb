@@ -1,4 +1,3 @@
-
 <div class="content">
     <div class="topbar">
       <form action="" method="get">
@@ -12,7 +11,7 @@
   <div class="main04 pt150 mb143">
        <div class="retrieve-title"><img src="/assets/images/retrievetitle.png" width="275" height="93" /></div>
        <div class="retrieve-main">
-       <%= form_for @user, :url => mobile_users_phone_reset_user_password_path, :method => 'post' do |f| %>
+       <%= form_for @user, :url => mobile_users_phone_modify_password_path, :method => 'post', :html => {:id => "edit_user"} do |f| %>
         <%= f.hidden_field :id %>
          <h2>已发送验证码到该手机，收到之前请勿关闭此页面。</h2>
          <div class="line">
@@ -21,23 +20,22 @@
          <div class="retrieve02">
           <div class="retrieveverify02">输入新密码：</div>
           <div class="selectbg-left"></div>
-          <div class="retrieve-center">
+          <div class="retrieve-center _parent_tip">
             <%= f.password_field :password, :class => "retrieve-input" %>
           </div>
           <div class="selectbg-right02"></div>
-          <div class="wrongtips03">
-            <img src="/assets/images/wrongtips.jpg" width="19" height="19" />用户名已存在
+          <div class="wrongtips03 _tip_field">
           </div>
       </div>
       <div class="retrieve02">
         <div class="retrieveverify02">重复新密码：</div>
-        <div class="selectbg-left"></div>
-        <div class="retrieve-center">
+        <div class="selectbg-left "></div>
+        <div class="retrieve-center _parent_tip">
           <%= f.password_field :password_confirmation, :class => "retrieve-input" %>
         </div>
           <div class="selectbg-right02"></div>
-          <div class="wrongtips03">
-            <img src="/assets/images/wrongtips.jpg" width="19" height="19" />用户名已存在</div>
+          <div class="wrongtips03 _tip_field">
+          </div>
           </div>
          <div class="nextbtn">
           <input name="" type="image" src="/assets/images/next.jpg" class="loginbtn"/>
@@ -47,3 +45,27 @@
     </div>
   <%= render :partial => "layouts/bottom_buttons" %>
 </div>
+
+<%= javascript_include_tag "plugins/validate/jquery.validate" %>
+<%= javascript_include_tag "plugins/validate/jquery-validate-setting" %>
+
+<script type="text/javascript">
+ $("#edit_user").validate({
+     onfocusout: function(element){
+       this.element(element);
+     },
+     rules: {
+       'user[password]': {
+          required: true,
+          minlength: 6,
+          maxlength: 12,
+       },
+        'user[password_confirmation]':{
+          equalTo: '#user_password'
+        }
+     },
+     messages: {
+       'user[password_confirmation]': {equalTo: '密码不一致，请重新填写'}
+      }
+  });
+ </script>
