@@ -93,4 +93,25 @@ class Mobile::ShopsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def send_shop_message
+    mobile = params[:mobile]
+    if Minsheng::MobileUtil.valid_mobile?(mobile)
+      content = Shop.find(params[:shop_id]).generate_message
+      logger.debug{"#{mobile} ~~~~ #{content}"}
+      result = Sms.send_message_by_smsbao(mobile, content)
+      success =  result[:success] ? true : false
+    else
+      success = false
+    end
+    render json: success
+  end
+
+  def shop_message_dialog
+    shop = Shop.find(params[:shop_id])
+    render json: {html: render_to_string(
+      partial: 'message_dialog',
+      locals: {verify_code: Minsheng::MobileUtil.generate_code, shop: shop}
+    )}
+  end
 end

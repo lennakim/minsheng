@@ -1,0 +1,97 @@
+<div id="shop_message_dialog" class="tips01" style="display: none;">
+  <h2>发送商家信息到手机</h2>
+  <a href="#" class="tips01-close" onclick="$.unblockUI();"><img src="/assets/mobile/close-ico.png" width="26" height="26" /></a>
+  <div class="tips01-center cgray">
+    <h3 class="pl20"><%= shop.title %><img src="/assets/mobile/msthico.png" width="76" height="23" /></h3>
+    <p class="pl20">地址：<%= shop.address %></p>
+    <p class="pl20">电话：<%= shop.phone %></p>
+   <!--  <p class="corange pl20">推荐：夫妻肺片 鱼香肉丝  辣子鸡  川北凉粉</p> -->
+    <%= form_tag '', remote: true, id: 'send_message_form' do %>
+      <div class="shoujiyanzheng _meesge_box">
+        <p class="shoujiyanzheng-p _parent_tip">
+          手机号：<%= text_field_tag :mobile, nil, class: "shoujiyanzheng02-input"%>
+          <div class="shoujiyanzheng02wrongtips _tip_field"></div>
+        </p>
+        <p class="shoujiyanzheng-p _parent_tip">
+          验证码：<%= text_field_tag :code, nil, class: "shoujiyanzheng02-input" %>
+          <div class="shoujiyanzheng02wrongtips02 _tip_field"></div>
+        </p>
+        <a href="javascript:" id="verify_area" data-url="<%= mobile_users_generate_code_path %>" data-code="<%= verify_code %>">
+          <div class="yanzhengkey _verify_code"><%= verify_code %></div>看不清楚，换一张
+        </a>
+        <div class="shoujiyanzheng-btn">
+          <input name="" type="image" src="/assets/mobile/tips07.png" class="queding _send_btn" data-url="<%= send_shop_message_mobile_shops_path(shop_id: shop.id) %>"/>
+          <input name="" type="image" src="/assets/mobile/tips08.png" class="quxiao _cancel_btn" onclick="$.unblockUI();return false;"/>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div><img src="/assets/mobile/tips03.png" width="532" height="6" /></div>
+</div>
+
+<script>
+  $('#send_message_form').validate({
+    onfocusout: function(element) {
+      this.element(element);
+    },
+    rules: {
+      'mobile':{
+        required: true,
+        mobile_phone: true
+      },
+      'code':{
+        required: true,
+        regex: /^[a-z0-9_-]{4}$/,
+      }
+    },
+    messages: {
+      'mobile':{
+        mobile_phone: '手机号码错误'
+      }
+    }
+  });
+
+  $('#send_message_form').on('click', '._send_btn', function(e){
+    mobile = $('#mobile').val();
+    url = $(this).data('url');
+    if($('#verify_area').data('code') == $('#code').val()){
+      $.get(url, {mobile: mobile}, function(success){
+        $('#send_message_form ._meesge_box').find('._parent_tip').hide().end().
+          find('._tip_field').hide().end().find('#verify_area').hide().end().
+          find('._send_btn').hide().end().find('._cancel_btn').
+          css({marginLeft:'110px'}).attr('src', '/assets/mobile/tips07.png');
+        $new_div = $('<div style="width:505px; margin:0 auto;"><img src width="386" height="136" class="prompt_picture"/></div></div>');
+        if(success){
+          $('._meesge_box').prepend($new_div.find('img').attr('src', '/assets/mobile/chenggong.png'));
+        }else{
+          $('._meesge_box').prepend($new_div.find('img').attr('src', '/assets/mobile/shibai.png'));
+        }
+      });
+      return false;
+    }else{
+      if($('#mobile').val() != '' && $('#code').val() != ''){
+        e.preventDefault();
+      }
+    }
+  });
+
+  $('#verify_area').css('width', '300px');
+  $('#verify_area').on('click', function(e){
+    e.preventDefault();
+    url = $(this).data('url');
+    $.get(url, {}, function(result){
+      $('#verify_area ._verify_code').text(result.code);
+      $('#verify_area').data('code', result.code);
+    })
+  });
+
+  $('#code').on('blur', function(){
+    $error_field = $(this).closest('._parent_tip').nextAll('._tip_field:first')
+    if($error_field.children().length == 0)
+      if($('#verify_area').data('code') != $(this).val()){
+        errorMessage = $("<label class=\"message\">验证码不正确</label>").attr("for", $(this).attr("id"));
+        errorImage = ('<img src="/assets/images/wrongtips.jpg" width="19" height="19" />');
+        $error_field.append(errorImage).append(errorMessage);
+      }
+  });
+</script>

@@ -26,7 +26,7 @@
             <div class="code"></div>
           </div>
           <div class="preferential-btn">
-            <a href="javascript:" id="send_shop_message"><img src="/assets/mobile/preferential06.png" width="304" height="51"/></a>
+            <a href="javascript:" id="send_shop_message" data-url="<%= shop_message_dialog_mobile_shops_path(shop_id: @shop.id) %>"><img src="/assets/mobile/preferential06.png" width="304" height="51"/></a>
             <!-- <a href="#"><img src="/assets/mobile/preferential07.png" width="157" height="51"/></a> -->
           </div>
           </p>
@@ -40,60 +40,23 @@
   <%= render :partial => "layouts/bottom_buttons" %>
 </div>
 
-<div id="shop_message_dialog" class="tips01" style="display: none;">
-  <h2>发送商家信息到手机</h2>
-  <a href="#" class="tips01-close"><img src="/assets/mobile/close-ico.png" width="26" height="26" /></a>
-  <div class="tips01-center cgray">
-    <h3 class="pl20">金色雾都<img src="/assets/mobile/msthico.png" width="76" height="23" /></h3>
-    <p class="pl20">地址：汉口台北二路64号</p>
-    <p class="pl20">电话：027-85769851</p>
-    <p class="corange pl20">推荐：夫妻肺片 鱼香肉丝  辣子鸡  川北凉粉</p>
-    <div class="shoujiyanzheng">
-      <p class="shoujiyanzheng-p">
-        手机号：<input name="" type="text" class="shoujiyanzheng02-input" />
-        <div class="shoujiyanzheng02wrongtips">
-          <img src="/assets/mobile/wrongtips.jpg" width="19" height="19" />手机号码错误
-        </div>
-      </p>
-      <p class="shoujiyanzheng-p">
-        验证码：<input name="" type="text"  class="shoujiyanzheng02-input"/>
-        <div class="shoujiyanzheng02wrongtips02">
-          <img src="/assets/mobile/wrongtips.jpg" width="19" height="19" />手机号码错误
-        </div>
-      </p>
-      <a href="#">
-        <div class="yanzhengkey"><img src="/assets/mobile/tips06.png" width="74" height="41" /></div>看不清楚，换一张
-      </a>
-      <div class="shoujiyanzheng-btn">
-        <input name="" type="image" src="/assets/mobile/tips07.png" class="queding" />
-        <input name="" type="image" src="/assets/mobile/tips08.png" class="quxiao"/>
-      </div>
-    </div>
-  </div>
-  <div><img src="/assets/mobile/tips03.png" width="532" height="6" /></div>
-</div>
-
 <% content_for :foot do %>
   <%= javascript_include_tag "plugins/blockUI/jquery.blockUI" %>
+  <%= javascript_include_tag "plugins/blockUI/jquery-blockUI-setting" %>
+  <%= javascript_include_tag "plugins/validate/jquery.validate" %>
+  <%= javascript_include_tag "plugins/validate/jquery-validate-setting" %>
 <% end %>
 
 <script>
   $(document).ready(function(){
-    $('#send_shop_message').on('click', function(){
-      $.blockUI({
-        message: $('#shop_message_dialog'),
-        css: {
-          top:($(window).height() - 400) /3 + 'px',
-          left: ($(window).width() - 400) /2 + 'px',
-          width: '0',
-          border: '0',
-          textAlign: '',
-          cursor: 'default'
-        },
-        overlayCSS:{
-          cursor: 'default'
-        },
-      });
+    $('#send_shop_message').on('click', function(e){
+      e.preventDefault();
+      url = $(this).data('url');
+      $.get(url, {}, function(result){
+        $.blockUI({
+          message: $(result.html)
+        });
+      })
     });
   });
 </script>

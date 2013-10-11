@@ -8,6 +8,8 @@ Minsheng::Application.routes.draw do
     resources :shops do
       collection do
         get 'search'
+        get 'send_shop_message'
+        get 'shop_message_dialog'
       end
     end
     resources :shop_images do
@@ -29,6 +31,7 @@ Minsheng::Application.routes.draw do
     get "users/check_email"
     get "users/check_mobile_exist"
     get "users/check_mobile_password_token"
+    get "users/generate_code"
     post "users/create" => "users#create"
 
     get "users/retrieve_all" => "users#retrieve_all"
