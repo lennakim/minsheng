@@ -27,6 +27,7 @@ class Mobile::ShopsController < ApplicationController
   def show
     @shop = Shop.find(params[:id])
     @rates = @shop.rates.page(params[:page])
+    @verify_code = Minsheng::MobileUtil.generate_code
 
     respond_to do |format|
       format.html # show.html.erb
@@ -92,5 +93,18 @@ class Mobile::ShopsController < ApplicationController
       format.html { redirect_to shops_url }
       format.json { head :no_content }
     end
+  end
+
+  def send_shop_message
+    mobile = params[:mobile]
+    if Minsheng::MobileUtil.valid_mobile?(mobile)
+      content = Shop.find(params[:shop_id]).generate_message
+      logger.debug{"#{mobile} ~~~~ #{content}"}
+      result = Sms.send_message_by_smsbao(mobile, content)
+      success =  result[:success] ? true : false
+    else
+      success = false
+    end
+    render json: success
   end
 end
