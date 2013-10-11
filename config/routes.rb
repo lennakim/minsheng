@@ -7,6 +7,7 @@ Minsheng::Application.routes.draw do
       collection do
         get 'search'
         get 'send_shop_message'
+        get 'shop_message_dialog'
       end
     end
     resources :shop_images do

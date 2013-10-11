@@ -27,7 +27,6 @@ class Mobile::ShopsController < ApplicationController
   def show
     @shop = Shop.find(params[:id])
     @rates = @shop.rates.page(params[:page])
-    @verify_code = Minsheng::MobileUtil.generate_code
 
     respond_to do |format|
       format.html # show.html.erb
@@ -106,5 +105,13 @@ class Mobile::ShopsController < ApplicationController
       success = false
     end
     render json: success
+  end
+
+  def shop_message_dialog
+    shop = Shop.find(params[:shop_id])
+    render json: {html: render_to_string(
+      partial: 'message_dialog',
+      locals: {verify_code: Minsheng::MobileUtil.generate_code, shop: shop}
+    )}
   end
 end
