@@ -1,5 +1,7 @@
 Minsheng::Application.routes.draw do
 
+  get "qrcodes/qrcode"
+
   resources :favors
 
   namespace :mobile do
