@@ -217,6 +217,10 @@ class Mobile::UsersController < ApplicationController
      render json: result
   end
 
+  def generate_code
+    render json: {code: Minsheng::MobileUtil.generate_code}
+  end
+
   private
 
   def generate_sms_content(phone,captcha_code)
