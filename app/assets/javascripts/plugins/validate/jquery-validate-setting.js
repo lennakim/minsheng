@@ -35,7 +35,7 @@ $.validator.setDefaults({
     }
   },
   unhighlight: function(element, errorClass, validClass) {
-    $error_field = $(element).closest('._parent_tip').siblings('._tip_field');
+    $error_field = $(element).closest('._parent_tip').nextAll('._tip_field:first');
     if($error_field.hasClass('_mobile')){$error_field.removeClass('wrongtips02');};
     return $error_field.empty();
   },
@@ -43,7 +43,7 @@ $.validator.setDefaults({
     if (errorList.length > 0) {
       $form = $(errorList[0].element.form);
       $element = $(errorList[0].element)
-      $error_field = $element.closest('._parent_tip').siblings('._tip_field');
+      $error_field = $element.closest('._parent_tip').nextAll('._tip_field:first');
       if($error_field.find("label.message[for='" + ($element.attr("id")) + "']").length == 0){
         errorMessage = $("<label class=\"message\"></label>").attr("for", $element.attr("id"));
         errorImage = ('<img src="/assets/images/wrongtips.jpg" width="19" height="19" />');

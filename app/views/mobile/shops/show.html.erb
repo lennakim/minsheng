@@ -26,7 +26,8 @@
             <div class="code"></div>
           </div>
           <div class="preferential-btn">
-            <a href="#"><img src="/assets/mobile/preferential06.png" width="304" height="51"/></a><a href="#"><img src="/assets/mobile/preferential07.png" width="157" height="51"/></a>
+            <a href="javascript:" id="send_shop_message" data-url="<%= shop_message_dialog_mobile_shops_path(shop_id: @shop.id) %>"><img src="/assets/mobile/preferential06.png" width="304" height="51"/></a>
+            <!-- <a href="#"><img src="/assets/mobile/preferential07.png" width="157" height="51"/></a> -->
           </div>
           </p>
         </div>
@@ -38,3 +39,24 @@
   </div>
   <%= render :partial => "layouts/bottom_buttons" %>
 </div>
+
+<% content_for :foot do %>
+  <%= javascript_include_tag "plugins/blockUI/jquery.blockUI" %>
+  <%= javascript_include_tag "plugins/blockUI/jquery-blockUI-setting" %>
+  <%= javascript_include_tag "plugins/validate/jquery.validate" %>
+  <%= javascript_include_tag "plugins/validate/jquery-validate-setting" %>
+<% end %>
+
+<script>
+  $(document).ready(function(){
+    $('#send_shop_message').on('click', function(e){
+      e.preventDefault();
+      url = $(this).data('url');
+      $.get(url, {}, function(result){
+        $.blockUI({
+          message: $(result.html)
+        });
+      })
+    });
+  });
+</script>

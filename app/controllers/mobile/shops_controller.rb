@@ -2,9 +2,20 @@ class Mobile::ShopsController < ApplicationController
   layout 'mobile'
   # GET /shops
   # GET /shops.json
+  def search
+    if params[:term]
+      @shops = Shop.where("title like '%"+params[:term]+"%'")
+    else
+      @shops = Shop.all
+    end
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @shops }
+    end
+
+  end
   def index
     @shops = Shop.all
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @shops }
@@ -81,5 +92,26 @@ class Mobile::ShopsController < ApplicationController
       format.html { redirect_to shops_url }
       format.json { head :no_content }
     end
+  end
+
+  def send_shop_message
+    mobile = params[:mobile]
+    if Minsheng::MobileUtil.valid_mobile?(mobile)
+      content = Shop.find(params[:shop_id]).generate_message
+      logger.debug{"#{mobile} ~~~~ #{content}"}
+      result = Sms.send_message_by_smsbao(mobile, content)
+      success =  result[:success] ? true : false
+    else
+      success = false
+    end
+    render json: success
+  end
+
+  def shop_message_dialog
+    shop = Shop.find(params[:shop_id])
+    render json: {html: render_to_string(
+      partial: 'message_dialog',
+      locals: {verify_code: Minsheng::MobileUtil.generate_code, shop: shop}
+    )}
   end
 end

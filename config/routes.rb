@@ -3,8 +3,18 @@ Minsheng::Application.routes.draw do
   resources :favors
 
   namespace :mobile do
-    resources :shops
-    resources :shop_images
+    resources :shops do
+      collection do
+        get 'search'
+        get 'send_shop_message'
+        get 'shop_message_dialog'
+      end
+    end
+    resources :shop_images do
+      collection do
+        get :show_images
+      end
+    end
     resources :products
     resources :promos
     get "home" => 'home#main'
@@ -19,6 +29,7 @@ Minsheng::Application.routes.draw do
     get "users/check_email"
     get "users/check_mobile_exist"
     get "users/check_mobile_password_token"
+    get "users/generate_code"
     post "users/create" => "users#create"
 
     get "users/retrieve_all" => "users#retrieve_all"

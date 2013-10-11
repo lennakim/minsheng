@@ -1,3 +1,5 @@
+#encoding: utf-8
+
 class Shop < ActiveRecord::Base
   # extends ...................................................................
   # includes ..................................................................
@@ -55,6 +57,10 @@ class Shop < ActiveRecord::Base
     self.tags = names.split(",").map do |n|
       Tag.where(name: n.strip).first_or_create!
     end
+  end
+
+  def generate_message
+    "#{title}，地址：#{address}，电话：#{phone}[民生家园网]"
   end
 
   # protected instance methods ................................................
